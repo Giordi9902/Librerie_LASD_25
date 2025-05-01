@@ -2,181 +2,72 @@
 #ifndef LINEAR_HPP
 #define LINEAR_HPP
 
-/* ************************************************************************** */
-
 #include "mappable.hpp"
 
-/* ************************************************************************** */
-
-namespace lasd {
-
-/* ************************************************************************** */
-
-template <typename Data>
-class LinearContainer {
-  // Must extend PreOrderTraversableContainer<Data>,
-  //             PostOrderTraversableContainer<Data>
-
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  // ~LinearContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  // type operator==(argument) specifiers; // Comparison of abstract types is possible.
-  // type operator!=(argument) specifiers; // Comparison of abstract types is possible.
-
-  /* ************************************************************************ */
-
-  // Specific member functions
-
-  // type operator[](argument) specifiers; // (non-mutable version; concrete function must throw std::out_of_range when out of range)
-
-  // type Front() specifiers; // (non-mutable version; concrete function must throw std::length_error when empty)
-
-  // type Back() specifiers; // (non-mutable version; concrete function must throw std::length_error when empty)
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from TraversableContainer)
-
-  // using typename TraversableContainer<Data>::TraverseFun;
-
-  // type Traverse(argument) specifiers; // Override TraversableContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from PreOrderTraversableContainer)
-
-  // type PreOrderTraverse(argument) specifiers; // Override PreOrderTraversableContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from PostOrderTraversableContainer)
-
-  // type PostOrderTraverse(argument) specifiers; // Override PostOrderTraversableContainer member
-
-};
-
-/* ************************************************************************** */
-
-template <typename Data>
-class MutableLinearContainer {
-  // Must extend LinearContainer<Data>,
-  //             PreOrderMappableContainer<Data>,
-  //             PostOrderMappableContainer<Data>
-
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  // ~MutableLinearContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Specific member functions
-
-  // type operator[](argument) specifiers; // (mutable version; concrete function must throw std::out_of_range when out of range)
-
-  // type Front() specifiers; // (mutable version; concrete function must throw std::length_error when empty)
-
-  // type Back() specifiers; // (mutable version; concrete function must throw std::length_error when empty)
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from MappableContainer)
-
-  // using typename MappableContainer<Data>::MapFun;
-
-  // type Map(argument) specifiers; // Override MappableContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from PreOrderMappableContainer)
-
-  // type PreOrderMap(argument) specifiers; // Override PreOrderMappableContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from PostOrderMappableContainer)
-
-  // type PostOrderMap(argument) specifiers; // Override PostOrderMappableContainer member
-
-};
-
-template <typename Data>
-class SortableLinearContainer {
-  // Must extend MutableLinearContainer<Data>
-
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  // ~SortableLinearContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not be possible.
-
-  /* ************************************************************************ */
-
-  // Specific member function
-
-  // type Sort() specifiers;
-
-protected:
-
-  // Auxiliary member functions
-
-  // ...
-
-};
-
-/* ************************************************************************** */
+namespace lasd
+{
+  template <typename Data>
+  class LinearContainer : virtual public PreOrderTraversableContainer<Data>,
+                          virtual public PostOrderTraversableContainer<Data>
+  {
+  protected:
+    using Container::size;
+
+  public:
+    virtual ~LinearContainer() = default;
+    LinearContainer &operator=(const LinearContainer &) = delete;
+    LinearContainer &operator=(LinearContainer &&) noexcept = delete;
+    inline bool operator==(const LinearContainer &) const noexcept;
+    inline bool operator!=(const LinearContainer &) const noexcept;
+    virtual const Data &operator[](const unsigned long int) const = 0;
+    virtual inline const Data &Front() const;
+    virtual inline const Data &Back() const;
+    using typename TraversableContainer<Data>::TraverseFun;
+    inline void Traverse(TraverseFun) const override;
+    inline void PreOrderTraverse(TraverseFun) const override;
+    inline void PostOrderTraverse(TraverseFun) const override;
+  };
+
+  template <typename Data>
+  class MutableLinearContainer : virtual public LinearContainer<Data>,
+                                 virtual public PreOrderMappableContainer<Data>,
+                                 virtual public PostOrderMappableContainer<Data>
+  {
+  protected:
+  using Container::size;
+
+  public:
+    virtual ~MutableLinearContainer() = default;
+    MutableLinearContainer &operator=(const MutableLinearContainer &) = delete;
+    MutableLinearContainer &operator=(MutableLinearContainer &&) noexcept = delete;
+
+    // Specific member functions
+    virtual Data &operator[](const ulong) = 0;
+    virtual inline Data &Front();
+    virtual inline Data &Back();
+    using typename MappableContainer<Data>::MapFun;
+    inline void Map(MapFun) override;
+    inline void PreOrderMap(MapFun) override;
+    inline void PostOrderMap(MapFun) override;
+  };
+
+  template <typename Data>
+  class SortableLinearContainer : virtual public MutableLinearContainer<Data>
+  {
+
+  protected:
+    using Container::size;
+
+  public:
+    virtual ~SortableLinearContainer() = default;
+    SortableLinearContainer &operator=(const SortableLinearContainer &) const = delete;
+    SortableLinearContainer &operator=(SortableLinearContainer &&) noexcept = delete;
+    inline void Sort() noexcept;
+
+  protected:
+    void QuickSort(ulong, ulong) noexcept;
+    ulong Partition(ulong, ulong) noexcept;
+  };
 
 }
 

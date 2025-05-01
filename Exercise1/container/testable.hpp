@@ -1,57 +1,29 @@
 
 #ifndef TESTABLE_HPP
 #define TESTABLE_HPP
-
-/* ************************************************************************** */
-
 #include "container.hpp"
+namespace lasd
+{
+  template <typename Data>
+  class TestableContainer : public virtual Container
+  {
+    public:
+      // Destructor
+      virtual ~TestableContainer() = default;
 
-/* ************************************************************************** */
+      // Copy assignment
+      TestableContainer& operator=(const TestableContainer&) = delete;
 
-namespace lasd {
+      // Move assignment
+      TestableContainer& operator=(TestableContainer&&) noexcept = delete;
 
-/* ************************************************************************** */
+      // Comparison operators
+      bool operator==(const TestableContainer&) const noexcept = delete;
+      bool operator!=(const TestableContainer&) const noexcept = delete;
 
-template <typename Data>
-class TestableContainer {
-  // Must extend Container
-
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  // ~TestableContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  // type operator==(argument) specifiers; // Comparison of abstract types is not possible.
-  // type operator!=(argument) specifiers; // Comparison of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Specific member function
-
-  // type Exists(argument) specifiers; // (concrete function should not throw exceptions)
-
-};
-
-/* ************************************************************************** */
+      // Specific member function
+      virtual bool Exists(const Data&) const noexcept = 0;
+  };
 
 }
 

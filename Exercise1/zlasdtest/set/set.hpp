@@ -8,7 +8,7 @@
 /* ************************************************************************** */
 
 template <typename Data>
-void EqualSetLst(uint & testnum, uint & testerr, const lasd::SetLst<Data> & set1, const lasd::SetLst<Data> & set2, bool chk) {
+void EqualSetLst(unsigned int & testnum, unsigned int & testerr, const lasd::SetLst<Data> & set1, const lasd::SetLst<Data> & set2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -18,11 +18,11 @@ void EqualSetLst(uint & testnum, uint & testerr, const lasd::SetLst<Data> & set1
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (uint) tst);
+  testerr += (1 - (unsigned int) tst);
 }
 
 template <typename Data>
-void NonEqualSetLst(uint & testnum, uint & testerr, const lasd::SetLst<Data> & set1, const lasd::SetLst<Data> & set2, bool chk) {
+void NonEqualSetLst(unsigned int & testnum, unsigned int & testerr, const lasd::SetLst<Data> & set1, const lasd::SetLst<Data> & set2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -32,13 +32,13 @@ void NonEqualSetLst(uint & testnum, uint & testerr, const lasd::SetLst<Data> & s
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (uint) tst);
+  testerr += (1 - (unsigned int) tst);
 }
 
 /* ************************************************************************** */
 
 template <typename Data>
-void EqualSetVec(uint & testnum, uint & testerr, const lasd::SetVec<Data> & set1, const lasd::SetVec<Data> & set2, bool chk) {
+void EqualSetVec(unsigned int & testnum, unsigned int & testerr, const lasd::SetVec<Data> & set1, const lasd::SetVec<Data> & set2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -48,11 +48,11 @@ void EqualSetVec(uint & testnum, uint & testerr, const lasd::SetVec<Data> & set1
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (uint) tst);
+  testerr += (1 - (unsigned int) tst);
 }
 
 template <typename Data>
-void NonEqualSetVec(uint & testnum, uint & testerr, const lasd::SetVec<Data> & set1, const lasd::SetVec<Data> & set2, bool chk) {
+void NonEqualSetVec(unsigned int & testnum, unsigned int & testerr, const lasd::SetVec<Data> & set1, const lasd::SetVec<Data> & set2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -62,7 +62,7 @@ void NonEqualSetVec(uint & testnum, uint & testerr, const lasd::SetVec<Data> & s
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (uint) tst);
+  testerr += (1 - (unsigned int) tst);
 }
 
 /* ************************************************************************** */
