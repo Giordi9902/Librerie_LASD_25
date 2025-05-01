@@ -1,0 +1,843 @@
+\begin{theindex}
+
+  \item {\texorpdfstring{$\sim$}{\string~}ClearableContainer}
+    \subitem {lasd::ClearableContainer}, \hyperpage{12}
+  \item {\texorpdfstring{$\sim$}{\string~}Container}
+    \subitem {lasd::Container}, \hyperpage{14}
+  \item {\texorpdfstring{$\sim$}{\string~}DictionaryContainer}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{18}
+  \item {\texorpdfstring{$\sim$}{\string~}LinearContainer}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{26}
+  \item {\texorpdfstring{$\sim$}{\string~}MappableContainer}
+    \subitem {lasd::MappableContainer$<$ Data $>$}, \hyperpage{34}
+  \item {\texorpdfstring{$\sim$}{\string~}MutableLinearContainer}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{40}
+  \item {\texorpdfstring{$\sim$}{\string~}OrderedDictionaryContainer}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{46}
+  \item {\texorpdfstring{$\sim$}{\string~}PostOrderMappableContainer}
+    \subitem {lasd::PostOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{53}
+  \item {\texorpdfstring{$\sim$}{\string~}PostOrderTraversableContainer}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{57}
+  \item {\texorpdfstring{$\sim$}{\string~}PreOrderMappableContainer}
+    \subitem {lasd::PreOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{62}
+  \item {\texorpdfstring{$\sim$}{\string~}PreOrderTraversableContainer}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{66}
+  \item {\texorpdfstring{$\sim$}{\string~}ResizableContainer}
+    \subitem {lasd::ResizableContainer}, \hyperpage{70}
+  \item {\texorpdfstring{$\sim$}{\string~}SortableLinearContainer}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{77}
+  \item {\texorpdfstring{$\sim$}{\string~}SortableVector}
+    \subitem {lasd::SortableVector$<$ Data $>$}, \hyperpage{87}
+  \item {\texorpdfstring{$\sim$}{\string~}TestableContainer}
+    \subitem {lasd::TestableContainer$<$ Data $>$}, \hyperpage{89}
+  \item {\texorpdfstring{$\sim$}{\string~}TraversableContainer}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{93}
+  \item {\texorpdfstring{$\sim$}{\string~}Vector}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{103}
+
+  \indexspace
+
+  \item {Back}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{27}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{40}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{103}
+  \item {BackNRemove}
+    \subitem {list.hpp}, \hyperpage{184}
+
+  \indexspace
+
+  \item {Clear}
+    \subitem {lasd::ClearableContainer}, \hyperpage{13}
+    \subitem {lasd::ResizableContainer}, \hyperpage{70}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{104}
+  \item {Container}
+    \subitem {lasd::Container}, \hyperpage{14}
+  \item {container.cpp}
+    \subitem {Empty}, \hyperpage{121}
+    \subitem {FoldParity}, \hyperpage{121}
+    \subitem {FoldStringConcatenate}, \hyperpage{121}
+    \subitem {MapStringAppend}, \hyperpage{121}
+    \subitem {MapStringNonEmptyAppend}, \hyperpage{121}
+    \subitem {Size}, \hyperpage{121}
+  \item {container.hpp}
+    \subitem {Empty}, \hyperpage{124}
+    \subitem {Size}, \hyperpage{124}
+
+  \indexspace
+
+  \item {dictionary.hpp}
+    \subitem {InsertAllC}, \hyperpage{128}
+    \subitem {InsertAllM}, \hyperpage{128}
+    \subitem {InsertC}, \hyperpage{129}
+    \subitem {InsertM}, \hyperpage{129, 130}
+    \subitem {InsertSomeC}, \hyperpage{130}
+    \subitem {InsertSomeM}, \hyperpage{130}
+    \subitem {Max}, \hyperpage{130}
+    \subitem {MaxNRemove}, \hyperpage{130}
+    \subitem {Min}, \hyperpage{131}
+    \subitem {MinNRemove}, \hyperpage{131}
+    \subitem {Predecessor}, \hyperpage{131}
+    \subitem {PredecessorNRemove}, \hyperpage{131}
+    \subitem {Remove}, \hyperpage{132}
+    \subitem {RemoveAll}, \hyperpage{132}
+    \subitem {RemoveMax}, \hyperpage{133}
+    \subitem {RemoveMin}, \hyperpage{133}
+    \subitem {RemovePredecessor}, \hyperpage{133}
+    \subitem {RemoveSome}, \hyperpage{133}
+    \subitem {RemoveSuccessor}, \hyperpage{133}
+    \subitem {Successor}, \hyperpage{134}
+    \subitem {SuccessorNRemove}, \hyperpage{134}
+
+  \indexspace
+
+  \item {elements}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{106}
+  \item {Empty}
+    \subitem {container.cpp}, \hyperpage{121}
+    \subitem {container.hpp}, \hyperpage{124}
+    \subitem {lasd::Container}, \hyperpage{15}
+  \item {EqualLinear}
+    \subitem {linear.hpp}, \hyperpage{143}
+  \item {EqualList}
+    \subitem {list.hpp}, \hyperpage{184}
+  \item {EqualSetLst}
+    \subitem {set.hpp}, \hyperpage{189}
+  \item {EqualSetVec}
+    \subitem {set.hpp}, \hyperpage{189}
+  \item {EqualVector}
+    \subitem {vector.hpp}, \hyperpage{195}
+  \item {Exercise1/container/container.hpp}, \hyperpage{123}
+  \item {Exercise1/container/dictionary.cpp}, \hyperpage{107}
+  \item {Exercise1/container/dictionary.hpp}, \hyperpage{125}
+  \item {Exercise1/container/linear.cpp}, \hyperpage{108}
+  \item {Exercise1/container/linear.hpp}, \hyperpage{141}
+  \item {Exercise1/container/mappable.cpp}, \hyperpage{110}
+  \item {Exercise1/container/mappable.hpp}, \hyperpage{147, 148}
+  \item {Exercise1/container/testable.hpp}, \hyperpage{153, 154}
+  \item {Exercise1/container/traversable.cpp}, \hyperpage{111}
+  \item {Exercise1/container/traversable.hpp}, \hyperpage{155, 156}
+  \item {Exercise1/list/list.cpp}, \hyperpage{112}
+  \item {Exercise1/list/list.hpp}, \hyperpage{181}
+  \item {Exercise1/main.cpp}, \hyperpage{112, 113}
+  \item {Exercise1/set/lst/setlst.cpp}, \hyperpage{113}
+  \item {Exercise1/set/lst/setlst.hpp}, \hyperpage{113, 114}
+  \item {Exercise1/set/set.hpp}, \hyperpage{188}
+  \item {Exercise1/set/vec/setvec.cpp}, \hyperpage{115}
+  \item {Exercise1/set/vec/setvec.hpp}, \hyperpage{116}
+  \item {Exercise1/vector/vector.cpp}, \hyperpage{118}
+  \item {Exercise1/vector/vector.hpp}, \hyperpage{193}
+  \item {Exercise1/zlasdtest/container/container.cpp}, \hyperpage{120}, 
+		\hyperpage{122}
+  \item {Exercise1/zlasdtest/container/container.hpp}, 
+		\hyperpage{124, 125}
+  \item {Exercise1/zlasdtest/container/dictionary.hpp}, \hyperpage{127}, 
+		\hyperpage{134}
+  \item {Exercise1/zlasdtest/container/linear.hpp}, \hyperpage{142}, 
+		\hyperpage{145}
+  \item {Exercise1/zlasdtest/container/mappable.hpp}, \hyperpage{149}, 
+		\hyperpage{152}
+  \item {Exercise1/zlasdtest/container/testable.hpp}, 
+		\hyperpage{154, 155}
+  \item {Exercise1/zlasdtest/container/traversable.hpp}, 
+		\hyperpage{157}, \hyperpage{160}
+  \item {Exercise1/zlasdtest/exercise1a/fulltest.cpp}, 
+		\hyperpage{161, 162}
+  \item {Exercise1/zlasdtest/exercise1a/simpletest.cpp}, 
+		\hyperpage{163}, \hyperpage{166}
+  \item {Exercise1/zlasdtest/exercise1a/test.hpp}, \hyperpage{178, 179}
+  \item {Exercise1/zlasdtest/exercise1b/fulltest.cpp}, 
+		\hyperpage{162, 163}
+  \item {Exercise1/zlasdtest/exercise1b/simpletest.cpp}, 
+		\hyperpage{172, 173}
+  \item {Exercise1/zlasdtest/exercise1b/test.hpp}, \hyperpage{179}
+  \item {Exercise1/zlasdtest/list/list.hpp}, \hyperpage{184}, 
+		\hyperpage{186}
+  \item {Exercise1/zlasdtest/set/set.hpp}, \hyperpage{189, 190}
+  \item {Exercise1/zlasdtest/test.cpp}, \hyperpage{191, 192}
+  \item {Exercise1/zlasdtest/test.hpp}, \hyperpage{180}
+  \item {Exercise1/zlasdtest/vector/vector.hpp}, \hyperpage{195, 196}
+  \item {Exercise1/zmytest/test.cpp}, \hyperpage{192, 193}
+  \item {Exercise1/zmytest/test.hpp}, \hyperpage{180, 181}
+  \item {Exists}
+    \subitem {lasd::TestableContainer$<$ Data $>$}, \hyperpage{89}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{93}
+    \subitem {testable.hpp}, \hyperpage{155}
+
+  \indexspace
+
+  \item {Fold}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{93}
+    \subitem {traversable.hpp}, \hyperpage{158}
+  \item {FoldAdd}
+    \subitem {traversable.hpp}, \hyperpage{158}
+  \item {FoldFun}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{57}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{66}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{93}
+  \item {FoldMultiply}
+    \subitem {traversable.hpp}, \hyperpage{158}
+  \item {FoldParity}
+    \subitem {container.cpp}, \hyperpage{121}
+    \subitem {traversable.hpp}, \hyperpage{158}
+  \item {FoldPostOrder}
+    \subitem {traversable.hpp}, \hyperpage{158}
+  \item {FoldPreOrder}
+    \subitem {traversable.hpp}, \hyperpage{158}
+  \item {FoldStringConcatenate}
+    \subitem {container.cpp}, \hyperpage{121}
+    \subitem {traversable.hpp}, \hyperpage{159}
+  \item {Front}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{27}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{40}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{104}
+  \item {FrontNRemove}
+    \subitem {list.hpp}, \hyperpage{184}
+  \item {fulltest.cpp}
+    \subitem {testFullExercise1A}, \hyperpage{162}
+    \subitem {testFullExercise1B}, \hyperpage{162}
+
+  \indexspace
+
+  \item {GetAt}
+    \subitem {linear.hpp}, \hyperpage{143}
+  \item {GetBack}
+    \subitem {linear.hpp}, \hyperpage{143}
+  \item {GetFront}
+    \subitem {linear.hpp}, \hyperpage{144}
+
+  \indexspace
+
+  \item {Insert}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{18}
+  \item {InsertAll}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{19}
+  \item {InsertAllC}
+    \subitem {dictionary.hpp}, \hyperpage{128}
+  \item {InsertAllM}
+    \subitem {dictionary.hpp}, \hyperpage{128}
+  \item {InsertAtBack}
+    \subitem {list.hpp}, \hyperpage{185}
+  \item {InsertAtFront}
+    \subitem {list.hpp}, \hyperpage{185}
+  \item {InsertC}
+    \subitem {dictionary.hpp}, \hyperpage{129}
+  \item {InsertM}
+    \subitem {dictionary.hpp}, \hyperpage{129, 130}
+  \item {InsertSome}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, 
+		\hyperpage{19, 20}
+  \item {InsertSomeC}
+    \subitem {dictionary.hpp}, \hyperpage{130}
+  \item {InsertSomeM}
+    \subitem {dictionary.hpp}, \hyperpage{130}
+
+  \indexspace
+
+  \item {lasd}, \hyperpage{9}
+  \item {lasd::ClearableContainer}, \hyperpage{11}
+    \subitem {\texorpdfstring{$\sim$}{\string~}ClearableContainer}, 
+		\hyperpage{12}
+    \subitem {Clear}, \hyperpage{13}
+    \subitem {operator!=}, \hyperpage{13}
+    \subitem {operator=}, \hyperpage{13}
+    \subitem {operator==}, \hyperpage{13}
+  \item {lasd::Container}, \hyperpage{13}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Container}, 
+		\hyperpage{14}
+    \subitem {Container}, \hyperpage{14}
+    \subitem {Empty}, \hyperpage{15}
+    \subitem {operator!=}, \hyperpage{15}
+    \subitem {operator=}, \hyperpage{15}
+    \subitem {operator==}, \hyperpage{15}
+    \subitem {Size}, \hyperpage{15}
+    \subitem {size}, \hyperpage{16}
+  \item {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{16}
+    \subitem {\texorpdfstring{$\sim$}{\string~}DictionaryContainer}, 
+		\hyperpage{18}
+    \subitem {Insert}, \hyperpage{18}
+    \subitem {InsertAll}, \hyperpage{19}
+    \subitem {InsertSome}, \hyperpage{19, 20}
+    \subitem {operator!=}, \hyperpage{20}
+    \subitem {operator=}, \hyperpage{20}
+    \subitem {operator==}, \hyperpage{20}
+    \subitem {Remove}, \hyperpage{21}
+    \subitem {RemoveAll}, \hyperpage{21}
+    \subitem {RemoveSome}, \hyperpage{21}
+  \item {lasd::LinearContainer$<$ Data $>$}, \hyperpage{22}
+    \subitem {\texorpdfstring{$\sim$}{\string~}LinearContainer}, 
+		\hyperpage{26}
+    \subitem {Back}, \hyperpage{27}
+    \subitem {Front}, \hyperpage{27}
+    \subitem {Map}, \hyperpage{28}
+    \subitem {operator!=}, \hyperpage{28}
+    \subitem {operator=}, \hyperpage{28}
+    \subitem {operator==}, \hyperpage{28}
+    \subitem {operator[]}, \hyperpage{29}
+    \subitem {PostOrderMap}, \hyperpage{29}
+    \subitem {PostOrderTraverse}, \hyperpage{29}
+    \subitem {PreOrderMap}, \hyperpage{30}
+    \subitem {PreOrderTraverse}, \hyperpage{30}
+    \subitem {size}, \hyperpage{31}
+    \subitem {Traverse}, \hyperpage{30}
+  \item {lasd::List$<$ Data $>$}, \hyperpage{31}
+  \item {lasd::List$<$ Data $>$::Node}, \hyperpage{42}
+  \item {lasd::MappableContainer$<$ Data $>$}, \hyperpage{31}
+    \subitem {\texorpdfstring{$\sim$}{\string~}MappableContainer}, 
+		\hyperpage{34}
+    \subitem {Map}, \hyperpage{34}
+    \subitem {MapFun}, \hyperpage{34}
+    \subitem {operator!=}, \hyperpage{34}
+    \subitem {operator=}, \hyperpage{34, 35}
+    \subitem {operator==}, \hyperpage{35}
+  \item {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{35}
+    \subitem {\texorpdfstring{$\sim$}{\string~}MutableLinearContainer}, 
+		\hyperpage{40}
+    \subitem {Back}, \hyperpage{40}
+    \subitem {Front}, \hyperpage{40}
+    \subitem {Map}, \hyperpage{41}
+    \subitem {operator=}, \hyperpage{41}
+    \subitem {operator[]}, \hyperpage{41}
+    \subitem {PostOrderMap}, \hyperpage{42}
+    \subitem {PreOrderMap}, \hyperpage{42}
+  \item {lasd::OrderedDictionaryContainer$<$ Data $>$}, \hyperpage{43}
+    \subitem {\texorpdfstring{$\sim$}{\string~}OrderedDictionaryContainer}, 
+		\hyperpage{46}
+    \subitem {Max}, \hyperpage{46}
+    \subitem {MaxNRemove}, \hyperpage{46}
+    \subitem {Min}, \hyperpage{46}
+    \subitem {MinNRemove}, \hyperpage{47}
+    \subitem {operator!=}, \hyperpage{47}
+    \subitem {operator=}, \hyperpage{47}
+    \subitem {operator==}, \hyperpage{47}
+    \subitem {Predecessor}, \hyperpage{47}
+    \subitem {PredecessorNRemove}, \hyperpage{48}
+    \subitem {RemoveMax}, \hyperpage{48}
+    \subitem {RemoveMin}, \hyperpage{48}
+    \subitem {RemovePredecessor}, \hyperpage{49}
+    \subitem {RemoveSuccessor}, \hyperpage{49}
+    \subitem {Successor}, \hyperpage{49}
+    \subitem {SuccessorNRemove}, \hyperpage{50}
+  \item {lasd::PostOrderMappableContainer$<$ Data $>$}, \hyperpage{50}
+    \subitem {\texorpdfstring{$\sim$}{\string~}PostOrderMappableContainer}, 
+		\hyperpage{53}
+    \subitem {Map}, \hyperpage{53}
+    \subitem {operator!=}, \hyperpage{54}
+    \subitem {operator=}, \hyperpage{54}
+    \subitem {operator==}, \hyperpage{54}
+    \subitem {PostOrderMap}, \hyperpage{54}
+  \item {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{55}
+    \subitem {\texorpdfstring{$\sim$}{\string~}PostOrderTraversableContainer}, 
+		\hyperpage{57}
+    \subitem {FoldFun}, \hyperpage{57}
+    \subitem {operator!=}, \hyperpage{58}
+    \subitem {operator=}, \hyperpage{58}
+    \subitem {operator==}, \hyperpage{58}
+    \subitem {PostOrderFold}, \hyperpage{58}
+    \subitem {PostOrderTraverse}, \hyperpage{58}
+    \subitem {Traverse}, \hyperpage{59}
+  \item {lasd::PreOrderMappableContainer$<$ Data $>$}, \hyperpage{59}
+    \subitem {\texorpdfstring{$\sim$}{\string~}PreOrderMappableContainer}, 
+		\hyperpage{62}
+    \subitem {Map}, \hyperpage{62}
+    \subitem {operator!=}, \hyperpage{63}
+    \subitem {operator=}, \hyperpage{63}
+    \subitem {operator==}, \hyperpage{63}
+    \subitem {PreOrderMap}, \hyperpage{63}
+  \item {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{64}
+    \subitem {\texorpdfstring{$\sim$}{\string~}PreOrderTraversableContainer}, 
+		\hyperpage{66}
+    \subitem {FoldFun}, \hyperpage{66}
+    \subitem {operator!=}, \hyperpage{67}
+    \subitem {operator=}, \hyperpage{67}
+    \subitem {operator==}, \hyperpage{67}
+    \subitem {PreOrderFold}, \hyperpage{67}
+    \subitem {PreOrderTraverse}, \hyperpage{67}
+    \subitem {Traverse}, \hyperpage{68}
+  \item {lasd::ResizableContainer}, \hyperpage{68}
+    \subitem {\texorpdfstring{$\sim$}{\string~}ResizableContainer}, 
+		\hyperpage{70}
+    \subitem {Clear}, \hyperpage{70}
+    \subitem {operator!=}, \hyperpage{70}
+    \subitem {operator=}, \hyperpage{70}
+    \subitem {operator==}, \hyperpage{71}
+    \subitem {Resize}, \hyperpage{71}
+  \item {lasd::Set$<$ Data $>$}, \hyperpage{71}
+  \item {lasd::SetLst$<$ Data $>$}, \hyperpage{72}
+  \item {lasd::SetVec$<$ Data $>$}, \hyperpage{72}
+  \item {lasd::SortableLinearContainer$<$ Data $>$}, \hyperpage{72}
+    \subitem {\texorpdfstring{$\sim$}{\string~}SortableLinearContainer}, 
+		\hyperpage{77}
+    \subitem {operator!=}, \hyperpage{77}
+    \subitem {operator=}, \hyperpage{77, 78}
+    \subitem {operator==}, \hyperpage{78}
+    \subitem {partition}, \hyperpage{78}
+    \subitem {quickSort}, \hyperpage{78}
+    \subitem {size}, \hyperpage{79}
+    \subitem {Sort}, \hyperpage{79}
+  \item {lasd::SortableVector$<$ Data $>$}, \hyperpage{79}
+    \subitem {\texorpdfstring{$\sim$}{\string~}SortableVector}, 
+		\hyperpage{87}
+    \subitem {operator=}, \hyperpage{87}
+    \subitem {SortableVector}, \hyperpage{86, 87}
+  \item {lasd::TestableContainer$<$ Data $>$}, \hyperpage{88}
+    \subitem {\texorpdfstring{$\sim$}{\string~}TestableContainer}, 
+		\hyperpage{89}
+    \subitem {Exists}, \hyperpage{89}
+    \subitem {operator!=}, \hyperpage{90}
+    \subitem {operator=}, \hyperpage{90}
+    \subitem {operator==}, \hyperpage{90}
+    \subitem {TestableContainer}, \hyperpage{89}
+  \item {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{91}
+    \subitem {\texorpdfstring{$\sim$}{\string~}TraversableContainer}, 
+		\hyperpage{93}
+    \subitem {Exists}, \hyperpage{93}
+    \subitem {Fold}, \hyperpage{93}
+    \subitem {FoldFun}, \hyperpage{93}
+    \subitem {operator!=}, \hyperpage{95}
+    \subitem {operator=}, \hyperpage{95}
+    \subitem {operator==}, \hyperpage{95}
+    \subitem {Traverse}, \hyperpage{95}
+    \subitem {TraverseFun}, \hyperpage{93}
+  \item {lasd::Vector$<$ Data $>$}, \hyperpage{96}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Vector}, \hyperpage{103}
+    \subitem {Back}, \hyperpage{103}
+    \subitem {Clear}, \hyperpage{104}
+    \subitem {elements}, \hyperpage{106}
+    \subitem {Front}, \hyperpage{104}
+    \subitem {operator!=}, \hyperpage{104}
+    \subitem {operator=}, \hyperpage{105}
+    \subitem {operator==}, \hyperpage{105}
+    \subitem {operator[]}, \hyperpage{105}
+    \subitem {Resize}, \hyperpage{106}
+    \subitem {size}, \hyperpage{106}
+    \subitem {Vector}, \hyperpage{102, 103}
+  \item {lasdtest}
+    \subitem {test.cpp}, \hyperpage{192}
+    \subitem {test.hpp}, \hyperpage{180}
+  \item {linear.hpp}
+    \subitem {EqualLinear}, \hyperpage{143}
+    \subitem {GetAt}, \hyperpage{143}
+    \subitem {GetBack}, \hyperpage{143}
+    \subitem {GetFront}, \hyperpage{144}
+    \subitem {NonEqualLinear}, \hyperpage{144}
+    \subitem {SetAt}, \hyperpage{144}
+    \subitem {SetBack}, \hyperpage{144}
+    \subitem {SetFront}, \hyperpage{145}
+  \item {list.hpp}
+    \subitem {BackNRemove}, \hyperpage{184}
+    \subitem {EqualList}, \hyperpage{184}
+    \subitem {FrontNRemove}, \hyperpage{184}
+    \subitem {InsertAtBack}, \hyperpage{185}
+    \subitem {InsertAtFront}, \hyperpage{185}
+    \subitem {NonEqualList}, \hyperpage{185}
+    \subitem {RemoveFromBack}, \hyperpage{185}
+    \subitem {RemoveFromFront}, \hyperpage{186}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{112}
+  \item {main.cpp}
+    \subitem {main}, \hyperpage{112}
+  \item {Map}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{28}
+    \subitem {lasd::MappableContainer$<$ Data $>$}, \hyperpage{34}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{41}
+    \subitem {lasd::PostOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{53}
+    \subitem {lasd::PreOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{62}
+    \subitem {mappable.hpp}, \hyperpage{149}
+  \item {MapDecrement}
+    \subitem {mappable.hpp}, \hyperpage{149}
+  \item {MapDouble}
+    \subitem {mappable.hpp}, \hyperpage{150}
+  \item {MapDoubleNPrint}
+    \subitem {mappable.hpp}, \hyperpage{150}
+  \item {MapFun}
+    \subitem {lasd::MappableContainer$<$ Data $>$}, \hyperpage{34}
+  \item {MapHalf}
+    \subitem {mappable.hpp}, \hyperpage{150}
+  \item {MapIncrement}
+    \subitem {mappable.hpp}, \hyperpage{150}
+  \item {MapIncrementNPrint}
+    \subitem {mappable.hpp}, \hyperpage{150}
+  \item {MapInvert}
+    \subitem {mappable.hpp}, \hyperpage{150}
+  \item {MapInvertNPrint}
+    \subitem {mappable.hpp}, \hyperpage{151}
+  \item {mappable.hpp}
+    \subitem {Map}, \hyperpage{149}
+    \subitem {MapDecrement}, \hyperpage{149}
+    \subitem {MapDouble}, \hyperpage{150}
+    \subitem {MapDoubleNPrint}, \hyperpage{150}
+    \subitem {MapHalf}, \hyperpage{150}
+    \subitem {MapIncrement}, \hyperpage{150}
+    \subitem {MapIncrementNPrint}, \hyperpage{150}
+    \subitem {MapInvert}, \hyperpage{150}
+    \subitem {MapInvertNPrint}, \hyperpage{151}
+    \subitem {MapParityInvert}, \hyperpage{151}
+    \subitem {MapPostOrder}, \hyperpage{151}
+    \subitem {MapPreOrder}, \hyperpage{151}
+    \subitem {MapStringAppend}, \hyperpage{151}
+    \subitem {MapStringNonEmptyAppend}, \hyperpage{152}
+  \item {MapParityInvert}
+    \subitem {mappable.hpp}, \hyperpage{151}
+  \item {MapPostOrder}
+    \subitem {mappable.hpp}, \hyperpage{151}
+  \item {MapPreOrder}
+    \subitem {mappable.hpp}, \hyperpage{151}
+  \item {MapStringAppend}
+    \subitem {container.cpp}, \hyperpage{121}
+    \subitem {mappable.hpp}, \hyperpage{151}
+  \item {MapStringNonEmptyAppend}
+    \subitem {container.cpp}, \hyperpage{121}
+    \subitem {mappable.hpp}, \hyperpage{152}
+  \item {Max}
+    \subitem {dictionary.hpp}, \hyperpage{130}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{46}
+  \item {MaxNRemove}
+    \subitem {dictionary.hpp}, \hyperpage{130}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{46}
+  \item {Min}
+    \subitem {dictionary.hpp}, \hyperpage{131}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{46}
+  \item {MinNRemove}
+    \subitem {dictionary.hpp}, \hyperpage{131}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{47}
+  \item {mytest}
+    \subitem {test.cpp}, \hyperpage{192}
+    \subitem {test.hpp}, \hyperpage{180}
+
+  \indexspace
+
+  \item {NonEqualLinear}
+    \subitem {linear.hpp}, \hyperpage{144}
+  \item {NonEqualList}
+    \subitem {list.hpp}, \hyperpage{185}
+  \item {NonEqualSetLst}
+    \subitem {set.hpp}, \hyperpage{190}
+  \item {NonEqualSetVec}
+    \subitem {set.hpp}, \hyperpage{190}
+  \item {NonEqualVector}
+    \subitem {vector.hpp}, \hyperpage{195}
+
+  \indexspace
+
+  \item {operator!=}
+    \subitem {lasd::ClearableContainer}, \hyperpage{13}
+    \subitem {lasd::Container}, \hyperpage{15}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{20}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{28}
+    \subitem {lasd::MappableContainer$<$ Data $>$}, \hyperpage{34}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{47}
+    \subitem {lasd::PostOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{54}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{58}
+    \subitem {lasd::PreOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{63}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{67}
+    \subitem {lasd::ResizableContainer}, \hyperpage{70}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{77}
+    \subitem {lasd::TestableContainer$<$ Data $>$}, \hyperpage{90}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{95}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{104}
+  \item {operator=}
+    \subitem {lasd::ClearableContainer}, \hyperpage{13}
+    \subitem {lasd::Container}, \hyperpage{15}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{20}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{28}
+    \subitem {lasd::MappableContainer$<$ Data $>$}, \hyperpage{34, 35}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{41}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{47}
+    \subitem {lasd::PostOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{54}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{58}
+    \subitem {lasd::PreOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{63}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{67}
+    \subitem {lasd::ResizableContainer}, \hyperpage{70}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{77, 78}
+    \subitem {lasd::SortableVector$<$ Data $>$}, \hyperpage{87}
+    \subitem {lasd::TestableContainer$<$ Data $>$}, \hyperpage{90}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{95}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{105}
+  \item {operator==}
+    \subitem {lasd::ClearableContainer}, \hyperpage{13}
+    \subitem {lasd::Container}, \hyperpage{15}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{20}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{28}
+    \subitem {lasd::MappableContainer$<$ Data $>$}, \hyperpage{35}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{47}
+    \subitem {lasd::PostOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{54}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{58}
+    \subitem {lasd::PreOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{63}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{67}
+    \subitem {lasd::ResizableContainer}, \hyperpage{71}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{78}
+    \subitem {lasd::TestableContainer$<$ Data $>$}, \hyperpage{90}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{95}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{105}
+  \item {operator[]}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{29}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{41}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{105}
+
+  \indexspace
+
+  \item {partition}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{78}
+  \item {PostOrderFold}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{58}
+  \item {PostOrderMap}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{29}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{42}
+    \subitem {lasd::PostOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{54}
+  \item {PostOrderTraverse}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{29}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{58}
+  \item {Predecessor}
+    \subitem {dictionary.hpp}, \hyperpage{131}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{47}
+  \item {PredecessorNRemove}
+    \subitem {dictionary.hpp}, \hyperpage{131}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{48}
+  \item {PreOrderFold}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{67}
+  \item {PreOrderMap}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{30}
+    \subitem {lasd::MutableLinearContainer$<$ Data $>$}, \hyperpage{42}
+    \subitem {lasd::PreOrderMappableContainer$<$ Data $>$}, 
+		\hyperpage{63}
+  \item {PreOrderTraverse}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{30}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{67}
+
+  \indexspace
+
+  \item {quickSort}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{78}
+
+  \indexspace
+
+  \item {Remove}
+    \subitem {dictionary.hpp}, \hyperpage{132}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{21}
+  \item {RemoveAll}
+    \subitem {dictionary.hpp}, \hyperpage{132}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{21}
+  \item {RemoveFromBack}
+    \subitem {list.hpp}, \hyperpage{185}
+  \item {RemoveFromFront}
+    \subitem {list.hpp}, \hyperpage{186}
+  \item {RemoveMax}
+    \subitem {dictionary.hpp}, \hyperpage{133}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{48}
+  \item {RemoveMin}
+    \subitem {dictionary.hpp}, \hyperpage{133}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{48}
+  \item {RemovePredecessor}
+    \subitem {dictionary.hpp}, \hyperpage{133}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{49}
+  \item {RemoveSome}
+    \subitem {dictionary.hpp}, \hyperpage{133}
+    \subitem {lasd::DictionaryContainer$<$ Data $>$}, \hyperpage{21}
+  \item {RemoveSuccessor}
+    \subitem {dictionary.hpp}, \hyperpage{133}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{49}
+  \item {Resize}
+    \subitem {lasd::ResizableContainer}, \hyperpage{71}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{106}
+
+  \indexspace
+
+  \item {set.hpp}
+    \subitem {EqualSetLst}, \hyperpage{189}
+    \subitem {EqualSetVec}, \hyperpage{189}
+    \subitem {NonEqualSetLst}, \hyperpage{190}
+    \subitem {NonEqualSetVec}, \hyperpage{190}
+  \item {SetAt}
+    \subitem {linear.hpp}, \hyperpage{144}
+  \item {SetBack}
+    \subitem {linear.hpp}, \hyperpage{144}
+  \item {SetFront}
+    \subitem {linear.hpp}, \hyperpage{145}
+  \item {simpletest.cpp}
+    \subitem {stestList}, \hyperpage{163}
+    \subitem {stestListDouble}, \hyperpage{163}
+    \subitem {stestListInt}, \hyperpage{164}
+    \subitem {stestListString}, \hyperpage{164}
+    \subitem {stestSetFloat}, \hyperpage{172}
+    \subitem {stestSetInt}, \hyperpage{172}
+    \subitem {stestSetString}, \hyperpage{172, 173}
+    \subitem {stestVector}, \hyperpage{164}
+    \subitem {stestVectorDouble}, \hyperpage{164}
+    \subitem {stestVectorInt}, \hyperpage{164}
+    \subitem {stestVectorList}, \hyperpage{164}
+    \subitem {stestVectorListDouble}, \hyperpage{165}
+    \subitem {stestVectorListInt}, \hyperpage{165}
+    \subitem {stestVectorListString}, \hyperpage{165}
+    \subitem {stestVectorString}, \hyperpage{165}
+    \subitem {testSimpleExercise1A}, \hyperpage{165}
+    \subitem {testSimpleExercise1B}, \hyperpage{173}
+  \item {Size}
+    \subitem {container.cpp}, \hyperpage{121}
+    \subitem {container.hpp}, \hyperpage{124}
+    \subitem {lasd::Container}, \hyperpage{15}
+  \item {size}
+    \subitem {lasd::Container}, \hyperpage{16}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{31}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{79}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{106}
+  \item {Sort}
+    \subitem {lasd::SortableLinearContainer$<$ Data $>$}, 
+		\hyperpage{79}
+  \item {SortableVector}
+    \subitem {lasd::SortableVector$<$ Data $>$}, \hyperpage{86, 87}
+  \item {stestList}
+    \subitem {simpletest.cpp}, \hyperpage{163}
+  \item {stestListDouble}
+    \subitem {simpletest.cpp}, \hyperpage{163}
+  \item {stestListInt}
+    \subitem {simpletest.cpp}, \hyperpage{164}
+  \item {stestListString}
+    \subitem {simpletest.cpp}, \hyperpage{164}
+  \item {stestSetFloat}
+    \subitem {simpletest.cpp}, \hyperpage{172}
+  \item {stestSetInt}
+    \subitem {simpletest.cpp}, \hyperpage{172}
+  \item {stestSetString}
+    \subitem {simpletest.cpp}, \hyperpage{172, 173}
+  \item {stestVector}
+    \subitem {simpletest.cpp}, \hyperpage{164}
+  \item {stestVectorDouble}
+    \subitem {simpletest.cpp}, \hyperpage{164}
+  \item {stestVectorInt}
+    \subitem {simpletest.cpp}, \hyperpage{164}
+  \item {stestVectorList}
+    \subitem {simpletest.cpp}, \hyperpage{164}
+  \item {stestVectorListDouble}
+    \subitem {simpletest.cpp}, \hyperpage{165}
+  \item {stestVectorListInt}
+    \subitem {simpletest.cpp}, \hyperpage{165}
+  \item {stestVectorListString}
+    \subitem {simpletest.cpp}, \hyperpage{165}
+  \item {stestVectorString}
+    \subitem {simpletest.cpp}, \hyperpage{165}
+  \item {Successor}
+    \subitem {dictionary.hpp}, \hyperpage{134}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{49}
+  \item {SuccessorNRemove}
+    \subitem {dictionary.hpp}, \hyperpage{134}
+    \subitem {lasd::OrderedDictionaryContainer$<$ Data $>$}, 
+		\hyperpage{50}
+
+  \indexspace
+
+  \item {test.cpp}
+    \subitem {lasdtest}, \hyperpage{192}
+    \subitem {mytest}, \hyperpage{192}
+  \item {test.hpp}
+    \subitem {lasdtest}, \hyperpage{180}
+    \subitem {mytest}, \hyperpage{180}
+    \subitem {testFullExercise1A}, \hyperpage{178}
+    \subitem {testFullExercise1B}, \hyperpage{179}
+    \subitem {testSimpleExercise1A}, \hyperpage{178}
+    \subitem {testSimpleExercise1B}, \hyperpage{179}
+  \item {testable.hpp}
+    \subitem {Exists}, \hyperpage{155}
+  \item {TestableContainer}
+    \subitem {lasd::TestableContainer$<$ Data $>$}, \hyperpage{89}
+  \item {testFullExercise1A}
+    \subitem {fulltest.cpp}, \hyperpage{162}
+    \subitem {test.hpp}, \hyperpage{178}
+  \item {testFullExercise1B}
+    \subitem {fulltest.cpp}, \hyperpage{162}
+    \subitem {test.hpp}, \hyperpage{179}
+  \item {testSimpleExercise1A}
+    \subitem {simpletest.cpp}, \hyperpage{165}
+    \subitem {test.hpp}, \hyperpage{178}
+  \item {testSimpleExercise1B}
+    \subitem {simpletest.cpp}, \hyperpage{173}
+    \subitem {test.hpp}, \hyperpage{179}
+  \item {traversable.hpp}
+    \subitem {Fold}, \hyperpage{158}
+    \subitem {FoldAdd}, \hyperpage{158}
+    \subitem {FoldMultiply}, \hyperpage{158}
+    \subitem {FoldParity}, \hyperpage{158}
+    \subitem {FoldPostOrder}, \hyperpage{158}
+    \subitem {FoldPreOrder}, \hyperpage{158}
+    \subitem {FoldStringConcatenate}, \hyperpage{159}
+    \subitem {Traverse}, \hyperpage{159}
+    \subitem {TraversePostOrder}, \hyperpage{159}
+    \subitem {TraversePreOrder}, \hyperpage{159}
+    \subitem {TraversePrint}, \hyperpage{159}
+  \item {Traverse}
+    \subitem {lasd::LinearContainer$<$ Data $>$}, \hyperpage{30}
+    \subitem {lasd::PostOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{59}
+    \subitem {lasd::PreOrderTraversableContainer$<$ Data $>$}, 
+		\hyperpage{68}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{95}
+    \subitem {traversable.hpp}, \hyperpage{159}
+  \item {TraverseFun}
+    \subitem {lasd::TraversableContainer$<$ Data $>$}, \hyperpage{93}
+  \item {TraversePostOrder}
+    \subitem {traversable.hpp}, \hyperpage{159}
+  \item {TraversePreOrder}
+    \subitem {traversable.hpp}, \hyperpage{159}
+  \item {TraversePrint}
+    \subitem {traversable.hpp}, \hyperpage{159}
+
+  \indexspace
+
+  \item {Vector}
+    \subitem {lasd::Vector$<$ Data $>$}, \hyperpage{102, 103}
+  \item {vector.hpp}
+    \subitem {EqualVector}, \hyperpage{195}
+    \subitem {NonEqualVector}, \hyperpage{195}
+
+\end{theindex}

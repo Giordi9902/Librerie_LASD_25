@@ -1,0 +1,77 @@
+\doxysection{container.\+hpp}
+\hypertarget{container_2container_8hpp_source}{}\label{container_2container_8hpp_source}\index{Exercise1/container/container.hpp@{Exercise1/container/container.hpp}}
+\mbox{\hyperlink{container_2container_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#ifndef\ CONTAINER\_HPP}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#define\ CONTAINER\_HPP}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00005}\mbox{\hyperlink{namespacelasd}{00005}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00011}\mbox{\hyperlink{classlasd_1_1Container}{00011}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00012}00012\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00014}00014\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00015}\mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{00015}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00018}\mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{00018}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00020}00020\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00022}\mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{00022}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\string~Container}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00025}\mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{00025}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}\ \&\mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00027}\mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{00027}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}\ \&\mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}}(\mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00029}\mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{00029}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00030}\mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{00030}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00036}\mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{00036}}\ \ \ \ \ inline\ virtual\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ 0\ ==\ \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ \}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00042}\mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{00042}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}}()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ \}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00043}00043\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00048}\mbox{\hyperlink{classlasd_1_1ClearableContainer}{00048}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ :\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00049}00049\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00051}00051\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00053}\mbox{\hyperlink{classlasd_1_1ClearableContainer_a288fbc28a8eae1a0736ab73570d1e2ea}{00053}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1ClearableContainer_a288fbc28a8eae1a0736ab73570d1e2ea}{\string~ClearableContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00056}\mbox{\hyperlink{classlasd_1_1ClearableContainer_a1913f2eaee3be6897bba74cf5e833893}{00056}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1ClearableContainer_a1913f2eaee3be6897bba74cf5e833893}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00058}\mbox{\hyperlink{classlasd_1_1ClearableContainer_ab3889b911865ebccf15120503ec02a9b}{00058}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1ClearableContainer_ab3889b911865ebccf15120503ec02a9b}{operator=}}(\mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00061}\mbox{\hyperlink{classlasd_1_1ClearableContainer_a8981bd9b36fea0340cd8d3bca260bd50}{00061}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ \&Ccon)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00062}\mbox{\hyperlink{classlasd_1_1ClearableContainer_a7424607fa6e34267134f0693104f0605}{00062}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}\ \&Ccon)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00065}\mbox{\hyperlink{classlasd_1_1ClearableContainer_a5d37894f3fe36b4ff11fb3fb11179085}{00065}}\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1ClearableContainer_a5d37894f3fe36b4ff11fb3fb11179085}{Clear}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00066}00066\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00071}\mbox{\hyperlink{classlasd_1_1ResizableContainer}{00071}}\ \ \ class\ \mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ :\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1ClearableContainer}{ClearableContainer}}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00072}00072\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00074}00074\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00076}\mbox{\hyperlink{classlasd_1_1ResizableContainer_afbb0631a2f1814a10031515e7d16c531}{00076}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer_afbb0631a2f1814a10031515e7d16c531}{\string~ResizableContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00079}\mbox{\hyperlink{classlasd_1_1ResizableContainer_a0ff41447eec8c7f7af2473f79030dbbf}{00079}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1ResizableContainer_a0ff41447eec8c7f7af2473f79030dbbf}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ \&Ccon)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00082}\mbox{\hyperlink{classlasd_1_1ResizableContainer_a87a0770f3105c822bda6eaa8291f7016}{00082}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1ResizableContainer_a87a0770f3105c822bda6eaa8291f7016}{operator=}}(\mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ \&\&Ccon)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00084}\mbox{\hyperlink{classlasd_1_1ResizableContainer_a981d9d6c0f2dde02e919feea9633aab4}{00084}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer_a981d9d6c0f2dde02e919feea9633aab4}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ \&Ccon)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00085}\mbox{\hyperlink{classlasd_1_1ResizableContainer_ab570857794cd99a151c408df6e560fde}{00085}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer_ab570857794cd99a151c408df6e560fde}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer}{ResizableContainer}}\ \&Ccon)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00091}\mbox{\hyperlink{classlasd_1_1ResizableContainer_ae407c54cb1b040f266d86f96c57ab8b6}{00091}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer_ae407c54cb1b040f266d86f96c57ab8b6}{Resize}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long})\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//\ Specific\ member\ function\ (inherited\ from\ ClearableContainer)}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00097}\mbox{\hyperlink{classlasd_1_1ResizableContainer_a64d0eb38229d4ffadec0d61ab75b82b8}{00097}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1ResizableContainer_a64d0eb38229d4ffadec0d61ab75b82b8}{Clear}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{classlasd_1_1ResizableContainer_ae407c54cb1b040f266d86f96c57ab8b6}{Resize}}(0);\ \}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00098}00098\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{container_2container_8hpp_source_l00102}00102\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

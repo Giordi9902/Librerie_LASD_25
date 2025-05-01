@@ -1,0 +1,420 @@
+\doxysection{simpletest.\+cpp}
+\hypertarget{exercise1b_2simpletest_8cpp_source}{}\label{exercise1b_2simpletest_8cpp_source}\index{Exercise1/zlasdtest/exercise1b/simpletest.cpp@{Exercise1/zlasdtest/exercise1b/simpletest.cpp}}
+\mbox{\hyperlink{exercise1b_2simpletest_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00004}00004\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2container_2container_8hpp}{../container/container.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp}{../container/traversable.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2container_2testable_8hpp}{../container/testable.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp}{../container/dictionary.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2container_2linear_8hpp}{../container/linear.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2vector_2vector_8hpp}{../vector/vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2list_2list_8hpp}{../list/list.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{zlasdtest_2set_2set_8hpp}{../set/set.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{setlst_8hpp}{../../set/lst/setlst.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{setvec_8hpp}{../../set/vec/setvec.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00019}00019\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00021}00021\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00023}00023\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00025}\mbox{\hyperlink{exercise1b_2simpletest_8cpp_a8d27ad3a192f277a36720bb0bfa14fb8}{00025}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a8d27ad3a192f277a36720bb0bfa14fb8}{stestSetInt}}(\mbox{\hyperlink{classlasd_1_1Set}{lasd::Set<int>}}\ \&\ set,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00026}00026\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ loctestnum\ =\ 0,\ loctesterr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00027}00027\ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_ab32d3acc38a0a3c288c89c61a3a56442}{GetAt}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac7e5070983818c2f793c2eebd8e5cba1}{Min}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a6150fdf6cc5a71430ab5a35907bd21db}{Max}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_aaba9583c49bdd84ad647f0ed59c05858}{RemoveMin}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ab4aa89405b80785b979d62e425066337}{MinNRemove}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ -\/1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac7e5070983818c2f793c2eebd8e5cba1}{Min}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ -\/1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_af972a667d100f938e156ef83f18f1866}{MaxNRemove}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a6150fdf6cc5a71430ab5a35907bd21db}{Max}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 8);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 8);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{false},\ 9);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{false},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ -\/1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{false},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{false},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{false},\ 2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a968d39cf4227483c5054088d80561011}{RemoveMax}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a6150fdf6cc5a71430ab5a35907bd21db}{Max}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00081}00081\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac08e02935b44b7afa561676e800a41f3}{Predecessor}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 4,\ 3);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac08e02935b44b7afa561676e800a41f3}{Predecessor}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 5,\ 4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ad81c95e6c9a60b7cb288f61f1c5c9fd2}{Successor}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 2,\ 3);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ad81c95e6c9a60b7cb288f61f1c5c9fd2}{Successor}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 4,\ 5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_adb12904dbe0aa792af6107e75ae53200}{SuccessorNRemove}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac7e5070983818c2f793c2eebd8e5cba1}{Min}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ -\/1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a10fd7d41a6a39ad1140279c127404c71}{PredecessorNRemove}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7,\ 5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a6150fdf6cc5a71430ab5a35907bd21db}{Max}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00099}00099\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aa665628dbf2a0aa9eb0bf6675adbd7d0}{FoldPreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a08514bb5838f73f36fb863467f0b51ba}{FoldAdd<int>}},\ 0,\ 13);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00100}00100\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a0c26890a58a665f3e7427bb5a32004ba}{FoldPostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a08514bb5838f73f36fb863467f0b51ba}{FoldAdd<int>}},\ 0,\ 13);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00102}00102\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00105}00105\ \ \ \ \ set.Clear();}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00110}00110\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00111}00111\ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00112}00112\ \ \ \ \ loctestnum++;\ loctesterr++;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00113}00113\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Unmanaged\ error!\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00114}00114\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00115}00115\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}End\ of\ Set<int>\ Test!\ (Errors/Tests:\ "{}}\ <<\ loctesterr\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ loctestnum\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00116}00116\ \ \ testnum\ +=\ loctestnum;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00117}00117\ \ \ testerr\ +=\ loctesterr;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00120}\mbox{\hyperlink{exercise1b_2simpletest_8cpp_aec5c0ea73a4436c49147f1c60f89d0e3}{00120}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a8d27ad3a192f277a36720bb0bfa14fb8}{stestSetInt}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00121}00121\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ loctestnum\ =\ 0,\ loctesterr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00122}00122\ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ Set<int>\ Test"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00123}00123\ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1Vector}{lasd::Vector<int>}}\ vec(7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 0,\ 3);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00126}00126\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00127}00127\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 2,\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00128}00128\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 3,\ 5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00129}00129\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 4,\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 5,\ 2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00131}00131\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 6,\ 4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00133}00133\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00135}00135\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ SetVec<int>\ Test:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00136}00136\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<int>}}\ setvec(vec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00137}00137\ \ \ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a8d27ad3a192f277a36720bb0bfa14fb8}{stestSetInt}}(setvec,\ loctestnum,\ loctesterr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00138}00138\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ SetLst<int>\ Test:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00139}00139\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<int>}}\ setlst(vec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00140}00140\ \ \ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a8d27ad3a192f277a36720bb0bfa14fb8}{stestSetInt}}(setlst,\ loctestnum,\ loctesterr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00141}00141\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00145}00145\ \ \ \ \ setvec.InsertAll(vec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00146}00146\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<int>}}\ setvec1(setvec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec,\ setvec1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00150}00150\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_aa50f26fa2becb4959b5b30c9fc38b561}{NonEqualSetVec}}(loctestnum,\ loctesterr,\ setvec,\ setvec1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00154}00154\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec,\ setvec1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<int>}}\ setvec2\ =\ setvec1;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec1,\ setvec2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00162}00162\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_addd82f1f0c05c1628285aa9aafb7fe6b}{RemovePredecessor}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 9);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00164}00164\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec1,\ setvec2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00166}00166\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<int>}}\ setvec3(move(setvec2));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00168}00168\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00171}00171\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setvec3,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00172}00172\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setvec3,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00174}00174\ \ \ \ \ setvec2\ =\ move(setvec1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00176}00176\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00177}00177\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00179}00179\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00180}00180\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_aa50f26fa2becb4959b5b30c9fc38b561}{NonEqualSetVec}}(loctestnum,\ loctesterr,\ setvec3,\ setvec2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00184}00184\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aab8be8fc995679354977aa2e6f212745}{Traverse}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00185}00185\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aab8be8fc995679354977aa2e6f212745}{Traverse}}(loctestnum,\ loctesterr,\ setvec3,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00187}00187\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00189}00189\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec3,\ setvec2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00193}00193\ \ \ \ \ setlst.InsertAll(vec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00194}00194\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<int>}}\ setlst1(setlst);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00196}00196\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst,\ setlst1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00198}00198\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00200}00200\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_ad21dca01db62783787fc31b44fc32839}{NonEqualSetLst}}(loctestnum,\ loctesterr,\ setlst,\ setlst1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00202}00202\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00204}00204\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst,\ setlst1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00206}00206\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<int>}}\ setlst2\ =\ setlst1;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00208}00208\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst1,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00210}00210\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_addd82f1f0c05c1628285aa9aafb7fe6b}{RemovePredecessor}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 9);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00212}00212\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst1,\ setlst2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00214}00214\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<int>}}\ setlst3(move(setlst2));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00216}00216\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00217}00217\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00219}00219\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setlst3,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00220}00220\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setlst3,\ \textcolor{keyword}{true},\ 7);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00222}00222\ \ \ \ \ setlst2\ =\ move(setlst1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00224}00224\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00225}00225\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00227}00227\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00228}00228\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00230}00230\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_ad21dca01db62783787fc31b44fc32839}{NonEqualSetLst}}(loctestnum,\ loctesterr,\ setlst3,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00232}00232\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aab8be8fc995679354977aa2e6f212745}{Traverse}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00233}00233\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aab8be8fc995679354977aa2e6f212745}{Traverse}}(loctestnum,\ loctesterr,\ setlst3,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<int>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00235}00235\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00237}00237\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst3,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00239}00239\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00241}00241\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a340c16427203e8383a13114c71f36f91}{EqualLinear}}(loctestnum,\ loctesterr,\ setvec3,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00242}00242\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a2c32f29ae1c81bae54fbed3a2a14f318}{NonEqualLinear}}(loctestnum,\ loctesterr,\ setlst3,\ setvec2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00244}00244\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00245}00245\ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00246}00246\ \ \ \ \ loctestnum++;\ loctesterr++;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00247}00247\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Unmanaged\ error!\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00248}00248\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00249}00249\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}End\ of\ Set<int>\ Test!\ (Errors/Tests:\ "{}}\ <<\ loctesterr\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ loctestnum\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00250}00250\ \ \ testnum\ +=\ loctestnum;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00251}00251\ \ \ testerr\ +=\ loctesterr;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00252}00252\ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00254}\mbox{\hyperlink{exercise1b_2simpletest_8cpp_a34d6506e3ff76ca31596fefc07338dd8}{00254}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a34d6506e3ff76ca31596fefc07338dd8}{stestSetFloat}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00255}00255\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ loctestnum\ =\ 0,\ loctesterr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00256}00256\ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ Set<double>\ Test"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00257}00257\ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00258}00258\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1List}{lasd::List<double>}}\ lst;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00259}00259\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2list_2list_8hpp_a1d3c2bf9f60e24ab119f83b608626a9b}{InsertAtFront}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ 4.0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00260}00260\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2list_2list_8hpp_ab883413e0a46dcbd8144d5755ee40012}{InsertAtBack}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ 0.4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00261}00261\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2list_2list_8hpp_a1d3c2bf9f60e24ab119f83b608626a9b}{InsertAtFront}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ 1.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00262}00262\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2list_2list_8hpp_ab883413e0a46dcbd8144d5755ee40012}{InsertAtBack}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00263}00263\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2list_2list_8hpp_a1d3c2bf9f60e24ab119f83b608626a9b}{InsertAtFront}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ 3.5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00264}00264\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2list_2list_8hpp_ab883413e0a46dcbd8144d5755ee40012}{InsertAtBack}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ 5.3);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00266}00266\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ lst,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<double>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00270}00270\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<double>}}\ setvec1(lst);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00272}00272\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00273}00273\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00275}00275\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<double>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00276}00276\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<double>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00278}00278\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<double>}}\ setvec2;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00280}00280\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00281}00281\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 0.4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00282}00282\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 1.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00283}00283\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 3.5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00284}00284\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 5.3);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00285}00285\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 4.0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00287}00287\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec1,\ setvec2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00288}00288\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_aa50f26fa2becb4959b5b30c9fc38b561}{NonEqualSetVec}}(loctestnum,\ loctesterr,\ setvec1,\ setvec2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00290}00290\ \ \ \ \ setvec1.Clear();}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00291}00291\ \ \ \ \ setvec2.Clear();}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00293}00293\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 0.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00294}00294\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 1.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00295}00295\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec1,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00297}00297\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00298}00298\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 1.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00299}00299\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setvec2,\ \textcolor{keyword}{true},\ 0.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00301}00301\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a256e6670de78e167f3b1a99052935109}{EqualSetVec}}(loctestnum,\ loctesterr,\ setvec1,\ setvec2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00302}00302\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_aa50f26fa2becb4959b5b30c9fc38b561}{NonEqualSetVec}}(loctestnum,\ loctesterr,\ setvec1,\ setvec2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00304}00304\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00306}00306\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<double>}}\ setlst1(lst);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00308}00308\ \ \ \ \ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00309}00309\ \ \ \ \ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 6);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00311}00311\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<double>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00312}00312\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_ad036192d621d36972dfdcaf2d75ac248}{TraversePostOrder}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<double>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00314}00314\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<double>}}\ setlst2;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00316}00316\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00317}00317\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 0.4);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00318}00318\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 1.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00319}00319\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 3.5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00320}00320\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 5.3);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00321}00321\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 4.0);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00324}00324\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst1,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00325}00325\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_ad21dca01db62783787fc31b44fc32839}{NonEqualSetLst}}(loctestnum,\ loctesterr,\ setlst1,\ setlst2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00327}00327\ \ \ \ \ setlst1.Clear();}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00328}00328\ \ \ \ \ setlst2.Clear();}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00330}00330\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 0.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00331}00331\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 1.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00332}00332\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst1,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00334}00334\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 2.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00335}00335\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 1.1);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00336}00336\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_a7a477078485403f57dd557526a7c0ee1}{InsertC}}(loctestnum,\ loctesterr,\ setlst2,\ \textcolor{keyword}{true},\ 0.2);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00338}00338\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_a0a826a411fd20aafaefb049f0e98eaa5}{EqualSetLst}}(loctestnum,\ loctesterr,\ setlst1,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00339}00339\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2set_2set_8hpp_ad21dca01db62783787fc31b44fc32839}{NonEqualSetLst}}(loctestnum,\ loctesterr,\ setlst1,\ setlst2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00343}00343\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a340c16427203e8383a13114c71f36f91}{EqualLinear}}(loctestnum,\ loctesterr,\ setvec1,\ setlst2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00344}00344\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a2c32f29ae1c81bae54fbed3a2a14f318}{NonEqualLinear}}(loctestnum,\ loctesterr,\ setlst2,\ setvec2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00346}00346\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00347}00347\ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00348}00348\ \ \ \ \ loctestnum++;\ loctesterr++;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00349}00349\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Unmanaged\ error!\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00350}00350\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00351}00351\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}End\ of\ Set<double>\ Test!\ (Errors/Tests:\ "{}}\ <<\ loctesterr\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ loctestnum\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00352}00352\ \ \ testnum\ +=\ loctestnum;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00353}00353\ \ \ testerr\ +=\ loctesterr;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00354}00354\ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00356}\mbox{\hyperlink{exercise1b_2simpletest_8cpp_ada017913850b4d2facc89f5f08725608}{00356}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_ada017913850b4d2facc89f5f08725608}{stestSetString}}(\mbox{\hyperlink{classlasd_1_1Set}{lasd::Set<string>}}\ \&\ set,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00357}00357\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ loctestnum\ =\ 0,\ loctesterr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00358}00358\ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00359}00359\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_abbfc6d547c3e3d34cf135e5148d67b80}{TraversePreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a3c13db5600fb0ee8aca5448b0b121631}{TraversePrint<string>}});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00360}00360\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aa665628dbf2a0aa9eb0bf6675adbd7d0}{FoldPreOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{container_8cpp_a028c02fc77b834bd0d7b0068669ae175}{FoldStringConcatenate}},\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}?"{}}),\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}?ABCDE"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00361}00361\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_a0c26890a58a665f3e7427bb5a32004ba}{FoldPostOrder}}(loctestnum,\ loctesterr,\ set,\ \textcolor{keyword}{true},\ \&\mbox{\hyperlink{container_8cpp_a028c02fc77b834bd0d7b0068669ae175}{FoldStringConcatenate}},\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}?"{}}),\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}?EDCBA"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00362}00362\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00363}00363\ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00364}00364\ \ \ \ \ loctestnum++;\ loctesterr++;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00365}00365\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Unmanaged\ error!\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00366}00366\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00367}00367\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}End\ of\ Set<string>\ Test!\ (Errors/Tests:\ "{}}\ <<\ loctesterr\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ loctestnum\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00368}00368\ \ \ testnum\ +=\ loctestnum;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00369}00369\ \ \ testerr\ +=\ loctesterr;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00370}00370\ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00372}\mbox{\hyperlink{exercise1b_2simpletest_8cpp_ab288589714efae360fb3f4345eb17390}{00372}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_ada017913850b4d2facc89f5f08725608}{stestSetString}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00373}00373\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ loctestnum\ =\ 0,\ loctesterr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00374}00374\ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ Set<string>\ Test"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00375}00375\ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00376}00376\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1Vector}{lasd::Vector<string>}}\ vec(5);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00377}00377\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 0,\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}C"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00378}00378\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 1,\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}A"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00379}00379\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 2,\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}E"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00380}00380\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 3,\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}D"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00381}00381\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a379e31568dcc0fd1846bd3127529dc54}{SetAt}}(loctestnum,\ loctesterr,\ vec,\ \textcolor{keyword}{true},\ 4,\ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}B"{}}));}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00383}00383\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00385}00385\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ SetVec<string>\ Test:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00386}00386\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetVec}{lasd::SetVec<string>}}\ setvec(vec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00387}00387\ \ \ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_ada017913850b4d2facc89f5f08725608}{stestSetString}}(setvec,\ loctestnum,\ loctesterr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00388}00388\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Begin\ of\ SetLst<string>\ Test:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00389}00389\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SetLst}{lasd::SetLst<string>}}\ setlst(vec);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00390}00390\ \ \ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_ada017913850b4d2facc89f5f08725608}{stestSetString}}(setlst,\ loctestnum,\ loctesterr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00391}00391\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00393}00393\ \ \ \ \ \textcolor{comment}{/*\ **********************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00395}00395\ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2linear_8hpp_a340c16427203e8383a13114c71f36f91}{EqualLinear}}(loctestnum,\ loctesterr,\ setvec,\ setlst,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00397}00397\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00398}00398\ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00399}00399\ \ \ \ \ loctestnum++;\ loctesterr++;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00400}00400\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Unmanaged\ error!\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00401}00401\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00402}00402\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}End\ of\ Set<string>\ Test!\ (Errors/Tests:\ "{}}\ <<\ loctesterr\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ loctestnum\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00403}00403\ \ \ testnum\ +=\ loctestnum;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00404}00404\ \ \ testerr\ +=\ loctesterr;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00405}00405\ \}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00407}00407\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00409}\mbox{\hyperlink{exercise1b_2simpletest_8cpp_addbdf9a9582b67ddfef209940de41a68}{00409}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_addbdf9a9582b67ddfef209940de41a68}{testSimpleExercise1B}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr)\ \{}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00410}00410\ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a8d27ad3a192f277a36720bb0bfa14fb8}{stestSetInt}}(testnum,\ testerr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00411}00411\ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_a34d6506e3ff76ca31596fefc07338dd8}{stestSetFloat}}(testnum,\ testerr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00412}00412\ \ \ \mbox{\hyperlink{exercise1b_2simpletest_8cpp_ada017913850b4d2facc89f5f08725608}{stestSetString}}(testnum,\ testerr);}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00413}00413\ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Exercise\ 1B\ (Simple\ Test)\ (Errors/Tests:\ "{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{})"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{exercise1b_2simpletest_8cpp_source_l00414}00414\ \}}
+
+\end{DoxyCode}

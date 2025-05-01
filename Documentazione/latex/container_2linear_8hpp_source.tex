@@ -1,0 +1,132 @@
+\doxysection{linear.\+hpp}
+\hypertarget{container_2linear_8hpp_source}{}\label{container_2linear_8hpp_source}\index{Exercise1/container/linear.hpp@{Exercise1/container/linear.hpp}}
+\mbox{\hyperlink{container_2linear_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ LINEAR\_HPP}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ LINEAR\_HPP}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00004}00004\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_2mappable_8hpp}{mappable.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00008}00008\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00014}00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00017}00017\ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00026}00026\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00027}\mbox{\hyperlink{classlasd_1_1LinearContainer}{00027}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ :\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer}{PreOrderTraversableContainer}}<Data>,}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer}{PostOrderTraversableContainer}}<Data>}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00029}00029\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00031}00031\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{Container::size}};\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00034}00034\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00038}\mbox{\hyperlink{classlasd_1_1LinearContainer_a73a7a04f0de1384ca0457d4ca9a13cdb}{00038}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a73a7a04f0de1384ca0457d4ca9a13cdb}{\string~LinearContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00045}\mbox{\hyperlink{classlasd_1_1LinearContainer_a6169328db5312c89a36c8bb03fe771c8}{00045}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_a6169328db5312c89a36c8bb03fe771c8}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00050}\mbox{\hyperlink{classlasd_1_1LinearContainer_a3f2dee2b17088247e2e0af9b917fd251}{00050}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_a3f2dee2b17088247e2e0af9b917fd251}{operator=}}(\mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00061}00061\ \ \ \ \ inline\ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ \&)\ const\ noexcept;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00070}00070\ \ \ \ \ inline\ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}\ \&)\ const\ noexcept;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00072}00072\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00080}\mbox{\hyperlink{classlasd_1_1LinearContainer_a19342fe5f9bd28993a084a2c55b5ce0c}{00080}}\ \ \ \ \ virtual\ const\ Data\ \&operator[](const\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int})\ const\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00088}\mbox{\hyperlink{classlasd_1_1LinearContainer_ab58944bb1ee9f31ffdc7568289bddb3f}{00088}}\ \ \ \ \ virtual\ Data\ \&operator[](const\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int})\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00096}00096\ \ \ \ \ virtual\ inline\ const\ Data\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_afa660aeeeb05e8e17649be6abc178e18}{Front}}()\ const;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00104}00104\ \ \ \ \ virtual\ inline\ const\ Data\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_af1d8a156c7193952b50e378c7ebf3d2e}{Back}}()\ const;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00106}00106\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00113}00113\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_ab6a466858dbb320668d2de5a9d9ac0fe}{Traverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}})\ const\ override;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00115}00115\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00122}00122\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a052fa6f7b2aa89e16ad579f2ca6f1c45}{PreOrderTraverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}})\ const\ override;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00124}00124\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00131}00131\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a5941f4cac8147320fd4b0a3fed0f03c5}{PostOrderTraverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}})\ const\ override;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00132}00132\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00134}00134\ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00143}00143\ \ \ template\ <typename\ Data>}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00144}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{00144}}\ \ \ class\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{MutableLinearContainer}}\ :\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer}}<Data>,\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}<Data>,\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}<Data>}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00145}00145\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00147}00147\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00151}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9e4a61db39aecfff832790104a005dd8}{00151}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9e4a61db39aecfff832790104a005dd8}{\string~MutableLinearContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00153}00153\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00158}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a12442d88609042bb43bb2a9d28567733}{00158}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{MutableLinearContainer}}\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a12442d88609042bb43bb2a9d28567733}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{MutableLinearContainer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00163}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac63f284dc94041a3a9db62205f60b660}{00163}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{MutableLinearContainer}}\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac63f284dc94041a3a9db62205f60b660}{operator=}}(\mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{MutableLinearContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00165}00165\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00174}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9e9f3548e26e312e95c9a85d337ae31b}{00174}}\ \ \ \ \ virtual\ Data\ \&operator[](const\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long})\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00182}00182\ \ \ \ \ virtual\ inline\ Data\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9ba90b5701eabc0923a543a2e656774a}{Front}}();}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00190}00190\ \ \ \ \ virtual\ inline\ Data\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac40b69250822dc3fdb1b049df297a483}{Back}}();}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00192}00192\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00199}00199\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_aa9b9edfb9cd15429abecab628ca2b9a3}{Map}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}})\ override;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00201}00201\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00208}00208\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a66902d28253820c7147e1b3ce2cc377a}{PreOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}})\ override;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00210}00210\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00217}00217\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9a268768f616bceefc7e67a654638347}{PostOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}})\ override;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00218}00218\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00227}00227\ \ \ template\ <typename\ Data>}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00228}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer}{00228}}\ \ \ class\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer}{SortableLinearContainer}}\ :\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer}{MutableLinearContainer}}<Data>}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00229}00229\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00231}00231\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00232}00232\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{Container::size}};\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00234}00234\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00238}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a2713e7502fe667f0bf96dc8a15e8ec15}{00238}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a2713e7502fe667f0bf96dc8a15e8ec15}{\string~SortableLinearContainer}}()\ noexcept\ =\ default;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00240}00240\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00245}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a839f78f75b50ae4a2953f96ff528f3bc}{00245}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer}{SortableLinearContainer}}\ \&operator=(const\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer}{SortableLinearContainer}}\ \&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00250}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a979dcfab5dbba72a199cd0d86b10f9ed}{00250}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer}{SortableLinearContainer}}\ \&operator=(\mbox{\hyperlink{classlasd_1_1SortableLinearContainer}{SortableLinearContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00252}00252\ \ \ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00257}00257\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_ad624e6151703290ab05066dab32a6349}{Sort}}()\ noexcept;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00259}00259\ \ \ protected:}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00266}00266\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ left,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ right)\ noexcept;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00275}00275\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a0bf823d2af55e9feb825a525954420b9}{Partiziona}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ left,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ right)\ noexcept;}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00276}00276\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00277}00277\ \}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00279}00279\ \textcolor{preprocessor}{\#include\ "{}linear.cpp"{}}}
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{container_2linear_8hpp_source_l00281}00281\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

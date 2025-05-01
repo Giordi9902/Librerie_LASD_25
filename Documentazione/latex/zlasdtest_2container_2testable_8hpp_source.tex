@@ -1,0 +1,28 @@
+\doxysection{testable.\+hpp}
+\hypertarget{zlasdtest_2container_2testable_8hpp_source}{}\label{zlasdtest_2container_2testable_8hpp_source}\index{Exercise1/zlasdtest/container/testable.hpp@{Exercise1/zlasdtest/container/testable.hpp}}
+\mbox{\hyperlink{zlasdtest_2container_2testable_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#ifndef\ TESTABLETEST\_HPP}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#define\ TESTABLETEST\_HPP}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_2testable_8hpp}{../../container/testable.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00007}00007\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00009}00009\ \textcolor{comment}{//\ TestableContainer\ member\ functions!}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00011}00011\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00012}\mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{00012}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{zlasdtest_2container_2testable_8hpp_a17033cbf1996d77b846ff361054de7b8}{Exists}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TestableContainer}{lasd::TestableContainer<Data>}}\ \&\ con,\ \textcolor{keywordtype}{bool}\ chk,\ \textcolor{keyword}{const}\ Data\ \&\ val)\ \{}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00013}00013\ \ \ \textcolor{keywordtype}{bool}\ tst;}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00014}00014\ \ \ testnum++;}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00015}00015\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Data\ \(\backslash\)"{}"{}}\ <<\ val\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\ "{}}\ <<\ ((tst\ =\ con.\mbox{\hyperlink{classlasd_1_1TestableContainer_a5f90e627e780007bda538bf55e163a1e}{Exists}}(val))\ ?\ \textcolor{stringliteral}{"{}does"{}}\ :\ \textcolor{stringliteral}{"{}does\ not"{}})\ <<\ \textcolor{stringliteral}{"{}\ exist:\ "{}};}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00016}00016\ \ \ std::cout\ <<\ ((tst\ =\ (tst\ ==\ chk))\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00017}00017\ \ \ testerr\ +=\ (1\ -\/\ (\textcolor{keywordtype}{unsigned}\ int)\ tst);}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00020}00020\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{zlasdtest_2container_2testable_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

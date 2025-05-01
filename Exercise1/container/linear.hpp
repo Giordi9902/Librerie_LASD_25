@@ -15,15 +15,21 @@ namespace lasd
 
   public:
     virtual ~LinearContainer() = default;
+
     LinearContainer &operator=(const LinearContainer &) = delete;
     LinearContainer &operator=(LinearContainer &&) noexcept = delete;
+
     inline bool operator==(const LinearContainer &) const noexcept;
     inline bool operator!=(const LinearContainer &) const noexcept;
+
     virtual const Data &operator[](const unsigned long int) const = 0;
+
     virtual inline const Data &Front() const;
     virtual inline const Data &Back() const;
+
     using typename TraversableContainer<Data>::TraverseFun;
     inline void Traverse(TraverseFun) const override;
+
     inline void PreOrderTraverse(TraverseFun) const override;
     inline void PostOrderTraverse(TraverseFun) const override;
   };
@@ -34,7 +40,7 @@ namespace lasd
                                  virtual public PostOrderMappableContainer<Data>
   {
   protected:
-  using Container::size;
+    using Container::size;
 
   public:
     virtual ~MutableLinearContainer() = default;
@@ -45,6 +51,9 @@ namespace lasd
     virtual Data &operator[](const ulong) = 0;
     virtual inline Data &Front();
     virtual inline Data &Back();
+    using LinearContainer<Data>::operator[];
+    using LinearContainer<Data>::Front;
+    using LinearContainer<Data>::Back;
     using typename MappableContainer<Data>::MapFun;
     inline void Map(MapFun) override;
     inline void PreOrderMap(MapFun) override;

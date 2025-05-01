@@ -1,0 +1,83 @@
+\doxysection{mappable.\+hpp}
+\hypertarget{container_2mappable_8hpp_source}{}\label{container_2mappable_8hpp_source}\index{Exercise1/container/mappable.hpp@{Exercise1/container/mappable.hpp}}
+\mbox{\hyperlink{container_2mappable_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ MAPPABLE\_HPP}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ MAPPABLE\_HPP}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_2traversable_8hpp}{traversable.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00021}00021\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00022}\mbox{\hyperlink{classlasd_1_1MappableContainer}{00022}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ :\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer}}<Data>}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00023}00023\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00025}00025\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00029}\mbox{\hyperlink{classlasd_1_1MappableContainer_aa3564de042a1efaabc415517e764279b}{00029}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1MappableContainer_aa3564de042a1efaabc415517e764279b}{\string~MappableContainer}}()\ noexcept\ =\ default;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00033}\mbox{\hyperlink{classlasd_1_1MappableContainer_ab4134f8c2efeae4812c5b1d2e7ca4994}{00033}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ \&operator=(const\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ \&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00038}\mbox{\hyperlink{classlasd_1_1MappableContainer_a01e8387a9c8ee14a180c4dd851e8e76b}{00038}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ \&operator=(\mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00047}\mbox{\hyperlink{classlasd_1_1MappableContainer_a69a83c127dfcfdf6f3d81432dc774b57}{00047}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00056}\mbox{\hyperlink{classlasd_1_1MappableContainer_a5974c15c1c2dab25fbec3755c1e9c4f3}{00056}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00061}\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{00061}}\ \ \ \ \ using\ \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ =\ std::function<\textcolor{keywordtype}{void}(Data\ \&)>;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00068}\mbox{\hyperlink{classlasd_1_1MappableContainer_ab6d1e53a4c26b985cec5ddaad8246f61}{00068}}\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MappableContainer_ab6d1e53a4c26b985cec5ddaad8246f61}{Map}}(const\ \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00069}00069\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00078}00078\ \ \ template\ <typename\ Data>}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00079}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{00079}}\ \ \ class\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ :\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}<Data>,\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer}{PreOrderTraversableContainer}}<Data>}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00080}00080\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00082}00082\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00086}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a05a6998e665d3e1a973069ee5fd37d53}{00086}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a05a6998e665d3e1a973069ee5fd37d53}{\string~PreOrderMappableContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00091}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a93520a3fb5b5c97931cb09a00b8802ec}{00091}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a93520a3fb5b5c97931cb09a00b8802ec}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00096}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_ae3c78aba2f7666f98cba0cd991a8226e}{00096}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_ae3c78aba2f7666f98cba0cd991a8226e}{operator=}}(\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00105}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a1f250d5a6591867ed8c9ed38338f0901}{00105}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00114}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a9066092251f0aa173d6ff9e2f74cf7c5}{00114}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer}{PreOrderMappableContainer}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00119}00119\ \ \ \ \ using\ typename\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}<Data>::\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00126}\mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_ae938b147b1b53d7c0b7979bc7bdf7a57}{00126}}\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_ae938b147b1b53d7c0b7979bc7bdf7a57}{PreOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00133}00133\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a2614dce310eeac8cbd6a5da62718229b}{Map}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)\ override;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00134}00134\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00143}00143\ \ \ template\ <typename\ Data>}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00144}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{00144}}\ \ \ class\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ :\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}<Data>,\ virtual\ public\ \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer}{PostOrderTraversableContainer}}<Data>}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00145}00145\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00147}00147\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00151}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a92e6521aac60d9a17bf591fcfc425a39}{00151}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a92e6521aac60d9a17bf591fcfc425a39}{\string~PostOrderMappableContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00156}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a9f5de708a2b2b15c8fa97c39796cbef3}{00156}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a9f5de708a2b2b15c8fa97c39796cbef3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00161}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_aa833118bc4ba8b870e2db172476b0356}{00161}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ \&\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_aa833118bc4ba8b870e2db172476b0356}{operator=}}(\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ \&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00170}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a31fb3ed52cee142f43ddb7d2f6a43f6b}{00170}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00179}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a4631e7422d3ff8b2cfbe057a356ee8d6}{00179}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer}{PostOrderMappableContainer}}\ \&)\ const\ noexcept\ =\ delete;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00185}00185\ \ \ \ \ using\ typename\ \mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer}}<Data>::\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00191}\mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a8825af56cd8c30da4fccbc3eb1ee6691}{00191}}\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a8825af56cd8c30da4fccbc3eb1ee6691}{PostOrderMap}}(const\ \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00198}00198\ \ \ \ \ inline\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a033552bb10eed6faec70482a2f347416}{Map}}(const\ \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)\ override;}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00199}00199\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00201}00201\ \}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00203}00203\ \textcolor{preprocessor}{\#include\ "{}mappable.cpp"{}}}
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{container_2mappable_8hpp_source_l00205}00205\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,60 @@
+\doxysection{container.\+cpp}
+\hypertarget{container_8cpp_source}{}\label{container_8cpp_source}\index{Exercise1/zlasdtest/container/container.cpp@{Exercise1/zlasdtest/container/container.cpp}}
+\mbox{\hyperlink{container_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00004}00004\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_2container_8hpp}{../../container/container.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00008}00008\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00010}00010\ \textcolor{comment}{//\ Container\ member\ functions!}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00012}\mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{00012}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{container_8cpp_a1858e89cb44de0b158b9894e132af86a}{Empty}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1Container}{lasd::Container}}\ \&\ con,\ \textcolor{keywordtype}{bool}\ chk)\ \{}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00013}00013\ \ \ \textcolor{keywordtype}{bool}\ tst;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00014}00014\ \ \ testnum++;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00015}00015\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ The\ container\ is\ "{}}\ <<\ ((tst\ =\ con.\mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}}())\ ?\ \textcolor{stringliteral}{"{}"{}}\ :\ \textcolor{stringliteral}{"{}not\ "{}})\ <<\ \textcolor{stringliteral}{"{}empty:\ "{}};}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00016}00016\ \ \ std::cout\ <<\ ((tst\ =\ (tst\ ==\ chk))\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00017}00017\ \ \ testerr\ +=\ (1\ -\/\ (\textcolor{keywordtype}{unsigned}\ int)\ tst);}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00020}\mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{container_8cpp_ac6660927bc89ed078582147a9eec7722}{Size}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testnum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \&\ testerr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1Container}{lasd::Container}}\ \&\ con,\ \textcolor{keywordtype}{bool}\ chk,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ siz)\ \{}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00021}00021\ \ \ \textcolor{keywordtype}{bool}\ tst;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00022}00022\ \ \ testnum++;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00023}00023\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ The\ container\ has\ size\ "{}}\ <<\ con.\mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}}()\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00024}00024\ \ \ std::cout\ <<\ ((tst\ =\ ((con.\mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}}()\ ==\ siz)\ ==\ chk))\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00025}00025\ \ \ testerr\ +=\ (1\ -\/\ (\textcolor{keywordtype}{unsigned}\ int)\ tst);}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00028}00028\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00030}00030\ \textcolor{comment}{//\ Auxiliary\ functions\ for\ TraversableContainer!}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00032}\mbox{\hyperlink{container_8cpp_a37504178adfd636c6eb2b95e21fd925b}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{container_8cpp_a37504178adfd636c6eb2b95e21fd925b}{FoldParity}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ dat,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&\ acc)\ \{}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00033}00033\ \ \ \textcolor{keywordflow}{return}\ ((acc\ +\ dat)\ \%\ 2);}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00036}\mbox{\hyperlink{container_8cpp_a028c02fc77b834bd0d7b0068669ae175}{00036}}\ std::string\ \mbox{\hyperlink{container_8cpp_a028c02fc77b834bd0d7b0068669ae175}{FoldStringConcatenate}}(\textcolor{keyword}{const}\ std::string\ \&\ dat,\ \textcolor{keyword}{const}\ std::string\ \&\ acc)\ \{}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00037}00037\ \ \ std::string\ newstr\ =\ acc;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00038}00038\ \ \ newstr.append(dat);}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00039}00039\ \ \ \textcolor{keywordflow}{return}\ newstr;}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00042}00042\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00044}00044\ \textcolor{comment}{//\ Auxiliary\ functions\ for\ MappableContainer!}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00046}\mbox{\hyperlink{container_8cpp_acd9c6fd1b12a1178e0c9ec143bff4f37}{00046}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{container_8cpp_acd9c6fd1b12a1178e0c9ec143bff4f37}{MapStringAppend}}(std::string\ \&\ dat,\ \textcolor{keyword}{const}\ std::string\ \&\ par)\ \{}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00047}00047\ \ \ dat.append(par);}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00050}\mbox{\hyperlink{container_8cpp_a25af591d0666780d6738d866814c2d51}{00050}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{container_8cpp_a25af591d0666780d6738d866814c2d51}{MapStringNonEmptyAppend}}(std::string\ \&\ dat,\ \textcolor{keyword}{const}\ std::string\ \&\ par)\ \{}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00051}00051\ \ \ \textcolor{keywordflow}{if}\ (!dat.empty())\ \{\ dat.append(par);\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{container_8cpp_source_l00054}00054\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+
+\end{DoxyCode}

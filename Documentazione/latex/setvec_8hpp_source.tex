@@ -1,0 +1,133 @@
+\doxysection{setvec.\+hpp}
+\hypertarget{setvec_8hpp_source}{}\label{setvec_8hpp_source}\index{Exercise1/set/vec/setvec.hpp@{Exercise1/set/vec/setvec.hpp}}
+\mbox{\hyperlink{setvec_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#ifndef\ SETVEC\_HPP}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#define\ SETVEC\_HPP}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00005}00005\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{set_2set_8hpp}{../set.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_2vector_8hpp}{../../vector/vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00010}00010\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}\ \{}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00014}00014\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00016}00016\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00017}\mbox{\hyperlink{classlasd_1_1SetVec}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlasd_1_1SetVec}{SetVec}}\ \{}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00018}00018\ \ \ \textcolor{comment}{//\ Must\ extend\ Set<Data>,}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00019}00019\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ResizableContainer}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00021}00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00023}00023\ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00025}00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00027}00027\ \ \ \textcolor{comment}{//\ using\ Container::???;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00029}00029\ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00031}00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00033}00033\ \ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00034}00034\ \ \ \textcolor{comment}{//\ SetVec()\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00036}00036\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00038}00038\ \ \ \textcolor{comment}{//\ Specific\ constructors}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00039}00039\ \ \ \textcolor{comment}{//\ SetVec(argument)\ specifiers;\ //\ A\ set\ obtained\ from\ a\ TraversableContainer}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00040}00040\ \ \ \textcolor{comment}{//\ SetVec(argument)\ specifiers;\ //\ A\ set\ obtained\ from\ a\ MappableContainer}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00042}00042\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00044}00044\ \ \ \textcolor{comment}{//\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00045}00045\ \ \ \textcolor{comment}{//\ SetVec(argument)\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00047}00047\ \ \ \textcolor{comment}{//\ Move\ constructor}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00048}00048\ \ \ \textcolor{comment}{//\ SetVec(argument)\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00050}00050\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00052}00052\ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00053}00053\ \ \ \textcolor{comment}{//\ \string~SetVec()\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00055}00055\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00057}00057\ \ \ \textcolor{comment}{//\ Copy\ assignment}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00058}00058\ \ \ \textcolor{comment}{//\ type\ operator=(argument)\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00060}00060\ \ \ \textcolor{comment}{//\ Move\ assignment}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00061}00061\ \ \ \textcolor{comment}{//\ type\ operator=(argument)\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00063}00063\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00065}00065\ \ \ \textcolor{comment}{//\ Comparison\ operators}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00066}00066\ \ \ \textcolor{comment}{//\ type\ operator==(argument)\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00067}00067\ \ \ \textcolor{comment}{//\ type\ operator!=(argument)\ specifiers;}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00069}00069\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00071}00071\ \ \ \textcolor{comment}{//\ Specific\ member\ functions\ (inherited\ from\ OrderedDictionaryContainer)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00073}00073\ \ \ \textcolor{comment}{//\ type\ Min(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ empty)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00074}00074\ \ \ \textcolor{comment}{//\ type\ MinNRemove(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ empty)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00075}00075\ \ \ \textcolor{comment}{//\ type\ RemoveMin(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ empty)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00077}00077\ \ \ \textcolor{comment}{//\ type\ Max(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ empty)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00078}00078\ \ \ \textcolor{comment}{//\ type\ MaxNRemove(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ empty)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00079}00079\ \ \ \textcolor{comment}{//\ type\ RemoveMax(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ empty)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00081}00081\ \ \ \textcolor{comment}{//\ type\ Predecessor(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ not\ found)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00082}00082\ \ \ \textcolor{comment}{//\ type\ PredecessorNRemove(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ not\ found)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00083}00083\ \ \ \textcolor{comment}{//\ type\ RemovePredecessor(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ not\ found)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00085}00085\ \ \ \textcolor{comment}{//\ type\ Successor(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ not\ found)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00086}00086\ \ \ \textcolor{comment}{//\ type\ SuccessorNRemove(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ not\ found)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00087}00087\ \ \ \textcolor{comment}{//\ type\ RemoveSuccessor(argument)\ specifiers;\ //\ Override\ OrderedDictionaryContainer\ member\ (concrete\ function\ must\ throw\ std::length\_error\ when\ not\ found)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00089}00089\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00091}00091\ \ \ \textcolor{comment}{//\ Specific\ member\ functions\ (inherited\ from\ DictionaryContainer)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00093}00093\ \ \ \textcolor{comment}{//\ type\ Insert(argument)\ specifiers;\ //\ Override\ DictionaryContainer\ member\ (copy\ of\ the\ value)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00094}00094\ \ \ \textcolor{comment}{//\ type\ Insert(argument)\ specifiers;\ //\ Override\ DictionaryContainer\ member\ (move\ of\ the\ value)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00095}00095\ \ \ \textcolor{comment}{//\ type\ Remove(argument)\ specifiers;\ //\ Override\ DictionaryContainer\ member}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00097}00097\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00099}00099\ \ \ \textcolor{comment}{//\ Specific\ member\ functions\ (inherited\ from\ LinearContainer)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00101}00101\ \ \ \textcolor{comment}{//\ type\ operator[](argument)\ specifiers;\ //\ Override\ LinearContainer\ member\ (must\ throw\ std::out\_of\_range\ when\ out\ of\ range)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00103}00103\ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00105}00105\ \ \ \textcolor{comment}{//\ Specific\ member\ function\ (inherited\ from\ TestableContainer)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00107}00107\ \ \ \textcolor{comment}{//\ type\ Exists(argument)\ specifiers;\ //\ Override\ TestableContainer\ member}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00109}00109\ \ \ \textcolor{comment}{/*\ ************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00111}00111\ \ \ \textcolor{comment}{//\ Specific\ member\ function\ (inherited\ from\ ClearableContainer)}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00113}00113\ \ \ \textcolor{comment}{//\ type\ Clear()\ specifiers;\ //\ Override\ ClearableContainer\ member}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00115}00115\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00117}00117\ \ \ \textcolor{comment}{//\ Auxiliary\ functions,\ if\ necessary!}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00119}00119\ \};}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00121}00121\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00125}00125\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{setvec_8cpp}{setvec.cpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{setvec_8hpp_source_l00127}00127\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

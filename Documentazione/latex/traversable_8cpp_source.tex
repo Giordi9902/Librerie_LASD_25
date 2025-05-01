@@ -1,0 +1,88 @@
+\doxysection{traversable.\+cpp}
+\hypertarget{traversable_8cpp_source}{}\label{traversable_8cpp_source}\index{Exercise1/container/traversable.cpp@{Exercise1/container/traversable.cpp}}
+\mbox{\hyperlink{traversable_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00001}00001\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00002}00002\ \{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00003}00003\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data,\ \textcolor{keyword}{typename}\ Accumulator>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00004}\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{00004}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{FoldFun}}\ =}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00005}00005\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>::template}}\ \mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{FoldFun<Accumulator>}};}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Accumulator>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00009}\mbox{\hyperlink{classlasd_1_1TraversableContainer_a187cd8568dbb021af9506119270a2d47}{00009}}\ \ \ \ \ \textcolor{keyword}{inline}\ Accumulator\ \mbox{\hyperlink{classlasd_1_1TraversableContainer_a187cd8568dbb021af9506119270a2d47}{TraversableContainer<Data>::Fold}}(\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{FoldFun<Accumulator>}}\ func,}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accumulator\ base)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00011}00011\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aab8be8fc995679354977aa2e6f212745}{Traverse}}(}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ [\&base,\ func](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ base\ =\ func(currData,\ base);\ \});}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ base;}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00016}00016\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ Overrided\ Methods}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00022}\mbox{\hyperlink{classlasd_1_1TraversableContainer_acfb5bcd70bd180b5077aeeebfffd0478}{00022}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1TraversableContainer_acfb5bcd70bd180b5077aeeebfffd0478}{TraversableContainer<Data>::Exists}}(\textcolor{keyword}{const}\ Data\ \&data)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00023}00023\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exists\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{zlasdtest_2container_2traversable_8hpp_aab8be8fc995679354977aa2e6f212745}{Traverse}}(}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ [data,\ \&exists](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ exists\ |=\ (data\ ==\ currData);\ \});}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ exists;}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ PreOrder\ Traversable\ Container}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Specific\ Methods}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00040}\mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a47c4434cd8ebdee34a4a47ae15663d5a}{00040}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a47c4434cd8ebdee34a4a47ae15663d5a}{PreOrderTraversableContainer<Data>::Traverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00041}00041\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a3cf5824652d3c78c4fd07d120a17a3c0}{PreOrderTraverse}}(func);}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Accumulator>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{inline}\ Accumulator}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00048}\mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a4e2a5a92ca46c14cb965d9863970035d}{00048}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a4e2a5a92ca46c14cb965d9863970035d}{PreOrderTraversableContainer<Data>::PreOrderFold}}(\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{FoldFun<Accumulator>}}\ func,}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accumulator\ base)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00050}00050\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a3cf5824652d3c78c4fd07d120a17a3c0}{PreOrderTraverse}}(}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ [\&base,\ func](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ base\ =\ func(currData,\ base);\ \});}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ base;}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00055}00055\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//\ PreOrder\ Traversable\ Container}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ Specific\ Methods}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00066}\mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_abdc39e17979e4a8bfdc724953f0b703f}{00066}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_abdc39e17979e4a8bfdc724953f0b703f}{PostOrderTraversableContainer<Data>::Traverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00067}00067\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_aa91ab4611243e69f9291e58e445fb441}{PostOrderTraverse}}(func);}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Accumulator>}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{inline}\ Accumulator}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00074}\mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_a70bfaa7c37ae083c73b5128d3830f83e}{00074}}\ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_a70bfaa7c37ae083c73b5128d3830f83e}{PostOrderTraversableContainer<Data>::PostOrderFold}}(\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{FoldFun<Accumulator>}}\ func,}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accumulator\ base)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00076}00076\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_aa91ab4611243e69f9291e58e445fb441}{PostOrderTraverse}}(}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ [\&base,\ \&func](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ base\ =\ func(currData,\ base);\ \});}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ base;}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00081}00081\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{traversable_8cpp_source_l00082}00082\ \}}
+
+\end{DoxyCode}

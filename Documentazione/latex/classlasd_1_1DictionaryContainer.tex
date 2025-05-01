@@ -1,0 +1,369 @@
+\doxysection{lasd\+::Dictionary\+Container\texorpdfstring{$<$}{<} Data \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classlasd_1_1DictionaryContainer}{}\label{classlasd_1_1DictionaryContainer}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+
+
+Classe astratta per contenitori di tipo dizionario.  
+
+
+
+
+{\ttfamily \#include $<$dictionary.\+hpp$>$}
+
+Inheritance diagram for lasd\+::Dictionary\+Container\texorpdfstring{$<$}{<} Data \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classlasd_1_1DictionaryContainer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a89c639429cc90d4f32b3cb168e4d94db}{\texorpdfstring{$\sim$}{\string~}\+Dictionary\+Container}} ()=default
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale predefinito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aea8722e55075c190fc5a19154e9a79a1}{operator=}} (const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnamento per copia (eliminato). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a939be2f81b7700db96d4c730089dfcaa}{operator=}} (\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnamento per spostamento (eliminato). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a0361ad1f987cce165af8c78f35212715}{operator==}} (const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di confronto per uguaglianza (eliminato). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_afbe6f651b0d875d7702a7226d064d996}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di confronto per disuguaglianza (eliminato). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}{Insert}} (const Data \&)=0
+\begin{DoxyCompactList}\small\item\em Inserisce un dato nel dizionario (copia). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_afab123cd0afeb8fe6e0ebd8133a8ce79}{Insert}} (Data \&\&)=0
+\begin{DoxyCompactList}\small\item\em Inserisce un dato nel dizionario (spostamento). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a16f2b4415b70aae7daffeb5eb3f608af}{Remove}} (const Data \&)=0
+\begin{DoxyCompactList}\small\item\em Rimuove un dato dal dizionario. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3}{Insert\+All}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
+\begin{DoxyCompactList}\small\item\em Inserisce tutti i dati da un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_afacca54f4358ff5e4704de110d83e860}{Insert\+All}} (\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&)
+\begin{DoxyCompactList}\small\item\em Inserisce tutti i dati da un \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container} (spostamento). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a7173697ffb6529e1242949d63cc54531}{Remove\+All}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
+\begin{DoxyCompactList}\small\item\em Rimuove tutti i dati presenti in un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452}{Insert\+Some}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
+\begin{DoxyCompactList}\small\item\em Inserisce alcuni dati da un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container} (almeno uno). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aabfc2010462cfc369479592d9011c68d}{Insert\+Some}} (\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&)
+\begin{DoxyCompactList}\small\item\em Inserisce alcuni dati da un \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container} (spostamento, almeno uno). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a5e757dc7bb39f946f9d8e8eeef60d16a}{Remove\+Some}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
+\begin{DoxyCompactList}\small\item\em Rimuove alcuni dati presenti in un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container} (almeno uno). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1TestableContainer}{lasd\+::\+Testable\+Container$<$ Data $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classlasd_1_1TestableContainer_ae9197219b6a63e6cd1bc92a65f283a01}{\texorpdfstring{$\sim$}{\string~}\+Testable\+Container}} ()=default
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \& \mbox{\hyperlink{classlasd_1_1TestableContainer_a7a8118d84bc4b288f24b81d0ef1c28a4}{operator=}} (const \mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \& \mbox{\hyperlink{classlasd_1_1TestableContainer_a286f0fe73edefb9e0bf331d196d0f640}{operator=}} (\mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1TestableContainer_add472a82b13e8c7ca9475598624130b7}{operator==}} (const \mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1TestableContainer_a34c9e849afdebc87b63fe407fbb26ff4}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1TestableContainer_a5f90e627e780007bda538bf55e163a1e}{Exists}} (const Data \&data) const noexcept=0
+\begin{DoxyCompactList}\small\item\em Funzione per verificare l\textquotesingle{}esistenza di un elemento nel contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
+\item 
+bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
+\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3}{size}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Data$>$\newline
+class lasd\+::\+Dictionary\+Container$<$ Data $>$}
+Classe astratta per contenitori di tipo dizionario. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Data} & Il tipo di dato da memorizzare nel dizionario. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line \mbox{\hyperlink{container_2dictionary_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{container_2dictionary_8hpp_source}{dictionary.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classlasd_1_1DictionaryContainer_a89c639429cc90d4f32b3cb168e4d94db}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!````~DictionaryContainer@{\texorpdfstring{$\sim$}{\string~}DictionaryContainer}}
+\index{````~DictionaryContainer@{\texorpdfstring{$\sim$}{\string~}DictionaryContainer}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DictionaryContainer()}{\string~DictionaryContainer()}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a89c639429cc90d4f32b3cb168e4d94db} 
+template$<$typename Data$>$ \\
+virtual \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Distruttore virtuale predefinito. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!Insert@{Insert}}
+\index{Insert@{Insert}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71} 
+template$<$typename Data$>$ \\
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Insert (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Inserisce un dato nel dizionario (copia). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Il dato da inserire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se l\textquotesingle{}inserimento ha avuto successo (es. il dato non era già presente), {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classlasd_1_1DictionaryContainer_afab123cd0afeb8fe6e0ebd8133a8ce79}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!Insert@{Insert}}
+\index{Insert@{Insert}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_afab123cd0afeb8fe6e0ebd8133a8ce79} 
+template$<$typename Data$>$ \\
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Insert (\begin{DoxyParamCaption}\item[{Data \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Inserisce un dato nel dizionario (spostamento). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Il dato da inserire (r-\/value reference). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se l\textquotesingle{}inserimento ha avuto successo (es. il dato non era già presente), {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!InsertAll@{InsertAll}}
+\index{InsertAll@{InsertAll}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{InsertAll()}{InsertAll()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Insert\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&}]{con}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Inserisce tutti i dati da un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con} & Il contenitore traversabile da cui inserire i dati. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se tutti gli inserimenti hanno avuto successo, {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{dictionary_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{dictionary_8cpp_source}{dictionary.\+cpp}}.
+
+\Hypertarget{classlasd_1_1DictionaryContainer_afacca54f4358ff5e4704de110d83e860}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!InsertAll@{InsertAll}}
+\index{InsertAll@{InsertAll}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{InsertAll()}{InsertAll()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_afacca54f4358ff5e4704de110d83e860} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Insert\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&}]{con}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Inserisce tutti i dati da un \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container} (spostamento). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con} & Il contenitore mappabile da cui inserire i dati (r-\/value reference). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se tutti gli inserimenti hanno avuto successo, {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{dictionary_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{dictionary_8cpp_source}{dictionary.\+cpp}}.
+
+\Hypertarget{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!InsertSome@{InsertSome}}
+\index{InsertSome@{InsertSome}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{InsertSome()}{InsertSome()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Insert\+Some (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&}]{con}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Inserisce alcuni dati da un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container} (almeno uno). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con} & Il contenitore traversabile da cui inserire i dati. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se almeno un inserimento ha avuto successo, {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{dictionary_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{dictionary_8cpp_source}{dictionary.\+cpp}}.
+
+\Hypertarget{classlasd_1_1DictionaryContainer_aabfc2010462cfc369479592d9011c68d}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!InsertSome@{InsertSome}}
+\index{InsertSome@{InsertSome}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{InsertSome()}{InsertSome()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_aabfc2010462cfc369479592d9011c68d} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Insert\+Some (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&}]{con}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Inserisce alcuni dati da un \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container} (spostamento, almeno uno). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con} & Il contenitore mappabile da cui inserire i dati (r-\/value reference). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se almeno un inserimento ha avuto successo, {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{dictionary_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{dictionary_8cpp_source}{dictionary.\+cpp}}.
+
+\Hypertarget{classlasd_1_1DictionaryContainer_afbe6f651b0d875d7702a7226d064d996}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_afbe6f651b0d875d7702a7226d064d996} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}}$<$ Data $>$ \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Operatore di confronto per disuguaglianza (eliminato). 
+
+\Hypertarget{classlasd_1_1DictionaryContainer_aea8722e55075c190fc5a19154e9a79a1}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_aea8722e55075c190fc5a19154e9a79a1} 
+template$<$typename Data$>$ \\
+\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}}$<$ Data $>$ \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Operatore di assegnamento per copia (eliminato). 
+
+\Hypertarget{classlasd_1_1DictionaryContainer_a939be2f81b7700db96d4c730089dfcaa}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a939be2f81b7700db96d4c730089dfcaa} 
+template$<$typename Data$>$ \\
+\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}}$<$ Data $>$ \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Operatore di assegnamento per spostamento (eliminato). 
+
+\Hypertarget{classlasd_1_1DictionaryContainer_a0361ad1f987cce165af8c78f35212715}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a0361ad1f987cce165af8c78f35212715} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}}$<$ Data $>$ \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Operatore di confronto per uguaglianza (eliminato). 
+
+\Hypertarget{classlasd_1_1DictionaryContainer_a16f2b4415b70aae7daffeb5eb3f608af}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!Remove@{Remove}}
+\index{Remove@{Remove}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a16f2b4415b70aae7daffeb5eb3f608af} 
+template$<$typename Data$>$ \\
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Remove (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Rimuove un dato dal dizionario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Il dato da rimuovere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se la rimozione ha avuto successo (es. il dato era presente), {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classlasd_1_1DictionaryContainer_a7173697ffb6529e1242949d63cc54531}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!RemoveAll@{RemoveAll}}
+\index{RemoveAll@{RemoveAll}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveAll()}{RemoveAll()}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a7173697ffb6529e1242949d63cc54531} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Remove\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&}]{con}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Rimuove tutti i dati presenti in un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con} & Il contenitore traversabile i cui dati devono essere rimossi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se tutte le rimozioni hanno avuto successo, {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{dictionary_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{dictionary_8cpp_source}{dictionary.\+cpp}}.
+
+\Hypertarget{classlasd_1_1DictionaryContainer_a5e757dc7bb39f946f9d8e8eeef60d16a}\index{lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}!RemoveSome@{RemoveSome}}
+\index{RemoveSome@{RemoveSome}!lasd::DictionaryContainer$<$ Data $>$@{lasd::DictionaryContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveSome()}{RemoveSome()}}
+{\footnotesize\ttfamily \label{classlasd_1_1DictionaryContainer_a5e757dc7bb39f946f9d8e8eeef60d16a} 
+template$<$typename Data$>$ \\
+bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container}}$<$ Data $>$\+::\+Remove\+Some (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&}]{con}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Rimuove alcuni dati presenti in un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container} (almeno uno). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con} & Il contenitore traversabile i cui dati devono essere rimossi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} se almeno una rimozione ha avuto successo, {\ttfamily false} altrimenti. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{dictionary_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{dictionary_8cpp_source}{dictionary.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Exercise1/container/\mbox{\hyperlink{container_2dictionary_8hpp}{dictionary.\+hpp}}\item 
+Exercise1/container/\mbox{\hyperlink{dictionary_8cpp}{dictionary.\+cpp}}\end{DoxyCompactItemize}
