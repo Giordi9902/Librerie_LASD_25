@@ -23,7 +23,7 @@ namespace lasd
 
     // Specific member function
     using TraverseFun = std::function<void(const Data &)>;
-    virtual void Traverse(TraverseFun) const = 0;
+    virtual void Traverse(const TraverseFun) const = 0;
     template <typename Accumulator>
     using FoldFun = std::function<Accumulator(const Data &, const Accumulator &)>;
 
@@ -80,13 +80,13 @@ namespace lasd
 
     // Specific member function
     using typename TraversableContainer<Data>::TraverseFun;
-    virtual void PostOrderTraverse(TraverseFun) const = 0;
+    virtual void PostOrderTraverse(const TraverseFun) const = 0;
     template <typename Accumulator>
     using FoldFun = typename TraversableContainer<Data>::FoldFun<Accumulator>;
 
     template <typename Accumulator>
     inline Accumulator PostOrderFold(FoldFun<Accumulator>, Accumulator) const;
-    inline void Traverse(TraverseFun) const override;
+    inline void Traverse(const TraverseFun) const override;
     // Specific member function (inherited from TraversableContainer)
   };
 

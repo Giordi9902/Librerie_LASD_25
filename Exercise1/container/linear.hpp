@@ -22,16 +22,16 @@ namespace lasd
     inline bool operator==(const LinearContainer &) const noexcept;
     inline bool operator!=(const LinearContainer &) const noexcept;
 
-    virtual const Data &operator[](const ulong int) const = 0;
+    virtual const Data &operator[](const unsigned long int) const = 0;
 
     virtual inline const Data &Front() const;
     virtual inline const Data &Back() const;
 
     using typename TraversableContainer<Data>::TraverseFun;
-    inline void Traverse(TraverseFun) const override;
+    inline void Traverse(const TraverseFun) const override;
 
-    inline void PreOrderTraverse(TraverseFun) const override;
-    inline void PostOrderTraverse(TraverseFun) const override;
+    inline void PreOrderTraverse(const TraverseFun) const override;
+    inline void PostOrderTraverse(const TraverseFun) const override;
   };
 
   template <typename Data>
@@ -48,7 +48,7 @@ namespace lasd
     MutableLinearContainer &operator=(MutableLinearContainer &&) noexcept = delete;
 
     // Specific member functions
-    virtual Data &operator[](const ulong) = 0;
+    virtual Data &operator[](const unsigned long) = 0;
     virtual inline Data &Front();
     virtual inline Data &Back();
     using LinearContainer<Data>::operator[];
@@ -74,8 +74,8 @@ namespace lasd
     inline void Sort() noexcept;
 
   protected:
-    void QuickSort(ulong, ulong) noexcept;
-    ulong Partition(ulong, ulong) noexcept;
+    void QuickSort(unsigned long, unsigned long) noexcept;
+    unsigned long Partition(unsigned long, unsigned long) noexcept;
   };
 
 }

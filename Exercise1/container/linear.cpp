@@ -9,7 +9,7 @@ namespace lasd
             return false;
         }
 
-        for (ulong i = 0; i < size; ++i)
+        for (unsigned long i = 0; i < size; ++i)
         {
             if ((*this)[i] != con[i])
             {
@@ -46,7 +46,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void LinearContainer<Data>::Traverse(TraverseFun func) const
+    inline void LinearContainer<Data>::Traverse(const TraverseFun func) const
     {
         PreOrderTraverse(func);
     }
@@ -54,7 +54,7 @@ namespace lasd
     template <typename Data>
     inline void LinearContainer<Data>::PreOrderTraverse(const TraverseFun func) const
     {
-        for (ulong i = 0; i < size; ++i)
+        for (unsigned long i = 0; i < size; ++i)
         {
             func((*this)[i]);
         }
@@ -64,7 +64,7 @@ namespace lasd
     inline void LinearContainer<Data>::PostOrderTraverse(const TraverseFun func) const
     {
 
-        for (ulong i = size; i > 0;)
+        for (unsigned long i = size; i > 0;)
         {
             func((*this)[--i]);
         }
@@ -99,7 +99,7 @@ namespace lasd
     template <typename Data>
     inline void MutableLinearContainer<Data>::PreOrderMap(MapFun func)
     {
-        for (ulong index = 0; index < size; ++index)
+        for (unsigned long index = 0; index < size; ++index)
         {
             func((*this)[index]);
         }
@@ -108,7 +108,7 @@ namespace lasd
     template <typename Data>
     inline void MutableLinearContainer<Data>::PostOrderMap(MapFun func)
     {
-        for (ulong index = size; index > 0;)
+        for (unsigned long index = size; index > 0;)
         {
             func((*this)[--index]);
         }
@@ -121,22 +121,22 @@ namespace lasd
     }
 
     template <typename Data>
-    void SortableLinearContainer<Data>::QuickSort(ulong p, ulong r) noexcept
+    void SortableLinearContainer<Data>::QuickSort(unsigned long p, unsigned long r) noexcept
     {
         if (p < r)
         {
-            ulong q = Partition(p, r);
+            unsigned long q = Partition(p, r);
             QuickSort(p, q);
             QuickSort(q + 1, r);
         }
     }
 
     template <typename Data>
-    ulong SortableLinearContainer<Data>::Partition(ulong p, ulong r) noexcept
+    unsigned long SortableLinearContainer<Data>::Partition(unsigned long p, unsigned long r) noexcept
     {
         Data x = this->operator[](p);
-        ulong i = p - 1;
-        ulong j = r + 1;
+        unsigned long i = p - 1;
+        unsigned long j = r + 1;
         do
         {
             do
