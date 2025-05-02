@@ -201,7 +201,7 @@ namespace lasd
      * @return Minimo elemento.
      * @throws std::length_error Se il contenitore è vuoto.
      */
-    virtual Data& MinNRemove() = 0;
+    virtual Data MinNRemove() = 0;
 
     /**
      * @brief Rimuove il minimo elemento del contenitore.
@@ -222,7 +222,7 @@ namespace lasd
      *@throws std::length_error Se il contenitore è vuoto
      *@return Elemento massimo
      */
-    virtual Data& MaxNRemove() = 0;
+    virtual Data MaxNRemove() = 0;
 
     /**
      * @brief Rimuove l'elemento massimo del container
