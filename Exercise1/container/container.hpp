@@ -8,7 +8,7 @@ namespace lasd
   {
 
   protected:
-    unsigned long size = 0;
+    ulong size = 0;
 
     // Default constructor
     Container() = default;
@@ -28,7 +28,7 @@ namespace lasd
 
     // Specific member functions
     inline virtual bool Empty() const noexcept { return 0 == size; }
-    inline virtual unsigned long Size() const noexcept { return size; }
+    inline virtual ulong Size() const noexcept { return size; }
   };
 
   class ClearableContainer : virtual public Container
@@ -66,7 +66,7 @@ namespace lasd
     bool operator!=(const ResizableContainer &Ccon) const noexcept = delete;
 
     // Specific member functions
-    virtual void Resize(unsigned long) = 0;
+    virtual void Resize(ulong) = 0;
     void Clear() override { Resize(0); }
   };
 

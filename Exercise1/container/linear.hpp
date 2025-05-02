@@ -22,7 +22,7 @@ namespace lasd
     inline bool operator==(const LinearContainer &) const noexcept;
     inline bool operator!=(const LinearContainer &) const noexcept;
 
-    virtual const Data &operator[](const unsigned long int) const = 0;
+    virtual const Data &operator[](const ulong int) const = 0;
 
     virtual inline const Data &Front() const;
     virtual inline const Data &Back() const;

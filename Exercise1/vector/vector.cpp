@@ -60,7 +60,7 @@ namespace lasd
             return false;
         }
 
-        for (unsigned long i = 0; i < size; i++)
+        for (ulong i = 0; i < size; i++)
         {
             if (elements[i] != vec[i])
             {
@@ -77,7 +77,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline const Data &Vector<Data>::operator[](unsigned long i) const
+    inline const Data &Vector<Data>::operator[](ulong i) const
     {
         if (i >= size)
         {
@@ -87,7 +87,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &Vector<Data>::operator[](unsigned long i)
+    inline Data &Vector<Data>::operator[](ulong i)
     {
         if (i >= size)
         {
@@ -137,7 +137,7 @@ namespace lasd
     }
 
     template <typename Data>
-    void Vector<Data>::Resize(unsigned long s)
+    void Vector<Data>::Resize(ulong s)
     {
         if (s == size)
         {
@@ -152,9 +152,9 @@ namespace lasd
 
         Data *temp{new Data[s]{}};
 
-        unsigned long min{std::min(s, size)};
+        ulong min{std::min(s, size)};
 
-        for (unsigned long i{0}; i < min; ++i)
+        for (ulong i{0}; i < min; ++i)
             std::swap(elements[i], temp[i]);
 
         std::swap(elements, temp);

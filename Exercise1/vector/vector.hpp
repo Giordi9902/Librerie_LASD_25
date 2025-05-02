@@ -15,7 +15,7 @@ namespace lasd
 
   public:
     Vector() = default;
-    Vector(const unsigned long initSize)
+    Vector(const ulong initSize)
     {
       size = initSize;
       elements = new Data[initSize]();
@@ -29,13 +29,13 @@ namespace lasd
     inline Vector<Data> &operator=(Vector<Data> &&) noexcept;
     bool operator==(const Vector<Data> &) const noexcept;
     inline bool operator!=(const Vector<Data> &) const noexcept;
-    inline Data &operator[](unsigned long) override;
+    inline Data &operator[](ulong) override;
     inline Data &Front() override;
     inline Data &Back() override;
-    inline const Data &operator[](unsigned long) const override;
+    inline const Data &operator[](ulong) const override;
     inline const Data &Front() const override;
     inline const Data &Back() const override;
-    void Resize(unsigned long) override;
+    void Resize(ulong) override;
     inline void Clear() override;
   };
 
@@ -48,7 +48,7 @@ namespace lasd
 
   public:
     SortableVector() = default;
-    inline SortableVector(const unsigned long s) : Vector<Data>::Vector(s) {};
+    inline SortableVector(const ulong s) : Vector<Data>::Vector(s) {};
     inline SortableVector(const TraversableContainer<Data> &con) : Vector<Data>::Vector(con) {};
     inline SortableVector(MappableContainer<Data> &&con) : Vector<Data>::Vector(std::move(con)) {};
     inline SortableVector(const SortableVector<Data> &con) : Vector<Data>::Vector(con) {};

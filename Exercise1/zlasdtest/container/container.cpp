@@ -17,7 +17,7 @@ void Empty(unsigned int & testnum, unsigned int & testerr, const lasd::Container
   testerr += (1 - (unsigned int) tst);
 }
 
-void Size(unsigned int & testnum, unsigned int & testerr, const lasd::Container & con, bool chk, unsigned long siz) {
+void Size(unsigned int & testnum, unsigned int & testerr, const lasd::Container & con, bool chk, ulong siz) {
   bool tst;
   testnum++;
   std::cout << " " << testnum << " (" << testerr << ") The container has size " << con.Size() << ": ";

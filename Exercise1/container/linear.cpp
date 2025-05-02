@@ -9,7 +9,7 @@ namespace lasd
             return false;
         }
 
-        for (unsigned long i = 0; i < size; ++i)
+        for (ulong i = 0; i < size; ++i)
         {
             if ((*this)[i] != con[i])
             {
@@ -54,7 +54,7 @@ namespace lasd
     template <typename Data>
     inline void LinearContainer<Data>::PreOrderTraverse(const TraverseFun func) const
     {
-        for (unsigned long i = 0; i < size; ++i)
+        for (ulong i = 0; i < size; ++i)
         {
             func((*this)[i]);
         }
@@ -64,7 +64,7 @@ namespace lasd
     inline void LinearContainer<Data>::PostOrderTraverse(const TraverseFun func) const
     {
 
-        for (unsigned long i = size; i > 0;)
+        for (ulong i = size; i > 0;)
         {
             func((*this)[--i]);
         }
@@ -108,7 +108,7 @@ namespace lasd
     template <typename Data>
     inline void MutableLinearContainer<Data>::PostOrderMap(MapFun func)
     {
-        for (unsigned long index = size; index > 0;)
+        for (ulong index = size; index > 0;)
         {
             func((*this)[--index]);
         }
