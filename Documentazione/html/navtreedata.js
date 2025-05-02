@@ -26,18 +26,14 @@ var NAVTREE =
 [
   [ "Librerie LASD 2024/2025", "index.html", [
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
-      ] ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
+        [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ]
@@ -56,8 +52,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classlasd_1_1PostOrderMappableContainer.html#a92e6521aac60d9a17bf591fcfc425a39",
-"exercise1a_2simpletest_8cpp_source.html"
+"classlasd_1_1SortableLinearContainer.html#a87b242faf88f6dfdf7ec36fa82ca8f51",
+"zlasdtest_2container_2mappable_8hpp.html#a48439b8b6fc29b87cce57c1477b6afa0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

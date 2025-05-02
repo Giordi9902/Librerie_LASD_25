@@ -2,7 +2,7 @@
 \hypertarget{classlasd_1_1OrderedDictionaryContainer}{}\label{classlasd_1_1OrderedDictionaryContainer}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
 
 
-Classe astratta per contenitori di tipo dizionario ordinato. Estende \doxylink{classlasd_1_1DictionaryContainer}{Dictionary\+Container} aggiungendo operazioni legate all\textquotesingle{}ordinamento.  
+Classe astratta \doxylink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}.  
 
 
 
@@ -19,70 +19,52 @@ Inheritance diagram for lasd\+::Ordered\+Dictionary\+Container\texorpdfstring{$<
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a98d9dbc01932f085ed1c845fa50440b4}{\texorpdfstring{$\sim$}{\string~}\+Ordered\+Dictionary\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Distruttore virtuale predefinito. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_afd022584ef5660be34922610985eff77}{operator=}} (const \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Operatore di assegnamento per copia (eliminato). \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_aec0726bd83aae41c5ef31d40aedeaa35}{operator=}} (\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \&\&)=delete
-\begin{DoxyCompactList}\small\item\em Operatore di assegnamento per spostamento (eliminato). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a752fb713dec03d050cebf90da7a3fa78}{operator=}} (const \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \&) const =delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a6f8da970f10bda9d444d7f2c9ae77705}{operator=}} (\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a55808c6c2daff7a290828c555162afee}{operator==}} (const \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \&) const noexcept=delete
-\begin{DoxyCompactList}\small\item\em Operatore di confronto per uguaglianza (eliminato). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a1b0b6d3413c14482e98fcbeb91bcb6d1}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \&) const noexcept=delete
-\begin{DoxyCompactList}\small\item\em Operatore di confronto per disuguaglianza (eliminato). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a27edc3e7a4a572a0a644d759327196b3}{Min}} () const =0
-\begin{DoxyCompactList}\small\item\em Restituisce il dato minimo nel dizionario. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Restituisce il minimo elemento del contenitore. \end{DoxyCompactList}\item 
 virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_ae1050ae8dfd6e6051f470e7af0239e90}{Min\+NRemove}} ()=0
-\begin{DoxyCompactList}\small\item\em Rimuove e restituisce il dato minimo nel dizionario. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Restituisce e rimuove il minimo elemento del contenitore. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a043872a687330b61a95fa54f84ceb8a9}{Remove\+Min}} ()=0
-\begin{DoxyCompactList}\small\item\em Rimuove il dato minimo dal dizionario. \end{DoxyCompactList}\item 
-virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a84917fdf23d93ebeb4d745c59622df16}{Max}} () const =0
-\begin{DoxyCompactList}\small\item\em Restituisce il dato massimo nel dizionario. \end{DoxyCompactList}\item 
-virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a3f1bb47b1a07539e1b1c9d75869cd3e1}{Max\+NRemove}} ()=0
-\begin{DoxyCompactList}\small\item\em Rimuove e restituisce il dato massimo nel dizionario. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a91de9ac8e6617681907fe2a106a1bb1a}{Remove\+Max}} ()=0
-\begin{DoxyCompactList}\small\item\em Rimuove il dato massimo dal dizionario. \end{DoxyCompactList}\item 
-virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a6c193096c8918bf852d865b7a6084263}{Predecessor}} (const Data \&) const =0
-\begin{DoxyCompactList}\small\item\em Restituisce il predecessore di un dato specificato. \end{DoxyCompactList}\item 
-virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a30e81b363932ab91d0c1a6f93968d88d}{Predecessor\+NRemove}} (const Data \&)=0
-\begin{DoxyCompactList}\small\item\em Rimuove e restituisce il predecessore di un dato specificato. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_ac94d888edca94e64f3211a1b882d122d}{Remove\+Predecessor}} (const Data \&)=0
-\begin{DoxyCompactList}\small\item\em Rimuove il predecessore di un dato specificato. \end{DoxyCompactList}\item 
-virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a3fe892981b6302b20b470416de1ae016}{Successor}} (const Data \&) const =0
-\begin{DoxyCompactList}\small\item\em Restituisce il successore di un dato specificato. \end{DoxyCompactList}\item 
-virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a0e5386a7ce54c68eae91d82df835ea78}{Successor\+NRemove}} (const Data \&)=0
-\begin{DoxyCompactList}\small\item\em Rimuove e restituisce il successore di un dato specificato. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer_a48b2cc5587415353295eab17754a9acc}{Remove\+Successor}} (const Data \&)=0
-\begin{DoxyCompactList}\small\item\em Rimuove il successore di un dato specificato. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Rimuove il minimo elemento del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{lasd\+::\+Dictionary\+Container$<$ Data $>$}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a89c639429cc90d4f32b3cb168e4d94db}{\texorpdfstring{$\sim$}{\string~}\+Dictionary\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Distruttore virtuale predefinito. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aea8722e55075c190fc5a19154e9a79a1}{operator=}} (const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Operatore di assegnamento per copia (eliminato). \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a939be2f81b7700db96d4c730089dfcaa}{operator=}} (\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&\&)=delete
-\begin{DoxyCompactList}\small\item\em Operatore di assegnamento per spostamento (eliminato). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a5dfaef00a1f78d0da9a8640bfcfa39ba}{operator=}} (\mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a0361ad1f987cce165af8c78f35212715}{operator==}} (const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&) const noexcept=delete
-\begin{DoxyCompactList}\small\item\em Operatore di confronto per uguaglianza (eliminato). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_afbe6f651b0d875d7702a7226d064d996}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1DictionaryContainer}{Dictionary\+Container}} \&) const noexcept=delete
-\begin{DoxyCompactList}\small\item\em Operatore di confronto per disuguaglianza (eliminato). \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}{Insert}} (const Data \&)=0
-\begin{DoxyCompactList}\small\item\em Inserisce un dato nel dizionario (copia). \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_afab123cd0afeb8fe6e0ebd8133a8ce79}{Insert}} (Data \&\&)=0
-\begin{DoxyCompactList}\small\item\em Inserisce un dato nel dizionario (spostamento). \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a16f2b4415b70aae7daffeb5eb3f608af}{Remove}} (const Data \&)=0
-\begin{DoxyCompactList}\small\item\em Rimuove un dato dal dizionario. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3}{Insert\+All}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
-\begin{DoxyCompactList}\small\item\em Inserisce tutti i dati da un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container}. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_afacca54f4358ff5e4704de110d83e860}{Insert\+All}} (\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&)
-\begin{DoxyCompactList}\small\item\em Inserisce tutti i dati da un \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container} (spostamento). \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a7173697ffb6529e1242949d63cc54531}{Remove\+All}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
-\begin{DoxyCompactList}\small\item\em Rimuove tutti i dati presenti in un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container}. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452}{Insert\+Some}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
-\begin{DoxyCompactList}\small\item\em Inserisce alcuni dati da un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container} (almeno uno). \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aabfc2010462cfc369479592d9011c68d}{Insert\+Some}} (\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&)
-\begin{DoxyCompactList}\small\item\em Inserisce alcuni dati da un \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container} (spostamento, almeno uno). \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a5e757dc7bb39f946f9d8e8eeef60d16a}{Remove\+Some}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&)
-\begin{DoxyCompactList}\small\item\em Rimuove alcuni dati presenti in un \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Container} (almeno uno). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab210955cce6d5adce93606e8bac17914}{Insert}} (const Data \&data)=0
+\begin{DoxyCompactList}\small\item\em Inserisce un elemento nel contenitore. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a084e60d0ca522bd3934c4587645f654f}{Insert}} (Data \&\&data)=0
+\begin{DoxyCompactList}\small\item\em Inserisce un elemento nel contenitore (versione per spostamento). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_abf5273530501b6ac32fb5c3559da3dd4}{Remove}} (const Data \&data)=0
+\begin{DoxyCompactList}\small\item\em Rimuove un elemento dal contenitore. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a054a978dc372b23dcb3fb34b8f6b94ba}{Insert\+All}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Inserisce tutti gli elementi di un contenitore traversabile. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_abb1712961554d0065262730fece36e4b}{Insert\+All}} (\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&container)
+\begin{DoxyCompactList}\small\item\em Inserisce tutti gli elementi di un contenitore mappabile (versione per spostamento). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab82a8f2e27535e421f24ee00a331d3fb}{Remove\+All}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Rimuove tutti gli elementi di un contenitore traversabile. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aa449bdaa7d7688fc0ecb3dbd87699315}{Insert\+Some}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Inserisce alcuni elementi di un contenitore traversabile. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a82ad05412d8271016b297211bbe2ee89}{Insert\+Some}} (\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}}$<$ Data $>$ \&\&container)
+\begin{DoxyCompactList}\small\item\em Inserisce alcuni elementi di un contenitore mappabile (versione per spostamento). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a43b2e1436dd1a9f4b014dab7e35b3e2e}{Remove\+Some}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}}$<$ Data $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Rimuove alcuni elementi di un contenitore traversabile. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1TestableContainer}{lasd\+::\+Testable\+Container$<$ Data $>$}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -97,30 +79,30 @@ bool \mbox{\hyperlink{classlasd_1_1TestableContainer_add472a82b13e8c7ca947559862
 bool \mbox{\hyperlink{classlasd_1_1TestableContainer_a34c9e849afdebc87b63fe407fbb26ff4}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1TestableContainer}{Testable\+Container}} \&) const noexcept=delete
 \begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1TestableContainer_a5f90e627e780007bda538bf55e163a1e}{Exists}} (const Data \&data) const noexcept=0
-\begin{DoxyCompactList}\small\item\em Funzione per verificare l\textquotesingle{}esistenza di un elemento nel contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Verifica se un elemento esiste nel contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se il contenitore è vuoto. \end{DoxyCompactList}\item 
 virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la dimensione del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Costruttore di default. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -131,16 +113,16 @@ unsigned long \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742c
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename Data$>$\newline
 class lasd\+::\+Ordered\+Dictionary\+Container$<$ Data $>$}
-Classe astratta per contenitori di tipo dizionario ordinato. Estende \doxylink{classlasd_1_1DictionaryContainer}{Dictionary\+Container} aggiungendo operazioni legate all\textquotesingle{}ordinamento. 
+Classe astratta \doxylink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Data} & Il tipo di dato da memorizzare nel dizionario (deve supportare l\textquotesingle{}ordinamento). \\
+{\em Data} & Tipo dei dati contenuti.\\
 \hline
 \end{DoxyTemplParams}
+Classe base per contenitori ordinati che supportano operazioni di ricerca e rimozione di elementi estremi o relativi. 
 
-
-Definition at line \mbox{\hyperlink{container_2dictionary_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{container_2dictionary_8hpp_source}{dictionary.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2dictionary_8hpp_source_l00161}{161}} of file \mbox{\hyperlink{container_2dictionary_8hpp_source}{dictionary.\+hpp}}.
 
 
 
@@ -154,49 +136,11 @@ virtual \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Orde
 
 
 
-Distruttore virtuale predefinito. 
+Distruttore virtuale. 
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a84917fdf23d93ebeb4d745c59622df16}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!Max@{Max}}
-\index{Max@{Max}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{Max()}{Max()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a84917fdf23d93ebeb4d745c59622df16} 
-template$<$typename Data$>$ \\
-virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Restituisce il dato massimo nel dizionario. 
-
-\begin{DoxyReturn}{Returns}
-Riferimento costante al dato massimo. 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il dizionario è vuoto. \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a3f1bb47b1a07539e1b1c9d75869cd3e1}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!MaxNRemove@{MaxNRemove}}
-\index{MaxNRemove@{MaxNRemove}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{MaxNRemove()}{MaxNRemove()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a3f1bb47b1a07539e1b1c9d75869cd3e1} 
-template$<$typename Data$>$ \\
-virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Max\+NRemove (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Rimuove e restituisce il dato massimo nel dizionario. 
-
-\begin{DoxyReturn}{Returns}
-Il dato massimo (per valore). 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il dizionario è vuoto. \\
-\hline
-\end{DoxyExceptions}
 \Hypertarget{classlasd_1_1OrderedDictionaryContainer_a27edc3e7a4a572a0a644d759327196b3}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!Min@{Min}}
 \index{Min@{Min}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{Min()}{Min()}}
@@ -206,14 +150,14 @@ virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{
 
 
 
-Restituisce il dato minimo nel dizionario. 
+Restituisce il minimo elemento del contenitore. 
 
 \begin{DoxyReturn}{Returns}
-Riferimento costante al dato minimo. 
+Riferimento costante al minimo elemento. 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il dizionario è vuoto. \\
+{\em std\+::length\+\_\+error} & Se il contenitore è vuoto. \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classlasd_1_1OrderedDictionaryContainer_ae1050ae8dfd6e6051f470e7af0239e90}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!MinNRemove@{MinNRemove}}
@@ -225,14 +169,14 @@ virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\
 
 
 
-Rimuove e restituisce il dato minimo nel dizionario. 
+Restituisce e rimuove il minimo elemento del contenitore. 
 
 \begin{DoxyReturn}{Returns}
-Il dato minimo (per valore). 
+Minimo elemento. 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il dizionario è vuoto. \\
+{\em std\+::length\+\_\+error} & Se il contenitore è vuoto. \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classlasd_1_1OrderedDictionaryContainer_a1b0b6d3413c14482e98fcbeb91bcb6d1}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!operator"!=@{operator"!=}}
@@ -244,29 +188,29 @@ bool \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered
 
 
 
-Operatore di confronto per disuguaglianza (eliminato). 
+Operatore di disuguaglianza eliminato. 
 
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_afd022584ef5660be34922610985eff77}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!operator=@{operator=}}
+\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a752fb713dec03d050cebf90da7a3fa78}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_afd022584ef5660be34922610985eff77} 
+{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a752fb713dec03d050cebf90da7a3fa78} 
 template$<$typename Data$>$ \\
-\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}}$<$ Data $>$ \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}}$<$ Data $>$ \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}}
 
 
 
-Operatore di assegnamento per copia (eliminato). 
+Operatore di assegnazione per copia eliminato. 
 
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_aec0726bd83aae41c5ef31d40aedeaa35}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!operator=@{operator=}}
+\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a6f8da970f10bda9d444d7f2c9ae77705}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_aec0726bd83aae41c5ef31d40aedeaa35} 
+{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a6f8da970f10bda9d444d7f2c9ae77705} 
 template$<$typename Data$>$ \\
-\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}}$<$ Data $>$ \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}} \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{Ordered\+Dictionary\+Container}}$<$ Data $>$ \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
 
 
-Operatore di assegnamento per spostamento (eliminato). 
+Operatore di assegnazione per spostamento eliminato. 
 
 \Hypertarget{classlasd_1_1OrderedDictionaryContainer_a55808c6c2daff7a290828c555162afee}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!operator==@{operator==}}
 \index{operator==@{operator==}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
@@ -277,72 +221,8 @@ bool \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered
 
 
 
-Operatore di confronto per uguaglianza (eliminato). 
+Operatore di uguaglianza eliminato. 
 
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a6c193096c8918bf852d865b7a6084263}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!Predecessor@{Predecessor}}
-\index{Predecessor@{Predecessor}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{Predecessor()}{Predecessor()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a6c193096c8918bf852d865b7a6084263} 
-template$<$typename Data$>$ \\
-virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Predecessor (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Restituisce il predecessore di un dato specificato. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em data} & Il dato di cui cercare il predecessore. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Riferimento costante al predecessore. 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il predecessore non viene trovato (es. {\ttfamily data} è il minimo o non esiste). \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a30e81b363932ab91d0c1a6f93968d88d}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!PredecessorNRemove@{PredecessorNRemove}}
-\index{PredecessorNRemove@{PredecessorNRemove}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{PredecessorNRemove()}{PredecessorNRemove()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a30e81b363932ab91d0c1a6f93968d88d} 
-template$<$typename Data$>$ \\
-virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Predecessor\+NRemove (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Rimuove e restituisce il predecessore di un dato specificato. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em data} & Il dato di cui cercare e rimuovere il predecessore. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Il predecessore (per valore). 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il predecessore non viene trovato. \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a91de9ac8e6617681907fe2a106a1bb1a}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!RemoveMax@{RemoveMax}}
-\index{RemoveMax@{RemoveMax}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{RemoveMax()}{RemoveMax()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a91de9ac8e6617681907fe2a106a1bb1a} 
-template$<$typename Data$>$ \\
-virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Remove\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Rimuove il dato massimo dal dizionario. 
-
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il dizionario è vuoto. \\
-\hline
-\end{DoxyExceptions}
 \Hypertarget{classlasd_1_1OrderedDictionaryContainer_a043872a687330b61a95fa54f84ceb8a9}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!RemoveMin@{RemoveMin}}
 \index{RemoveMin@{RemoveMin}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{RemoveMin()}{RemoveMin()}}
@@ -352,101 +232,11 @@ virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\
 
 
 
-Rimuove il dato minimo dal dizionario. 
+Rimuove il minimo elemento del contenitore. 
 
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il dizionario è vuoto. \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_ac94d888edca94e64f3211a1b882d122d}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!RemovePredecessor@{RemovePredecessor}}
-\index{RemovePredecessor@{RemovePredecessor}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{RemovePredecessor()}{RemovePredecessor()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_ac94d888edca94e64f3211a1b882d122d} 
-template$<$typename Data$>$ \\
-virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Remove\+Predecessor (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Rimuove il predecessore di un dato specificato. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em data} & Il dato di cui rimuovere il predecessore. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il predecessore non viene trovato. \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a48b2cc5587415353295eab17754a9acc}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!RemoveSuccessor@{RemoveSuccessor}}
-\index{RemoveSuccessor@{RemoveSuccessor}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{RemoveSuccessor()}{RemoveSuccessor()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a48b2cc5587415353295eab17754a9acc} 
-template$<$typename Data$>$ \\
-virtual void \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Remove\+Successor (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Rimuove il successore di un dato specificato. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em data} & Il dato di cui rimuovere il successore. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il successore non viene trovato. \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a3fe892981b6302b20b470416de1ae016}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!Successor@{Successor}}
-\index{Successor@{Successor}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{Successor()}{Successor()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a3fe892981b6302b20b470416de1ae016} 
-template$<$typename Data$>$ \\
-virtual const Data \& \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Successor (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Restituisce il successore di un dato specificato. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em data} & Il dato di cui cercare il successore. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Riferimento costante al successore. 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il successore non viene trovato (es. {\ttfamily data} è il massimo o non esiste). \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classlasd_1_1OrderedDictionaryContainer_a0e5386a7ce54c68eae91d82df835ea78}\index{lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}!SuccessorNRemove@{SuccessorNRemove}}
-\index{SuccessorNRemove@{SuccessorNRemove}!lasd::OrderedDictionaryContainer$<$ Data $>$@{lasd::OrderedDictionaryContainer$<$ Data $>$}}
-\doxysubsubsection{\texorpdfstring{SuccessorNRemove()}{SuccessorNRemove()}}
-{\footnotesize\ttfamily \label{classlasd_1_1OrderedDictionaryContainer_a0e5386a7ce54c68eae91d82df835ea78} 
-template$<$typename Data$>$ \\
-virtual Data \mbox{\hyperlink{classlasd_1_1OrderedDictionaryContainer}{lasd\+::\+Ordered\+Dictionary\+Container}}$<$ Data $>$\+::\+Successor\+NRemove (\begin{DoxyParamCaption}\item[{const Data \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Rimuove e restituisce il successore di un dato specificato. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em data} & Il dato di cui cercare e rimuovere il successore. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Il successore (per valore). 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::length\+\_\+error} & se il successore non viene trovato. \\
+{\em std\+::length\+\_\+error} & Se il contenitore è vuoto. \\
 \hline
 \end{DoxyExceptions}
 

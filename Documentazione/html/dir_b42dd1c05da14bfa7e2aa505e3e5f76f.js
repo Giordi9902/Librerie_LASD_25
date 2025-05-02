@@ -8,6 +8,6 @@ var dir_b42dd1c05da14bfa7e2aa505e3e5f76f =
     [ "mappable.cpp", "mappable_8cpp.html", null ],
     [ "mappable.hpp", "container_2mappable_8hpp.html", "container_2mappable_8hpp" ],
     [ "testable.hpp", "container_2testable_8hpp.html", "container_2testable_8hpp" ],
-    [ "traversable.cpp", "traversable_8cpp.html", "traversable_8cpp" ],
+    [ "traversable.cpp", "traversable_8cpp.html", null ],
     [ "traversable.hpp", "container_2traversable_8hpp.html", "container_2traversable_8hpp" ]
 ];

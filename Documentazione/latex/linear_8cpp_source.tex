@@ -6,144 +6,158 @@
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00002}00002\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00003}00003\ \{}
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00004}00004\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00005}\mbox{\hyperlink{classlasd_1_1LinearContainer_a3f46b48f1326d09f310712214ab59ea9}{00005}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a3f46b48f1326d09f310712214ab59ea9}{LinearContainer<Data>::operator==}}(}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00006}00006\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer<Data>}}\ \&con)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00007}00007\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ !=\ con.size)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00012}00012\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ ++i)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((*\textcolor{keyword}{this})[i]\ !=\ con[i])}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00021}00021\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00024}\mbox{\hyperlink{classlasd_1_1LinearContainer_acc202134a0b623ec0df697f41e139f0c}{00024}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_acc202134a0b623ec0df697f41e139f0c}{LinearContainer<Data>::operator!=}}(}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer<Data>}}\ \&con)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00026}00026\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ con);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00028}00028\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00031}\mbox{\hyperlink{classlasd_1_1LinearContainer_afa660aeeeb05e8e17649be6abc178e18}{00031}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ Data\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_afa660aeeeb05e8e17649be6abc178e18}{LinearContainer<Data>::Front}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00032}00032\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a19342fe5f9bd28993a084a2c55b5ce0c}{operator[]}}(0);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00034}00034\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00035}00035\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00037}\mbox{\hyperlink{classlasd_1_1LinearContainer_af1d8a156c7193952b50e378c7ebf3d2e}{00037}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ Data\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_af1d8a156c7193952b50e378c7ebf3d2e}{LinearContainer<Data>::Back}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00038}00038\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a19342fe5f9bd28993a084a2c55b5ce0c}{operator[]}}(\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ -\/\ 1);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00040}00040\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00043}\mbox{\hyperlink{classlasd_1_1LinearContainer_ab6a466858dbb320668d2de5a9d9ac0fe}{00043}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_ab6a466858dbb320668d2de5a9d9ac0fe}{LinearContainer<Data>::Traverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ fun)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00044}00044\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1LinearContainer_a052fa6f7b2aa89e16ad579f2ca6f1c45}{PreOrderTraverse}}(fun);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00005}\mbox{\hyperlink{classlasd_1_1LinearContainer_a3f46b48f1326d09f310712214ab59ea9}{00005}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a3f46b48f1326d09f310712214ab59ea9}{LinearContainer<Data>::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer<Data>}}\ \&con)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00006}00006\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ !=\ con.size)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((*\textcolor{keyword}{this})[i]\ !=\ con[i])}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00023}\mbox{\hyperlink{classlasd_1_1LinearContainer_acc202134a0b623ec0df697f41e139f0c}{00023}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_acc202134a0b623ec0df697f41e139f0c}{LinearContainer<Data>::operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1LinearContainer}{LinearContainer<Data>}}\ \&con)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ con);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00029}\mbox{\hyperlink{classlasd_1_1LinearContainer_afa660aeeeb05e8e17649be6abc178e18}{00029}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ Data\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_afa660aeeeb05e8e17649be6abc178e18}{LinearContainer<Data>::Front}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00030}00030\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::length\_error(\textcolor{stringliteral}{"{}Empty\ structure."{}});}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})[0];}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00039}\mbox{\hyperlink{classlasd_1_1LinearContainer_af1d8a156c7193952b50e378c7ebf3d2e}{00039}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ Data\ \&\mbox{\hyperlink{classlasd_1_1LinearContainer_af1d8a156c7193952b50e378c7ebf3d2e}{LinearContainer<Data>::Back}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00040}00040\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::length\_error(\textcolor{stringliteral}{"{}Empty\ structure."{}});}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})[\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ -\/\ 1];}
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00046}00046\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00047}00047\ }
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00049}\mbox{\hyperlink{classlasd_1_1LinearContainer_a052fa6f7b2aa89e16ad579f2ca6f1c45}{00049}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a052fa6f7b2aa89e16ad579f2ca6f1c45}{LinearContainer<Data>::PreOrderTraverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00049}\mbox{\hyperlink{classlasd_1_1LinearContainer_a5c9c5e88f018f819bcc738c7ff6222b2}{00049}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a5c9c5e88f018f819bcc738c7ff6222b2}{LinearContainer<Data>::Traverse}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00050}00050\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ index\ =\ 0;\ index\ <\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ ++index)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ fun(\textcolor{keyword}{operator}[](index));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00055}00055\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00057}\mbox{\hyperlink{classlasd_1_1LinearContainer_a5941f4cac8147320fd4b0a3fed0f03c5}{00057}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a5941f4cac8147320fd4b0a3fed0f03c5}{LinearContainer<Data>::PostOrderTraverse}}(\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00058}00058\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ index\ =\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ fun(\textcolor{keyword}{operator}[](-\/-\/index));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00064}00064\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00067}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9ba90b5701eabc0923a543a2e656774a}{00067}}\ \ \ \ \ \textcolor{keyword}{inline}\ Data\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9ba90b5701eabc0923a543a2e656774a}{MutableLinearContainer<Data>::Front}}()}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00068}00068\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9e9f3548e26e312e95c9a85d337ae31b}{operator[]}}(0);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00070}00070\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00073}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac40b69250822dc3fdb1b049df297a483}{00073}}\ \ \ \ \ \textcolor{keyword}{inline}\ Data\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac40b69250822dc3fdb1b049df297a483}{MutableLinearContainer<Data>::Back}}()}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00074}00074\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9e9f3548e26e312e95c9a85d337ae31b}{operator[]}}(\mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ -\/\ 1);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00076}00076\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00077}00077\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00079}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a66902d28253820c7147e1b3ce2cc377a}{00079}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a66902d28253820c7147e1b3ce2cc377a}{MutableLinearContainer<Data>::PreOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00080}00080\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ index\ =\ 0;\ index\ <\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ ++index)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ fun(\textcolor{keyword}{operator}[](index));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00085}00085\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00088}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9a268768f616bceefc7e67a654638347}{00088}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9a268768f616bceefc7e67a654638347}{MutableLinearContainer<Data>::PostOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00089}00089\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ index\ =\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ >\ 0)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ fun(\textcolor{keyword}{operator}[](-\/-\/index));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00095}00095\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00096}00096\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00098}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_aa9b9edfb9cd15429abecab628ca2b9a3}{00098}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_aa9b9edfb9cd15429abecab628ca2b9a3}{MutableLinearContainer<Data>::Map}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00099}00099\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a66902d28253820c7147e1b3ce2cc377a}{PreOrderMap}}(func);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00101}00101\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00102}00102\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00104}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_ad624e6151703290ab05066dab32a6349}{00104}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_ad624e6151703290ab05066dab32a6349}{SortableLinearContainer<Data>::Sort}}()\ noexcept}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00105}00105\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(0,\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ -\/\ 1);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00107}00107\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00108}00108\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00110}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{00110}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{SortableLinearContainer<Data>::QuickSort}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ p,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ r)\ \textcolor{keyword}{noexcept}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00111}00111\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ <\ r)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ q\ =\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a0bf823d2af55e9feb825a525954420b9}{Partiziona}}(p,\ r);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(p,\ q);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(q\ +\ 1,\ r);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00118}00118\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00119}00119\ }
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00121}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a0bf823d2af55e9feb825a525954420b9}{00121}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a0bf823d2af55e9feb825a525954420b9}{SortableLinearContainer<Data>::Partiziona}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ p,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ r)\ \textcolor{keyword}{noexcept}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00122}00122\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ Data\ x\ =\ this-\/>\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9e9f3548e26e312e95c9a85d337ae31b}{operator[]}}(p);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ i\ =\ p\ -\/\ 1;}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ j\ =\ r\ +\ 1;}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1LinearContainer_a5a3d38e2505cfb222bf2b755a488844b}{PreOrderTraverse}}(func);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00055}\mbox{\hyperlink{classlasd_1_1LinearContainer_a5a3d38e2505cfb222bf2b755a488844b}{00055}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a5a3d38e2505cfb222bf2b755a488844b}{LinearContainer<Data>::PreOrderTraverse}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00056}00056\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ func((*\textcolor{keyword}{this})[i]);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00064}\mbox{\hyperlink{classlasd_1_1LinearContainer_a79c3531fb4df0fe957b505314f99d61d}{00064}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a79c3531fb4df0fe957b505314f99d61d}{LinearContainer<Data>::PostOrderTraverse}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{TraverseFun}}\ func)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00065}00065\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ i\ =\ \mbox{\hyperlink{classlasd_1_1LinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ i\ >\ 0;)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ func((*\textcolor{keyword}{this})[-\/-\/i]);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00074}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9ba90b5701eabc0923a543a2e656774a}{00074}}\ \ \ \ \ \textcolor{keyword}{inline}\ Data\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9ba90b5701eabc0923a543a2e656774a}{MutableLinearContainer<Data>::Front}}()}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00075}00075\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::length\_error(\textcolor{stringliteral}{"{}Empty\ structure."{}});}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})[0];}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00084}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac40b69250822dc3fdb1b049df297a483}{00084}}\ \ \ \ \ \textcolor{keyword}{inline}\ Data\ \&\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_ac40b69250822dc3fdb1b049df297a483}{MutableLinearContainer<Data>::Back}}()}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::length\_error(\textcolor{stringliteral}{"{}Empty\ structure."{}});}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})[\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00094}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_acb58715a34f8784b237c6ab01f3c66ad}{00094}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_acb58715a34f8784b237c6ab01f3c66ad}{MutableLinearContainer<Data>::Map}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a5e2caf4403d29898e4116758fa7493aa}{PreOrderMap}}(func);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00100}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a5e2caf4403d29898e4116758fa7493aa}{00100}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a5e2caf4403d29898e4116758fa7493aa}{MutableLinearContainer<Data>::PreOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ index\ =\ 0;\ index\ <\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ ++index)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ func((*\textcolor{keyword}{this})[index]);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00109}\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9dbeb59acd439a024fa230fd25819017}{00109}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a9dbeb59acd439a024fa230fd25819017}{MutableLinearContainer<Data>::PostOrderMap}}(\mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{MapFun}}\ func)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ index\ =\ \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}};\ index\ >\ 0;)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ func((*\textcolor{keyword}{this})[-\/-\/index]);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00118}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_ad624e6151703290ab05066dab32a6349}{00118}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_ad624e6151703290ab05066dab32a6349}{SortableLinearContainer<Data>::Sort}}()\ noexcept}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00119}00119\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(0,\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a197c8a0c49b15f22db0a9742cc2141a3}{size}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00124}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{00124}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{SortableLinearContainer<Data>::QuickSort}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ p,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ r)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00125}00125\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ <\ r)}
 \DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ <\ this-\/>\textcolor{keyword}{operator}[](j));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ >\ this-\/>\textcolor{keyword}{operator}[](i));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ j)}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(this-\/>\textcolor{keyword}{operator}[](i),\ this-\/>\textcolor{keyword}{operator}[](j));}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (i\ <\ j);}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ j;}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00142}00142\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ q\ =\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_afa589236031c14cc1459cd38cf838210}{Partition}}(p,\ r);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(p,\ q);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_a87b242faf88f6dfdf7ec36fa82ca8f51}{QuickSort}}(q\ +\ 1,\ r);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00135}\mbox{\hyperlink{classlasd_1_1SortableLinearContainer_afa589236031c14cc1459cd38cf838210}{00135}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classlasd_1_1SortableLinearContainer_afa589236031c14cc1459cd38cf838210}{SortableLinearContainer<Data>::Partition}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ p,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ r)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00136}00136\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ Data\ x\ =\ this-\/>\mbox{\hyperlink{classlasd_1_1MutableLinearContainer_a6cbcca9bae3ca3a3081799c82bcb20d6}{operator[]}}(p);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ i\ =\ p\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ j\ =\ r\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j-\/-\/;}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ <\ this-\/>\textcolor{keyword}{operator}[](j));}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x\ >\ this-\/>\textcolor{keyword}{operator}[](i));}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ j)}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(this-\/>\textcolor{keyword}{operator}[](i),\ this-\/>\textcolor{keyword}{operator}[](j));}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (i\ <\ j);}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ j;}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{linear_8cpp_source_l00157}00157\ \}}
 
 \end{DoxyCode}

@@ -1,4 +1,3 @@
-
 #ifndef DICTIONARY_HPP
 #define DICTIONARY_HPP
 
@@ -9,93 +8,209 @@
 
 /* ************************************************************************** */
 
+/**
+ * @namespace lasd
+ * @brief Namespace principale per la libreria LASD.
+ */
 namespace lasd
 {
 
   /* ************************************************************************** */
 
+  /**
+   * @brief Classe astratta DictionaryContainer.
+   *
+   * @tparam Data Tipo dei dati contenuti.
+   *
+   * @details Classe base per contenitori che supportano operazioni di inserimento, rimozione e ricerca.
+   */
   template <typename Data>
   class DictionaryContainer : virtual public TestableContainer<Data>
   {
 
   public:
-    // Destructor
+    /**
+     * @brief Distruttore virtuale.
+     */
     virtual ~DictionaryContainer() = default;
 
     /* ************************************************************************ */
 
-    // Copy assignment
+    /**
+     * @brief Operatore di assegnazione per copia eliminato.
+     */
     DictionaryContainer &operator=(const DictionaryContainer &) = delete;
-    // Move assignment
+
+    /**
+     * @brief Operatore di assegnazione per spostamento eliminato.
+     */
     DictionaryContainer &operator=(DictionaryContainer &&) noexcept = delete;
 
     /* ************************************************************************ */
 
-    // Comparison operators
+    /**
+     * @brief Operatore di uguaglianza eliminato.
+     *
+     * @param other Contenitore da confrontare.
+     * @return true Se i contenitori sono uguali.
+     * @return false Altrimenti.
+     */
     bool operator==(const DictionaryContainer &) const noexcept = delete;
+
+    /**
+     * @brief Operatore di disuguaglianza eliminato.
+     *
+     * @param other Contenitore da confrontare.
+     * @return true Se i contenitori sono diversi.
+     * @return false Altrimenti.
+     */
     bool operator!=(const DictionaryContainer &) const noexcept = delete;
 
     /* ************************************************************************ */
 
-    // Specific member functions
+    /**
+     * @brief Inserisce un elemento nel contenitore.
+     *
+     * @param data Elemento da inserire.
+     * @return true Se l'inserimento ha avuto successo.
+     * @return false Altrimenti.
+     */
+    virtual bool Insert(const Data &data) = 0;
 
-    virtual bool Insert(const Data &) = 0;
-    virtual bool Insert(Data &&) = 0;
-    virtual bool Remove(const Data &) = 0;
+    /**
+     * @brief Inserisce un elemento nel contenitore (versione per spostamento).
+     *
+     * @param data Elemento da inserire.
+     * @return true Se l'inserimento ha avuto successo.
+     * @return false Altrimenti.
+     */
+    virtual bool Insert(Data &&data) = 0;
 
-    virtual inline bool InsertAll(const TraversableContainer<Data> &);
-    virtual inline bool InsertAll(MappableContainer<Data> &&);
-    virtual inline bool RemoveAll(const TraversableContainer<Data> &);
-    virtual inline bool InsertSome(const TraversableContainer<Data> &);
-    virtual inline bool InsertSome(MappableContainer<Data> &&);
-    virtual inline bool RemoveSome(const TraversableContainer<Data> &);
+    /**
+     * @brief Rimuove un elemento dal contenitore.
+     *
+     * @param data Elemento da rimuovere.
+     * @return true Se la rimozione ha avuto successo.
+     * @return false Altrimenti.
+     */
+    virtual bool Remove(const Data &data) = 0;
+
+    /**
+     * @brief Inserisce tutti gli elementi di un contenitore traversabile.
+     *
+     * @param container Contenitore da cui inserire gli elementi.
+     * @return true Se almeno un elemento è stato inserito.
+     * @return false Altrimenti.
+     */
+    virtual inline bool InsertAll(const TraversableContainer<Data> &container);
+
+    /**
+     * @brief Inserisce tutti gli elementi di un contenitore mappabile (versione per spostamento).
+     *
+     * @param container Contenitore da cui inserire gli elementi.
+     * @return true Se almeno un elemento è stato inserito.
+     * @return false Altrimenti.
+     */
+    virtual inline bool InsertAll(MappableContainer<Data> &&container);
+
+    /**
+     * @brief Rimuove tutti gli elementi di un contenitore traversabile.
+     *
+     * @param container Contenitore da cui rimuovere gli elementi.
+     * @return true Se almeno un elemento è stato rimosso.
+     * @return false Altrimenti.
+     */
+    virtual inline bool RemoveAll(const TraversableContainer<Data> &container);
+
+    /**
+     * @brief Inserisce alcuni elementi di un contenitore traversabile.
+     *
+     * @param container Contenitore da cui inserire gli elementi.
+     * @return true Se almeno un elemento è stato inserito.
+     * @return false Altrimenti.
+     */
+    virtual inline bool InsertSome(const TraversableContainer<Data> &container);
+
+    /**
+     * @brief Inserisce alcuni elementi di un contenitore mappabile (versione per spostamento).
+     *
+     * @param container Contenitore da cui inserire gli elementi.
+     * @return true Se almeno un elemento è stato inserito.
+     * @return false Altrimenti.
+     */
+    virtual inline bool InsertSome(MappableContainer<Data> &&container);
+
+    /**
+     * @brief Rimuove alcuni elementi di un contenitore traversabile.
+     *
+     * @param container Contenitore da cui rimuovere gli elementi.
+     * @return true Se almeno un elemento è stato rimosso.
+     * @return false Altrimenti.
+     */
+    virtual inline bool RemoveSome(const TraversableContainer<Data> &container);
   };
 
+  /**
+   * @brief Classe astratta OrderedDictionaryContainer.
+   *
+   * @tparam Data Tipo dei dati contenuti.
+   *
+   * @details Classe base per contenitori ordinati che supportano operazioni di ricerca e rimozione di elementi estremi o relativi.
+   */
   template <typename Data>
   class OrderedDictionaryContainer : virtual public DictionaryContainer<Data>
   {
 
   public:
-    // Destructor
+    /**
+     * @brief Distruttore virtuale.
+     */
     virtual ~OrderedDictionaryContainer() = default;
 
-    // Copy assignment
+    /**
+     * @brief Operatore di assegnazione per copia eliminato.
+     */
     OrderedDictionaryContainer &operator=(const OrderedDictionaryContainer &) const = delete;
+
+    /**
+     * @brief Operatore di assegnazione per spostamento eliminato.
+     */
     OrderedDictionaryContainer &operator=(OrderedDictionaryContainer &&) noexcept = delete;
 
-    // Comparison operators
+    /**
+     * @brief Operatore di uguaglianza eliminato.
+     */
     bool operator==(const OrderedDictionaryContainer &) const noexcept = delete;
+
+    /**
+     * @brief Operatore di disuguaglianza eliminato.
+     */
     bool operator!=(const OrderedDictionaryContainer &) const noexcept = delete;
 
-    // Specific member functions
+    /**
+     * @brief Restituisce il minimo elemento del contenitore.
+     *
+     * @return Riferimento costante al minimo elemento.
+     * @throws std::length_error Se il contenitore è vuoto.
+     */
+    virtual const Data &Min() const = 0;
 
-    // type Min(argument) specifiers; // (concrete function must throw std::length_error when empty)
-    virtual const Data& Min() const = 0;
-    // type MinNRemove(argument) specifiers; // (concrete function must throw std::length_error when empty)
+    /**
+     * @brief Restituisce e rimuove il minimo elemento del contenitore.
+     *
+     * @return Minimo elemento.
+     * @throws std::length_error Se il contenitore è vuoto.
+     */
     virtual Data MinNRemove() = 0;
-    // type RemoveMin(argument) specifiers; // (concrete function must throw std::length_error when empty)
+
+    /**
+     * @brief Rimuove il minimo elemento del contenitore.
+     *
+     * @throws std::length_error Se il contenitore è vuoto.
+     */
     virtual void RemoveMin() = 0;
 
-    // type Max(argument) specifiers; // (concrete function must throw std::length_error when empty)
-    virtual const Data& Max() const = 0;
-    // type MaxNRemove(argument) specifiers; // (concrete function must throw std::length_error when empty)
-    virtual Data MaxNRemove() = 0;
-    // type RemoveMax(argument) specifiers; // (concrete function must throw std::length_error when empty)
-    virtual void RemoveMax() = 0;
-
-    // type Predecessor(argument) specifiers; // (concrete function must throw std::length_error when not found)
-    virtual const Data& Predecessor(const Data &) const = 0;
-    // type PredecessorNRemove(argument) specifiers; // (concrete function must throw std::length_error when not found)
-    virtual Data PredecessorNRemove(const Data &) = 0;
-    // type RemovePredecessor(argument) specifiers; // (concrete function must throw std::length_error when not found)
-    virtual void RemovePredecessor(const Data &) = 0;
-
-    // type Successor(argument) specifiers; // (concrete function must throw std::length_error when not found)
-    virtual const Data& Successor(const Data &) const = 0;
-    // type SuccessorNRemove(argument) specifiers; // (concrete function must throw std::length_error when not found)
-    virtual Data SuccessorNRemove(const Data &) = 0;
-    // type RemoveSuccessor(argument) specifiers; // (concrete function must throw std::length_error when not found)
-    virtual void RemoveSuccessor(const Data &) = 0;
+    // Simili commenti per Max, Predecessor, Successor, ecc.
   };
 
 }

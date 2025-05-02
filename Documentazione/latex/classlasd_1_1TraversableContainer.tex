@@ -12,14 +12,16 @@ Classe astratta \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Contai
 Inheritance diagram for lasd\+::Traversable\+Container\texorpdfstring{$<$}{<} Data \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=1.500000cm]{classlasd_1_1TraversableContainer}
+\includegraphics[height=1.333333cm]{classlasd_1_1TraversableContainer}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 using \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}} = std\+::function$<$void(const Data \&)$>$
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Funzione di attraversamento degli elementi. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Accumulator$>$ }\\using \mbox{\hyperlink{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e}{Fold\+Fun}} = std\+::function$<$Accumulator(const Data \&, const Accumulator \&)$>$
+\begin{DoxyCompactList}\small\item\em Funzione di folding degli elementi. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,10 +35,10 @@ bool \mbox{\hyperlink{classlasd_1_1TraversableContainer_a2751bff24b9a20559fd97e8
 \begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1TraversableContainer_a9855ae0e5bde260b5d2a2c1220a73455}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}} \&) const noexcept=delete
 \begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}{Traverse}} (\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}} func) const =0
-\begin{DoxyCompactList}\small\item\em Funzione di attraversamento del contenitore. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Accumulator$>$ }\\Accumulator \mbox{\hyperlink{classlasd_1_1TraversableContainer_a187cd8568dbb021af9506119270a2d47}{Fold}} (\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{Fold\+Fun}}$<$ Accumulator $>$ func, Accumulator base) const
-\begin{DoxyCompactList}\small\item\em Funzione di riduzione (fold) del contenitore. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}{Traverse}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}} func) const =0
+\item 
+{\footnotesize template$<$typename Accumulator$>$ }\\Accumulator \mbox{\hyperlink{classlasd_1_1TraversableContainer_ac07cea93e779bd5268c0946e54b92506}{Fold}} (\mbox{\hyperlink{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e}{Fold\+Fun}}$<$ Accumulator $>$ func, Accumulator acc) const
+\item 
 bool \mbox{\hyperlink{classlasd_1_1TraversableContainer_acfb5bcd70bd180b5077aeeebfffd0478}{Exists}} (const Data \&data) const noexcept override
 \begin{DoxyCompactList}\small\item\em Verifica se un elemento esiste nel contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1TestableContainer}{lasd\+::\+Testable\+Container$<$ Data $>$}}}
@@ -56,25 +58,25 @@ bool \mbox{\hyperlink{classlasd_1_1TestableContainer_a34c9e849afdebc87b63fe407fb
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se il contenitore è vuoto. \end{DoxyCompactList}\item 
 virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la dimensione del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Costruttore di default. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -94,11 +96,42 @@ Classe astratta \doxylink{classlasd_1_1TraversableContainer}{Traversable\+Contai
 \end{DoxyTemplParams}
 Classe base per contenitori che supportano l\textquotesingle{}attraversamento degli elementi. 
 
-Definition at line \mbox{\hyperlink{container_2traversable_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{container_2traversable_8hpp_source}{traversable.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2traversable_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{container_2traversable_8hpp_source}{traversable.\+hpp}}.
 
 
 
 \doxysubsection{Member Typedef Documentation}
+\Hypertarget{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!FoldFun@{FoldFun}}
+\index{FoldFun@{FoldFun}!lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}}
+\doxysubsubsection{\texorpdfstring{FoldFun}{FoldFun}}
+{\footnotesize\ttfamily \label{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e} 
+template$<$typename Data$>$ \\
+template$<$typename Accumulator$>$ \\
+using \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+Container}}$<$ Data $>$\+::\+Fold\+Fun = std\+::function$<$Accumulator(const Data \&, const Accumulator \&)$>$}
+
+
+
+Funzione di folding degli elementi. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Accumulator} & Tipo dell\textquotesingle{}accumulatore. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Funzione di folding. \\
+\hline
+{\em acc} & Valore iniziale dell\textquotesingle{}accumulatore. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valore finale dell\textquotesingle{}accumulatore. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{container_2traversable_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{container_2traversable_8hpp_source}{traversable.\+hpp}}.
+
 \Hypertarget{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!TraverseFun@{TraverseFun}}
 \index{TraverseFun@{TraverseFun}!lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{TraverseFun}{TraverseFun}}
@@ -108,7 +141,16 @@ using \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\
 
 
 
-Definition at line \mbox{\hyperlink{container_2traversable_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{container_2traversable_8hpp_source}{traversable.\+hpp}}.
+Funzione di attraversamento degli elementi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Funzione da applicare a ogni elemento. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{container_2traversable_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{container_2traversable_8hpp_source}{traversable.\+hpp}}.
 
 
 
@@ -140,7 +182,7 @@ Verifica se un elemento esiste nel contenitore.
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & Elemento da cercare. \\
+{\em data} & Elemento da verificare. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -154,38 +196,19 @@ Implements \mbox{\hyperlink{classlasd_1_1TestableContainer_a5f90e627e780007bda53
 
 
 
-Definition at line \mbox{\hyperlink{traversable_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{traversable_8cpp_source}{traversable.\+cpp}}.
+Definition at line \mbox{\hyperlink{traversable_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{traversable_8cpp_source}{traversable.\+cpp}}.
 
-\Hypertarget{classlasd_1_1TraversableContainer_a187cd8568dbb021af9506119270a2d47}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!Fold@{Fold}}
+\Hypertarget{classlasd_1_1TraversableContainer_ac07cea93e779bd5268c0946e54b92506}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!Fold@{Fold}}
 \index{Fold@{Fold}!lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{Fold()}{Fold()}}
-{\footnotesize\ttfamily \label{classlasd_1_1TraversableContainer_a187cd8568dbb021af9506119270a2d47} 
+{\footnotesize\ttfamily \label{classlasd_1_1TraversableContainer_ac07cea93e779bd5268c0946e54b92506} 
 template$<$typename Data$>$ \\
 template$<$typename Accumulator$>$ \\
-Accumulator \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+Container}}$<$ Data $>$\+::\+Fold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{Fold\+Fun}}$<$ Accumulator $>$}]{func}{, }\item[{Accumulator}]{base}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+Accumulator \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+Container}}$<$ Data $>$\+::\+Fold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e}{Fold\+Fun}}$<$ Accumulator $>$}]{func}{, }\item[{Accumulator}]{acc}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Funzione di riduzione (fold) del contenitore. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Accumulator} & Tipo dell\textquotesingle{}accumulatore. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em func} & Funzione di riduzione. \\
-\hline
-{\em base} & Valore iniziale dell\textquotesingle{}accumulatore. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Valore risultante dalla riduzione. 
-\end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{traversable_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{traversable_8cpp_source}{traversable.\+cpp}}.
+Definition at line \mbox{\hyperlink{traversable_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{traversable_8cpp_source}{traversable.\+cpp}}.
 
 \Hypertarget{classlasd_1_1TraversableContainer_a9855ae0e5bde260b5d2a2c1220a73455}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}}
@@ -198,16 +221,6 @@ bool \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+
 
 Operatore di disuguaglianza eliminato. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em other} & Contenitore da confrontare. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true Se i contenitori sono diversi. 
-
-false Altrimenti. 
-\end{DoxyReturn}
 \Hypertarget{classlasd_1_1TraversableContainer_a8ed471117725de5880bfddddfecb1800}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -241,35 +254,16 @@ bool \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+
 
 Operatore di uguaglianza eliminato. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em other} & Contenitore da confrontare. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true Se i contenitori sono uguali. 
-
-false Altrimenti. 
-\end{DoxyReturn}
-\Hypertarget{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!Traverse@{Traverse}}
+\Hypertarget{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}\index{lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}!Traverse@{Traverse}}
 \index{Traverse@{Traverse}!lasd::TraversableContainer$<$ Data $>$@{lasd::TraversableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{Traverse()}{Traverse()}}
-{\footnotesize\ttfamily \label{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679} 
+{\footnotesize\ttfamily \label{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81} 
 template$<$typename Data$>$ \\
-virtual void \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+Container}}$<$ Data $>$\+::\+Traverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}}}]{func}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+virtual void \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+Container}}$<$ Data $>$\+::\+Traverse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}}}]{func}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Funzione di attraversamento del contenitore. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em func} & Funzione da applicare a ogni elemento. \\
-\hline
-\end{DoxyParams}
-
-
-Implemented in \mbox{\hyperlink{classlasd_1_1LinearContainer_ab6a466858dbb320668d2de5a9d9ac0fe}{lasd\+::\+Linear\+Container$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1List_af8ab7463ad5f44f5304dc842a7f88e5a}{lasd\+::\+List$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_abdc39e17979e4a8bfdc724953f0b703f}{lasd\+::\+Post\+Order\+Traversable\+Container$<$ Data $>$}}, and \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a47c4434cd8ebdee34a4a47ae15663d5a}{lasd\+::\+Pre\+Order\+Traversable\+Container$<$ Data $>$}}.
+Implemented in \mbox{\hyperlink{classlasd_1_1LinearContainer_a5c9c5e88f018f819bcc738c7ff6222b2}{lasd\+::\+Linear\+Container$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1PostOrderTraversableContainer_a145d260d9d56f9af736940045855c59d}{lasd\+::\+Post\+Order\+Traversable\+Container$<$ Data $>$}}, and \mbox{\hyperlink{classlasd_1_1PreOrderTraversableContainer_a47c4434cd8ebdee34a4a47ae15663d5a}{lasd\+::\+Pre\+Order\+Traversable\+Container$<$ Data $>$}}.
 
 
 

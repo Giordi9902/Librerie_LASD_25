@@ -2,6 +2,11 @@
 \hypertarget{classlasd_1_1ClearableContainer}{}\label{classlasd_1_1ClearableContainer}\index{lasd::ClearableContainer@{lasd::ClearableContainer}}
 
 
+Classe astratta \doxylink{classlasd_1_1ClearableContainer}{Clearable\+Container}.  
+
+
+
+
 {\ttfamily \#include $<$container.\+hpp$>$}
 
 Inheritance diagram for lasd\+::Clearable\+Container\+:\begin{figure}[H]
@@ -14,40 +19,40 @@ Inheritance diagram for lasd\+::Clearable\+Container\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1ClearableContainer_a288fbc28a8eae1a0736ab73570d1e2ea}{\texorpdfstring{$\sim$}{\string~}\+Clearable\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ClearableContainer_a1913f2eaee3be6897bba74cf5e833893}{operator=}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ClearableContainer_ab3889b911865ebccf15120503ec02a9b}{operator=}} (\mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_a8981bd9b36fea0340cd8d3bca260bd50}{operator==}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&Ccon) const noexcept=delete
-\begin{DoxyCompactList}\small\item\em Comparison operators. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_a7424607fa6e34267134f0693104f0605}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&Ccon) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_aeb1cb6cdffe8464b5e96b24394c875c3}{operator==}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_abe1d85771f6bc835b9b1927ac3dcc6c7}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classlasd_1_1ClearableContainer_a5d37894f3fe36b4ff11fb3fb11179085}{Clear}} ()=0
-\begin{DoxyCompactList}\small\item\em Non avendo modo di sapere come svuotare una struttura dati generica, il metodo Clear è definito come un metodo virtuale puro, ovvero un metodo che deve essere implementato dalle classi che estendono la classe \doxylink{classlasd_1_1ClearableContainer}{Clearable\+Container}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Metodo astratto per svuotare il contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se il contenitore è vuoto. \end{DoxyCompactList}\item 
 virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la dimensione del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Costruttore di default. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,9 +61,11 @@ unsigned long \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742c
 
 
 \doxysubsection{Detailed Description}
-La classe \doxylink{classlasd_1_1ClearableContainer}{Clearable\+Container} rappresenta una classe astratta per tutte quelle strutture dati che possono essere svuotate, ovvero che possono essere ripristinate allo stato iniziale, 
+Classe astratta \doxylink{classlasd_1_1ClearableContainer}{Clearable\+Container}. 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Classe che rappresenta un contenitore che può essere svuotato. 
+
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 
 
@@ -71,7 +78,7 @@ virtual lasd\+::\+Clearable\+Container\+::\texorpdfstring{$\sim$}{\string~}\+Cle
 
 
 
-Destructor. 
+Distruttore virtuale. 
 
 
 
@@ -84,18 +91,32 @@ virtual void lasd\+::\+Clearable\+Container\+::\+Clear (\begin{DoxyParamCaption}
 
 
 
-Non avendo modo di sapere come svuotare una struttura dati generica, il metodo Clear è definito come un metodo virtuale puro, ovvero un metodo che deve essere implementato dalle classi che estendono la classe \doxylink{classlasd_1_1ClearableContainer}{Clearable\+Container}. 
+Metodo astratto per svuotare il contenitore. 
 
 
 
-Implemented in \mbox{\hyperlink{classlasd_1_1List_a7f1047a2f5e70081e790c7ac953db3ed}{lasd\+::\+List$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1ResizableContainer_a64d0eb38229d4ffadec0d61ab75b82b8}{lasd\+::\+Resizable\+Container}}, and \mbox{\hyperlink{classlasd_1_1Vector_aa50e2923062e296dba81796ab1874c8a}{lasd\+::\+Vector$<$ Data $>$}}.
+Implemented in \mbox{\hyperlink{classlasd_1_1ResizableContainer_a64d0eb38229d4ffadec0d61ab75b82b8}{lasd\+::\+Resizable\+Container}}, and \mbox{\hyperlink{classlasd_1_1Vector_aa50e2923062e296dba81796ab1874c8a}{lasd\+::\+Vector$<$ Data $>$}}.
 
-\Hypertarget{classlasd_1_1ClearableContainer_a7424607fa6e34267134f0693104f0605}\index{lasd::ClearableContainer@{lasd::ClearableContainer}!operator"!=@{operator"!=}}
+\Hypertarget{classlasd_1_1ClearableContainer_abe1d85771f6bc835b9b1927ac3dcc6c7}\index{lasd::ClearableContainer@{lasd::ClearableContainer}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!lasd::ClearableContainer@{lasd::ClearableContainer}}
 \doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
-{\footnotesize\ttfamily \label{classlasd_1_1ClearableContainer_a7424607fa6e34267134f0693104f0605} 
-bool lasd\+::\+Clearable\+Container\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&}]{Ccon}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classlasd_1_1ClearableContainer_abe1d85771f6bc835b9b1927ac3dcc6c7} 
+bool lasd\+::\+Clearable\+Container\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
+
+
+Operatore di disuguaglianza eliminato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Contenitore da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se i contenitori sono diversi. 
+
+false Altrimenti. 
+\end{DoxyReturn}
 \Hypertarget{classlasd_1_1ClearableContainer_ab3889b911865ebccf15120503ec02a9b}\index{lasd::ClearableContainer@{lasd::ClearableContainer}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::ClearableContainer@{lasd::ClearableContainer}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -104,7 +125,7 @@ bool lasd\+::\+Clearable\+Container\+::operator!= (\begin{DoxyParamCaption}\item
 
 
 
-Move assignment. 
+Operatore di assegnazione per spostamento eliminato. 
 
 \Hypertarget{classlasd_1_1ClearableContainer_a1913f2eaee3be6897bba74cf5e833893}\index{lasd::ClearableContainer@{lasd::ClearableContainer}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::ClearableContainer@{lasd::ClearableContainer}}
@@ -114,18 +135,28 @@ Move assignment.
 
 
 
-Copy assignment. 
+Operatore di assegnazione per copia eliminato. 
 
-\Hypertarget{classlasd_1_1ClearableContainer_a8981bd9b36fea0340cd8d3bca260bd50}\index{lasd::ClearableContainer@{lasd::ClearableContainer}!operator==@{operator==}}
+\Hypertarget{classlasd_1_1ClearableContainer_aeb1cb6cdffe8464b5e96b24394c875c3}\index{lasd::ClearableContainer@{lasd::ClearableContainer}!operator==@{operator==}}
 \index{operator==@{operator==}!lasd::ClearableContainer@{lasd::ClearableContainer}}
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
-{\footnotesize\ttfamily \label{classlasd_1_1ClearableContainer_a8981bd9b36fea0340cd8d3bca260bd50} 
-bool lasd\+::\+Clearable\+Container\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&}]{Ccon}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classlasd_1_1ClearableContainer_aeb1cb6cdffe8464b5e96b24394c875c3} 
+bool lasd\+::\+Clearable\+Container\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
 
 
-Comparison operators. 
+Operatore di uguaglianza eliminato. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Contenitore da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se i contenitori sono uguali. 
+
+false Altrimenti. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

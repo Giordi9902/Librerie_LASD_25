@@ -12,7 +12,7 @@ Classe astratta \doxylink{classlasd_1_1MappableContainer}{Mappable\+Container}.
 Inheritance diagram for lasd\+::Mappable\+Container\texorpdfstring{$<$}{<} Data \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.786070cm]{classlasd_1_1MappableContainer}
+\includegraphics[height=4.179105cm]{classlasd_1_1MappableContainer}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Types}
@@ -24,11 +24,13 @@ using \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f
 \begin{DoxyCompactItemize}
 \item 
 using \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}} = std\+::function$<$void(const Data \&)$>$
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Funzione di attraversamento degli elementi. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Accumulator$>$ }\\using \mbox{\hyperlink{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e}{Fold\+Fun}} = std\+::function$<$Accumulator(const Data \&, const Accumulator \&)$>$
+\begin{DoxyCompactList}\small\item\em Funzione di folding degli elementi. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual \mbox{\hyperlink{classlasd_1_1MappableContainer_aa3564de042a1efaabc415517e764279b}{\texorpdfstring{$\sim$}{\string~}\+Mappable\+Container}} () noexcept=default
+virtual \mbox{\hyperlink{classlasd_1_1MappableContainer_a783f296eff68ed4b81cba1ed888361e4}{\texorpdfstring{$\sim$}{\string~}\+Mappable\+Container}} ()=default
 \begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}} \& \mbox{\hyperlink{classlasd_1_1MappableContainer_ab4134f8c2efeae4812c5b1d2e7ca4994}{operator=}} (const \mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}} \&) noexcept=delete
 \begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
@@ -38,8 +40,8 @@ bool \mbox{\hyperlink{classlasd_1_1MappableContainer_a69a83c127dfcfdf6f3d81432dc
 \begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1MappableContainer_a5974c15c1c2dab25fbec3755c1e9c4f3}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}} \&) const noexcept=delete
 \begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classlasd_1_1MappableContainer_ab6d1e53a4c26b985cec5ddaad8246f61}{Map}} (const \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{Map\+Fun}} func)=0
-\begin{DoxyCompactList}\small\item\em Funzione di mappatura degli elementi del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+virtual void \mbox{\hyperlink{classlasd_1_1MappableContainer_af9e91710b8b4c046c1b74f17309e9a2b}{Map}} (const \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{Map\+Fun}} fun)=0
+\begin{DoxyCompactList}\small\item\em Applica una funzione a ogni elemento del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1TraversableContainer}{lasd\+::\+Traversable\+Container$<$ Data $>$}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -53,10 +55,10 @@ bool \mbox{\hyperlink{classlasd_1_1TraversableContainer_a2751bff24b9a20559fd97e8
 \begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1TraversableContainer_a9855ae0e5bde260b5d2a2c1220a73455}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer}{Traversable\+Container}} \&) const noexcept=delete
 \begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}{Traverse}} (\mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}} func) const =0
-\begin{DoxyCompactList}\small\item\em Funzione di attraversamento del contenitore. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Accumulator$>$ }\\Accumulator \mbox{\hyperlink{classlasd_1_1TraversableContainer_a187cd8568dbb021af9506119270a2d47}{Fold}} (\mbox{\hyperlink{namespacelasd_ad2d4657501de56605012dc9652d872fe}{Fold\+Fun}}$<$ Accumulator $>$ func, Accumulator base) const
-\begin{DoxyCompactList}\small\item\em Funzione di riduzione (fold) del contenitore. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}{Traverse}} (const \mbox{\hyperlink{classlasd_1_1TraversableContainer_a5d46f3e2fc7ef09968595f5b11e53e1d}{Traverse\+Fun}} func) const =0
+\item 
+{\footnotesize template$<$typename Accumulator$>$ }\\Accumulator \mbox{\hyperlink{classlasd_1_1TraversableContainer_ac07cea93e779bd5268c0946e54b92506}{Fold}} (\mbox{\hyperlink{classlasd_1_1TraversableContainer_ac36d8ccc8ef8dcb58365849203f9b71e}{Fold\+Fun}}$<$ Accumulator $>$ func, Accumulator acc) const
+\item 
 bool \mbox{\hyperlink{classlasd_1_1TraversableContainer_acfb5bcd70bd180b5077aeeebfffd0478}{Exists}} (const Data \&data) const noexcept override
 \begin{DoxyCompactList}\small\item\em Verifica se un elemento esiste nel contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1TestableContainer}{lasd\+::\+Testable\+Container$<$ Data $>$}}}
@@ -76,25 +78,25 @@ bool \mbox{\hyperlink{classlasd_1_1TestableContainer_a34c9e849afdebc87b63fe407fb
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se il contenitore è vuoto. \end{DoxyCompactList}\item 
 virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la dimensione del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Costruttore di default. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -132,44 +134,50 @@ Alias per la funzione di mappatura.
 
 
 
-Definition at line \mbox{\hyperlink{container_2mappable_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{container_2mappable_8hpp_source}{mappable.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2mappable_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{container_2mappable_8hpp_source}{mappable.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classlasd_1_1MappableContainer_aa3564de042a1efaabc415517e764279b}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!````~MappableContainer@{\texorpdfstring{$\sim$}{\string~}MappableContainer}}
+\Hypertarget{classlasd_1_1MappableContainer_a783f296eff68ed4b81cba1ed888361e4}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!````~MappableContainer@{\texorpdfstring{$\sim$}{\string~}MappableContainer}}
 \index{````~MappableContainer@{\texorpdfstring{$\sim$}{\string~}MappableContainer}!lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MappableContainer()}{\string~MappableContainer()}}
-{\footnotesize\ttfamily \label{classlasd_1_1MappableContainer_aa3564de042a1efaabc415517e764279b} 
+{\footnotesize\ttfamily \label{classlasd_1_1MappableContainer_a783f296eff68ed4b81cba1ed888361e4} 
 template$<$typename Data$>$ \\
-virtual \mbox{\hyperlink{classlasd_1_1MappableContainer}{lasd\+::\+Mappable\+Container}}$<$ Data $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}, {\ttfamily [noexcept]}}
+virtual \mbox{\hyperlink{classlasd_1_1MappableContainer}{lasd\+::\+Mappable\+Container}}$<$ Data $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classlasd_1_1MappableContainer}{Mappable\+Container}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
 
 Distruttore virtuale. 
 
+\begin{DoxyNote}{Note}
+Necessario per garantire la corretta distruzione degli oggetti derivati. 
+\end{DoxyNote}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classlasd_1_1MappableContainer_ab6d1e53a4c26b985cec5ddaad8246f61}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!Map@{Map}}
+\Hypertarget{classlasd_1_1MappableContainer_af9e91710b8b4c046c1b74f17309e9a2b}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!Map@{Map}}
 \index{Map@{Map}!lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{Map()}{Map()}}
-{\footnotesize\ttfamily \label{classlasd_1_1MappableContainer_ab6d1e53a4c26b985cec5ddaad8246f61} 
+{\footnotesize\ttfamily \label{classlasd_1_1MappableContainer_af9e91710b8b4c046c1b74f17309e9a2b} 
 template$<$typename Data$>$ \\
-virtual void \mbox{\hyperlink{classlasd_1_1MappableContainer}{lasd\+::\+Mappable\+Container}}$<$ Data $>$\+::\+Map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{Map\+Fun}}}]{func}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+virtual void \mbox{\hyperlink{classlasd_1_1MappableContainer}{lasd\+::\+Mappable\+Container}}$<$ Data $>$\+::\+Map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1MappableContainer_aa8e403a61f273a6b64a71fe4f62e7f0f}{Map\+Fun}}}]{fun}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Funzione di mappatura degli elementi del contenitore. 
+Applica una funzione a ogni elemento del contenitore. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em func} & Funzione da applicare a ogni elemento. \\
+{\em fun} & Funzione da applicare.\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Questa funzione deve essere implementata nelle classi derivate. 
+\end{DoxyNote}
 
 
-Implemented in \mbox{\hyperlink{classlasd_1_1List_a878efe444e6009c5f9ecec502318da9c}{lasd\+::\+List$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_aa9b9edfb9cd15429abecab628ca2b9a3}{lasd\+::\+Mutable\+Linear\+Container$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a033552bb10eed6faec70482a2f347416}{lasd\+::\+Post\+Order\+Mappable\+Container$<$ Data $>$}}, and \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a2614dce310eeac8cbd6a5da62718229b}{lasd\+::\+Pre\+Order\+Mappable\+Container$<$ Data $>$}}.
+Implemented in \mbox{\hyperlink{classlasd_1_1MutableLinearContainer_acb58715a34f8784b237c6ab01f3c66ad}{lasd\+::\+Mutable\+Linear\+Container$<$ Data $>$}}, \mbox{\hyperlink{classlasd_1_1PostOrderMappableContainer_a5c3b369b7a05fa06a3e9875eb065cec6}{lasd\+::\+Post\+Order\+Mappable\+Container$<$ Data $>$}}, and \mbox{\hyperlink{classlasd_1_1PreOrderMappableContainer_a6b974c5ce68eee6e8dbf86023c34ebbd}{lasd\+::\+Pre\+Order\+Mappable\+Container$<$ Data $>$}}.
 
 \Hypertarget{classlasd_1_1MappableContainer_a5974c15c1c2dab25fbec3755c1e9c4f3}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}}
@@ -190,8 +198,11 @@ Operatore di disuguaglianza eliminato.
 \begin{DoxyReturn}{Returns}
 true Se i contenitori sono diversi. 
 
-false Altrimenti. 
+false Altrimenti.
 \end{DoxyReturn}
+\begin{DoxyNote}{Note}
+La disuguaglianza non è definita per questa classe astratta. 
+\end{DoxyNote}
 \Hypertarget{classlasd_1_1MappableContainer_ab4134f8c2efeae4812c5b1d2e7ca4994}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -203,6 +214,9 @@ template$<$typename Data$>$ \\
 
 Operatore di assegnazione per copia eliminato. 
 
+\begin{DoxyNote}{Note}
+L\textquotesingle{}assegnazione per copia non è supportata per evitare duplicazioni non controllate. 
+\end{DoxyNote}
 \Hypertarget{classlasd_1_1MappableContainer_a01e8387a9c8ee14a180c4dd851e8e76b}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -214,6 +228,9 @@ template$<$typename Data$>$ \\
 
 Operatore di assegnazione per spostamento eliminato. 
 
+\begin{DoxyNote}{Note}
+L\textquotesingle{}assegnazione per spostamento non è supportata per evitare stati incoerenti. 
+\end{DoxyNote}
 \Hypertarget{classlasd_1_1MappableContainer_a69a83c127dfcfdf6f3d81432dc774b57}\index{lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}!operator==@{operator==}}
 \index{operator==@{operator==}!lasd::MappableContainer$<$ Data $>$@{lasd::MappableContainer$<$ Data $>$}}
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
@@ -233,8 +250,11 @@ Operatore di uguaglianza eliminato.
 \begin{DoxyReturn}{Returns}
 true Se i contenitori sono uguali. 
 
-false Altrimenti. 
+false Altrimenti.
 \end{DoxyReturn}
+\begin{DoxyNote}{Note}
+L\textquotesingle{}uguaglianza non è definita per questa classe astratta. 
+\end{DoxyNote}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

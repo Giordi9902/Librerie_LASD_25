@@ -2,62 +2,63 @@
 \hypertarget{dictionary_8cpp_source}{}\label{dictionary_8cpp_source}\index{Exercise1/container/dictionary.cpp@{Exercise1/container/dictionary.cpp}}
 \mbox{\hyperlink{dictionary_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00001}00001\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00002}00002\ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00003}00003\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00004}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3}{00004}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3}{DictionaryContainer<Data>::InsertAll}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00005}00005\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00006}00006\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ \&=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}{Insert}}(currData);\ \});}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00010}00010\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00013}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_afacca54f4358ff5e4704de110d83e860}{00013}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036a67c7ebfb8f256fc70c17ddbd20c3}{DictionaryContainer<Data>::InsertAll}}(\mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer<Data>}}\ \&\&con)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00014}00014\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ con.Map([\textcolor{keyword}{this},\ \&result](Data\ \&currData)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ \&=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}{Insert}}(std::move(currData));\ \});}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00019}00019\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00022}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a7173697ffb6529e1242949d63cc54531}{00022}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a7173697ffb6529e1242949d63cc54531}{DictionaryContainer<Data>::RemoveAll}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00023}00023\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ \&=\ this-\/>\mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(currData);\ \});}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00028}00028\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00031}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452}{00031}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452}{DictionaryContainer<Data>::InsertSome}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00032}00032\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ |=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}{Insert}}(currData);\ \});}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00037}00037\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00040}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_aabfc2010462cfc369479592d9011c68d}{00040}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a56a0ac1613cc33b03673590187d7f452}{DictionaryContainer<Data>::InsertSome}}(\mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer<Data>}}\ \&\&con)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00041}00041\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ con.Map([\textcolor{keyword}{this},\ \&result](Data\ \&currData)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ |=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a036855a317194c5739780788d22a6f71}{Insert}}(std::move(currData));\ \});}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00046}00046\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00049}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a5e757dc7bb39f946f9d8e8eeef60d16a}{00049}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a5e757dc7bb39f946f9d8e8eeef60d16a}{DictionaryContainer<Data>::RemoveSome}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00050}00050\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_aaec1d2c72a2a403f37de08339c18f679}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ |=\ this-\/>\mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(currData);\ \});}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00055}00055\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00056}00056\ }
-\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00002}00002\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelasd}{lasd}}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00003}00003\ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00004}00004\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00005}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a054a978dc372b23dcb3fb34b8f6b94ba}{00005}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a054a978dc372b23dcb3fb34b8f6b94ba}{DictionaryContainer<Data>::InsertAll}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00006}00006\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ \&=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab210955cce6d5adce93606e8bac17914}{Insert}}(currData);\ \});}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00011}00011\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00014}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_abb1712961554d0065262730fece36e4b}{00014}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a054a978dc372b23dcb3fb34b8f6b94ba}{DictionaryContainer<Data>::InsertAll}}(\mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer<Data>}}\ \&\&con)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ con.Map([\textcolor{keyword}{this},\ \&result](Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ \&=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab210955cce6d5adce93606e8bac17914}{Insert}}(std::move(currData));\ \});}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00023}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab82a8f2e27535e421f24ee00a331d3fb}{00023}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab82a8f2e27535e421f24ee00a331d3fb}{DictionaryContainer<Data>::RemoveAll}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ \&=\ this-\/>\mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(currData);\ \});}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00032}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_aa449bdaa7d7688fc0ecb3dbd87699315}{00032}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aa449bdaa7d7688fc0ecb3dbd87699315}{DictionaryContainer<Data>::InsertSome}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00033}00033\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ |=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab210955cce6d5adce93606e8bac17914}{Insert}}(currData);\ \});}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00041}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a82ad05412d8271016b297211bbe2ee89}{00041}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_aa449bdaa7d7688fc0ecb3dbd87699315}{DictionaryContainer<Data>::InsertSome}}(\mbox{\hyperlink{classlasd_1_1MappableContainer}{MappableContainer<Data>}}\ \&\&con)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00042}00042\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ con.Map([\textcolor{keyword}{this},\ \&result](Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ |=\ this-\/>\mbox{\hyperlink{classlasd_1_1DictionaryContainer_ab210955cce6d5adce93606e8bac17914}{Insert}}(std::move(currData));\ \});}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Data>}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00050}\mbox{\hyperlink{classlasd_1_1DictionaryContainer_a43b2e1436dd1a9f4b014dab7e35b3e2e}{00050}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlasd_1_1DictionaryContainer_a43b2e1436dd1a9f4b014dab7e35b3e2e}{DictionaryContainer<Data>::RemoveSome}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlasd_1_1TraversableContainer}{TraversableContainer<Data>}}\ \&con)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ con.\mbox{\hyperlink{classlasd_1_1TraversableContainer_ad739d42e308e87ccd6f8522616411b81}{Traverse}}([\textcolor{keyword}{this},\ \&result](\textcolor{keyword}{const}\ Data\ \&currData)}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ result\ |=\ this-\/>\mbox{\hyperlink{zlasdtest_2container_2dictionary_8hpp_ac20e87723c9921fb1fbdda8458707afc}{Remove}}(currData);\ \});}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{dictionary_8cpp_source_l00058}00058\ \}}
 
 \end{DoxyCode}

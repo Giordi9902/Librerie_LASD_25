@@ -2,6 +2,11 @@
 \hypertarget{classlasd_1_1ResizableContainer}{}\label{classlasd_1_1ResizableContainer}\index{lasd::ResizableContainer@{lasd::ResizableContainer}}
 
 
+Classe astratta \doxylink{classlasd_1_1ResizableContainer}{Resizable\+Container}.  
+
+
+
+
 {\ttfamily \#include $<$container.\+hpp$>$}
 
 Inheritance diagram for lasd\+::Resizable\+Container\+:\begin{figure}[H]
@@ -14,55 +19,55 @@ Inheritance diagram for lasd\+::Resizable\+Container\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1ResizableContainer_afbb0631a2f1814a10031515e7d16c531}{\texorpdfstring{$\sim$}{\string~}\+Resizable\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ResizableContainer_a0ff41447eec8c7f7af2473f79030dbbf}{operator=}} (const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&Ccon) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ResizableContainer_a87a0770f3105c822bda6eaa8291f7016}{operator=}} (\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&\&Ccon) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ResizableContainer_a4f8f40ecd68f3ead1cf51b60f716e230}{operator=}} (const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ResizableContainer_a0508227d74392712d088bfbbf8ae26d6}{operator=}} (\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1ResizableContainer_a981d9d6c0f2dde02e919feea9633aab4}{operator==}} (const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&Ccon) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1ResizableContainer_ab570857794cd99a151c408df6e560fde}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&Ccon) const noexcept=delete
-\item 
-virtual void \mbox{\hyperlink{classlasd_1_1ResizableContainer_ae407c54cb1b040f266d86f96c57ab8b6}{Resize}} (unsigned long)=0
-\begin{DoxyCompactList}\small\item\em Resize è metodo virtuale puro. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classlasd_1_1ResizableContainer_a411bc5b38a5dfb89f8ba836cb1e360d9}{Resize}} (unsigned long new\+Size)=0
+\begin{DoxyCompactList}\small\item\em Metodo astratto per ridimensionare il contenitore. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classlasd_1_1ResizableContainer_a64d0eb38229d4ffadec0d61ab75b82b8}{Clear}} () override
-\begin{DoxyCompactList}\small\item\em Anche se non è possibile dichiarare oggetti di una classe astratta, possiamo usare i metodi virtuali puri che questa fornisce per implementare delle funzionalità di base. Sarà poi il polimorfismo ad eseguire un dispatching dinamico per chiamare i metodi delle classi concrete che estendono la classe astratta. Ad esempio, a questo livello di astrazione possiamo già fornire una implementazione di base per il metodo Clear anche senza sapere come svuotare una struttura dati generica. Questa implementazione prevede che la struttura dati venga ridimensionata a 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Metodo per svuotare il contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1ClearableContainer}{lasd\+::\+Clearable\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1ClearableContainer_a288fbc28a8eae1a0736ab73570d1e2ea}{\texorpdfstring{$\sim$}{\string~}\+Clearable\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ClearableContainer_a1913f2eaee3be6897bba74cf5e833893}{operator=}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \& \mbox{\hyperlink{classlasd_1_1ClearableContainer_ab3889b911865ebccf15120503ec02a9b}{operator=}} (\mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_a8981bd9b36fea0340cd8d3bca260bd50}{operator==}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&Ccon) const noexcept=delete
-\begin{DoxyCompactList}\small\item\em Comparison operators. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_a7424607fa6e34267134f0693104f0605}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&Ccon) const noexcept=delete
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_aeb1cb6cdffe8464b5e96b24394c875c3}{operator==}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlasd_1_1ClearableContainer_abe1d85771f6bc835b9b1927ac3dcc6c7}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1ClearableContainer}{Clearable\+Container}} \&) const noexcept=delete
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se il contenitore è vuoto. \end{DoxyCompactList}\item 
 virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la dimensione del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Costruttore di default. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classlasd_1_1Container}{lasd\+::\+Container}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -71,9 +76,11 @@ unsigned long \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742c
 
 
 \doxysubsection{Detailed Description}
-\doxylink{classlasd_1_1ResizableContainer}{Resizable\+Container} rappresenta un’estensione della classe Clearable e funge da collettore per tutte quelle strutture dati che possono essere ridimensionate, ovvero che possono modificare la propria dimensione in maniera dinamica. 
+Classe astratta \doxylink{classlasd_1_1ResizableContainer}{Resizable\+Container}. 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Classe che rappresenta un contenitore che può essere ridimensionato. 
+
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 
 
@@ -86,7 +93,7 @@ virtual lasd\+::\+Resizable\+Container\+::\texorpdfstring{$\sim$}{\string~}\+Res
 
 
 
-Destructor. 
+Distruttore virtuale. 
 
 
 
@@ -99,7 +106,7 @@ void lasd\+::\+Resizable\+Container\+::\+Clear (\begin{DoxyParamCaption}{}{}\end
 
 
 
-Anche se non è possibile dichiarare oggetti di una classe astratta, possiamo usare i metodi virtuali puri che questa fornisce per implementare delle funzionalità di base. Sarà poi il polimorfismo ad eseguire un dispatching dinamico per chiamare i metodi delle classi concrete che estendono la classe astratta. Ad esempio, a questo livello di astrazione possiamo già fornire una implementazione di base per il metodo Clear anche senza sapere come svuotare una struttura dati generica. Questa implementazione prevede che la struttura dati venga ridimensionata a 0. 
+Metodo per svuotare il contenitore. 
 
 
 
@@ -111,7 +118,7 @@ Reimplemented in \mbox{\hyperlink{classlasd_1_1Vector_aa50e2923062e296dba81796ab
 
 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00097}{97}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00179}{179}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 \Hypertarget{classlasd_1_1ResizableContainer_ab570857794cd99a151c408df6e560fde}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!lasd::ResizableContainer@{lasd::ResizableContainer}}
@@ -119,25 +126,39 @@ Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00097}{97}
 {\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_ab570857794cd99a151c408df6e560fde} 
 bool lasd\+::\+Resizable\+Container\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&}]{Ccon}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
-\Hypertarget{classlasd_1_1ResizableContainer_a0ff41447eec8c7f7af2473f79030dbbf}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!operator=@{operator=}}
+
+
+Operatore di disuguaglianza eliminato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Contenitore da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se i contenitori sono diversi. 
+
+false Altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classlasd_1_1ResizableContainer_a4f8f40ecd68f3ead1cf51b60f716e230}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::ResizableContainer@{lasd::ResizableContainer}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_a0ff41447eec8c7f7af2473f79030dbbf} 
-\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& lasd\+::\+Resizable\+Container\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&}]{Ccon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_a4f8f40ecd68f3ead1cf51b60f716e230} 
+\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& lasd\+::\+Resizable\+Container\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
 
 
-Copy assignment. 
+Operatore di assegnazione per copia eliminato. 
 
-\Hypertarget{classlasd_1_1ResizableContainer_a87a0770f3105c822bda6eaa8291f7016}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!operator=@{operator=}}
+\Hypertarget{classlasd_1_1ResizableContainer_a0508227d74392712d088bfbbf8ae26d6}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::ResizableContainer@{lasd::ResizableContainer}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_a87a0770f3105c822bda6eaa8291f7016} 
-\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& lasd\+::\+Resizable\+Container\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&\&}]{Ccon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_a0508227d74392712d088bfbbf8ae26d6} 
+\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \& lasd\+::\+Resizable\+Container\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
 
 
-Move assignment. 
+Operatore di assegnazione per spostamento eliminato. 
 
 \Hypertarget{classlasd_1_1ResizableContainer_a981d9d6c0f2dde02e919feea9633aab4}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!operator==@{operator==}}
 \index{operator==@{operator==}!lasd::ResizableContainer@{lasd::ResizableContainer}}
@@ -145,24 +166,38 @@ Move assignment.
 {\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_a981d9d6c0f2dde02e919feea9633aab4} 
 bool lasd\+::\+Resizable\+Container\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1ResizableContainer}{Resizable\+Container}} \&}]{Ccon}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
-\Hypertarget{classlasd_1_1ResizableContainer_ae407c54cb1b040f266d86f96c57ab8b6}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!Resize@{Resize}}
-\index{Resize@{Resize}!lasd::ResizableContainer@{lasd::ResizableContainer}}
-\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
-{\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_ae407c54cb1b040f266d86f96c57ab8b6} 
-virtual void lasd\+::\+Resizable\+Container\+::\+Resize (\begin{DoxyParamCaption}\item[{unsigned long}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
-
-Resize è metodo virtuale puro. 
+Operatore di uguaglianza eliminato. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em unsigned} & long un argomento di tipo intero per specificare la nuova dimensione del container \\
+{\em other} & Contenitore da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se i contenitori sono uguali. 
+
+false Altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classlasd_1_1ResizableContainer_a411bc5b38a5dfb89f8ba836cb1e360d9}\index{lasd::ResizableContainer@{lasd::ResizableContainer}!Resize@{Resize}}
+\index{Resize@{Resize}!lasd::ResizableContainer@{lasd::ResizableContainer}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily \label{classlasd_1_1ResizableContainer_a411bc5b38a5dfb89f8ba836cb1e360d9} 
+virtual void lasd\+::\+Resizable\+Container\+::\+Resize (\begin{DoxyParamCaption}\item[{unsigned long}]{new\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Metodo astratto per ridimensionare il contenitore. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Size} & Nuova dimensione del contenitore. \\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{classlasd_1_1Vector_a83f8609c80786d3cc1a3e8739a293275}{lasd\+::\+Vector$<$ Data $>$}}.
+Implemented in \mbox{\hyperlink{classlasd_1_1Vector_a8249937d191e3395bff3d7c134485960}{lasd\+::\+Vector$<$ Data $>$}}.
 
 
 

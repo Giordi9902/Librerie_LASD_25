@@ -2,36 +2,41 @@
 \hypertarget{classlasd_1_1Container}{}\label{classlasd_1_1Container}\index{lasd::Container@{lasd::Container}}
 
 
+Classe base astratta \doxylink{classlasd_1_1Container}{Container}.  
+
+
+
+
 {\ttfamily \#include $<$container.\+hpp$>$}
 
 Inheritance diagram for lasd\+::Container\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=1.200000cm]{classlasd_1_1Container}
+\includegraphics[height=1.142857cm]{classlasd_1_1Container}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}{\texorpdfstring{$\sim$}{\string~}\+Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Distruttore virtuale. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}{operator=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&)=delete
-\begin{DoxyCompactList}\small\item\em Copy assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per copia eliminato. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classlasd_1_1Container}{Container}} \& \mbox{\hyperlink{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}{operator=}} (\mbox{\hyperlink{classlasd_1_1Container}{Container}} \&\&) noexcept=delete
-\begin{DoxyCompactList}\small\item\em Move assignment of abstract types is not possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operatore di assegnazione per spostamento eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}{operator==}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di uguaglianza eliminato. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}{operator!=}} (const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&) const noexcept=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Operatore di disuguaglianza eliminato. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se il contenitore è vuoto. \end{DoxyCompactList}\item 
 virtual unsigned long \mbox{\hyperlink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size}} () const noexcept
-\begin{DoxyCompactList}\small\item\em La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la dimensione del contenitore. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classlasd_1_1Container_a4e7341293eee705884a9e780caa3bba9}{Container}} ()=default
-\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Costruttore di default. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,9 +45,11 @@ unsigned long \mbox{\hyperlink{classlasd_1_1Container_a197c8a0c49b15f22db0a9742c
 
 
 \doxysubsection{Detailed Description}
-La classe \doxylink{classlasd_1_1Container}{Container} fornisce la prima classe a partire dalla quale andremo a definire le nostre interfacce. È l\textquotesingle{}analogo della classe Object in Java. 
+Classe base astratta \doxylink{classlasd_1_1Container}{Container}. 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Classe che rappresenta un contenitore generico con funzionalità di base. 
+
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 
 
@@ -55,7 +62,7 @@ lasd\+::\+Container\+::\+Container (\begin{DoxyParamCaption}{}{}\end{DoxyParamCa
 
 
 
-Default constructor. 
+Costruttore di default. 
 
 \Hypertarget{classlasd_1_1Container_a52ac509c43bfff1b3345d92a2d0801d6}\index{lasd::Container@{lasd::Container}!````~Container@{\texorpdfstring{$\sim$}{\string~}Container}}
 \index{````~Container@{\texorpdfstring{$\sim$}{\string~}Container}!lasd::Container@{lasd::Container}}
@@ -65,7 +72,7 @@ virtual lasd\+::\+Container\+::\texorpdfstring{$\sim$}{\string~}\+Container (\be
 
 
 
-Destructor. 
+Distruttore virtuale. 
 
 
 
@@ -78,14 +85,16 @@ virtual bool lasd\+::\+Container\+::\+Empty (\begin{DoxyParamCaption}{}{}\end{Do
 
 
 
-La funzione \doxylink{classlasd_1_1Container_adc3aaaeff61d4b03618a4b870dd0a7e1}{Empty()} controlla se la struttura è vuota (concrete function should not throw exceptions) 
+Verifica se il contenitore è vuoto. 
 
 \begin{DoxyReturn}{Returns}
-true se la struttura è vuota, false altrimenti 
+true Se il contenitore è vuoto. 
+
+false Altrimenti. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 \Hypertarget{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997}\index{lasd::Container@{lasd::Container}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!lasd::Container@{lasd::Container}}
@@ -93,6 +102,20 @@ Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00036}{36}
 {\footnotesize\ttfamily \label{classlasd_1_1Container_a8a8828b42b8fb6c272063bda9a0d0997} 
 bool lasd\+::\+Container\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
+
+
+Operatore di disuguaglianza eliminato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Contenitore da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se i contenitori sono diversi. 
+
+false Altrimenti. 
+\end{DoxyReturn}
 \Hypertarget{classlasd_1_1Container_a788c6a2dd1f35be363a627788ddfbc35}\index{lasd::Container@{lasd::Container}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::Container@{lasd::Container}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -101,7 +124,7 @@ bool lasd\+::\+Container\+::operator!= (\begin{DoxyParamCaption}\item[{const \mb
 
 
 
-Copy assignment of abstract types is not possible. 
+Operatore di assegnazione per copia eliminato. 
 
 \Hypertarget{classlasd_1_1Container_a7c160f45a67fab3547ab8918be90bed0}\index{lasd::Container@{lasd::Container}!operator=@{operator=}}
 \index{operator=@{operator=}!lasd::Container@{lasd::Container}}
@@ -111,7 +134,7 @@ Copy assignment of abstract types is not possible.
 
 
 
-Move assignment of abstract types is not possible. 
+Operatore di assegnazione per spostamento eliminato. 
 
 \Hypertarget{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae}\index{lasd::Container@{lasd::Container}!operator==@{operator==}}
 \index{operator==@{operator==}!lasd::Container@{lasd::Container}}
@@ -119,6 +142,20 @@ Move assignment of abstract types is not possible.
 {\footnotesize\ttfamily \label{classlasd_1_1Container_a8fb5213a38ea5cdf5379287d0aefb0ae} 
 bool lasd\+::\+Container\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlasd_1_1Container}{Container}} \&}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
 
+
+
+Operatore di uguaglianza eliminato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Contenitore da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se i contenitori sono uguali. 
+
+false Altrimenti. 
+\end{DoxyReturn}
 \Hypertarget{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}\index{lasd::Container@{lasd::Container}!Size@{Size}}
 \index{Size@{Size}!lasd::Container@{lasd::Container}}
 \doxysubsubsection{\texorpdfstring{Size()}{Size()}}
@@ -127,14 +164,14 @@ virtual unsigned long lasd\+::\+Container\+::\+Size (\begin{DoxyParamCaption}{}{
 
 
 
-La funzione \doxylink{classlasd_1_1Container_a335d9a02b6a5f096eccf618e3c40eaae}{Size()} restituisce il numero di elementi presenti nella struttura (concrete function should not throw exceptions) 
+Restituisce la dimensione del contenitore. 
 
 \begin{DoxyReturn}{Returns}
-Il numero di elementi nella struttura 
+Dimensione del contenitore. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 
 
@@ -145,9 +182,9 @@ Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00042}{42}
 {\footnotesize\ttfamily \label{classlasd_1_1Container_a197c8a0c49b15f22db0a9742cc2141a3} 
 unsigned long lasd\+::\+Container\+::size = 0\hspace{0.3cm}{\ttfamily [protected]}}
 
-L\textquotesingle{}attributo size indica il numero di elementi presenti nel \doxylink{classlasd_1_1Container}{Container} 
+Dimensione del contenitore. 
 
-Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
+Definition at line \mbox{\hyperlink{container_2container_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{container_2container_8hpp_source}{container.\+hpp}}.
 
 
 

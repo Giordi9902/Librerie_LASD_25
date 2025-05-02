@@ -20,6 +20,5 @@ var namespacelasd =
     [ "SortableVector", "classlasd_1_1SortableVector.html", "classlasd_1_1SortableVector" ],
     [ "TestableContainer", "classlasd_1_1TestableContainer.html", "classlasd_1_1TestableContainer" ],
     [ "TraversableContainer", "classlasd_1_1TraversableContainer.html", "classlasd_1_1TraversableContainer" ],
-    [ "Vector", "classlasd_1_1Vector.html", "classlasd_1_1Vector" ],
-    [ "FoldFun", "namespacelasd.html#ad2d4657501de56605012dc9652d872fe", null ]
+    [ "Vector", "classlasd_1_1Vector.html", "classlasd_1_1Vector" ]
 ];

@@ -16,7 +16,7 @@
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00012}00012\ \ \ testnum++;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00013}00013\ \ \ \textcolor{keywordflow}{try}\ \{}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00014}00014\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Insert\ at\ the\ front\ of\ the\ list\ the\ value\ \(\backslash\)"{}"{}}\ <<\ val\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00015}00015\ \ \ \ \ lst.\mbox{\hyperlink{classlasd_1_1List_a05c4c4dc63fcdc9fa4a4fd1f9b65026a}{InsertAtFront}}(val);}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00015}00015\ \ \ \ \ lst.InsertAtFront(val);}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00016}00016\ \ \ \ \ std::cout\ <<\ ((tst\ =\ chk)\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00017}00017\ \ \ \}}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00018}00018\ \ \ \textcolor{keywordflow}{catch}\ (std::exception\ \&\ exc)\ \{}
@@ -30,8 +30,8 @@
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00026}00026\ \ \ \textcolor{keywordtype}{bool}\ tst;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00027}00027\ \ \ testnum++;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00028}00028\ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00029}00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Remove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.\mbox{\hyperlink{classlasd_1_1List_a7fe1b79f40f1b64c9f30040189c077e8}{Front}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00030}00030\ \ \ \ \ lst.\mbox{\hyperlink{classlasd_1_1List_a37a0146becc0a9c252d88c51e9e08c27}{RemoveFromFront}}();}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00029}00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Remove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.Front()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00030}00030\ \ \ \ \ lst.RemoveFromFront();}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00031}00031\ \ \ \ \ std::cout\ <<\ ((tst\ =\ chk)\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00032}00032\ \ \ \}}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00033}00033\ \ \ \textcolor{keywordflow}{catch}\ (std::length\_error\ \&\ exc)\ \{}
@@ -49,8 +49,8 @@
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00045}00045\ \ \ \textcolor{keywordtype}{bool}\ tst;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00046}00046\ \ \ testnum++;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00047}00047\ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00048}00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ FrontNRemove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.\mbox{\hyperlink{classlasd_1_1List_a7fe1b79f40f1b64c9f30040189c077e8}{Front}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00049}00049\ \ \ \ \ std::cout\ <<\ ((tst\ =\ ((lst.\mbox{\hyperlink{classlasd_1_1List_a0d1648625f34c0943a9aaccc3539ff1a}{FrontNRemove}}()\ ==\ val)\ ==\ chk))\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00048}00048\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ FrontNRemove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.Front()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00049}00049\ \ \ \ \ std::cout\ <<\ ((tst\ =\ ((lst.FrontNRemove()\ ==\ val)\ ==\ chk))\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00050}00050\ \ \ \}}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00051}00051\ \ \ \textcolor{keywordflow}{catch}\ (std::length\_error\ \&\ exc)\ \{}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00052}00052\ \ \ \ \ std::cout\ <<\ exc.what()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}}\ <<\ ((tst\ =\ !chk)\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
@@ -68,7 +68,7 @@
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00064}00064\ \ \ testnum++;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00065}00065\ \ \ \textcolor{keywordflow}{try}\ \{}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00066}00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Insert\ at\ the\ back\ of\ the\ list\ the\ value\ \(\backslash\)"{}"{}}\ <<\ val\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00067}00067\ \ \ \ \ lst.\mbox{\hyperlink{classlasd_1_1List_a6abb6a4f7403305986211423137dbfec}{InsertAtBack}}(val);}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00067}00067\ \ \ \ \ lst.InsertAtBack(val);}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00068}00068\ \ \ \ \ std::cout\ <<\ ((tst\ =\ chk)\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00069}00069\ \ \ \}}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00070}00070\ \ \ \textcolor{keywordflow}{catch}\ (std::exception\ \&\ exc)\ \{}
@@ -82,7 +82,7 @@
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00078}00078\ \ \ \textcolor{keywordtype}{bool}\ tst;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00079}00079\ \ \ testnum++;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00080}00080\ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00081}00081\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Remove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.\mbox{\hyperlink{classlasd_1_1List_a5218a1670823bcbddddeae72e7a58ca9}{Back}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00081}00081\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ Remove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.Back()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00082}00082\ \ \ \ \ lst.RemoveFromBack();}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00083}00083\ \ \ \ \ std::cout\ <<\ ((tst\ =\ chk)\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00084}00084\ \ \ \}}
@@ -101,7 +101,7 @@
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00097}00097\ \ \ \textcolor{keywordtype}{bool}\ tst;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00098}00098\ \ \ testnum++;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00099}00099\ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00100}00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ BackNRemove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.\mbox{\hyperlink{classlasd_1_1List_a5218a1670823bcbddddeae72e7a58ca9}{Back}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00100}00100\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ testnum\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ testerr\ <<\ \textcolor{stringliteral}{"{})\ BackNRemove\ from\ the\ list\ of\ \(\backslash\)"{}"{}}\ <<\ lst.Back()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00101}00101\ \ \ \ \ std::cout\ <<\ ((tst\ =\ ((lst.BackNRemove()\ ==\ val)\ ==\ chk))\ ?\ \textcolor{stringliteral}{"{}Correct"{}}\ :\ \textcolor{stringliteral}{"{}Error"{}})\ <<\ \textcolor{stringliteral}{"{}!"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00102}00102\ \ \ \}}
 \DoxyCodeLine{\Hypertarget{zlasdtest_2list_2list_8hpp_source_l00103}00103\ \ \ \textcolor{keywordflow}{catch}\ (std::length\_error\ \&\ exc)\ \{}
