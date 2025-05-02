@@ -109,208 +109,120 @@ $(function(){initNavTree('list_2list_8hpp_source.html',''); initResizable(true);
 <a href="list_2list_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef LIST_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define LIST_HPP</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/* ************************************************************************** */</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="container_2linear_8hpp.html">../container/linear.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/* ************************************************************************** */</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacelasd.html">lasd</a> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/* ************************************************************************** */</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Data&gt;</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classlasd_1_1List.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classlasd_1_1List.html">List</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="comment">// Must extend MutableLinearContainer&lt;Data&gt;,</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="comment">//             ClearableContainer</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="comment">// ...</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="comment">// using Container::???;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structlasd_1_1List_1_1Node.html">   28</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Data</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// ...</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="container_2linear_8hpp.html">../container/linear.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacelasd.html">lasd</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Data&gt;</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classlasd_1_1List.html">   19</a></span>  <span class="keyword">class </span><a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> : <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code hl_class" href="classlasd_1_1MutableLinearContainer.html">MutableLinearContainer</a>&lt;Data&gt;,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>               <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code hl_class" href="classlasd_1_1ClearableContainer.html">ClearableContainer</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">using </span><a class="code hl_variable" href="classlasd_1_1Container.html#a197c8a0c49b15f22db0a9742cc2141a3">Container::size</a>; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structlasd_1_1List_1_1Node.html">   30</a></span>    <span class="keyword">struct </span><a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">/* ********************************************************************** */</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// Specific constructors</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// ...</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">/* ********************************************************************** */</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// Copy constructor</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// ...</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// Move constructor</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// ...</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">/* ********************************************************************** */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structlasd_1_1List_1_1Node.html#a895c4c02149024108fb8357c98efe311">   33</a></span>      Data <a class="code hl_variable" href="structlasd_1_1List_1_1Node.html#a895c4c02149024108fb8357c98efe311">val</a>{}; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structlasd_1_1List_1_1Node.html#a2d09310a68ebfa0eb504174feb338813">   34</a></span>      <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a> *<a class="code hl_variable" href="structlasd_1_1List_1_1Node.html#a2d09310a68ebfa0eb504174feb338813">next</a> = <span class="keyword">nullptr</span>; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">   38</a></span>      <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a>(<span class="keyword">const</span> Data &amp;);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a>(Data &amp;&amp;) noexcept;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a>(const <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a> &amp;);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a>(<a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a> &amp;&amp;) noexcept;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      virtual ~<a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      inline <span class="keywordtype">bool</span> operator==(const <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a> &amp;) const noexcept;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      inline <span class="keywordtype">bool</span> operator!=(const <a class="code hl_function" href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">Node</a> &amp;) const noexcept;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// Destructor</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// ...</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classlasd_1_1List.html#acf08b2220a78db567f42d53001d40a68">   48</a></span>    <a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> *<a class="code hl_variable" href="classlasd_1_1List.html#acf08b2220a78db567f42d53001d40a68">head</a> = <span class="keywordtype">nullptr</span>; </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classlasd_1_1List.html#a388cbfdb0a3bd341b29f1d9505e5501a">   49</a></span>    <a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> *<a class="code hl_variable" href="classlasd_1_1List.html#a388cbfdb0a3bd341b29f1d9505e5501a">tail</a> = <span class="keywordtype">nullptr</span>; </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">/* ********************************************************************** */</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  public:</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Comparison operators</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// ...</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">/* ********************************************************************** */</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// Specific member functions</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// ...</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  };</div>
-</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="comment">// ...</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="comment">// Default constructor</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="comment">// List() specifiers;</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="comment">// Specific constructor</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="comment">// List(argument) specifiers; // A list obtained from a TraversableContainer</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="comment">// List(argument) specifiers; // A list obtained from a MappableContainer</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="comment">// Copy constructor</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="comment">// List(argument) specifiers;</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="comment">// Move constructor</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="comment">// List(argument) specifiers;</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="comment">/* ************************************************************************ */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">   53</a></span>    <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a>() = default;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a>(const <a class="code hl_class" href="classlasd_1_1TraversableContainer.html">TraversableContainer</a>&lt;Data&gt; &amp;);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a>(<a class="code hl_class" href="classlasd_1_1MappableContainer.html">MappableContainer</a>&lt;Data&gt; &amp;&amp;);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a>(const <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a>(<a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;&amp;);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    virtual ~<a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    inline <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;operator=(const <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    inline <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;operator=(<a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;&amp;) noexcept;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    inline <span class="keywordtype">bool</span> operator==(const <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;) const noexcept;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    inline <span class="keywordtype">bool</span> operator!=(const <a class="code hl_function" href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">List</a> &amp;) const noexcept;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a05c4c4dc63fcdc9fa4a4fd1f9b65026a">InsertAtFront</a>(const Data &amp;);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a05c4c4dc63fcdc9fa4a4fd1f9b65026a">InsertAtFront</a>(Data &amp;&amp;);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a37a0146becc0a9c252d88c51e9e08c27">RemoveFromFront</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    Data <a class="code hl_function" href="classlasd_1_1List.html#a0d1648625f34c0943a9aaccc3539ff1a">FrontNRemove</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a6abb6a4f7403305986211423137dbfec">InsertAtBack</a>(const Data &amp;);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a6abb6a4f7403305986211423137dbfec">InsertAtBack</a>(Data &amp;&amp;);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#adabbd842ea472fbb5165e141fecbf867">RemoveFromBack</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    Data <a class="code hl_function" href="classlasd_1_1List.html#af7fcb2030904b8974d061404f6cc2e08">BackNRemove</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    inline Data &amp;operator[](<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) override;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    inline Data &amp;<a class="code hl_function" href="classlasd_1_1List.html#a9a43dbed73a40dd4451002955d33568d">Front</a>() override;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    inline Data &amp;<a class="code hl_function" href="classlasd_1_1List.html#aea80e718c61a7ca9ea5240d4fe92e748">Back</a>() override;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    inline const Data &amp;operator[](const <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) const override;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    inline const Data &amp;<a class="code hl_function" href="classlasd_1_1List.html#a9a43dbed73a40dd4451002955d33568d">Front</a>() const override;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    inline const Data &amp;<a class="code hl_function" href="classlasd_1_1List.html#aea80e718c61a7ca9ea5240d4fe92e748">Back</a>() const override;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    using typename <a class="code hl_class" href="classlasd_1_1MappableContainer.html">MappableContainer</a>&lt;Data&gt;::<a class="code hl_typedef" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a52a9687251c37c4b91ff86b66b3fd428">Map</a>(const <a class="code hl_typedef" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a>) override;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#acb914fdaec9187bde2ffd1cab23d0df8">PreOrderMap</a>(const <a class="code hl_typedef" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a>) override;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a24145269065b52e006088bf7fc84ba5c">PostOrderMap</a>(const <a class="code hl_typedef" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a>) override;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    using typename <a class="code hl_class" href="classlasd_1_1TraversableContainer.html">TraversableContainer</a>&lt;Data&gt;::<a class="code hl_typedef" href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">TraverseFun</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a927faa5cf6b5cb80b19b665a6b0a4ed4">Traverse</a>(const <a class="code hl_typedef" href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">TraverseFun</a>) const override;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a3f0dd77075afc9af36d814f03079e582">PreOrderTraverse</a>(const <a class="code hl_typedef" href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">TraverseFun</a>) const override;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#af7d59529ff95f73f25837b5e2f6d8a55">PostOrderTraverse</a>(const <a class="code hl_typedef" href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">TraverseFun</a>) const override;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a7f1047a2f5e70081e790c7ac953db3ed">Clear</a>() override;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="comment">// Destructor</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="comment">// ~List() specifiers;</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="comment">// Copy assignment</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="comment">// type operator=(argument) specifiers;</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="comment">// Move assignment</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="comment">// type operator=(argument) specifiers;</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="comment">// Comparison operators</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <span class="comment">// type operator==(argument) specifiers;</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="comment">// type operator!=(argument) specifiers;</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="comment">// Specific member functions</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="comment">// type InsertAtFront(argument) specifier; // Copy of the value</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  <span class="comment">// type InsertAtFront(argument) specifier; // Move of the value</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="comment">// type RemoveFromFront() specifier; // (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="comment">// type FrontNRemove() specifier; // (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <span class="comment">// type InsertAtBack(argument) specifier; // Copy of the value</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <span class="comment">// type InsertAtBack(argument) specifier; // Move of the value</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="comment">// type RemoveFromBack() specifier; // (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="comment">// type BackNRemove() specifier; // (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="comment">// Specific member functions (inherited from MutableLinearContainer)</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <span class="comment">// type operator[](argument) specifiers; // Override MutableLinearContainer member (must throw std::out_of_range when out of range)</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="comment">// type Front() specifiers; // Override MutableLinearContainer member (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <span class="comment">// type Back() specifiers; // Override MutableLinearContainer member (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="comment">// Specific member functions (inherited from LinearContainer)</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <span class="comment">// type operator[](argument) specifiers; // Override LinearContainer member (must throw std::out_of_range when out of range)</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="comment">// type Front() specifiers; // Override LinearContainer member (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="comment">// type Back() specifiers; // Override LinearContainer member (must throw std::length_error when empty)</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  <span class="comment">// Specific member function (inherited from MappableContainer)</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  <span class="comment">// using typename MappableContainer&lt;Data&gt;::MapFun;</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="comment">// type Map(argument) specifiers; // Override MappableContainer member</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  <span class="comment">// Specific member function (inherited from PreOrderMappableContainer)</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  <span class="comment">// type PreOrderMap(argument) specifiers; // Override PreOrderMappableContainer member</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="comment">// Specific member function (inherited from PostOrderMappableContainer)</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  <span class="comment">// type PostOrderMap(argument) specifiers; // Override PostOrderMappableContainer member</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  <span class="comment">// Specific member function (inherited from TraversableContainer)</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>  <span class="comment">// using typename TraversableContainer&lt;Data&gt;::TraverseFun;</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  <span class="comment">// type Traverse(arguments) specifiers; // Override TraversableContainer member</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="comment">// Specific member function (inherited from PreOrderTraversableContainer)</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  <span class="comment">// type PreOrderTraverse(arguments) specifiers; // Override PreOrderTraversableContainer member</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  <span class="comment">// Specific member function (inherited from PostOrderTraversableContainer)</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  <span class="comment">// type PostOrderTraverse(arguments) specifiers; // Override PostOrderTraversableContainer member</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="comment">/* ************************************************************************ */</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  <span class="comment">// Specific member function (inherited from ClearableContainer)</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  <span class="comment">// type Clear() specifiers; // Override ClearableContainer member</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  <span class="comment">// Auxiliary functions, if necessary!</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>};</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  protected:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a3f0dd77075afc9af36d814f03079e582">PreOrderTraverse</a>(const <a class="code hl_typedef" href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">TraverseFun</a>, <a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> *) const;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#af7d59529ff95f73f25837b5e2f6d8a55">PostOrderTraverse</a>(const <a class="code hl_typedef" href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">TraverseFun</a>, <a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> *) const;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#acb914fdaec9187bde2ffd1cab23d0df8">PreOrderMap</a>(const <a class="code hl_typedef" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a>, <a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> *) const;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classlasd_1_1List.html#a24145269065b52e006088bf7fc84ba5c">PostOrderMap</a>(const <a class="code hl_typedef" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a>, <a class="code hl_struct" href="structlasd_1_1List_1_1Node.html">Node</a> *) const;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  };</div>
 </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">/* ************************************************************************** */</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#include &quot;<a class="code" href="list_8cpp.html">list.cpp</a>&quot;</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclasslasd_1_1List_html"><div class="ttname"><a href="classlasd_1_1List.html">lasd::List</a></div><div class="ttdef"><b>Definition</b> <a href="#l00016">list.hpp:16</a></div></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#include &quot;list.cpp&quot;</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclasslasd_1_1ClearableContainer_html"><div class="ttname"><a href="classlasd_1_1ClearableContainer.html">lasd::ClearableContainer</a></div><div class="ttdoc">Classe astratta ClearableContainer.</div><div class="ttdef"><b>Definition</b> <a href="container_2container_8hpp_source.html#l00084">container.hpp:85</a></div></div>
+<div class="ttc" id="aclasslasd_1_1Container_html_a197c8a0c49b15f22db0a9742cc2141a3"><div class="ttname"><a href="classlasd_1_1Container.html#a197c8a0c49b15f22db0a9742cc2141a3">lasd::Container::size</a></div><div class="ttdeci">unsigned long size</div><div class="ttdef"><b>Definition</b> <a href="container_2container_8hpp_source.html#l00022">container.hpp:22</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a05c4c4dc63fcdc9fa4a4fd1f9b65026a"><div class="ttname"><a href="classlasd_1_1List.html#a05c4c4dc63fcdc9fa4a4fd1f9b65026a">lasd::List::InsertAtFront</a></div><div class="ttdeci">void InsertAtFront(const Data &amp;)</div><div class="ttdoc">Inserisce un elemento all&#39;inizio della lista (copia del valore)</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00251">list.cpp:251</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a0d1648625f34c0943a9aaccc3539ff1a"><div class="ttname"><a href="classlasd_1_1List.html#a0d1648625f34c0943a9aaccc3539ff1a">lasd::List::FrontNRemove</a></div><div class="ttdeci">Data FrontNRemove()</div><div class="ttdoc">Restituisce e rimuove il primo elemento della lista.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00300">list.cpp:300</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a1d6edac8b09696bf8e7be803798e71eb"><div class="ttname"><a href="classlasd_1_1List.html#a1d6edac8b09696bf8e7be803798e71eb">lasd::List::List</a></div><div class="ttdeci">List()=default</div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a24145269065b52e006088bf7fc84ba5c"><div class="ttname"><a href="classlasd_1_1List.html#a24145269065b52e006088bf7fc84ba5c">lasd::List::PostOrderMap</a></div><div class="ttdeci">void PostOrderMap(const MapFun) override</div><div class="ttdoc">Applica una funzione a ogni elemento del contenitore in post-ordine.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00460">list.cpp:460</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a37a0146becc0a9c252d88c51e9e08c27"><div class="ttname"><a href="classlasd_1_1List.html#a37a0146becc0a9c252d88c51e9e08c27">lasd::List::RemoveFromFront</a></div><div class="ttdeci">void RemoveFromFront()</div><div class="ttdoc">Rimuove il primo elemento della lista.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00282">list.cpp:282</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a388cbfdb0a3bd341b29f1d9505e5501a"><div class="ttname"><a href="classlasd_1_1List.html#a388cbfdb0a3bd341b29f1d9505e5501a">lasd::List::tail</a></div><div class="ttdeci">Node * tail</div><div class="ttdef"><b>Definition</b> <a href="#l00049">list.hpp:49</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a3f0dd77075afc9af36d814f03079e582"><div class="ttname"><a href="classlasd_1_1List.html#a3f0dd77075afc9af36d814f03079e582">lasd::List::PreOrderTraverse</a></div><div class="ttdeci">void PreOrderTraverse(const TraverseFun) const override</div><div class="ttdoc">Attraversa il contenitore in pre-ordine.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00436">list.cpp:436</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a52a9687251c37c4b91ff86b66b3fd428"><div class="ttname"><a href="classlasd_1_1List.html#a52a9687251c37c4b91ff86b66b3fd428">lasd::List::Map</a></div><div class="ttdeci">void Map(const MapFun) override</div><div class="ttdoc">Applica una funzione a ogni elemento del contenitore.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00448">list.cpp:448</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a6abb6a4f7403305986211423137dbfec"><div class="ttname"><a href="classlasd_1_1List.html#a6abb6a4f7403305986211423137dbfec">lasd::List::InsertAtBack</a></div><div class="ttdeci">void InsertAtBack(const Data &amp;)</div><div class="ttdoc">Inserisce un elemento alla fine della lista (copia del valore)</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00325">list.cpp:325</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a7f1047a2f5e70081e790c7ac953db3ed"><div class="ttname"><a href="classlasd_1_1List.html#a7f1047a2f5e70081e790c7ac953db3ed">lasd::List::Clear</a></div><div class="ttdeci">void Clear() override</div><div class="ttdoc">Metodo astratto per svuotare il contenitore.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00422">list.cpp:422</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a927faa5cf6b5cb80b19b665a6b0a4ed4"><div class="ttname"><a href="classlasd_1_1List.html#a927faa5cf6b5cb80b19b665a6b0a4ed4">lasd::List::Traverse</a></div><div class="ttdeci">void Traverse(const TraverseFun) const override</div><div class="ttdoc">Attraversa il contenitore.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00430">list.cpp:430</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_a9a43dbed73a40dd4451002955d33568d"><div class="ttname"><a href="classlasd_1_1List.html#a9a43dbed73a40dd4451002955d33568d">lasd::List::Front</a></div><div class="ttdeci">Data &amp; Front() override</div><div class="ttdoc">Restituisce il primo elemento (in lettura/scrittura).</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00398">list.cpp:398</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_acb914fdaec9187bde2ffd1cab23d0df8"><div class="ttname"><a href="classlasd_1_1List.html#acb914fdaec9187bde2ffd1cab23d0df8">lasd::List::PreOrderMap</a></div><div class="ttdeci">void PreOrderMap(const MapFun) override</div><div class="ttdoc">Applica una funzione a ogni elemento del contenitore in pre-ordine.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00454">list.cpp:454</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_acf08b2220a78db567f42d53001d40a68"><div class="ttname"><a href="classlasd_1_1List.html#acf08b2220a78db567f42d53001d40a68">lasd::List::head</a></div><div class="ttdeci">Node * head</div><div class="ttdef"><b>Definition</b> <a href="#l00048">list.hpp:48</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_adabbd842ea472fbb5165e141fecbf867"><div class="ttname"><a href="classlasd_1_1List.html#adabbd842ea472fbb5165e141fecbf867">lasd::List::RemoveFromBack</a></div><div class="ttdeci">void RemoveFromBack()</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00345">list.cpp:345</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_aea80e718c61a7ca9ea5240d4fe92e748"><div class="ttname"><a href="classlasd_1_1List.html#aea80e718c61a7ca9ea5240d4fe92e748">lasd::List::Back</a></div><div class="ttdeci">Data &amp; Back() override</div><div class="ttdoc">Restituisce l&#39;ultimo elemento (in lettura/scrittura).</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00414">list.cpp:414</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_af7d59529ff95f73f25837b5e2f6d8a55"><div class="ttname"><a href="classlasd_1_1List.html#af7d59529ff95f73f25837b5e2f6d8a55">lasd::List::PostOrderTraverse</a></div><div class="ttdeci">void PostOrderTraverse(const TraverseFun) const override</div><div class="ttdoc">Attraversa il contenitore in post-ordine.</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00442">list.cpp:442</a></div></div>
+<div class="ttc" id="aclasslasd_1_1List_html_af7fcb2030904b8974d061404f6cc2e08"><div class="ttname"><a href="classlasd_1_1List.html#af7fcb2030904b8974d061404f6cc2e08">lasd::List::BackNRemove</a></div><div class="ttdeci">Data BackNRemove()</div><div class="ttdef"><b>Definition</b> <a href="list_8cpp_source.html#l00367">list.cpp:367</a></div></div>
+<div class="ttc" id="aclasslasd_1_1MappableContainer_html"><div class="ttname"><a href="classlasd_1_1MappableContainer.html">lasd::MappableContainer</a></div><div class="ttdoc">Classe astratta MappableContainer.</div><div class="ttdef"><b>Definition</b> <a href="container_2mappable_8hpp_source.html#l00022">mappable.hpp:23</a></div></div>
+<div class="ttc" id="aclasslasd_1_1MappableContainer_html_aa8e403a61f273a6b64a71fe4f62e7f0f"><div class="ttname"><a href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">lasd::MappableContainer::MapFun</a></div><div class="ttdeci">std::function&lt; void(Data &amp;)&gt; MapFun</div><div class="ttdoc">Alias per la funzione di mappatura.</div><div class="ttdef"><b>Definition</b> <a href="container_2mappable_8hpp_source.html#l00072">mappable.hpp:72</a></div></div>
+<div class="ttc" id="aclasslasd_1_1MutableLinearContainer_html"><div class="ttname"><a href="classlasd_1_1MutableLinearContainer.html">lasd::MutableLinearContainer</a></div><div class="ttdoc">Classe astratta MutableLinearContainer.</div><div class="ttdef"><b>Definition</b> <a href="container_2linear_8hpp_source.html#l00124">linear.hpp:127</a></div></div>
+<div class="ttc" id="aclasslasd_1_1TraversableContainer_html"><div class="ttname"><a href="classlasd_1_1TraversableContainer.html">lasd::TraversableContainer</a></div><div class="ttdoc">Classe astratta TraversableContainer.</div><div class="ttdef"><b>Definition</b> <a href="container_2traversable_8hpp_source.html#l00028">traversable.hpp:29</a></div></div>
+<div class="ttc" id="aclasslasd_1_1TraversableContainer_html_a5d46f3e2fc7ef09968595f5b11e53e1d"><div class="ttname"><a href="classlasd_1_1TraversableContainer.html#a5d46f3e2fc7ef09968595f5b11e53e1d">lasd::TraversableContainer::TraverseFun</a></div><div class="ttdeci">std::function&lt; void(const Data &amp;)&gt; TraverseFun</div><div class="ttdoc">Funzione di attraversamento degli elementi.</div><div class="ttdef"><b>Definition</b> <a href="container_2traversable_8hpp_source.html#l00062">traversable.hpp:62</a></div></div>
 <div class="ttc" id="acontainer_2linear_8hpp_html"><div class="ttname"><a href="container_2linear_8hpp.html">linear.hpp</a></div></div>
-<div class="ttc" id="alist_8cpp_html"><div class="ttname"><a href="list_8cpp.html">list.cpp</a></div></div>
 <div class="ttc" id="anamespacelasd_html"><div class="ttname"><a href="namespacelasd.html">lasd</a></div><div class="ttdoc">Namespace principale per la libreria LASD.</div></div>
-<div class="ttc" id="astructlasd_1_1List_1_1Node_html"><div class="ttname"><a href="structlasd_1_1List_1_1Node.html">lasd::List::Node</a></div><div class="ttdef"><b>Definition</b> <a href="#l00028">list.hpp:28</a></div></div>
+<div class="ttc" id="astructlasd_1_1List_1_1Node_html"><div class="ttname"><a href="structlasd_1_1List_1_1Node.html">lasd::List::Node</a></div><div class="ttdoc">Struttura interna Node.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">list.hpp:31</a></div></div>
+<div class="ttc" id="astructlasd_1_1List_1_1Node_html_a0e252b647486d871d54f129b5f35dc42"><div class="ttname"><a href="structlasd_1_1List_1_1Node.html#a0e252b647486d871d54f129b5f35dc42">lasd::List::Node::Node</a></div><div class="ttdeci">Node()=default</div><div class="ttdoc">Costruttore di default.</div></div>
+<div class="ttc" id="astructlasd_1_1List_1_1Node_html_a2d09310a68ebfa0eb504174feb338813"><div class="ttname"><a href="structlasd_1_1List_1_1Node.html#a2d09310a68ebfa0eb504174feb338813">lasd::List::Node::next</a></div><div class="ttdeci">Node * next</div><div class="ttdef"><b>Definition</b> <a href="#l00034">list.hpp:34</a></div></div>
+<div class="ttc" id="astructlasd_1_1List_1_1Node_html_a895c4c02149024108fb8357c98efe311"><div class="ttname"><a href="structlasd_1_1List_1_1Node.html#a895c4c02149024108fb8357c98efe311">lasd::List::Node::val</a></div><div class="ttdeci">Data val</div><div class="ttdef"><b>Definition</b> <a href="#l00033">list.hpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

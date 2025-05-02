@@ -185,21 +185,21 @@ namespace lasd
      *
      * @param func Funzione da applicare.
      */
-    inline void Map(MapFun func) override;
+    inline void Map(const MapFun func) override;
 
     /**
      * @brief Applica una funzione a ogni elemento del contenitore in pre-ordine.
      *
      * @param func Funzione da applicare.
      */
-    inline void PreOrderMap(MapFun func) override;
+    inline void PreOrderMap(const MapFun func) override;
 
     /**
      * @brief Applica una funzione a ogni elemento del contenitore in post-ordine.
      *
      * @param func Funzione da applicare.
      */
-    inline void PostOrderMap(MapFun func) override;
+    inline void PostOrderMap(const MapFun func) override;
   };
 
   /**

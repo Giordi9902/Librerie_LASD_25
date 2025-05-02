@@ -147,10 +147,11 @@ Inheritance diagram for lasd::MutableLinearContainer&lt; Data &gt;:</div>
 <area href="classlasd_1_1Container.html" title="Classe base astratta Container." alt="lasd::Container" shape="rect" coords="846,0,1118,24"/>
 <area href="classlasd_1_1Container.html" title="Classe base astratta Container." alt="lasd::Container" shape="rect" coords="1128,0,1400,24"/>
 <area href="classlasd_1_1Container.html" title="Classe base astratta Container." alt="lasd::Container" shape="rect" coords="1410,0,1682,24"/>
-<area href="classlasd_1_1SortableLinearContainer.html" title="Classe astratta SortableLinearContainer." alt="lasd::SortableLinearContainer&lt; Data &gt;" shape="rect" coords="564,336,836,360"/>
-<area href="classlasd_1_1Vector.html" alt="lasd::Vector&lt; Data &gt;" shape="rect" coords="846,336,1118,360"/>
-<area href="classlasd_1_1SortableVector.html" alt="lasd::SortableVector&lt; Data &gt;" shape="rect" coords="564,392,836,416"/>
-<area href="classlasd_1_1SortableVector.html" alt="lasd::SortableVector&lt; Data &gt;" shape="rect" coords="846,392,1118,416"/>
+<area href="classlasd_1_1List.html" title="Classe template List." alt="lasd::List&lt; Data &gt;" shape="rect" coords="423,336,695,360"/>
+<area href="classlasd_1_1SortableLinearContainer.html" title="Classe astratta SortableLinearContainer." alt="lasd::SortableLinearContainer&lt; Data &gt;" shape="rect" coords="705,336,977,360"/>
+<area href="classlasd_1_1Vector.html" alt="lasd::Vector&lt; Data &gt;" shape="rect" coords="987,336,1259,360"/>
+<area href="classlasd_1_1SortableVector.html" alt="lasd::SortableVector&lt; Data &gt;" shape="rect" coords="705,392,977,416"/>
+<area href="classlasd_1_1SortableVector.html" alt="lasd::SortableVector&lt; Data &gt;" shape="rect" coords="987,392,1259,416"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -174,15 +175,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac40b69250822dc3fdb1b049df297a483" id="r_ac40b69250822dc3fdb1b049df297a483"><td class="memItemLeft" align="right" valign="top">virtual Data &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac40b69250822dc3fdb1b049df297a483">Back</a> ()</td></tr>
 <tr class="memdesc:ac40b69250822dc3fdb1b049df297a483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce l'ultimo elemento (in lettura/scrittura).  <br /></td></tr>
 <tr class="separator:ac40b69250822dc3fdb1b049df297a483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb58715a34f8784b237c6ab01f3c66ad" id="r_acb58715a34f8784b237c6ab01f3c66ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb58715a34f8784b237c6ab01f3c66ad">Map</a> (<a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a> func) override</td></tr>
-<tr class="memdesc:acb58715a34f8784b237c6ab01f3c66ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applica una funzione a ogni elemento del contenitore.  <br /></td></tr>
-<tr class="separator:acb58715a34f8784b237c6ab01f3c66ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e2caf4403d29898e4116758fa7493aa" id="r_a5e2caf4403d29898e4116758fa7493aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e2caf4403d29898e4116758fa7493aa">PreOrderMap</a> (<a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a> func) override</td></tr>
-<tr class="memdesc:a5e2caf4403d29898e4116758fa7493aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applica una funzione a ogni elemento del contenitore in pre-ordine.  <br /></td></tr>
-<tr class="separator:a5e2caf4403d29898e4116758fa7493aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dbeb59acd439a024fa230fd25819017" id="r_a9dbeb59acd439a024fa230fd25819017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dbeb59acd439a024fa230fd25819017">PostOrderMap</a> (<a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a> func) override</td></tr>
-<tr class="memdesc:a9dbeb59acd439a024fa230fd25819017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applica una funzione a ogni elemento del contenitore in post-ordine.  <br /></td></tr>
-<tr class="separator:a9dbeb59acd439a024fa230fd25819017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d03693e2958bc477bf1f2bbd2becf4c" id="r_a2d03693e2958bc477bf1f2bbd2becf4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d03693e2958bc477bf1f2bbd2becf4c">Map</a> (const <a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a> func) override</td></tr>
+<tr class="memdesc:a2d03693e2958bc477bf1f2bbd2becf4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applica una funzione a ogni elemento del contenitore.  <br /></td></tr>
+<tr class="separator:a2d03693e2958bc477bf1f2bbd2becf4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac01d67584c6c2bf9d3999e5179fb9c" id="r_acac01d67584c6c2bf9d3999e5179fb9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acac01d67584c6c2bf9d3999e5179fb9c">PreOrderMap</a> (const <a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a> func) override</td></tr>
+<tr class="memdesc:acac01d67584c6c2bf9d3999e5179fb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applica una funzione a ogni elemento del contenitore in pre-ordine.  <br /></td></tr>
+<tr class="separator:acac01d67584c6c2bf9d3999e5179fb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24bc0bd9381b569e6c6e0d18cb9d9139" id="r_a24bc0bd9381b569e6c6e0d18cb9d9139"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24bc0bd9381b569e6c6e0d18cb9d9139">PostOrderMap</a> (const <a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a> func) override</td></tr>
+<tr class="memdesc:a24bc0bd9381b569e6c6e0d18cb9d9139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applica una funzione a ogni elemento del contenitore in post-ordine.  <br /></td></tr>
+<tr class="separator:a24bc0bd9381b569e6c6e0d18cb9d9139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classlasd_1_1LinearContainer"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classlasd_1_1LinearContainer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classlasd_1_1LinearContainer.html">lasd::LinearContainer&lt; Data &gt;</a></td></tr>
 <tr class="memitem:a73a7a04f0de1384ca0457d4ca9a13cdb inherit pub_methods_classlasd_1_1LinearContainer" id="r_a73a7a04f0de1384ca0457d4ca9a13cdb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlasd_1_1LinearContainer.html#a73a7a04f0de1384ca0457d4ca9a13cdb">~LinearContainer</a> ()=default</td></tr>
 <tr class="memdesc:a73a7a04f0de1384ca0457d4ca9a13cdb inherit pub_methods_classlasd_1_1LinearContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distruttore virtuale.  <br /></td></tr>
@@ -488,7 +489,7 @@ template&lt;typename Data&gt; </div>
 <p>Restituisce l'ultimo elemento (in lettura/scrittura). </p>
 <dl class="section return"><dt>Returns</dt><dd>Riferimento all'ultimo elemento. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classlasd_1_1Vector.html#a650baac307a4071bfada895b3596c0c1">lasd::Vector&lt; Data &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classlasd_1_1List.html#aea80e718c61a7ca9ea5240d4fe92e748">lasd::List&lt; Data &gt;</a>, and <a class="el" href="classlasd_1_1Vector.html#a650baac307a4071bfada895b3596c0c1">lasd::Vector&lt; Data &gt;</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="linear_8cpp_source.html#l00084">84</a> of file <a class="el" href="linear_8cpp_source.html">linear.cpp</a>.</p>
 
@@ -522,14 +523,14 @@ template&lt;typename Data&gt; </div>
 <p>Restituisce il primo elemento (in lettura/scrittura). </p>
 <dl class="section return"><dt>Returns</dt><dd>Riferimento al primo elemento. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classlasd_1_1Vector.html#a96f013765cb39c0ee8cd14852bd7180a">lasd::Vector&lt; Data &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classlasd_1_1List.html#a9a43dbed73a40dd4451002955d33568d">lasd::List&lt; Data &gt;</a>, and <a class="el" href="classlasd_1_1Vector.html#a96f013765cb39c0ee8cd14852bd7180a">lasd::Vector&lt; Data &gt;</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="linear_8cpp_source.html#l00074">74</a> of file <a class="el" href="linear_8cpp_source.html">linear.cpp</a>.</p>
 
 </div>
 </div>
-<a id="acb58715a34f8784b237c6ab01f3c66ad" name="acb58715a34f8784b237c6ab01f3c66ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb58715a34f8784b237c6ab01f3c66ad">&#9670;&#160;</a></span>Map()</h2>
+<a id="a2d03693e2958bc477bf1f2bbd2becf4c" name="a2d03693e2958bc477bf1f2bbd2becf4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d03693e2958bc477bf1f2bbd2becf4c">&#9670;&#160;</a></span>Map()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -542,7 +543,7 @@ template&lt;typename Data&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlasd_1_1MutableLinearContainer.html">lasd::MutableLinearContainer</a>&lt; Data &gt;::Map </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -660,12 +661,12 @@ template&lt;typename Data&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Riferimento all'elemento.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Questa funzione deve essere implementata nelle classi derivate. </dd></dl>
 
-<p>Implemented in <a class="el" href="classlasd_1_1Vector.html#a4f00712a380781c34eb2f1a4e955a95b">lasd::Vector&lt; Data &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classlasd_1_1List.html#ab840a4d041c1a66f05dee39ca2e3f42c">lasd::List&lt; Data &gt;</a>, and <a class="el" href="classlasd_1_1Vector.html#a4f00712a380781c34eb2f1a4e955a95b">lasd::Vector&lt; Data &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a9dbeb59acd439a024fa230fd25819017" name="a9dbeb59acd439a024fa230fd25819017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dbeb59acd439a024fa230fd25819017">&#9670;&#160;</a></span>PostOrderMap()</h2>
+<a id="a24bc0bd9381b569e6c6e0d18cb9d9139" name="a24bc0bd9381b569e6c6e0d18cb9d9139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24bc0bd9381b569e6c6e0d18cb9d9139">&#9670;&#160;</a></span>PostOrderMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -678,7 +679,7 @@ template&lt;typename Data&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlasd_1_1MutableLinearContainer.html">lasd::MutableLinearContainer</a>&lt; Data &gt;::PostOrderMap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -703,8 +704,8 @@ template&lt;typename Data&gt; </div>
 
 </div>
 </div>
-<a id="a5e2caf4403d29898e4116758fa7493aa" name="a5e2caf4403d29898e4116758fa7493aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e2caf4403d29898e4116758fa7493aa">&#9670;&#160;</a></span>PreOrderMap()</h2>
+<a id="acac01d67584c6c2bf9d3999e5179fb9c" name="acac01d67584c6c2bf9d3999e5179fb9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac01d67584c6c2bf9d3999e5179fb9c">&#9670;&#160;</a></span>PreOrderMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -717,7 +718,7 @@ template&lt;typename Data&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlasd_1_1MutableLinearContainer.html">lasd::MutableLinearContainer</a>&lt; Data &gt;::PreOrderMap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classlasd_1_1MappableContainer.html#aa8e403a61f273a6b64a71fe4f62e7f0f">MapFun</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

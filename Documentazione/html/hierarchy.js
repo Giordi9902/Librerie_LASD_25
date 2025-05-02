@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "lasd::Container", "classlasd_1_1Container.html", [
       [ "lasd::ClearableContainer", "classlasd_1_1ClearableContainer.html", [
+        [ "lasd::List< Data >", "classlasd_1_1List.html", null ],
         [ "lasd::ResizableContainer", "classlasd_1_1ResizableContainer.html", [
           [ "lasd::Vector< Data >", "classlasd_1_1Vector.html", [
             [ "lasd::SortableVector< Data >", "classlasd_1_1SortableVector.html", null ]
@@ -16,6 +17,7 @@ var hierarchy =
           [ "lasd::MappableContainer< Data >", "classlasd_1_1MappableContainer.html", [
             [ "lasd::PostOrderMappableContainer< Data >", "classlasd_1_1PostOrderMappableContainer.html", [
               [ "lasd::MutableLinearContainer< Data >", "classlasd_1_1MutableLinearContainer.html", [
+                [ "lasd::List< Data >", "classlasd_1_1List.html", null ],
                 [ "lasd::SortableLinearContainer< Data >", "classlasd_1_1SortableLinearContainer.html", [
                   [ "lasd::SortableVector< Data >", "classlasd_1_1SortableVector.html", null ]
                 ] ],
@@ -39,7 +41,6 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "lasd::List< Data >", "classlasd_1_1List.html", null ],
     [ "lasd::List< Data >::Node", "structlasd_1_1List_1_1Node.html", null ],
     [ "lasd::Set< Data >", "classlasd_1_1Set.html", null ],
     [ "lasd::SetLst< Data >", "classlasd_1_1SetLst.html", null ],

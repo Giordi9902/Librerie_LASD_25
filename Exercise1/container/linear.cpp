@@ -91,13 +91,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void MutableLinearContainer<Data>::Map(MapFun func)
+    inline void MutableLinearContainer<Data>::Map(const MapFun func)
     {
         PreOrderMap(func);
     }
 
     template <typename Data>
-    inline void MutableLinearContainer<Data>::PreOrderMap(MapFun func)
+    inline void MutableLinearContainer<Data>::PreOrderMap(const MapFun func)
     {
         for (unsigned long index = 0; index < size; ++index)
         {
@@ -106,7 +106,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void MutableLinearContainer<Data>::PostOrderMap(MapFun func)
+    inline void MutableLinearContainer<Data>::PostOrderMap(const MapFun func)
     {
         for (unsigned long index = size; index > 0;)
         {
