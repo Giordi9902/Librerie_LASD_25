@@ -15,7 +15,7 @@ namespace lasd
 
   public:
     virtual ~Set() = default;
-    Set &operator=(const Set &) = delete;.
+    Set &operator=(const Set &) = delete;
     Set &operator=(Set &&) noexcept = delete;
   };
 

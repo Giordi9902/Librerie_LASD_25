@@ -72,10 +72,11 @@ namespace lasd
     const Data &operator[](unsigned long) const override;
 
     // Specific member function (inherited from TestableContainer)
-    bool Exists(const Data &) const override;
+    using List<Data>::Exists;
 
     // Specific member function (inherited from ClearableContainer)
-    void Clear() override;
+    using List<Data>::Clear;
+
 
   protected:
     // Auxiliary functions, if necessary!

@@ -13,7 +13,8 @@ namespace lasd
 {
   template <typename Data>
   class SetVec : public virtual Set<Data>,
-                 public virtual ResizableContainer
+                 public virtual ResizableContainer,
+                 virtual protected Vector<Data>
   {
 
   protected:
@@ -50,7 +51,7 @@ namespace lasd
     bool Insert(Data &&) override;
     bool Remove(const Data &) override;
     const Data &operator[](unsigned long) const override;
-    bool Exists(const Data &) const override;
+    bool Exists(const Data &) const noexcept override;
     void Clear() override;
 
   protected:

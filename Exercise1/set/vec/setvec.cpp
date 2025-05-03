@@ -113,7 +113,7 @@ namespace lasd
     }
 
     template <typename Data>
-    const Data &SetVec<Data>::Max() const
+    const Data& SetVec<Data>::Max() const
     {
         if (totalElems == 0)
         {
@@ -369,7 +369,7 @@ namespace lasd
     }
 
     template <typename Data>
-    bool SetVec<Data>::Exists(const Data &data) const
+    bool SetVec<Data>::Exists(const Data &data) const noexcept
     {
         if (totalElems == 0)
         {

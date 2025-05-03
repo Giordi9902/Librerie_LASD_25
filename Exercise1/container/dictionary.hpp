@@ -215,7 +215,7 @@ namespace lasd
      *@return Elemento massimo
      *@throws std::lenght_error Se il contenitore è vuoto.
      */
-    virtual Data& Max() const = 0;
+    virtual const Data& Max() const = 0;
 
     /**
      *@brief Restituisce l'elemento massimo e lo rimuove

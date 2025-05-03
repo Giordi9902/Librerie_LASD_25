@@ -5,9 +5,9 @@
 /* ************************************************************************** */
 
 
-//void testSimpleExercise1B(unsigned int &, unsigned int &);
+void testSimpleExercise1B(unsigned int &, unsigned int &);
 
-//void testFullExercise1B(unsigned int &, unsigned int &);
+void testFullExercise1B(unsigned int &, unsigned int &);
 
 /* ************************************************************************** */
 
