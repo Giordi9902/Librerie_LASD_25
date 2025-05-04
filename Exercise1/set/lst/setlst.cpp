@@ -124,13 +124,13 @@ namespace lasd
     }
 
     template <typename Data>
-    Data SetLst<Data>::MinNRemove()
+    const Data& SetLst<Data>::MinNRemove()
     {
         if (size == 0)
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data min = head->val;
+        Data& min = head->val;
         typename List<Data>::Node *current = head->next;
         while (current != nullptr)
         {
@@ -185,13 +185,13 @@ namespace lasd
     }
 
     template <typename Data>
-    Data SetLst<Data>::MaxNRemove()
+    const Data& SetLst<Data>::MaxNRemove()
     {
         if (size == 0)
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data max = head->val;
+        Data& max = head->val;
         typename List<Data>::Node *current = head->next;
         while (current != nullptr)
         {

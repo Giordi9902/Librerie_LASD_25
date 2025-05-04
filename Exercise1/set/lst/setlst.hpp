@@ -47,12 +47,12 @@ namespace lasd
 
     // Specific member functions (inherited from OrderedDictionaryContainer)
 
-    const Data &Min() const override;
-    Data MinNRemove() override;
+    const Data& Min() const override;
+    const Data& MinNRemove() override;
     void RemoveMin() override;
 
     const Data &Max() const override;
-    Data MaxNRemove() override;
+    const Data& MaxNRemove() override;
     void RemoveMax() override;
 
     const Data &Predecessor(const Data &) const override;

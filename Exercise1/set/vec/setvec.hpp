@@ -13,13 +13,13 @@ namespace lasd
 {
   template <typename Data>
   class SetVec : public virtual Set<Data>,
-                 public virtual ResizableContainer,
-                 virtual protected Vector<Data>
+                 public virtual ResizableContainer
+
   {
 
   protected:
     using Container::size;
-    using Vector<Data>::elements;
+    Vector<Data> vector;
     unsigned long head = 0;
     unsigned long tail = 0;
     unsigned long totalElems = 0;
@@ -27,7 +27,7 @@ namespace lasd
   public:
     SetVec();
     SetVec(const TraversableContainer<Data> &);
-    SetVec(MappableContainer<Data> &&);
+    SetVec(MappableContainer<Data> &&) noexcept;
     SetVec(const SetVec<Data> &);
     SetVec(SetVec<Data> &&);
     virtual ~SetVec() = default;
@@ -35,17 +35,17 @@ namespace lasd
     SetVec<Data> &operator=(SetVec<Data> &&);
     inline bool operator==(const SetVec<Data> &) const noexcept;
     inline bool operator!=(const SetVec<Data> &) const noexcept;
-    const Data &Min() const override;
-    Data MinNRemove() override;
+    const Data& Min() const override;
+    const Data& MinNRemove() override;
     void RemoveMin() override;
-    const Data &Max() const override;
-    Data MaxNRemove() override;
+    const Data& Max() const override;
+    const Data& MaxNRemove() override;
     void RemoveMax() override;
-    const Data &Predecessor(const Data &) const override;
-    const Data &PredecessorNRemove(const Data &) override;
+    const Data& Predecessor(const Data &) const override;
+    const Data& PredecessorNRemove(const Data &) override;
     void RemovePredecessor(const Data &) override;
-    const Data &Successor(const Data &) const override;
-    const Data &SuccessorNRemove(const Data &) override;
+    const Data& Successor(const Data &) const override;
+    const Data& SuccessorNRemove(const Data &) override;
     void RemoveSuccessor(const Data &) override;
     bool Insert(const Data &) override;
     bool Insert(Data &&) override;
