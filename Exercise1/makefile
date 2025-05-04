@@ -40,7 +40,7 @@ ptexc1a.o: $(libexc1a) zmytest/exercise1a/test.cpp
 	$(cc) $(cflags) -c zmytest/exercise1a/test.cpp -o ptexc1a.o
 
 ptexc1b.o: $(libexc1b) zmytest/exercise1b/test.cpp
-	$(cc) $(cflags) -c zmytest/exercise1b/test.cpp -o ptexc1a.o
+	$(cc) $(cflags) -c zmytest/exercise1b/test.cpp -o ptexc1b.o
 
 exc1bs.o: $(libexc1b) zlasdtest/exercise1b/simpletest.cpp
 	$(cc) $(cflags) -c zlasdtest/exercise1b/simpletest.cpp -o exc1bs.o

@@ -1,7 +1,7 @@
 
 #include "test.hpp"
-#include "exercise1a/test.hpp"
-#include "exercise1b/test.hpp"
+#include "./exercise1a/test.hpp"
+#include "./exercise1b/test.hpp"
 
 #include <iostream>
 
