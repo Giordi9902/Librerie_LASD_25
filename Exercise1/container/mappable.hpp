@@ -16,15 +16,12 @@ namespace lasd
     virtual ~MappableContainer() = default;
 
     MappableContainer &operator=(const MappableContainer &) noexcept = delete;
-
     MappableContainer &operator=(MappableContainer &&) noexcept = delete;
 
     bool operator==(const MappableContainer &) const noexcept = delete;
-
     bool operator!=(const MappableContainer &) const noexcept = delete;
 
     using MapFun = std::function<void(Data &)>;
-
     virtual void Map(const MapFun fun) = 0;
   };
 
@@ -37,17 +34,13 @@ namespace lasd
     virtual ~PreOrderMappableContainer() = default;
 
     PreOrderMappableContainer &operator=(const PreOrderMappableContainer &) = delete;
-
     PreOrderMappableContainer &operator=(PreOrderMappableContainer &&) noexcept = delete;
 
     bool operator==(const PreOrderMappableContainer &) const noexcept = delete;
-
     bool operator!=(const PreOrderMappableContainer &) const noexcept = delete;
 
     using typename MappableContainer<Data>::MapFun;
-
     virtual void PreOrderMap(MapFun fun) = 0;
-
     inline void Map(MapFun fun) override;
   };
   template <typename Data>
@@ -57,15 +50,15 @@ namespace lasd
   public:
 
     virtual ~PostOrderMappableContainer() = default;
+
     PostOrderMappableContainer &operator=(const PostOrderMappableContainer &) = delete;
     PostOrderMappableContainer &operator=(PostOrderMappableContainer &&) noexcept = delete;
+
     bool operator==(const PostOrderMappableContainer &) const noexcept = delete;
     bool operator!=(const PostOrderMappableContainer &) const noexcept = delete;
 
     using typename MappableContainer<Data>::MapFun;
-
     virtual void PostOrderMap(const MapFun fun) = 0;
-
     inline void Map(const MapFun fun) override;
   };
 

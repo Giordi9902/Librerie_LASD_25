@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-void PersonalTestVector(unsigned int& testnum, unsigned int& testerr){
+void PersonalTestVector(uint& testnum, uint& testerr){
 
 }
 
-void PersonalTestList(unsigned int& testnum, unsigned int& testerr){
+void PersonalTestList(uint& testnum, uint& testerr){
 
 }
 
 
-void myTestExercise1A(unsigned int &testnum, unsigned int &testerr)
+void myTestExercise1A(uint &testnum, uint &testerr)
 {
     PersonalTestVector(testnum, testerr);
     PersonalTestList(testnum, testerr);

@@ -7,7 +7,7 @@
 /* ************************************************************************** */
 
 template <typename Data>
-void EqualVector(unsigned int & testnum, unsigned int & testerr, const lasd::Vector<Data> & vec1, const lasd::Vector<Data> & vec2, bool chk) {
+void EqualVector(uint & testnum, uint & testerr, const lasd::Vector<Data> & vec1, const lasd::Vector<Data> & vec2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -17,11 +17,11 @@ void EqualVector(unsigned int & testnum, unsigned int & testerr, const lasd::Vec
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void NonEqualVector(unsigned int & testnum, unsigned int & testerr, const lasd::Vector<Data> & vec1, const lasd::Vector<Data> & vec2, bool chk) {
+void NonEqualVector(uint & testnum, uint & testerr, const lasd::Vector<Data> & vec1, const lasd::Vector<Data> & vec2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -31,7 +31,7 @@ void NonEqualVector(unsigned int & testnum, unsigned int & testerr, const lasd::
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 /* ************************************************************************** */

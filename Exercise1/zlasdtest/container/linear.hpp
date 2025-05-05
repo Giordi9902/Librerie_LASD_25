@@ -9,7 +9,7 @@
 // LinearContainer member functions!
 
 template <typename Data>
-void EqualLinear(unsigned int & testnum, unsigned int & testerr, const lasd::LinearContainer<Data> & con1, const lasd::LinearContainer<Data> & con2, bool chk) {
+void EqualLinear(uint & testnum, uint & testerr, const lasd::LinearContainer<Data> & con1, const lasd::LinearContainer<Data> & con2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -19,11 +19,11 @@ void EqualLinear(unsigned int & testnum, unsigned int & testerr, const lasd::Lin
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void NonEqualLinear(unsigned int & testnum, unsigned int & testerr, const lasd::LinearContainer<Data> & con1, const lasd::LinearContainer<Data> & con2, bool chk) {
+void NonEqualLinear(uint & testnum, uint & testerr, const lasd::LinearContainer<Data> & con1, const lasd::LinearContainer<Data> & con2, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -33,11 +33,11 @@ void NonEqualLinear(unsigned int & testnum, unsigned int & testerr, const lasd::
   catch (std::exception & exc) {
     std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void GetAt(unsigned int & testnum, unsigned int & testerr, const lasd::LinearContainer<Data> & con, bool chk, const unsigned long & ind, const Data & val) {
+void GetAt(uint & testnum, uint & testerr, const lasd::LinearContainer<Data> & con, bool chk, const ulong & ind, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -51,11 +51,11 @@ void GetAt(unsigned int & testnum, unsigned int & testerr, const lasd::LinearCon
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void GetFront(unsigned int & testnum, unsigned int & testerr, const lasd::LinearContainer<Data> & con, bool chk, const Data & val) {
+void GetFront(uint & testnum, uint & testerr, const lasd::LinearContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -69,11 +69,11 @@ void GetFront(unsigned int & testnum, unsigned int & testerr, const lasd::Linear
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void GetBack(unsigned int & testnum, unsigned int & testerr, const lasd::LinearContainer<Data> & con, bool chk, const Data & val) {
+void GetBack(uint & testnum, uint & testerr, const lasd::LinearContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -87,7 +87,7 @@ void GetBack(unsigned int & testnum, unsigned int & testerr, const lasd::LinearC
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 /* ************************************************************************** */
@@ -95,7 +95,7 @@ void GetBack(unsigned int & testnum, unsigned int & testerr, const lasd::LinearC
 // MutableLinearContainer member functions!
 
 template <typename Data>
-void SetAt(unsigned int & testnum, unsigned int & testerr, lasd::MutableLinearContainer<Data> & con, bool chk, const unsigned long & ind, const Data & val) {
+void SetAt(uint & testnum, uint & testerr, lasd::MutableLinearContainer<Data> & con, bool chk, const ulong & ind, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -110,11 +110,11 @@ void SetAt(unsigned int & testnum, unsigned int & testerr, lasd::MutableLinearCo
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void SetFront(unsigned int & testnum, unsigned int & testerr, lasd::MutableLinearContainer<Data> & con, bool chk, const Data & val) {
+void SetFront(uint & testnum, uint & testerr, lasd::MutableLinearContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -129,11 +129,11 @@ void SetFront(unsigned int & testnum, unsigned int & testerr, lasd::MutableLinea
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void SetBack(unsigned int & testnum, unsigned int & testerr, lasd::MutableLinearContainer<Data> & con, bool chk, const Data & val) {
+void SetBack(uint & testnum, uint & testerr, lasd::MutableLinearContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -148,7 +148,7 @@ void SetBack(unsigned int & testnum, unsigned int & testerr, lasd::MutableLinear
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 /* ************************************************************************** */

@@ -67,10 +67,10 @@ namespace lasd
             return false;
         }
 
-        unsigned long index1 = head;
-        unsigned long index2 = con.head;
+        ulong index1 = head;
+        ulong index2 = con.head;
 
-        for (unsigned long i = 0; i < totalElems; ++i)
+        for (ulong i = 0; i < totalElems; ++i)
         {
             if (vector[index1] != con.vector[index2])
             {
@@ -168,7 +168,7 @@ namespace lasd
     }
 
     template <typename Data>
-    const Data &SetVec<Data>::operator[](unsigned long index) const
+    const Data &SetVec<Data>::operator[](ulong index) const
     {
         if (index >= totalElems)
         {
@@ -192,10 +192,10 @@ namespace lasd
     }
 
     template <typename Data>
-    void SetVec<Data>::Resize(const unsigned long dim)
+    void SetVec<Data>::Resize(const ulong dim)
     {
         Vector<Data> newVector(dim);
-        for (unsigned long i = 0; i < totalElems; ++i)
+        for (ulong i = 0; i < totalElems; ++i)
         {
             newVector[i] = std::move(vector[(head + i) % vector.Size()]);
         }

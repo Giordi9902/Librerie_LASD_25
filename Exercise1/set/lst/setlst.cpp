@@ -421,7 +421,7 @@ namespace lasd
     }
 
     template <typename Data>
-    const Data &SetLst<Data>::operator[](unsigned long idx) const
+    const Data &SetLst<Data>::operator[](ulong idx) const
     {
         if (idx >= size)
         {

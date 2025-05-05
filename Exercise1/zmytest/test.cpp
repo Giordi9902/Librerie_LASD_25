@@ -13,8 +13,8 @@ void mytest()
   clean();
   std::cout << "~*~#~*~ Welcome to the LASD Personal Test Suite ~*~#~*~ " << std::endl;
 
-  unsigned int loctestnum, loctesterr;
-  unsigned int stestnum = 0, stesterr = 0;
+  uint loctestnum, loctesterr;
+  uint stestnum = 0, stesterr = 0;
 
   loctestnum = 0;
   loctesterr = 0;

@@ -14,11 +14,9 @@ namespace lasd
     virtual ~TraversableContainer() = default;
 
     TraversableContainer &operator=(const TraversableContainer &) = delete;
-
     TraversableContainer &operator=(TraversableContainer &&) noexcept = delete;
 
     bool operator==(const TraversableContainer &) const noexcept = delete;
-
     bool operator!=(const TraversableContainer &) const noexcept = delete;
 
     using TraverseFun = std::function<void(const Data &)>;
@@ -26,6 +24,7 @@ namespace lasd
 
     template <typename Accumulator>
     using FoldFun = std::function<Accumulator(const Data &, const Accumulator &)>;
+
     template <typename Accumulator>
     inline Accumulator Fold(FoldFun<Accumulator> func, Accumulator acc) const;
 
@@ -40,11 +39,9 @@ namespace lasd
     virtual ~PreOrderTraversableContainer() = default;
 
     PreOrderTraversableContainer &operator=(const PreOrderTraversableContainer &) = delete;
-
     PreOrderTraversableContainer &operator=(PreOrderTraversableContainer &&) noexcept = delete;
 
     bool operator==(const PreOrderTraversableContainer &) const noexcept = delete;
-
     bool operator!=(const PreOrderTraversableContainer &) const noexcept = delete;
 
     using typename TraversableContainer<Data>::TraverseFun;
@@ -52,10 +49,13 @@ namespace lasd
 
     template <typename Accumulator>
     using FoldFun = typename TraversableContainer<Data>::FoldFun<Accumulator>;
+
+    inline void Traverse(TraverseFun func) const override;
+
     template <typename Accumulator>
     inline Accumulator PreOrderFold(FoldFun<Accumulator> func, Accumulator acc) const;
 
-    inline void Traverse(TraverseFun func) const override;
+
   };
 
   template <typename Data>
@@ -66,11 +66,9 @@ namespace lasd
     virtual ~PostOrderTraversableContainer() = default;
 
     PostOrderTraversableContainer &operator=(const PostOrderTraversableContainer &) const noexcept = delete;
-
     PostOrderTraversableContainer &operator=(PostOrderTraversableContainer &&) noexcept = delete;
 
     bool operator==(const PostOrderTraversableContainer &) const noexcept = delete;
-
     bool operator!=(const PostOrderTraversableContainer &) const noexcept = delete;
 
     using typename TraversableContainer<Data>::TraverseFun;
@@ -78,9 +76,12 @@ namespace lasd
 
     template <typename Accumulator>
     using FoldFun = typename TraversableContainer<Data>::FoldFun<Accumulator>;
+
+    inline void Traverse(const TraverseFun func) const override;
+
     template <typename Accumulator>
     inline Accumulator PostOrderFold(FoldFun<Accumulator> func, Accumulator acc) const;
-    inline void Traverse(const TraverseFun func) const override;
+
   };
 
 }

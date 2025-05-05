@@ -9,7 +9,7 @@
 // DictionaryContainer member functions!
 
 template <typename Data>
-void InsertC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, const Data & val) {
+void InsertC(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, const Data & val) {
   testnum++;
   bool tst = true;
   try {
@@ -21,11 +21,11 @@ void InsertC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCon
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, Data && val) {
+void InsertM(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, Data && val) {
   testnum++;
   bool tst = true;
   try {
@@ -37,11 +37,11 @@ void InsertM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCon
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void Remove(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, const Data & val) {
+void Remove(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, const Data & val) {
   testnum++;
   bool tst = true;
   try {
@@ -53,11 +53,11 @@ void Remove(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCont
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const Data & val) {
+void InsertC(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const Data & val) {
   testnum++;
   bool tst;
   try {
@@ -69,11 +69,11 @@ void InsertC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCon
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, Data && val) {
+void InsertM(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, Data && val) {
   testnum++;
   bool tst;
   try {
@@ -86,11 +86,11 @@ void InsertM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCon
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void Remove(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const Data & val) {
+void Remove(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const Data & val) {
   testnum++;
   bool tst;
   try {
@@ -102,11 +102,11 @@ void Remove(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCont
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, const lasd::TraversableContainer<Data> & mc) {
+void InsertC(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, const lasd::TraversableContainer<Data> & mc) {
   testnum++;
   bool tst = true;
   try {
@@ -118,11 +118,11 @@ void InsertC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCon
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, lasd::MappableContainer<Data> && mc) {
+void InsertM(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, lasd::MappableContainer<Data> && mc) {
   testnum++;
   bool tst = true;
   try {
@@ -134,11 +134,11 @@ void InsertM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCon
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void Remove(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, const lasd::TraversableContainer<Data> & mc) {
+void Remove(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, const lasd::TraversableContainer<Data> & mc) {
   testnum++;
   bool tst = true;
   try {
@@ -150,11 +150,11 @@ void Remove(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryCont
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertAllC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
+void InsertAllC(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
   testnum++;
   bool tst = true;
   try {
@@ -166,11 +166,11 @@ void InsertAllC(unsigned int & testnum, unsigned int & testerr, lasd::Dictionary
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertAllM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, lasd::MappableContainer<Data> && mc) {
+void InsertAllM(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, lasd::MappableContainer<Data> && mc) {
   testnum++;
   bool tst = true;
   try {
@@ -182,11 +182,11 @@ void InsertAllM(unsigned int & testnum, unsigned int & testerr, lasd::Dictionary
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void RemoveAll(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
+void RemoveAll(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
   testnum++;
   bool tst = true;
   try {
@@ -198,11 +198,11 @@ void RemoveAll(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryC
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertSomeC(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
+void InsertSomeC(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
   testnum++;
   bool tst = true;
   try {
@@ -214,11 +214,11 @@ void InsertSomeC(unsigned int & testnum, unsigned int & testerr, lasd::Dictionar
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void InsertSomeM(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, lasd::MappableContainer<Data> && mc) {
+void InsertSomeM(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, lasd::MappableContainer<Data> && mc) {
   testnum++;
   bool tst = true;
   try {
@@ -230,11 +230,11 @@ void InsertSomeM(unsigned int & testnum, unsigned int & testerr, lasd::Dictionar
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void RemoveSome(unsigned int & testnum, unsigned int & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
+void RemoveSome(uint & testnum, uint & testerr, lasd::DictionaryContainer<Data> & con, bool chk, const lasd::TraversableContainer<Data> & mc) {
   testnum++;
   bool tst = true;
   try {
@@ -246,7 +246,7 @@ void RemoveSome(unsigned int & testnum, unsigned int & testerr, lasd::Dictionary
     tst = false;
     std::cout << "\"" << exc.what() << "\": " << "Error!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 /* ************************************************************************** */
@@ -254,7 +254,7 @@ void RemoveSome(unsigned int & testnum, unsigned int & testerr, lasd::Dictionary
 // OrderedDictionaryContainer member functions!
 
 template <typename Data>
-void Min(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
+void Min(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -268,11 +268,11 @@ void Min(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionary
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void RemoveMin(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk) {
+void RemoveMin(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -287,11 +287,11 @@ void RemoveMin(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDict
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void MinNRemove(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
+void MinNRemove(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -305,11 +305,11 @@ void MinNRemove(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDic
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void Max(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
+void Max(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -323,11 +323,11 @@ void Max(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionary
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void RemoveMax(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk) {
+void RemoveMax(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk) {
   bool tst;
   testnum++;
   try {
@@ -342,11 +342,11 @@ void RemoveMax(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDict
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void MaxNRemove(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
+void MaxNRemove(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -360,11 +360,11 @@ void MaxNRemove(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDic
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void Predecessor(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
+void Predecessor(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -378,11 +378,11 @@ void Predecessor(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDi
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void RemovePredecessor(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd) {
+void RemovePredecessor(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd) {
   bool tst;
   testnum++;
   try {
@@ -397,11 +397,11 @@ void RemovePredecessor(unsigned int & testnum, unsigned int & testerr, lasd::Ord
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void PredecessorNRemove(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
+void PredecessorNRemove(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -415,11 +415,11 @@ void PredecessorNRemove(unsigned int & testnum, unsigned int & testerr, lasd::Or
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void Successor(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
+void Successor(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -433,11 +433,11 @@ void Successor(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDict
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void RemoveSuccessor(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd) {
+void RemoveSuccessor(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd) {
   bool tst;
   testnum++;
   try {
@@ -452,11 +452,11 @@ void RemoveSuccessor(unsigned int & testnum, unsigned int & testerr, lasd::Order
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 template <typename Data>
-void SuccessorNRemove(unsigned int & testnum, unsigned int & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
+void SuccessorNRemove(uint & testnum, uint & testerr, lasd::OrderedDictionaryContainer<Data> & con, bool chk, const Data & prd, const Data & val) {
   bool tst;
   testnum++;
   try {
@@ -470,7 +470,7 @@ void SuccessorNRemove(unsigned int & testnum, unsigned int & testerr, lasd::Orde
     tst = false;
     std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
   }
-  testerr += (1 - (unsigned int) tst);
+  testerr += (1 - (uint) tst);
 }
 
 /* ************************************************************************** */

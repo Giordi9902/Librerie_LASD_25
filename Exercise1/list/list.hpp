@@ -3,17 +3,8 @@
 #define LIST_HPP
 #include "../container/linear.hpp"
 
-/**
- * @namespace lasd
- * @brief Namespace principale per la libreria LASD.
- */
 namespace lasd
 {
-  /**
-   * @brief Classe template List
-   * @tparam Data Tipo dei dati contenuti
-   * @details Classe che rappresenta una lista semplicemente linkata, con supporto per operazioni di inserimento
-   */
 
   template <typename Data>
   class List : virtual public MutableLinearContainer<Data>,
@@ -21,32 +12,27 @@ namespace lasd
   {
 
   protected:
-    using Container::size; /**< Dimensione della lista. */
-
-    /**
-     * @brief Struttura interna Node
-     * @details Rappresenta un nodo della lista semplicemente linkata
-     */
+    using Container::size;
     struct Node
     {
 
-      Data val{}; /**< Valore contenuto nel nodo */
-      Node *next = nullptr; /**< Puntatore al nodo successivo */
-      /**
-       * @brief Costruttore di default
-       */
+      Data val{};
+      Node *next = nullptr;
+
       Node() = default;
       Node(const Data &);
       Node(Data &&) noexcept;
       Node(const Node &);
       Node(Node &&) noexcept;
+
       virtual ~Node();
+
       inline bool operator==(const Node &) const noexcept;
       inline bool operator!=(const Node &) const noexcept;
     };
 
-    Node *head = nullptr; /**< Puntatore al primo nodo della lista. */
-    Node *tail = nullptr; /**< Puntatore all'ultimo nodo della lista. */
+    Node *head = nullptr;
+    Node *tail = nullptr;
 
   public:
 
@@ -55,36 +41,50 @@ namespace lasd
     List(MappableContainer<Data> &&);
     List(const List &);
     List(List &&);
+
     virtual ~List();
+
     inline List &operator=(const List &);
     inline List &operator=(List &&) noexcept;
+
     inline bool operator==(const List &) const noexcept;
     inline bool operator!=(const List &) const noexcept;
+
     void InsertAtFront(const Data &);
     void InsertAtFront(Data &&);
+
     void RemoveFromFront();
     Data FrontNRemove();
+
     void InsertAtBack(const Data &);
     void InsertAtBack(Data &&);
+
     void RemoveFromBack();
     Data BackNRemove();
-    inline Data &operator[](unsigned long) override;
+
+    inline Data &operator[](ulong) override;
     inline Data &Front() override;
     inline Data &Back() override;
-    inline const Data &operator[](const unsigned long) const override;
+
+    inline const Data &operator[](const ulong) const override;
     inline const Data &Front() const override;
     inline const Data &Back() const override;
+
     using typename MappableContainer<Data>::MapFun;
     inline void Map(const MapFun) override;
+
     inline void PreOrderMap(const MapFun) override;
     inline void PostOrderMap(const MapFun) override;
+
     using typename TraversableContainer<Data>::TraverseFun;
     inline void Traverse(const TraverseFun) const override;
     inline void PreOrderTraverse(const TraverseFun) const override;
     inline void PostOrderTraverse(const TraverseFun) const override;
+
     inline void Clear() override;
 
   protected:
+
     inline void PreOrderTraverse(const TraverseFun, Node *) const;
     void PostOrderTraverse(const TraverseFun, Node *) const;
     void PreOrderMap(const MapFun, Node *) const;

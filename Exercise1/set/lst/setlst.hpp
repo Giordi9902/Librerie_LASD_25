@@ -69,7 +69,7 @@ namespace lasd
     bool Remove(const Data &) override;
 
     // Specific member functions (inherited from LinearContainer)
-    const Data &operator[](unsigned long) const override;
+    const Data &operator[](ulong) const override;
 
     // Specific member function (inherited from TestableContainer)
     using List<Data>::Exists;

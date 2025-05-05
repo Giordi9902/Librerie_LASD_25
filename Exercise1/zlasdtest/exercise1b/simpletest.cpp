@@ -22,8 +22,8 @@ using namespace std;
 
 /* ************************************************************************** */
 
-void stestSetInt(lasd::Set<int> & set, unsigned int & testnum, unsigned int & testerr) {
-  unsigned int loctestnum = 0, loctesterr = 0;
+void stestSetInt(lasd::Set<int> & set, uint & testnum, uint & testerr) {
+  uint loctestnum = 0, loctesterr = 0;
   try {
 
     Empty(loctestnum, loctesterr, set, false);
@@ -117,8 +117,8 @@ void stestSetInt(lasd::Set<int> & set, unsigned int & testnum, unsigned int & te
   testerr += loctesterr;
 }
 
-void stestSetInt(unsigned int & testnum, unsigned int & testerr) {
-  unsigned int loctestnum = 0, loctesterr = 0;
+void stestSetInt(uint & testnum, uint & testerr) {
+  uint loctestnum = 0, loctesterr = 0;
   cout << endl << "Begin of Set<int> Test" << endl;
   try {
     lasd::Vector<int> vec(7);
@@ -251,8 +251,8 @@ void stestSetInt(unsigned int & testnum, unsigned int & testerr) {
   testerr += loctesterr;
 }
 
-void stestSetFloat(unsigned int & testnum, unsigned int & testerr) {
-  unsigned int loctestnum = 0, loctesterr = 0;
+void stestSetFloat(uint & testnum, uint & testerr) {
+  uint loctestnum = 0, loctesterr = 0;
   cout << endl << "Begin of Set<double> Test" << endl;
   try {
     lasd::List<double> lst;
@@ -353,8 +353,8 @@ void stestSetFloat(unsigned int & testnum, unsigned int & testerr) {
   testerr += loctesterr;
 }
 
-void stestSetString(lasd::Set<string> & set, unsigned int & testnum, unsigned int & testerr) {
-  unsigned int loctestnum = 0, loctesterr = 0;
+void stestSetString(lasd::Set<string> & set, uint & testnum, uint & testerr) {
+  uint loctestnum = 0, loctesterr = 0;
   try {
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<string>);
     FoldPreOrder(loctestnum, loctesterr, set, true, &FoldStringConcatenate, string("?"), string("?ABCDE"));
@@ -369,8 +369,8 @@ void stestSetString(lasd::Set<string> & set, unsigned int & testnum, unsigned in
   testerr += loctesterr;
 }
 
-void stestSetString(unsigned int & testnum, unsigned int & testerr) {
-  unsigned int loctestnum = 0, loctesterr = 0;
+void stestSetString(uint & testnum, uint & testerr) {
+  uint loctestnum = 0, loctesterr = 0;
   cout << endl << "Begin of Set<string> Test" << endl;
   try {
     lasd::Vector<string> vec(5);
@@ -406,7 +406,7 @@ void stestSetString(unsigned int & testnum, unsigned int & testerr) {
 
 /* ************************************************************************** */
 
-void testSimpleExercise1B(unsigned int & testnum, unsigned int & testerr) {
+void testSimpleExercise1B(uint & testnum, uint & testerr) {
   stestSetInt(testnum, testerr);
   stestSetFloat(testnum, testerr);
   stestSetString(testnum, testerr);

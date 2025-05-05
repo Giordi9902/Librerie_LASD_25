@@ -13,8 +13,8 @@ using namespace std;
 void lasdtest() {
   cout << endl << "~*~#~*~ Welcome to the LASD Test Suite ~*~#~*~ " << endl;
 
-  unsigned int loctestnum, loctesterr;
-  unsigned int stestnum = 0, stesterr = 0;
+  uint loctestnum, loctesterr;
+  uint stestnum = 0, stesterr = 0;
 
   loctestnum = 0; loctesterr = 0;
   testSimpleExercise1A(loctestnum, loctesterr);

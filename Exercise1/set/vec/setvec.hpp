@@ -20,9 +20,9 @@ namespace lasd
   protected:
     using Container::size;
     Vector<Data> vector;
-    unsigned long head = 0;
-    unsigned long tail = 0;
-    unsigned long totalElems = 0;
+    ulong head = 0;
+    ulong tail = 0;
+    ulong totalElems = 0;
 
   public:
     SetVec();
@@ -50,12 +50,12 @@ namespace lasd
     bool Insert(const Data &) override;
     bool Insert(Data &&) override;
     bool Remove(const Data &) override;
-    const Data &operator[](unsigned long) const override;
+    const Data &operator[](ulong) const override;
     bool Exists(const Data &) const noexcept override;
     void Clear() override;
 
   protected:
-    void Resize(const unsigned long) override;
+    void Resize(const ulong) override;
   };
 
 }

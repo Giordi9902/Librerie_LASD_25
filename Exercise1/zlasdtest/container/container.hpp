@@ -8,9 +8,9 @@
 
 // Container member functions!
 
-void Empty(unsigned int &, unsigned int &, const lasd::Container &, bool);
+void Empty(uint &, uint &, const lasd::Container &, bool);
 
-void Size(unsigned int &, unsigned int &, const lasd::Container &, bool, unsigned long);
+void Size(uint &, uint &, const lasd::Container &, bool, ulong);
 
 /* ************************************************************************** */
 

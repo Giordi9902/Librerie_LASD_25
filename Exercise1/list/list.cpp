@@ -36,12 +36,7 @@ namespace lasd
     {
         delete next;
     }
-    /**
-     * @brief Operatore di uguaglianza.
-     * @param other Nodo da confrontare.
-     * @return true Se i nodi sono uguali.
-     * @return false Altrimenti.
-     */
+
 
     template <typename Data>
     inline bool List<Data>::Node::operator==(const Node &other) const noexcept
@@ -114,11 +109,7 @@ namespace lasd
         size = 0;
     }
 
-    /**
-     * @brief Operatore di assegnazione per copia
-     * @param l Lista da copiare
-     * @return Riferimento alla lista corrente
-     */
+
     template <typename Data>
     List<Data> &List<Data>::operator=(const List<Data> &l)
     {
@@ -163,11 +154,7 @@ namespace lasd
         return *this;
     }
 
-    /**
-     * @brief Operatore di assegnazione per spostamento
-     * @param l Lista da spostare
-     * @return Riferimento alla lista corrente
-     */
+
     template <typename Data>
     List<Data> &List<Data>::operator=(List<Data> &&l) noexcept
     {
@@ -177,12 +164,6 @@ namespace lasd
         return *this;
     }
 
-    /**
-     * @brief Operatore di uguaglianza
-     * @param l Lista da confrontare
-     * @return true Se le liste sono uguali
-     * @return false Altrimenti.
-     */
     template <typename Data>
     inline bool List<Data>::operator==(const List<Data> &l) const noexcept
     {
@@ -207,46 +188,31 @@ namespace lasd
         return !(*this == l);
     }
 
-    /**
-     * @brief Restituisce l'elemento all'indice specificato in sola lettura
-     * @param ind Indice dell'elemento
-     * @return Riferimento costante all'elemento
-     * @throws std::out_of_range Se l'indice è fuori dal range
-     */
+
     template <typename Data>
-    inline const Data &List<Data>::operator[](const unsigned long ind) const
+    inline const Data &List<Data>::operator[](const ulong ind) const
     {
         if (ind >= size)
             throw std::out_of_range("List does not have enough elements");
 
         Node *temp{head};
-        for (unsigned int i{0}; i < ind; ++i, temp = temp->next)
+        for (uint i{0}; i < ind; ++i, temp = temp->next)
             ;
         return temp->val;
     }
 
-    /**
-     * @brief Restituisce l'elemento all'indice specificato in lettura e scrittura
-     * @param ind Indice dell'elemento
-     * @return Riferimento all'elemento
-     * @throws std::out_of_range Se l'indice è fuori dal range
-     */
     template <typename Data>
-    inline Data &List<Data>::operator[](const unsigned long ind)
+    inline Data &List<Data>::operator[](const ulong ind)
     {
         if (ind >= size)
             throw std::out_of_range("List does not have enough elements");
 
         Node *temp{head};
-        for (unsigned int i{0}; i < ind; ++i, temp = temp->next)
+        for (uint i{0}; i < ind; ++i, temp = temp->next)
             ;
         return temp->val;
     }
 
-    /**
-     * @brief Inserisce un elemento all'inizio della lista (copia del valore)
-     * @param d Valore da inserire.
-     */
     template <typename Data>
     void List<Data>::InsertAtFront(const Data &d)
     {
@@ -257,11 +223,6 @@ namespace lasd
             tail = head;
         ++size;
     }
-
-    /**
-     * @brief Inserisce un elemento all'inizio della lista (spostamento del valore)
-     * @param d Valore da inserire
-     */
 
     template <typename Data>
     void List<Data>::InsertAtFront(Data &&d)
@@ -274,10 +235,6 @@ namespace lasd
         ++size;
     }
 
-    /**
-     * @brief Rimuove il primo elemento della lista.
-     * @throws std::lenght_error Se la lista è vuota
-     */
     template <typename Data>
     void List<Data>::RemoveFromFront()
     {
@@ -289,12 +246,6 @@ namespace lasd
         delete temp;
         --size;
     }
-
-    /**
-     * @brief Restituisce e rimuove il primo elemento della lista.
-     * @return Primo elemento della lista
-     * @throws std::lenght_error Se la lista è vuota
-     */
 
     template <typename Data>
     Data List<Data>::FrontNRemove()
@@ -317,10 +268,6 @@ namespace lasd
         return d;
     }
 
-    /**
-     * @brief Inserisce un elemento alla fine della lista (copia del valore)
-     * @param data Valore da inserire
-     */
     template <typename Data>
     void List<Data>::InsertAtBack(const Data &d)
     {
@@ -329,10 +276,6 @@ namespace lasd
         tail = temp;
     }
 
-    /**
-     * @brief Inserisce un elemento alla fine della lista (spostamento del valore)
-     * @param d Valore da inserire
-     */
     template <typename Data>
     void List<Data>::InsertAtBack(Data &&d)
     {
@@ -462,7 +405,6 @@ namespace lasd
         PostOrderMap(fun, head);
     }
 
-    // Internal Methods
     template <typename Data>
     inline void List<Data>::PreOrderTraverse(const TraverseFun fun, Node *curr) const
     {
