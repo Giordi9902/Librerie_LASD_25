@@ -127,10 +127,6 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        if (head == nullptr)
-        {
-            throw std::runtime_error("Error: head is null");
-        }
         if (head == tail)
         {
             RemoveNode(*head);
@@ -203,10 +199,6 @@ namespace lasd
         {
             current = current->next;
         }
-        if (current == nullptr || current == head)
-        {
-            throw std::length_error("Error: no predecessor found");
-        }
         return current->val;
     }
 
@@ -221,10 +213,6 @@ namespace lasd
         while (current != nullptr && current->val < dat)
         {
             current = current->next;
-        }
-        if (current == nullptr || current == head)
-        {
-            throw std::length_error("Error: no predecessor found");
         }
         const Data &predValue = current->val;
         RemoveNode(*current);
@@ -243,10 +231,6 @@ namespace lasd
         {
             current = current->next;
         }
-        if (current == nullptr || current == head)
-        {
-            throw std::length_error("Error: no predecessor found");
-        }
         RemoveNode(*current);
     }
 
@@ -262,10 +246,6 @@ namespace lasd
         {
             current = current->next;
         }
-        if (current == nullptr)
-        {
-            throw std::length_error("Error: no successor found");
-        }
         return current->val;
     }
 
@@ -280,10 +260,6 @@ namespace lasd
         while (current != nullptr && current->val <= dat)
         {
             current = current->next;
-        }
-        if (current == nullptr)
-        {
-            throw std::length_error("Error: no successor found");
         }
         const Data &succValue = current->val;
         RemoveNode(*current);
@@ -301,10 +277,6 @@ namespace lasd
         while (current != nullptr && current->val <= dat)
         {
             current = current->next;
-        }
-        if (current == nullptr)
-        {
-            throw std::length_error("Error: no successor found");
         }
         RemoveNode(*current);
     }

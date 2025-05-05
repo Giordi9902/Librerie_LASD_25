@@ -1,52 +1,55 @@
 namespace lasd
 {
     template <typename Data>
-    SetVec<Data>::SetVec() : vector(INIT_SIZE), head(0), tail(0), totalElems(0) {}
-
-    template <typename Data>
-    SetVec<Data>::SetVec(const TraversableContainer<Data> &con)
+    SetVec<Data>::SetVec() : vector(INIT_SIZE), head(0), tail(0)
     {
-        con.Traverse(
-            ([this](const Data &dat)
-             {
-                if (!Exists(dat))
-                {
-                    Insert(dat);
-                } })
-        );
+        size = INIT_SIZE;
     }
 
     template <typename Data>
-    SetVec<Data>::SetVec(MappableContainer<Data> &&con) noexcept
+    SetVec<Data>::SetVec(const TraversableContainer<Data> &con) : vector(con.Size())
     {
+        size = con.Size();
+        con.Traverse(
+            [this](const Data &dat)
+            {
+                if (!Exists(dat))
+                {
+                    Insert(dat);
+                }
+            });
+    }
+
+    template <typename Data>
+    SetVec<Data>::SetVec(MappableContainer<Data> &&con) noexcept : vector(con.Size())
+    {
+        size = con.Size();
         con.Map(
-            ([this](Data &dat)
-             {
+            [this](Data &dat)
+            {
                 if (!Exists(dat))
                 {
                     Insert(std::move(dat));
-                } })
-        );
+                }
+            });
     }
 
     template <typename Data>
-    SetVec<Data>::SetVec(const SetVec<Data> &con) {
-        con.Traverse(
-            ([this](const Data &dat)
-             {
-                if (!Exists(dat))
-                {
-                    Insert(dat);
-                } })
-        );
-    }
-
-    template <typename Data>
-    SetVec<Data>::SetVec(SetVec<Data> &&con) : vector(std::move(con))
+    SetVec<Data>::SetVec(const SetVec<Data> &con)
     {
+        size = con.size;
+        head = con.head;
+        tail = con.tail;
+        vector = con.vector;
+    }
+
+    template <typename Data>
+    SetVec<Data>::SetVec(SetVec<Data> &&con)
+    {
+        std::swap(size, con.size);
         std::swap(head, con.head);
         std::swap(tail, con.tail);
-        std::swap(totalElems, con.totalElems);
+        std::swap(vector, con.vector);
     }
 
     template <typename Data>
@@ -54,11 +57,10 @@ namespace lasd
     {
         if (this != &con)
         {
-            Clear();
-            vector = con.vector;
+            size = con.size;
             head = con.head;
             tail = con.tail;
-            totalElems = con.totalElems;
+            vector = con.vector;
         }
         return *this;
     }
@@ -68,10 +70,10 @@ namespace lasd
     {
         if (this != &con)
         {
-            vector = std::move(con.vector);
-            std::swap(tail, con.tail);
+            std::swap(size, con.size);
             std::swap(head, con.head);
-            std::swap(totalElems, con.totalElems);
+            std::swap(tail, con.tail);
+            std::swap(vector, con.vector);
         }
         return *this;
     }
@@ -79,65 +81,18 @@ namespace lasd
     template <typename Data>
     inline bool SetVec<Data>::operator==(const SetVec<Data> &con) const noexcept
     {
-        if (totalElems != con.totalElems)
+        if (Size() != con.Size())
         {
             return false;
         }
-
-        ulong index1 = head;
-        ulong index2 = con.head;
-
-        for (ulong i = 0; i < totalElems; ++i)
+        for (ulong i = 0; i < Size(); ++i)
         {
-            if (vector[index1] != con.vector[index2])
+            if (!con.Exists(vector[(head + i) % size]))
             {
                 return false;
             }
-            index1 = (index1 + 1) % vector.Size();
-            index2 = (index2 + 1) % con.vector.Size();
         }
-
         return true;
-    }
-
-    template <typename Data>
-    ulong SetVec<Data>::PredecessorIndex(const Data &dat) const
-    {
-        if (totalElems == 0)
-        {
-            throw std::length_error("Set is empty");
-        }
-
-        ulong index = head;
-        while (index != tail)
-        {
-            if (vector[index] == dat)
-            {
-                return (index - 1 + vector.Size()) % vector.Size();
-            }
-            index = (index + 1) % vector.Size();
-        }
-        return tail;
-    }
-
-    template <typename Data>
-    ulong SetVec<Data>::SuccessorIndex(const Data &dat) const
-    {
-        if (totalElems == 0)
-        {
-            throw std::length_error("Set is empty");
-        }
-
-        ulong index = head;
-        while (index != tail)
-        {
-            if (vector[index] == dat)
-            {
-                return (index + 1) % vector.Size();
-            }
-            index = (index + 1) % vector.Size();
-        }
-        return head;
     }
 
     template <typename Data>
@@ -149,115 +104,193 @@ namespace lasd
     template <typename Data>
     const Data &SetVec<Data>::Min() const
     {
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
         return vector[head];
     }
 
     template <typename Data>
     const Data &SetVec<Data>::MinNRemove()
     {
-        const Data& removedMin = Min();
-        RemoveMin();
-        return removedMin;
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        const Data &minValue = vector[head];
+        head = (head + 1) % size;
+        return minValue;
     }
 
     template <typename Data>
     void SetVec<Data>::RemoveMin()
     {
-        if (totalElems == 0)
+        if (Empty())
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("SetVec is empty.");
         }
-        head = (head + 1) % vector.Size();
-        totalElems--;
-        if (totalElems == 0)
+        head = (head + 1) % size;
+        if (Size() < size / 4 && size > INIT_SIZE) // Riduci la dimensione se necessario
         {
-            tail = head;
-        }
-        if (totalElems < vector.Size() / REDUCE_FACTOR && vector.Size() > INIT_SIZE)
-        {
-            Resize(vector.Size() / REDUCE_FACTOR);
+            Resize(size / 2);
         }
     }
 
     template <typename Data>
     const Data &SetVec<Data>::Max() const
     {
-        return vector[tail];
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        return vector[(tail - 1) % size];
     }
 
     template <typename Data>
     const Data &SetVec<Data>::MaxNRemove()
     {
-        const Data& removedMax = Max();
-        RemoveMax();
-        return removedMax;
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        const Data &maxValue = vector[(tail - 1) % size];
+        tail = (tail - 1) % size;
+        return maxValue;
     }
 
     template <typename Data>
     void SetVec<Data>::RemoveMax()
     {
-        Remove(Max());
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        tail = (tail - 1) % size;
+        if (Size() < size / 4 && size > INIT_SIZE)
+        {
+            Resize(size / 2);
+        }
     }
 
     template <typename Data>
     const Data &SetVec<Data>::Predecessor(const Data &data) const
     {
-        if (totalElems == 0)
+        if (Empty())
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("SetVec is empty.");
         }
-
-        ulong index = PredecessorIndex(data);
-        if (index == tail)
+        ulong index = head;
+        while (index != tail)
         {
-            throw std::length_error("No predecessor found");
+            if (vector[index] == data)
+            {
+                return vector[(index - 1) % size];
+            }
+            index = (index + 1) % size;
         }
-        return vector[index];
+        throw std::out_of_range("Element not found.");
     }
 
     template <typename Data>
     const Data &SetVec<Data>::PredecessorNRemove(const Data &data)
     {
-        const Data& removedPredecessor = Predecessor(data);
-        RemovePredecessor(data);
-        return removedPredecessor;
-
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        ulong index = head;
+        while (index != tail)
+        {
+            if (vector[index] == data)
+            {
+                const Data &predValue = vector[(index - 1) % size];
+                Remove(predValue);
+                return predValue;
+            }
+            index = (index + 1) % size;
+        }
+        throw std::out_of_range("Element not found.");
     }
 
     template <typename Data>
     void SetVec<Data>::RemovePredecessor(const Data &data)
     {
-        Remove(Predecessor(data));
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        ulong index = head;
+        while (index != tail)
+        {
+            if (vector[index] == data)
+            {
+                Remove(vector[(index - 1) % size]);
+                return;
+            }
+            index = (index + 1) % size;
+        }
+        throw std::out_of_range("Element not found.");
     }
 
     template <typename Data>
     const Data &SetVec<Data>::Successor(const Data &data) const
     {
-        if (totalElems == 0)
+        if (Empty())
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("SetVec is empty.");
         }
-
-        ulong index = SuccessorIndex(data);
-        if (index == head)
+        ulong index = head;
+        while (index != tail)
         {
-            throw std::length_error("No successor found");
+            if (vector[index] == data)
+            {
+                return vector[(index + 1) % size];
+            }
+            index = (index + 1) % size;
         }
-        return vector[index];
+        throw std::out_of_range("Element not found.");
     }
 
     template <typename Data>
     const Data &SetVec<Data>::SuccessorNRemove(const Data &data)
     {
-        const Data& removedSuccessor = Successor(data);
-        RemoveSuccessor(data);
-        return removedSuccessor;
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        ulong index = head;
+        while (index != tail)
+        {
+            if (vector[index] == data)
+            {
+                const Data &succValue = vector[(index + 1) % size];
+                Remove(succValue);
+                return succValue;
+            }
+            index = (index + 1) % size;
+        }
+        throw std::out_of_range("Element not found.");
     }
 
     template <typename Data>
     void SetVec<Data>::RemoveSuccessor(const Data &data)
     {
-        Remove(Successor(data));
+        if (Empty())
+        {
+            throw std::length_error("SetVec is empty.");
+        }
+        ulong index = head;
+        while (index != tail)
+        {
+            if (vector[index] == data)
+            {
+                Remove(vector[(index + 1) % size]);
+                return;
+            }
+            index = (index + 1) % size;
+        }
+        throw std::out_of_range("Element not found.");
     }
 
     template <typename Data>
@@ -267,22 +300,13 @@ namespace lasd
         {
             return false;
         }
-        if (totalElems == vector.Size())
+        if (Size() == size - 1) // Controllo se il vettore è pieno
         {
-            Resize(vector.Size() * INCREASE_FACTOR);
+            Resize(size * 2); // Raddoppia la dimensione del vettore
         }
-        if (totalElems == 0)
-        {
-            vector[tail] = data;
-        }
-        else
-        {
-            tail = (tail + 1) % vector.Size();
-            vector[tail] = data;
-        }
-        totalElems++;
+        vector[tail] = data;
+        tail = (tail + 1) % size;
         return true;
-
     }
 
     template <typename Data>
@@ -292,63 +316,19 @@ namespace lasd
         {
             return false;
         }
-        if (totalElems == vector.Size())
+        if (Size() == size - 1) // Controllo se il vettore è pieno
         {
-            Resize(vector.Size() * INCREASE_FACTOR);
+            Resize(size * 2); // Raddoppia la dimensione del vettore
         }
-        if (totalElems == 0)
-        {
-            vector[tail] = std::move(data);
-        }
-        else
-        {
-            tail = (tail + 1) % vector.Size();
-            vector[tail] = std::move(data);
-        }
-        totalElems++;
+        vector[tail] = std::move(data);
+        tail = (tail + 1) % size;
         return true;
-
     }
 
     template <typename Data>
     bool SetVec<Data>::Remove(const Data &data)
     {
-        if (totalElems == 0)
-        {
-            throw std::length_error("Set is empty");
-        }
-        ulong index = head;
-        while (index != tail)
-        {
-            if (vector[index] == data)
-            {
-                for (ulong i = index; i != tail; i = (i + 1) % vector.Size())
-                {
-                    vector[i] = vector[(i + 1) % vector.Size()];
-                }
-                tail = (tail - 1 + vector.Size()) % vector.Size();
-                totalElems--;
-                return true;
-            }
-            index = (index + 1) % vector.Size();
-        }
-        return false;
-    }
-
-    template <typename Data>
-    const Data &SetVec<Data>::operator[](ulong index) const
-    {
-        if (index >= totalElems)
-        {
-            throw std::out_of_range("Index out of range");
-        }
-        return vector[(head + index) % vector.Size()];
-    }
-
-    template <typename Data>
-    bool SetVec<Data>::Exists(const Data &data) const noexcept
-    {
-        if (totalElems == 0)
+        if (Empty())
         {
             return false;
         }
@@ -357,9 +337,43 @@ namespace lasd
         {
             if (vector[index] == data)
             {
+                for (ulong i = index; i != (tail - 1) % size; i = (i + 1) % size)
+                {
+                    vector[i] = vector[(i + 1) % size];
+                }
+                tail = (tail - 1) % size;
+                if (Size() < size / 4 && size > INIT_SIZE) // Riduci la dimensione se necessario
+                {
+                    Resize(size / 2);
+                }
                 return true;
             }
-            index = (index + 1) % vector.Size();
+            index = (index + 1) % size;
+        }
+        return false;
+    }
+
+    template <typename Data>
+    const Data &SetVec<Data>::operator[](ulong index) const
+    {
+        if (index >= Size())
+        {
+            throw std::out_of_range("Index out of range.");
+        }
+        return vector[(head + index) % size];
+    }
+
+    template <typename Data>
+    bool SetVec<Data>::Exists(const Data &data) const noexcept
+    {
+        ulong index = head;
+        while (index != tail)
+        {
+            if (vector[index] == data)
+            {
+                return true;
+            }
+            index = (index + 1) % size;
         }
         return false;
     }
@@ -367,22 +381,42 @@ namespace lasd
     template <typename Data>
     void SetVec<Data>::Clear()
     {
-        vector.Resize(INIT_SIZE);
         head = 0;
         tail = 0;
-        totalElems = 0;
+        vector.Clear();
+        size = INIT_SIZE;
     }
 
     template <typename Data>
-    void SetVec<Data>::Resize(const ulong dim)
+    void SetVec<Data>::Resize(ulong newDim)
     {
-        Vector<Data> newVector(dim);
-        for (ulong i = 0; i < totalElems; ++i)
+        if (newDim < Size())
         {
-            newVector[i] = std::move(vector[(head + i) % vector.Size()]);
+            throw std::length_error("New size is smaller than current size.");
+        }
+        Vector<Data> newVector(newDim);
+        ulong index = head;
+        ulong newIndex = 0;
+        while (index != tail)
+        {
+            newVector[newIndex] = vector[index];
+            index = (index + 1) % size;
+            newIndex++;
         }
         vector = std::move(newVector);
         head = 0;
-        tail = totalElems;
+        tail = newIndex;
+    }
+
+    template <typename Data>
+    bool SetVec<Data>::Empty() const noexcept
+    {
+        return (head == tail);
+    }
+
+    template <typename Data>
+    inline ulong SetVec<Data>::Size() const noexcept
+    {
+        return (((size + tail) - head) % size);
     }
 }

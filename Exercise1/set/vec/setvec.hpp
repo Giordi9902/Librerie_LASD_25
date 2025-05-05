@@ -6,8 +6,6 @@
 #include "../../vector/vector.hpp"
 
 #define INIT_SIZE 16
-#define INCREASE_FACTOR 2
-#define REDUCE_FACTOR 2
 
 namespace lasd
 {
@@ -20,9 +18,8 @@ namespace lasd
   protected:
     using Container::size;
     Vector<Data> vector;
-    ulong head = 0; // min element index
-    ulong tail = 0; // max element index
-    ulong totalElems = 0;
+    ulong head = 0;
+    ulong tail = 0;
 
   public:
     SetVec();
@@ -53,11 +50,11 @@ namespace lasd
     const Data &operator[](ulong) const override;
     bool Exists(const Data &) const noexcept override;
     void Clear() override;
+    bool Empty() const noexcept override;
+    ulong Size() const noexcept override;
 
   protected:
-    void Resize(const ulong) override;
-    ulong PredecessorIndex(const Data&) const;
-    ulong SuccessorIndex(const Data&) const;
+    void Resize(ulong) override;
   };
 
 }
