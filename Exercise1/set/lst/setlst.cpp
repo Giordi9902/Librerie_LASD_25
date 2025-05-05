@@ -10,7 +10,7 @@ namespace lasd
              {
                 if (!Exists(dat))
                 {
-                    Insert(dat);
+                    InsertInOrder(dat);
                 } }));
     }
 
@@ -22,7 +22,7 @@ namespace lasd
              {
                 if (!Exists(dat))
                 {
-                    Insert(std::move(dat));
+                    InsertInOrder(std::move(dat));
                 } }));
     }
 
@@ -34,7 +34,7 @@ namespace lasd
              {
                 if (!Exists(dat))
                 {
-                    Insert(dat);
+                    InsertInOrder(dat);
                 } }));
     }
 
@@ -46,7 +46,7 @@ namespace lasd
              {
                 if (!Exists(dat))
                 {
-                    Insert(std::move(dat));
+                    InsertInOrder(std::move(dat));
                 } }));
     }
 
@@ -59,7 +59,7 @@ namespace lasd
              {
                 if (!Exists(dat))
                 {
-                    Insert(dat);
+                    InsertInOrder(dat);
                 } }));
         return *this;
     }
@@ -73,7 +73,7 @@ namespace lasd
              {
                 if (!Exists(dat))
                 {
-                    Insert(std::move(dat));
+                    InsertInOrder(std::move(dat));
                 } }));
         return *this;
     }
@@ -90,10 +90,8 @@ namespace lasd
             ([&](const Data &dat)
              {
                 if (!(*this).Exists(dat))
-                {
                     isEqual = false;
-                    throw std::runtime_error("Mismatch found");
-                } }));
+             }));
         return isEqual;
     }
 
@@ -110,17 +108,9 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *minNode = head;
-        typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
-        {
-            if (current->val < minNode->val)
-            {
-                minNode = current;
-            }
-            current = current->next;
+        else {
+          return Front();
         }
-        return minNode->val;
     }
 
     template <typename Data>
@@ -130,17 +120,8 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data& min = head->val;
-        typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
-        {
-            if (current->val < min)
-            {
-                min = current->val;
-            }
-            current = current->next;
-        }
-        Remove(min);
+        const Data& min = Front();
+        RemoveMin();
         return min;
     }
 
@@ -151,17 +132,9 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data min = head->val;
         typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
-        {
-            if (current->val < min)
-            {
-                min = current->val;
-            }
-            current = current->next;
-        }
-        Remove(min);
+        head = current;
+        RemoveNode(current);
     }
 
     template <typename Data>
@@ -171,17 +144,7 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *maxNode = head;
-        typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
-        {
-            if (current->val > maxNode->val)
-            {
-                maxNode = current;
-            }
-            current = current->next;
-        }
-        return maxNode->val;
+        return Back();
     }
 
     template <typename Data>
@@ -191,17 +154,13 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data& max = head->val;
+        const Data& max = Max();
         typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
+        while (current->next != tail)
         {
-            if (current->val > max)
-            {
-                max = current->val;
-            }
             current = current->next;
         }
-        Remove(max);
+        Remove(current);
         return max;
     }
 
@@ -212,17 +171,8 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data max = head->val;
-        typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
-        {
-            if (current->val > max)
-            {
-                max = current->val;
-            }
-            current = current->next;
-        }
-        Remove(max);
+        const Data& max = Max();
+        Remove(tail);
     }
 
     template <typename Data>
