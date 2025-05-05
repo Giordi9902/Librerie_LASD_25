@@ -20,8 +20,8 @@ namespace lasd
   protected:
     using Container::size;
     Vector<Data> vector;
-    ulong head = 0;
-    ulong tail = 0;
+    ulong head = 0; // min element index
+    ulong tail = 0; // max element index
     ulong totalElems = 0;
 
   public:
@@ -56,6 +56,8 @@ namespace lasd
 
   protected:
     void Resize(const ulong) override;
+    ulong PredecessorIndex(const Data&) const;
+    ulong SuccessorIndex(const Data&) const;
   };
 
 }
