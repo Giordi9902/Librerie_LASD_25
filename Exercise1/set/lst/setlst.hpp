@@ -80,6 +80,7 @@ namespace lasd
 
   protected:
     // Auxiliary functions, if necessary!
+    void RemoveNode(List<Data>::Node&);
   };
 
 }
