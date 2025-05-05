@@ -4,25 +4,42 @@ namespace lasd
     SetVec<Data>::SetVec() : vector(INIT_SIZE), head(0), tail(0), totalElems(0) {}
 
     template <typename Data>
-    SetVec<Data>::SetVec(const TraversableContainer<Data> &con) : vector(con), tail(con.Size()), totalElems(con.Size())
+    SetVec<Data>::SetVec(const TraversableContainer<Data> &con)
     {
-        if (size < INIT_SIZE)
-        {
-            Resize(INIT_SIZE);
-        }
+        con.Traverse(
+            ([this](const Data &dat)
+             {
+                if (!Exists(dat))
+                {
+                    Insert(dat);
+                } })
+        );
     }
 
     template <typename Data>
-    SetVec<Data>::SetVec(MappableContainer<Data> &&con) noexcept : vector(std::move(con)), tail(con.Size()), totalElems(con.Size())
+    SetVec<Data>::SetVec(MappableContainer<Data> &&con) noexcept
     {
-        if (size < INIT_SIZE)
-        {
-            Resize(INIT_SIZE);
-        }
+        con.Map(
+            ([this](Data &dat)
+             {
+                if (!Exists(dat))
+                {
+                    Insert(std::move(dat));
+                } })
+        );
     }
 
     template <typename Data>
-    SetVec<Data>::SetVec(const SetVec<Data> &con) : vector(con), head(con.head), tail(con.tail), totalElems(con.totalElems) {}
+    SetVec<Data>::SetVec(const SetVec<Data> &con) {
+        con.Traverse(
+            ([this](const Data &dat)
+             {
+                if (!Exists(dat))
+                {
+                    Insert(dat);
+                } })
+        );
+    }
 
     template <typename Data>
     SetVec<Data>::SetVec(SetVec<Data> &&con) : vector(std::move(con))
