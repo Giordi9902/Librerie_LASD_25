@@ -78,10 +78,16 @@ namespace lasd
     using List<Data>::Clear;
 
 
-  protected:
+    protected:
     // Auxiliary functions, if necessary!
-    void RemoveNode(List<Data>::Node&);
-  };
+    void RemoveNode(typename List<Data>::Node&);
+    void InsertInOrder(const Data&);
+    void InsertInOrder(Data&&);
+
+    void InsertAfter(typename List<Data>::Node&,const Data&);
+    void InsertAfter(typename List<Data>::Node&,Data&&);
+
+    };
 
 }
 

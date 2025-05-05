@@ -58,9 +58,7 @@ namespace lasd
             ([this](const Data &dat)
              {
                 if (!Exists(dat))
-                {
-                    InsertInOrder(dat);
-                } }));
+                    InsertInOrder(dat); }));
         return *this;
     }
 
@@ -90,8 +88,7 @@ namespace lasd
             ([&](const Data &dat)
              {
                 if (!(*this).Exists(dat))
-                    isEqual = false;
-             }));
+                    isEqual = false; }));
         return isEqual;
     }
 
@@ -108,21 +105,19 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        else {
-          return Front();
-        }
+        return head->val;
     }
 
     template <typename Data>
-    const Data& SetLst<Data>::MinNRemove()
+    const Data &SetLst<Data>::MinNRemove()
     {
         if (size == 0)
         {
             throw std::length_error("Error: the set is empty");
         }
-        const Data& min = Front();
-        RemoveMin();
-        return min;
+        const Data &minValue = head->val;
+        RemoveNode(*head);
+        return minValue;
     }
 
     template <typename Data>
@@ -132,9 +127,20 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *current = head->next;
-        head = current;
-        RemoveNode(current);
+        if (head == nullptr)
+        {
+            throw std::runtime_error("Error: head is null");
+        }
+        if (head == tail)
+        {
+            RemoveNode(*head);
+            head = tail = nullptr;
+        }
+        else
+        {
+            RemoveNode(*head);
+            head = head->next;
+        }
     }
 
     template <typename Data>
@@ -144,24 +150,20 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        return Back();
+        const Data& max = tail->val;
+        return max;
     }
 
     template <typename Data>
-    const Data& SetLst<Data>::MaxNRemove()
+    const Data &SetLst<Data>::MaxNRemove()
     {
         if (size == 0)
         {
             throw std::length_error("Error: the set is empty");
         }
-        const Data& max = Max();
-        typename List<Data>::Node *current = head->next;
-        while (current->next != tail)
-        {
-            current = current->next;
-        }
-        Remove(current);
-        return max;
+        const Data &maxValue = tail->val;
+        RemoveMax();
+        return maxValue;
     }
 
     template <typename Data>
@@ -171,8 +173,22 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        const Data& max = Max();
-        Remove(tail);
+        if (tail == head)
+        {
+            RemoveNode(*tail);
+            head = tail = nullptr;
+        }
+        else
+        {
+            typename List<Data>::Node *current = head;
+            while (current->next != tail)
+            {
+                current = current->next;
+            }
+            RemoveNode(*tail);
+            tail = current;
+            tail->next = nullptr;
+        }
     }
 
     template <typename Data>
@@ -182,21 +198,16 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *predNode = nullptr;
         typename List<Data>::Node *current = head;
-        while (current != nullptr)
+        while (current != nullptr && current->val < dat)
         {
-            if (current->val < dat && (predNode == nullptr || current->val > predNode->val))
-            {
-                predNode = current;
-            }
             current = current->next;
         }
-        if (predNode == nullptr)
+        if (current == nullptr || current == head)
         {
-            throw std::out_of_range("Error: no predecessor found");
+            throw std::length_error("Error: no predecessor found");
         }
-        return predNode->val;
+        return current->val;
     }
 
     template <typename Data>
@@ -206,23 +217,18 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *predNode = nullptr;
         typename List<Data>::Node *current = head;
-        while (current != nullptr)
+        while (current != nullptr && current->val < dat)
         {
-            if (current->val < dat && (predNode == nullptr || current->val > predNode->val))
-            {
-                predNode = current;
-            }
             current = current->next;
         }
-        if (predNode == nullptr)
+        if (current == nullptr || current == head)
         {
-            throw std::out_of_range("Error: no predecessor found");
+            throw std::length_error("Error: no predecessor found");
         }
-        Data &pred = predNode->val;
-        Remove(pred);
-        return pred;
+        const Data &predValue = current->val;
+        RemoveNode(*current);
+        return predValue;
     }
 
     template <typename Data>
@@ -232,17 +238,16 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data pred = head->val;
-        typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
+        typename List<Data>::Node *current = head;
+        while (current != nullptr && current->val < dat)
         {
-            if (current->val < dat && current->val > pred)
-            {
-                pred = current->val;
-            }
             current = current->next;
         }
-        Remove(pred);
+        if (current == nullptr || current == head)
+        {
+            throw std::length_error("Error: no predecessor found");
+        }
+        RemoveNode(*current);
     }
 
     template <typename Data>
@@ -252,21 +257,16 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *succNode = nullptr;
         typename List<Data>::Node *current = head;
-        while (current != nullptr)
+        while (current != nullptr && current->val <= dat)
         {
-            if (current->val > dat && (succNode == nullptr || current->val < succNode->val))
-            {
-                succNode = current;
-            }
             current = current->next;
         }
-        if (succNode == nullptr)
+        if (current == nullptr)
         {
-            throw std::out_of_range("Error: no successor found");
+            throw std::length_error("Error: no successor found");
         }
-        return succNode->val;
+        return current->val;
     }
 
     template <typename Data>
@@ -276,23 +276,18 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        typename List<Data>::Node *succNode = nullptr;
         typename List<Data>::Node *current = head;
-        while (current != nullptr)
+        while (current != nullptr && current->val <= dat)
         {
-            if (current->val > dat && (succNode == nullptr || current->val < succNode->val))
-            {
-                succNode = current;
-            }
             current = current->next;
         }
-        if (succNode == nullptr)
+        if (current == nullptr)
         {
-            throw std::out_of_range("Error: no successor found");
+            throw std::length_error("Error: no successor found");
         }
-        Data &succ = succNode->val;
-        Remove(succ);
-        return succ;
+        const Data &succValue = current->val;
+        RemoveNode(*current);
+        return succValue;
     }
 
     template <typename Data>
@@ -302,39 +297,44 @@ namespace lasd
         {
             throw std::length_error("Error: the set is empty");
         }
-        Data succ = head->val;
-        typename List<Data>::Node *current = head->next;
-        while (current != nullptr)
+        typename List<Data>::Node *current = head;
+        while (current != nullptr && current->val <= dat)
         {
-            if (current->val > dat && current->val < succ)
-            {
-                succ = current->val;
-            }
             current = current->next;
         }
-        Remove(succ);
+        if (current == nullptr)
+        {
+            throw std::length_error("Error: no successor found");
+        }
+        RemoveNode(*current);
     }
 
     template <typename Data>
     bool SetLst<Data>::Insert(const Data &dat)
     {
-        if (!Exists(dat))
+        if (Exists(dat))
         {
-            List<Data>::InsertAtBack(dat);
+            return false;
+        }
+        else
+        {
+            InsertInOrder(dat);
             return true;
         }
-        return false;
     }
 
     template <typename Data>
     bool SetLst<Data>::Insert(Data &&dat)
     {
-        if (!Exists(dat))
+        if (Exists(dat))
         {
-            List<Data>::InsertAtBack(std::move(dat));
+            return false;
+        }
+        else
+        {
+            InsertInOrder(std::move(dat));
             return true;
         }
-        return false;
     }
 
     template <typename Data>
@@ -343,29 +343,15 @@ namespace lasd
         if (Exists(dat))
         {
             typename List<Data>::Node *current = head;
-            typename List<Data>::Node *previous = nullptr;
-
             while (current != nullptr)
             {
                 if (current->val == dat)
                 {
-                    if (previous == nullptr)
-                    {
-                        head = current->next;
-                    }
-                    else
-                    {
-                        previous->next = current->next;
-                    }
-                    delete current;
-                    --size;
+                    RemoveNode(*current);
                     return true;
                 }
-                previous = current;
                 current = current->next;
             }
-            return false;
-            return true;
         }
         return false;
     }
@@ -378,5 +364,91 @@ namespace lasd
             throw std::out_of_range("Error: index out of range");
         }
         return List<Data>::operator[](idx);
+    }
+
+    template <typename Data>
+    void SetLst<Data>::RemoveNode(typename List<Data>::Node &node)
+    {
+        if (&node == head)
+        {
+            typename List<Data>::Node *temp = head;
+            head = head->next;
+            delete temp;
+        }
+        else
+        {
+            typename List<Data>::Node *current = head;
+            while (current->next != &node)
+            {
+                current = current->next;
+            }
+            current->next = node.next;
+            if (&node == tail)
+            {
+                tail = current;
+            }
+            delete &node;
+        }
+        --size;
+    }
+
+    template <typename Data>
+    void SetLst<Data>::InsertAfter(typename List<Data>::Node &prev, const Data &dat)
+    {
+        typename List<Data>::Node *newNode = new typename List<Data>::Node(dat);
+        newNode->next = prev.next;
+        prev.next = newNode;
+    }
+
+    template <typename Data>
+    void SetLst<Data>::InsertAfter(typename List<Data>::Node &prev, Data &&dat)
+    {
+        typename List<Data>::Node *newNode = new typename List<Data>::Node(std::move(dat));
+        newNode->next = prev.next;
+        prev.next = newNode;
+    }
+
+    template <typename Data>
+    void SetLst<Data>::InsertInOrder(const Data &dat)
+    {
+        typename List<Data>::Node *current = head;
+        typename List<Data>::Node *prev = nullptr;
+        while (current != nullptr && current->val < dat)
+        {
+            prev = current;
+            current = current->next;
+        }
+        if (prev == nullptr)
+        {
+            head = new typename List<Data>::Node(dat);
+            head->next = current;
+        }
+        else
+        {
+            InsertAfter(*prev, dat);
+        }
+        ++size;
+    }
+
+    template <typename Data>
+    void SetLst<Data>::InsertInOrder(Data &&dat)
+    {
+        typename List<Data>::Node *current = head;
+        typename List<Data>::Node *prev = nullptr;
+        while (current != nullptr && current->val < dat)
+        {
+            prev = current;
+            current = current->next;
+        }
+        if (prev == nullptr)
+        {
+            head = new typename List<Data>::Node(std::move(dat));
+            head->next = current;
+        }
+        else
+        {
+            InsertAfter(*prev, std::move(dat));
+        }
+        ++size;
     }
 }
