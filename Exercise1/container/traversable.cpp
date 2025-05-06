@@ -12,8 +12,6 @@ namespace lasd
         return base;
     };
 
-    // Overrided Methods
-
     template <typename Data>
     inline bool TraversableContainer<Data>::Exists(const Data &data) const noexcept
     {
@@ -56,7 +54,7 @@ namespace lasd
     inline Accumulator PostOrderTraversableContainer<Data>::PostOrderFold(FoldFun<Accumulator> func, Accumulator base) const
     {
         PostOrderTraverse(
-            [&base, &func](const Data &currData)
+            [&base, func](const Data &currData)
             { base = func(currData, base); });
         return base;
     };
