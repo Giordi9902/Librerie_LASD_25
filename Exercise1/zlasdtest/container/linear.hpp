@@ -150,7 +150,6 @@ void SetBack(uint & testnum, uint & testerr, lasd::MutableLinearContainer<Data> 
   }
   testerr += (1 - (uint) tst);
 }
-
 /* ************************************************************************** */
 
 #endif

@@ -5,6 +5,14 @@
 
 void PrintMenu();
 
+void wait()
+{
+  std::cout << "Press any key to continue..." << std::endl;
+  std::cin.ignore();
+  std::cin.get();
+}
+
+
 int main(int argc, char *argv[])
 {
     std::cout << "Lasd Libraries 2024" << std::endl;
@@ -31,12 +39,12 @@ void PrintMenu()
     {
       case 1:
         lasdtest();
-        std::cout << "Press any key to continue..." << std::endl;
-        std::cin.ignore();
-        std::cin.get();
-        break;
+        wait();
+        clean();
       case 2:
-        //mytest();
+        mytest();
+        wait();
+        clean();
         break;
       case 0:
         std::cout << "Exiting...Goodbye!" << std::endl;
