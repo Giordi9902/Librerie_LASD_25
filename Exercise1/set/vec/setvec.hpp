@@ -55,6 +55,7 @@ namespace lasd
 
   protected:
     void Resize(ulong) override;
+    ulong BinarySearchIndex(const Data&) const;
   };
 
 }
