@@ -20,9 +20,10 @@ namespace lasd
     Vector<Data> vector;
     ulong head = 0;
     ulong tail = 0;
+    ulong totalElements = 0;
 
   public:
-    SetVec();
+    inline SetVec() : vector(INIT_SIZE), head{0}, tail{0}, totalElements{0}{};
     SetVec(const TraversableContainer<Data> &);
     SetVec(MappableContainer<Data> &&) noexcept;
     SetVec(const SetVec<Data> &);
@@ -50,12 +51,13 @@ namespace lasd
     const Data &operator[](ulong) const override;
     bool Exists(const Data &) const noexcept override;
     void Clear() override;
-    bool Empty() const noexcept override;
     ulong Size() const noexcept override;
+    bool Empty() const noexcept override;
 
   protected:
-    void Resize(ulong) override;
-    ulong BinarySearchIndex(const Data&) const;
+    ulong Find(const Data&) const noexcept;
+    void Resize(ulong);
+    ulong LowerBound(const Data&) const noexcept;
   };
 
 }

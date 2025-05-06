@@ -80,12 +80,8 @@ namespace lasd
 
     protected:
     // Auxiliary functions, if necessary!
-    void RemoveNode(typename List<Data>::Node&);
     void InsertInOrder(const Data&);
     void InsertInOrder(Data&&);
-
-    void InsertAfter(typename List<Data>::Node&,const Data&);
-    void InsertAfter(typename List<Data>::Node&,Data&&);
 
     };
 
