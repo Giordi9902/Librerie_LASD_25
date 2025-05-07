@@ -20,7 +20,7 @@ namespace lasd
     bool operator==(const TestableContainer &) const noexcept = delete;
     bool operator!=(const TestableContainer &) const noexcept = delete;
 
-    virtual bool Exists(const Data &data) const noexcept = 0;
+    virtual bool Exists(const Data&) const noexcept = 0;
   };
 
 }

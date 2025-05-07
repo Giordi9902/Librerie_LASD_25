@@ -4,21 +4,27 @@ namespace lasd
 
     template <typename Data>
     template <typename Accumulator>
-    inline Accumulator TraversableContainer<Data>::Fold(FoldFun<Accumulator> func, Accumulator base) const
+    Accumulator TraversableContainer<Data>::Fold(FoldFun<Accumulator> func, Accumulator base) const
     {
         Traverse(
             [&base, func](const Data &currData)
-            { base = func(currData, base); });
+                {
+                    base = func(currData, base);
+                }
+        );
         return base;
     };
 
     template <typename Data>
-    inline bool TraversableContainer<Data>::Exists(const Data &data) const noexcept
+    bool TraversableContainer<Data>::Exists(const Data &data) const noexcept
     {
         bool exists = false;
         Traverse(
             [data, &exists](const Data &currData)
-            { exists |= (data == currData); });
+            {
+                exists |= (data == currData);
+            }
+        );
         return exists;
     }
 
@@ -32,12 +38,14 @@ namespace lasd
 
     template <typename Data>
     template <typename Accumulator>
-    inline Accumulator
-    PreOrderTraversableContainer<Data>::PreOrderFold(FoldFun<Accumulator> func, Accumulator base) const
+    Accumulator PreOrderTraversableContainer<Data>::PreOrderFold(FoldFun<Accumulator> func, Accumulator base) const
     {
         PreOrderTraverse(
             [&base, func](const Data &currData)
-            { base = func(currData, base); });
+            {
+                base = func(currData, base);
+            }
+        );
         return base;
     };
 
@@ -51,7 +59,7 @@ namespace lasd
 
     template <typename Data>
     template <typename Accumulator>
-    inline Accumulator PostOrderTraversableContainer<Data>::PostOrderFold(FoldFun<Accumulator> func, Accumulator base) const
+    Accumulator PostOrderTraversableContainer<Data>::PostOrderFold(FoldFun<Accumulator> func, Accumulator base) const
     {
         PostOrderTraverse(
             [&base, func](const Data &currData)

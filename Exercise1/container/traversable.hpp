@@ -20,15 +20,15 @@ namespace lasd
     bool operator!=(const TraversableContainer &) const noexcept = delete;
 
     using TraverseFun = std::function<void(const Data &)>;
-    virtual void Traverse(const TraverseFun func) const = 0;
+    virtual void Traverse(const TraverseFun) const = 0;
 
     template <typename Accumulator>
     using FoldFun = std::function<Accumulator(const Data &, const Accumulator &)>;
 
     template <typename Accumulator>
-    inline Accumulator Fold(FoldFun<Accumulator> func, Accumulator acc) const;
+    Accumulator Fold(FoldFun<Accumulator>, Accumulator) const;
 
-    inline bool Exists(const Data &data) const noexcept override;
+    bool Exists(const Data &data) const noexcept override;
   };
 
   template <typename Data>
@@ -45,17 +45,15 @@ namespace lasd
     bool operator!=(const PreOrderTraversableContainer &) const noexcept = delete;
 
     using typename TraversableContainer<Data>::TraverseFun;
-    virtual void PreOrderTraverse(const TraverseFun func) const = 0;
+    virtual void PreOrderTraverse(const TraverseFun) const = 0;
 
     template <typename Accumulator>
     using FoldFun = typename TraversableContainer<Data>::FoldFun<Accumulator>;
 
-    inline void Traverse(TraverseFun func) const override;
+    void Traverse(const TraverseFun) const override;
 
     template <typename Accumulator>
-    inline Accumulator PreOrderFold(FoldFun<Accumulator> func, Accumulator acc) const;
-
-
+    Accumulator PreOrderFold(FoldFun<Accumulator>, Accumulator) const;
   };
 
   template <typename Data>
@@ -77,11 +75,10 @@ namespace lasd
     template <typename Accumulator>
     using FoldFun = typename TraversableContainer<Data>::FoldFun<Accumulator>;
 
-    inline void Traverse(const TraverseFun func) const override;
+    void Traverse(const TraverseFun func) const override;
 
     template <typename Accumulator>
-    inline Accumulator PostOrderFold(FoldFun<Accumulator> func, Accumulator acc) const;
-
+    Accumulator PostOrderFold(FoldFun<Accumulator> func, Accumulator acc) const;
   };
 
 }
