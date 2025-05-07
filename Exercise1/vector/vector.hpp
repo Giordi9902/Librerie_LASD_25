@@ -44,7 +44,7 @@ namespace lasd
 
     void Resize(ulong) override;
 
-    inline void Clear() override;
+    void Clear() override;
 
   };
 

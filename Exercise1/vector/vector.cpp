@@ -129,7 +129,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void Vector<Data>::Clear()
+    void Vector<Data>::Clear()
     {
         delete[] elements;
         size = 0;
