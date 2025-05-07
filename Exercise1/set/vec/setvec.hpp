@@ -141,6 +141,7 @@ namespace lasd
     void Clear() override;
 
     void Resize(ulong);
+    ulong Size() const noexcept override;
 
   protected:
     // Auxiliary functions, if necessary!

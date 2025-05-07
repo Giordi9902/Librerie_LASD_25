@@ -4,26 +4,44 @@ namespace lasd
     SetVec<Data>::SetVec(const TraversableContainer<Data> &con)
     {
         con.Traverse([this](const Data &dat)
-                     { Insert(dat); });
+                     {
+                        if(!Exists(dat))
+                            Insert(dat); });
     }
 
     template <typename Data>
     SetVec<Data>::SetVec(MappableContainer<Data> &&con)
     {
         con.Map([this](Data &dat)
-                { Insert(std::move(dat)); });
+                {if(!Exists(dat))
+                    Insert(std::move(dat)); });
     }
 
     template <typename Data>
-    SetVec<Data>::SetVec(const SetVec<Data> &con) : vector(con.vector) {}
+    SetVec<Data>::SetVec(const SetVec<Data> &con) : vector(con.vector) {
+        head = 0;
+        tail = con.totalElements;
+        totalElements = con.totalElements;
+        size = vector.Size();
+    }
 
     template <typename Data>
-    SetVec<Data>::SetVec(SetVec<Data> &&con) noexcept : vector(std::move(con.vector)) {}
+    SetVec<Data>::SetVec(SetVec<Data> &&con) noexcept : vector(std::move(con.vector)) {
+        std::swap(head, con.head);
+        std::swap(tail, con.tail);
+        std::swap(totalElements, con.totalElements);
+        std::swap(size, con.size);
+    }
 
     template <typename Data>
     SetVec<Data> &SetVec<Data>::operator=(const SetVec<Data> &con)
     {
         vector = con.vector;
+        head = 0;
+        tail = con.totalElements;
+        totalElements = con.totalElements;
+        size = vector.Size();
+
         return *this;
     }
 
@@ -31,6 +49,11 @@ namespace lasd
     SetVec<Data> &SetVec<Data>::operator=(SetVec<Data> &&con) noexcept
     {
         vector = std::move(con.vector);
+        std::swap(head, con.head);
+        std::swap(tail, con.tail);
+        std::swap(totalElements, con.totalElements);
+        std::swap(size, con.size);
+
         return *this;
     }
 
@@ -305,6 +328,8 @@ namespace lasd
     template <typename Data>
     const Data &SetVec<Data>::operator[](ulong index) const
     {
+        if (totalElements == 0)
+            throw std::length_error("SetVec is empty.");
         if (index >= totalElements)
             throw std::out_of_range("Index out of range.");
         return vector[(head + index) % size];
@@ -330,4 +355,8 @@ namespace lasd
         size = newSize;
     }
 
+    template <typename Data>
+    ulong SetVec<Data>::Size() const noexcept {
+        return totalElements;
+    }
 }

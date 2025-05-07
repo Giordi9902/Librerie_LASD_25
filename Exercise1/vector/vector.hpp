@@ -23,24 +23,24 @@ namespace lasd
 
     Vector(const TraversableContainer<Data> &);
     Vector(MappableContainer<Data> &&);
-    inline Vector(const Vector<Data> &);
-    inline Vector(Vector<Data> &&) noexcept;
+    Vector(const Vector<Data> &);
+    Vector(Vector<Data> &&) noexcept;
 
     virtual ~Vector() { delete[] elements; };
 
-    inline Vector<Data> &operator=(const Vector<Data> &);
-    inline Vector<Data> &operator=(Vector<Data> &&) noexcept;
+    Vector<Data> &operator=(const Vector<Data> &);
+    Vector<Data> &operator=(Vector<Data> &&) noexcept;
 
     bool operator==(const Vector<Data> &) const noexcept;
-    inline bool operator!=(const Vector<Data> &) const noexcept;
+    bool operator!=(const Vector<Data> &) const noexcept;
 
-    inline Data &operator[](ulong) override;
-    inline Data &Front() override;
-    inline Data &Back() override;
+    Data &operator[](ulong) override;
+    Data &Front() override;
+    Data &Back() override;
 
-    inline const Data &operator[](ulong) const override;
-    inline const Data &Front() const override;
-    inline const Data &Back() const override;
+    const Data &operator[](ulong) const override;
+    const Data &Front() const override;
+    const Data &Back() const override;
 
     void Resize(ulong) override;
 

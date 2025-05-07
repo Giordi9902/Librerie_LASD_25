@@ -24,20 +24,20 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Vector<Data>::Vector(const Vector<Data> &vec) : Vector(vec.size)
+    Vector<Data>::Vector(const Vector<Data> &vec) : Vector(vec.size)
     {
         std::uninitialized_copy(vec.elements, vec.elements + size, elements);
     }
 
     template <typename Data>
-    inline Vector<Data>::Vector(Vector<Data> &&vec) noexcept
+    Vector<Data>::Vector(Vector<Data> &&vec) noexcept
     {
         std::swap(size, vec.size);
         std::swap(elements, vec.elements);
     }
 
     template <typename Data>
-    inline Vector<Data> &Vector<Data>::operator=(const Vector<Data> &vec)
+    Vector<Data> &Vector<Data>::operator=(const Vector<Data> &vec)
     {
         Vector<Data> temp{vec};
         std::swap(temp, *this);
@@ -45,7 +45,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Vector<Data> &Vector<Data>::operator=(Vector<Data> &&vec) noexcept
+    Vector<Data> &Vector<Data>::operator=(Vector<Data> &&vec) noexcept
     {
         std::swap(size, vec.size);
         std::swap(elements, vec.elements);
@@ -77,7 +77,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline const Data &Vector<Data>::operator[](ulong i) const
+    const Data &Vector<Data>::operator[](ulong i) const
     {
         if (i >= size)
         {
@@ -87,17 +87,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &Vector<Data>::operator[](ulong i)
+    Data &Vector<Data>::operator[](ulong i)
     {
-        if (i >= size)
-        {
-            throw std::out_of_range("This Vector has not that many elements");
-        }
-        return elements[i];
+        return const_cast<Data&>(static_cast<const Vector<Data>*>(this)->operator[](i));
     }
 
     template <typename Data>
-    inline const Data &Vector<Data>::Front() const
+    const Data &Vector<Data>::Front() const
     {
         if (size != 0)
             return elements[0];
@@ -105,15 +101,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &Vector<Data>::Front()
+    Data &Vector<Data>::Front()
     {
-        if (size != 0)
-            return elements[0];
-        throw std::length_error("The Vector is empty");
+        return const_cast<Data&>(static_cast<const Vector<Data>*>(this)->Front());
     }
 
     template <typename Data>
-    inline const Data &Vector<Data>::Back() const
+    const Data &Vector<Data>::Back() const
     {
         if (size != 0)
             return elements[size - 1];
@@ -121,11 +115,9 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &Vector<Data>::Back()
+    Data &Vector<Data>::Back()
     {
-        if (size != 0)
-            return elements[size - 1];
-        throw std::length_error("The Vector is empty");
+        return const_cast<Data&>(static_cast<const Vector<Data>*>(this)->Back());
     }
 
     template <typename Data>
