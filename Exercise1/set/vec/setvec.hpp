@@ -7,6 +7,7 @@
 #include "../set.hpp"
 #include "../../vector/vector.hpp"
 
+
 namespace lasd
 {
 
@@ -15,19 +16,15 @@ namespace lasd
                  virtual public ResizableContainer
   {
 
-  private:
+  protected:
+    using Container::size;
     Vector<Data> vector;
     ulong head = 0;
     ulong tail = 0;
-    ulong totalElements = 0;
-  protected:
-    using Container::size;
 
   public:
     // Default constructor
-    SetVec():vector(INIT_SIZE),head(0),tail(0),totalElements(0) {
-      size=INIT_SIZE;
-    };
+    SetVec();
 
     // Specific constructors
     SetVec(const TraversableContainer<Data> &);
@@ -99,11 +96,21 @@ namespace lasd
     void Clear() override;
     void Resize(ulong);
     ulong Size() const noexcept override;
+    bool Empty() const noexcept override;
 
+    ulong GetTail(){return tail;}
+    ulong GetHead(){return head;}
+    ulong GetCapacity(){return size;}
+
+    using typename TraversableContainer<Data>::TraverseFun;
+    void PostOrderTraverse(const TraverseFun)const override;
+    void PreOrderTraverse(const TraverseFun)const override;
   protected:
     // Auxiliary functions, if necessary!
-    ulong FindIndex(const Data &) const;
-    ulong FindInsertIndex(const Data &) const;
+    ulong FindInsertIndex(const Data&) const;
+    ulong FindElementIndex(const Data&) const;
+    void InsertAtIndex(const Data&);
+    void InsertAtIndex(Data&&);
   };
 
 }
