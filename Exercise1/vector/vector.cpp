@@ -39,8 +39,9 @@ namespace lasd
     template <typename Data>
     Vector<Data> &Vector<Data>::operator=(const Vector<Data> &vec)
     {
-        Vector<Data> temp{vec};
-        std::swap(temp, *this);
+        Vector<Data> *temp = new Vector<Data>(vec);
+        std::swap(*temp, *this);
+        delete temp;
         return *this;
     }
 

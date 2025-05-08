@@ -60,27 +60,18 @@ namespace lasd
     bool operator!=(const OrderedDictionaryContainer &) const noexcept = delete;
 
     virtual const Data &Min() const = 0;
-
     virtual const  Data MinNRemove() = 0;
-
     virtual void RemoveMin() = 0;
 
     virtual const Data& Max() const = 0;
-
     virtual const Data MaxNRemove() = 0;
-
     virtual void RemoveMax() = 0;
 
     virtual const Data& Predecessor(const Data &) const = 0;
-
-    virtual const Data PredecessorNRemove(const Data&) = 0;
+    virtual const Data PredecessorNRemove(const Data&) = 0;    virtual void RemovePredecessor(const Data&) = 0;
 
     virtual const Data& Successor(const Data &) const = 0;
-
-    virtual void RemovePredecessor(const Data&) = 0;
-
     virtual const Data SuccessorNRemove(const Data&) = 0;
-
     virtual void RemoveSuccessor(const Data&) = 0;
 
   };
