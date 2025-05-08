@@ -60,7 +60,7 @@ namespace lasd
 
     inline SortableVector(const ulong s) : Vector<Data>::Vector(s) {};
     inline SortableVector(const TraversableContainer<Data> &con) : Vector<Data>::Vector(con) {};
-    inline SortableVector(MappableContainer<Data> &&con) : Vector<Data>::Vector(std::move(con)) {};
+    inline SortableVector(MappableContainer<Data> &&con) noexcept : Vector<Data>::Vector(std::move(con)) {};
     inline SortableVector(const SortableVector<Data> &con) : Vector<Data>::Vector(con) {};
     inline SortableVector(SortableVector<Data> &&con) noexcept : Vector<Data>::Vector(std::move(con)) {};
 
