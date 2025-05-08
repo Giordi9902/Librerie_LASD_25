@@ -19,7 +19,7 @@ void test_int_set(lasd::Set<int> &set, uint &testnum, uint &testerr)
     uint loctestnum = 0, loctesterr = 0;
 
     testnum += loctestnum;
-  testerr += loctesterr;
+    testerr += loctesterr;
 }
 
 void test_double_set(lasd::Set<double> &set, uint &testnum, uint &testerr)
@@ -27,7 +27,7 @@ void test_double_set(lasd::Set<double> &set, uint &testnum, uint &testerr)
     uint loctestnum = 0, loctesterr = 0;
 
     testnum += loctestnum;
-  testerr += loctesterr;
+    testerr += loctesterr;
 }
 
 void test_string_set(lasd::Set<string> &set, uint &testnum, uint &testerr)
@@ -35,7 +35,7 @@ void test_string_set(lasd::Set<string> &set, uint &testnum, uint &testerr)
     uint loctestnum = 0, loctesterr = 0;
 
     testnum += loctestnum;
-  testerr += loctesterr;
+    testerr += loctesterr;
 }
 
 void test_char_set(lasd::Set<char> &set, uint &testnum, uint &testerr)
@@ -43,7 +43,7 @@ void test_char_set(lasd::Set<char> &set, uint &testnum, uint &testerr)
     uint loctestnum = 0, loctesterr = 0;
 
     testnum += loctestnum;
-  testerr += loctesterr;
+    testerr += loctesterr;
 }
 
 void SetLstTest(uint &testnum, uint &testerr)

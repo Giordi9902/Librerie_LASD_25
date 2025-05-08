@@ -62,13 +62,13 @@ namespace lasd
     void RemoveFromBack();
     Data BackNRemove();
 
-    inline Data &operator[](ulong) override;
-    inline Data &Front() override;
-    inline Data &Back() override;
-
     inline const Data &operator[](const ulong) const override;
     inline const Data &Front() const override;
     inline const Data &Back() const override;
+
+    inline Data &operator[](ulong) override;
+    inline Data &Front() override;
+    inline Data &Back() override;
 
     using typename MappableContainer<Data>::MapFun;
     inline void Map(const MapFun) override;

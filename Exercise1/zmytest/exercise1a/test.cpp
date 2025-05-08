@@ -144,6 +144,70 @@ void test_string_vector(uint &loctest, uint &errtest)
 
 void test_int_list(uint &loctest, uint &errtest)
 {
+    // Create an empty list of integers
+    lasd::List<int> l1;
+
+    // Test if the list is empty and its size is 0
+    Empty(loctest, errtest, l1, true);
+    Size(loctest, errtest, l1, true, 0);
+
+    // Initialize a random number generator
+    std::default_random_engine gen(std::random_device{}());
+    std::uniform_int_distribution<int> dist(0, 1000);
+
+    // Insert elements at the front of the list
+    int back = dist(gen);
+    InsertAtFront(loctest, errtest, l1, true, back);
+    InsertAtFront(loctest, errtest, l1, true, dist(gen));
+    InsertAtFront(loctest, errtest, l1, true, dist(gen));
+    InsertAtFront(loctest, errtest, l1, true, dist(gen));
+    InsertAtFront(loctest, errtest, l1, true, dist(gen));
+    InsertAtFront(loctest, errtest, l1, true, dist(gen));
+    InsertAtFront(loctest, errtest, l1, true, dist(gen));
+
+    // Insert another element at the front and verify the front and back elements
+    int front = dist(gen);
+    InsertAtFront(loctest, errtest, l1, true, front);
+    GetFront(loctest, errtest, l1, true, front);
+    GetBack(loctest, errtest, l1, true, back);
+
+    // Traverse the list and print its elements
+    Traverse(loctest, errtest, l1, true, TraversePrint<int>);
+
+    // Set a new value at the front of the list and verify it
+    int newFront = dist(gen);
+    SetAt(loctest, errtest, l1, true, 0, newFront);
+    GetFront(loctest, errtest, l1, true, newFront);
+
+    // Traverse the list again and print its elements
+    Traverse(loctest, errtest, l1, true, TraversePrint<int>);
+
+    // Verify the size of the list
+    Size(loctest, errtest, l1, true, 8);
+
+    // Clear the list and verify it is empty
+    l1.Clear();
+    Empty(loctest, errtest, l1, true);
+    Size(loctest, errtest, l1, true, 0);
+
+    // Create a vector of integers and populate it with random values
+    lasd::Vector<int> v1(100);
+    for (int i = 0; i < 100; i++) {
+        SetAt(loctest, errtest, v1, true, i, dist(gen));
+    }
+
+    // Create a list from the vector and verify its properties
+    lasd::List<int> l2(v1);
+    Empty(loctest, errtest, l2, false);
+    Size(loctest, errtest, l2, true, 100);
+
+    // Move the vector into a new list and verify the properties of both lists
+    lasd::List<int> l3(std::move(v1));
+    Empty(loctest, errtest, l2, false);
+    Size(loctest, errtest, l2, true, 100);
+
+    // Verify that the two lists are equal
+    EqualList(loctest, errtest, l2, l3, true);
 }
 
 void test_double_list(uint &loctest, uint &errtest)
@@ -156,6 +220,8 @@ void test_char_list(uint &loctest, uint &errtest)
 
 void test_string_list(uint &loctest, uint &errtest)
 {
+
+
 }
 
 void PersonalTestList(uint &testnum, uint &testerr)
@@ -165,7 +231,7 @@ void PersonalTestList(uint &testnum, uint &testerr)
     uint loctest = 0;
     uint errtest = 0;
 
-    std::cout << "<<Testing int list>>" << std::endl;
+    std::cout << "<<Testing list of integers>>" << std::endl;
     test_int_list(loctest, errtest);
     std::cout << "End of List<int> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
     tottest += loctest;
@@ -174,7 +240,7 @@ void PersonalTestList(uint &testnum, uint &testerr)
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "<<Testing double list>>" << std::endl;
+    std::cout << "<<Testing list of doubles>>" << std::endl;
     test_double_list(loctest, errtest);
     std::cout << "End of List<double> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
     tottest += loctest;
@@ -183,7 +249,7 @@ void PersonalTestList(uint &testnum, uint &testerr)
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "<<Testing string list>>" << std::endl;
+    std::cout << "<<Testing list of strings>>" << std::endl;
     test_string_list(loctest, errtest);
     std::cout << "End of List<string> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
 
@@ -191,7 +257,7 @@ void PersonalTestList(uint &testnum, uint &testerr)
     toterr += errtest;
     loctest = 0;
     errtest = 0;
-    std::cout << "<<Testing char list>>" << std::endl;
+    std::cout << "<<Testing list of chars>>" << std::endl;
     test_char_list(loctest, errtest);
     std::cout << "End of List<char> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
     tottest += loctest;
@@ -199,6 +265,8 @@ void PersonalTestList(uint &testnum, uint &testerr)
 
     std::cout << std::endl;
     std::cout << "End List tests: " << toterr << " errors found over " << tottest << " tests." << std::endl;
+    testnum+=tottest;
+    testerr+=toterr;
 }
 
 void PersonalTestVector(uint &testnum, uint &testerr)
@@ -207,7 +275,7 @@ void PersonalTestVector(uint &testnum, uint &testerr)
     uint toterr = 0;
     uint loctest = 0;
     uint errtest = 0;
-    std::cout << "<<Testing int vector>>" << std::endl;
+    std::cout << "<<Testing vector of integers>>" << std::endl;
     test_int_vector(loctest, errtest);
     std::cout << "End of Vector<int> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
 
@@ -216,7 +284,7 @@ void PersonalTestVector(uint &testnum, uint &testerr)
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "<<Testing double vector>>" << std::endl;
+    std::cout << "<<Testing vector of doubles>>" << std::endl;
     test_double_vector(loctest, errtest);
     std::cout << "End of Vector<double> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
 
@@ -225,7 +293,7 @@ void PersonalTestVector(uint &testnum, uint &testerr)
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "<<Testing string vector>>" << std::endl;
+    std::cout << "<<Testing vector of strings>>" << std::endl;
     test_string_vector(loctest, errtest);
     std::cout << "End of Vector<string> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
 
@@ -234,7 +302,7 @@ void PersonalTestVector(uint &testnum, uint &testerr)
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "<<Testing char vector>>" << std::endl;
+    std::cout << "<<Testing vector of chars>>" << std::endl;
     test_char_vector(loctest, errtest);
     std::cout << "End of Vector<char> Test! (Error/Tests: " << errtest << "/" << loctest << ")" << std::endl;
     tottest += loctest;
@@ -242,6 +310,8 @@ void PersonalTestVector(uint &testnum, uint &testerr)
 
     std::cout << std::endl;
     std::cout << "End Vector tests: " << toterr << " errors found over " << tottest << " tests." << std::endl;
+    testnum+=tottest;
+    testerr+=toterr;
 }
 
 void myTestExercise1A(uint &testnum, uint &testerr)
