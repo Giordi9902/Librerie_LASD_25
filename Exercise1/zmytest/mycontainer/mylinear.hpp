@@ -16,7 +16,7 @@ void SortedLinear(uint& testnum, uint& testerr, lasd::SortableLinearContainer<Da
             break;
           }
         }
-        std::cout << ((tst = chk) ? "Correct" : "Error") << "!" << std::endl;
+        std::cout << ((tst = chk) ? "The container is sorted" : "The container is not sorted") << "!" << std::endl;
     } catch (std::exception& exc){
         std::cout << "\"" << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
     }
