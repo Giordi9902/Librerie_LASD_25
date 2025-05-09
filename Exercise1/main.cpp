@@ -12,7 +12,6 @@ void wait()
   std::cin.get();
 }
 
-
 int main(int argc, char *argv[])
 {
     std::cout << "Lasd Libraries 2024" << std::endl;
@@ -41,6 +40,7 @@ void PrintMenu()
         lasdtest();
         wait();
         clean();
+        break;
       case 2:
         mytest();
         wait();

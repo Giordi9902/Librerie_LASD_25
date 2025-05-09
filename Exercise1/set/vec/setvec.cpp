@@ -1,5 +1,3 @@
-#include <iostream>
-
 namespace lasd
 {
     template <typename Data>
@@ -76,7 +74,23 @@ namespace lasd
     template <typename Data>
     bool SetVec<Data>::operator==(const SetVec<Data> &con) const noexcept
     {
-        return vector == con.vector;
+        if (Size() != con.Size())
+        {
+            return false;
+        }
+        ulong index1 = tail;
+        ulong index2 = con.tail;
+        for (ulong i = 0; i < Size(); ++i)
+        {
+            if (vector[index1] != con.vector[index2])
+            {
+                return false;
+            }
+            index1 = (index1 + 1) % vector.Size();
+            index2 = (index2 + 1) % con.vector.Size();
+        }
+
+        return true;
     }
 
     template <typename Data>

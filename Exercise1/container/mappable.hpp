@@ -40,8 +40,8 @@ namespace lasd
     bool operator!=(const PreOrderMappableContainer &) const noexcept = delete;
 
     using typename MappableContainer<Data>::MapFun;
-    virtual void PreOrderMap(MapFun fun) = 0;
-    inline void Map(MapFun fun) override;
+    virtual void PreOrderMap(const MapFun fun) = 0;
+    inline void Map(const MapFun fun) override;
   };
   template <typename Data>
   class PostOrderMappableContainer : virtual public MappableContainer<Data>, virtual public PostOrderTraversableContainer<Data>

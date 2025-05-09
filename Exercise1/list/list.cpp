@@ -37,7 +37,6 @@ namespace lasd
         delete next;
     }
 
-
     template <typename Data>
     inline bool List<Data>::Node::operator==(const Node &other) const noexcept
     {
@@ -109,52 +108,6 @@ namespace lasd
         size = 0;
     }
 
-
-    template <typename Data>
-    List<Data> &List<Data>::operator=(const List<Data> &l)
-    {
-
-        if (!l.size)
-        {
-            Clear();
-            return *this;
-        }
-
-        if (!size)
-        {
-            List<Data> temp{l};
-            std::swap(temp, *this);
-            return *this;
-        }
-
-        Node *wl{l.head};
-        tail = head;
-
-        tail->val = wl->val;
-
-        while (tail->next && wl->next)
-        {
-            tail = tail->next;
-            wl = wl->next;
-
-            tail->val = wl->val;
-        }
-
-        if (tail->next)
-        {
-            delete tail->next;
-            tail->next = nullptr;
-        }
-        else
-            for (wl = wl->next; wl; wl = wl->next)
-            {
-                InsertAtBack(wl->val);
-            }
-        size = l.size;
-        return *this;
-    }
-
-
     template <typename Data>
     List<Data> &List<Data>::operator=(List<Data> &&l) noexcept
     {
@@ -188,28 +141,43 @@ namespace lasd
         return !(*this == l);
     }
 
+    template <typename Data>
+    List<Data> &List<Data>::operator=(const List<Data> &con)
+    {
+        if (*this != con)
+        {
+            Clear();
+            Node *current = con.head;
+            while (current != nullptr)
+            {
+                InsertAtBack(current->val);
+                current = current->next;
+            }
+        }
+        return *this;
+    }
 
     template <typename Data>
-    inline const Data &List<Data>::operator[](const ulong ind) const
+    const Data &List<Data>::operator[](const ulong ind) const
     {
         if (ind >= size)
             throw std::out_of_range("List does not have enough elements");
 
-        Node *temp{head};
-        for (uint i{0}; i < ind; ++i, temp = temp->next)
-            ;
+        Node *temp = head;
+        for (uint i = 0; i < ind; i++)
+            temp = temp->next;
         return temp->val;
     }
 
     template <typename Data>
-    inline Data &List<Data>::operator[](const ulong ind)
+    Data &List<Data>::operator[](const ulong ind)
     {
         if (ind >= size)
             throw std::out_of_range("List does not have enough elements");
 
-        Node *temp{head};
-        for (uint i{0}; i < ind; ++i, temp = temp->next)
-            ;
+        Node *temp = head;
+        for (uint i = 0; i < ind; ++i)
+            temp = temp->next;
         return temp->val;
     }
 
@@ -221,7 +189,7 @@ namespace lasd
         head = temp;
         if (tail == nullptr)
             tail = head;
-        ++size;
+        size++;
     }
 
     template <typename Data>
@@ -232,7 +200,7 @@ namespace lasd
         head = temp;
         if (tail == nullptr)
             tail = head;
-        ++size;
+        size++;
     }
 
     template <typename Data>
@@ -272,16 +240,32 @@ namespace lasd
     void List<Data>::InsertAtBack(const Data &d)
     {
         Node *temp = new Node(d);
-        size++ ? tail->next = temp : head = tail = temp;
+        if (tail)
+        {
+            tail->next = temp;
+        }
+        else
+        {
+            head = temp;
+        }
         tail = temp;
+        size++;
     }
 
     template <typename Data>
     void List<Data>::InsertAtBack(Data &&d)
     {
         Node *temp{new Node(std::move(d))};
-        size++ ? tail->next = temp : head = tail = temp;
+        if (tail)
+        {
+            tail->next = temp;
+        }
+        else
+        {
+            head = temp;
+        }
         tail = temp;
+        ++size;
     }
 
     template <typename Data>

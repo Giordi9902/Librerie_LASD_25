@@ -4,12 +4,12 @@ namespace lasd
     template <typename Data>
     inline bool LinearContainer<Data>::operator==(const LinearContainer<Data> &con) const noexcept
     {
-        if (size != con.size)
+        if (this->Size() != con.Size())
         {
             return false;
         }
 
-        for (ulong i = 0; i < size; ++i)
+        for (ulong i = 0; i < this->Size(); ++i)
         {
             if ((*this)[i] != con[i])
             {

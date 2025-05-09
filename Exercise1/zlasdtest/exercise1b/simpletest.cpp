@@ -28,77 +28,51 @@ void stestSetInt(lasd::Set<int> & set, uint & testnum, uint & testerr) {
 
     Empty(loctestnum, loctesterr, set, false);
     Size(loctestnum, loctesterr, set, true, 7);
-
     GetAt(loctestnum, loctesterr, set, true, 0, 0);
-
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
     TraversePostOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
-
     Min(loctestnum, loctesterr, set, true, 0);
     Max(loctestnum, loctesterr, set, true, 6);
-
     RemoveMin(loctestnum, loctesterr, set, true);
     MinNRemove(loctestnum, loctesterr, set, true, 1);
-
     InsertC(loctestnum, loctesterr, set, true, -1);
     InsertC(loctestnum, loctesterr, set, true, 1);
-
     Min(loctestnum, loctesterr, set, true, -1);
     MaxNRemove(loctestnum, loctesterr, set, true, 6);
     Size(loctestnum, loctesterr, set, true, 6);
-
     InsertC(loctestnum, loctesterr, set, true, 7);
-
     Size(loctestnum, loctesterr, set, true, 7);
-
     Max(loctestnum, loctesterr, set, true, 7);
-
     InsertC(loctestnum, loctesterr, set, true, 8);
-
     Size(loctestnum, loctesterr, set, true, 8);
-
     Exists(loctestnum, loctesterr, set, true, 7);
     Exists(loctestnum, loctesterr, set, false, 9);
     Exists(loctestnum, loctesterr, set, false, 0);
     Exists(loctestnum, loctesterr, set, true, -1);
     Exists(loctestnum, loctesterr, set, true, 2);
-
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
     TraversePostOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
-
     Remove(loctestnum, loctesterr, set, false, 6);
     Remove(loctestnum, loctesterr, set, true, 2);
-
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
     TraversePostOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
-
     Exists(loctestnum, loctesterr, set, false, 6);
     Exists(loctestnum, loctesterr, set, false, 2);
-
     RemoveMax(loctestnum, loctesterr, set, true);
     Max(loctestnum, loctesterr, set, true, 7);
-
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
-
     Predecessor(loctestnum, loctesterr, set, true, 4, 3);
     Predecessor(loctestnum, loctesterr, set, true, 5, 4);
-
     Successor(loctestnum, loctesterr, set, true, 2, 3);
     Successor(loctestnum, loctesterr, set, true, 4, 5);
-
     SuccessorNRemove(loctestnum, loctesterr, set, true, 0, 1);
     Min(loctestnum, loctesterr, set, true, -1);
-
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
-
     PredecessorNRemove(loctestnum, loctesterr, set, true, 7, 5);
     Max(loctestnum, loctesterr, set, true, 7);
-
     TraversePostOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
-
     FoldPreOrder(loctestnum, loctesterr, set, true, &FoldAdd<int>, 0, 13);
     FoldPostOrder(loctestnum, loctesterr, set, true, &FoldAdd<int>, 0, 13);
-
     TraversePreOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
     TraversePostOrder(loctestnum, loctesterr, set, true, &TraversePrint<int>);
 
