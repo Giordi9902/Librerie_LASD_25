@@ -76,20 +76,20 @@ namespace lasd
     template <typename Data>
     List<Data>::List(const List<Data> &l)
     {
+        size = l.size;
+        if (size == 0)
+            return;
 
-        if (l.head)
+        head = new Node(*(l.head));
+        tail = head;
+
+        Node *temp = l.head->next;
+
+        while (temp)
         {
-            head = new Node(*(l.head));
-            tail = head;
-
-            Node *temp = l.head->next;
-
-            while (temp)
-            {
-                tail->next = new Node(*temp);
-                tail = tail->next;
-                temp = temp->next;
-            }
+            tail->next = new Node(*temp);
+            tail = tail->next;
+            temp = temp->next;
         }
     }
 

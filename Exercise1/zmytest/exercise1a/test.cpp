@@ -3,6 +3,7 @@
 #include "../../zlasdtest/container/testable.hpp"
 #include "../../zlasdtest/container/linear.hpp"
 #include "../mycontainer/mylinear.hpp"
+#include "../mycontainer/mytraversable.hpp"
 #include "../../zlasdtest/container/traversable.hpp"
 #include "../../zlasdtest/container/mappable.hpp"
 #include "../../zlasdtest/vector/vector.hpp"
@@ -11,815 +12,1562 @@
 #include "../../list/list.hpp"
 #include <random>
 #include <string>
-#include "test.hpp"
+#include "./test.hpp"
 
 using namespace std;
 
-void test_int_vector(uint &loctestnum, uint &loctesterr)
+/*****************************************************************************************/
+void PersonalIntVectorTest(uint &testnum, uint &testerr)
 {
-    // Create an empty vector of integers
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing vector of integers>>\033[0m" << std::endl;
+    // Container tests
+
+    // Declaring first vector
     lasd::Vector<int> v1;
-
-    // Test if the vector is empty and its size is 0
+    // Empty
     Empty(loctestnum, loctesterr, v1, true);
+    // Size
     Size(loctestnum, loctesterr, v1, true, 0);
-
-    // Resize the vector to hold 100 elements and verify its size
-    v1.Resize(100);
-    Size(loctestnum, loctesterr, v1, true, 100);
-
-    // Initialize a random number generator
+    // Random number generator setup
     std::default_random_engine gen(std::random_device{}());
-    std::uniform_int_distribution<int> dist(0, 1000);
-
-    // Insert 100 random elements into the vector
-    std::cout << " " << ++loctestnum << " (" << loctesterr << ") Attempting to insert 1000 elements :";
-    for (ulong index = 0; index < 100; index++)
+    std::uniform_int_distribution<int> dist(1, 20);
+    // Resizing vector with random size and checking new Size
+    ulong newDim = dist(gen);
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
     {
-        SetAt(loctestnum, loctesterr, v1, true, index, dist(gen));
+        SetAt(loctestnum, loctesterr, v1, true, i, dist(gen));
+    }
+    newDim = dist(gen);
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
+    {
+        SetAt(loctestnum, loctesterr, v1, true, i, dist(gen));
     }
 
-    // Create a sortable vector from the existing vector and verify equality
-    lasd::SortableVector<int> sv1(v1);
-    EqualVector(loctestnum, loctesterr, v1, sv1, true);
+    // Testing TestableContainer features
 
-    // Test if the sortable vector is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
+    // Declaring new vector for testing if TestableContainer features work
+    lasd::Vector<int> v2(5);
+    SetAt(loctestnum, loctesterr, v2, true, 0, 6);
+    SetAt(loctestnum, loctesterr, v2, true, 1, 5);
+    SetAt(loctestnum, loctesterr, v2, true, 2, 4);
+    SetAt(loctestnum, loctesterr, v2, true, 3, 3);
+    SetAt(loctestnum, loctesterr, v2, true, 4, 2);
+    Exists(loctestnum, loctesterr, v2, false, 9);
+    Exists(loctestnum, loctesterr, v2, false, 29);
+    Exists(loctestnum, loctesterr, v2, false, 21);
+    Exists(loctestnum, loctesterr, v2, false, 2342);
+    Exists(loctestnum, loctesterr, v2, true, 2);
+    Exists(loctestnum, loctesterr, v2, true, 3);
+    Exists(loctestnum, loctesterr, v2, true, 4);
+    Exists(loctestnum, loctesterr, v2, true, 5);
+    Exists(loctestnum, loctesterr, v2, true, 6);
 
-    // Resize the sortable vector to 0 and verify its properties
-    sv1.Resize(0);
-    Empty(loctestnum, loctesterr, sv1, true);
-    Size(loctestnum, loctesterr, sv1, true, 0);
-
-    // Attempt to access front and back elements of an empty vector
-    GetFront(loctestnum, loctesterr, sv1, false, 0);
-    GetBack(loctestnum, loctesterr, sv1, false, 0);
-
-    // Resize the sortable vector to 20 and set the front element
-    sv1.Resize(20);
-    int num = dist(gen);
-    SetFront(loctestnum, loctesterr, sv1, true, num);
-
-    // Verify the front element and attempt invalid access
-    GetAt(loctestnum, loctesterr, sv1, true, 0, num);
-    GetAt(loctestnum, loctesterr, sv1, false, -1, 0);
-
-    // Reset the first vector to size 0 and copy from another vector with size > 0
-    v1.Resize(0);
-    lasd::Vector<int> v2(50);
-    v1 = v2;
-
-    // Verify the properties of the copied vector
-    Size(loctestnum, loctesterr, v1, true, 50);
-    Empty(loctestnum, loctesterr, v1, false);
-    EqualVector(loctestnum, loctesterr, v1, v2, true);
-
-    // Create an empty sortable vector of integers
-    lasd::SortableVector<int> sv2;
-
-    // Assign the empty sortable vector to an existing vector
-    v2 = sv2;
-    // Verify that the size of v2 is 0' after assignment
-    Size(loctestnum, loctesterr, v2, true, 0);
-
-    // Check that v1(size=50) and v2(size=0) are not equal after the assignment
-    EqualVector(loctestnum, loctesterr, v1, v2, false);
-
-    // Create a new vector v3 and resize it to hold 5 elements
-    lasd::Vector<int> v3;
-    v3.Resize(5);
-    Size(loctestnum, loctesterr, v3, true, 5);
-
-    // Set values at specific indices in the vector
-    SetAt(loctestnum, loctesterr, v3, true, 0, 5);
-    SetAt(loctestnum, loctesterr, v3, true, 1, 4);
-    SetAt(loctestnum, loctesterr, v3, true, 2, 3);
-    SetAt(loctestnum, loctesterr, v3, true, 3, 2);
-    SetAt(loctestnum, loctesterr, v3, true, 4, 1);
-
-    // Attempt to set a value at an invalid index (out of bounds)
-    SetAt(loctestnum, loctesterr, v3, false, 5, 1);
-
-    // Verify that vector v2 is empty and has size 0
-    Empty(loctestnum, loctesterr, v2, true);
-    Size(loctestnum, loctesterr, v2, true, 0);
-
-    // Move the contents of v3 to v2 and verify the sizes of both vectors
-    v2 = (std::move(v3));
-    Size(loctestnum, loctesterr, v3, true, 0); // v3 should now be empty
-
-    // Traverse the vector v2 and print its elements
+    // Testing TraversableContainer features
     Traverse(loctestnum, loctesterr, v2, true, TraversePrint<int>);
-    // Traverse the vector v2 in pre-order and post-order and print its elements
     TraversePreOrder(loctestnum, loctesterr, v2, true, TraversePrint<int>);
     TraversePostOrder(loctestnum, loctesterr, v2, true, TraversePrint<int>);
 
-    // Resize the sortable vector sv1 to 10 and populate it with random elements
-    sv1.Resize(10);
-    for (ulong ind = 0; ind < 10; ind++) {
-        SetAt(loctestnum, loctesterr, sv1, true, ind, dist(gen));
+    // Declaring new vector with random size
+    newDim = dist(gen);
+    lasd::Vector<int> v3(newDim);
+    for (ulong index = 0; index < newDim; index++)
+    {
+        v3[index] = dist(gen);
     }
 
-    // Verify if the sortable vector sv1 is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
+    // Traversing v3 in PreOrder and PostOrder
+    Traverse(loctestnum, loctesterr, v3, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, v3, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, v3, true, TraversePrint<int>);
 
-    // Traverse the sortable vector sv1 and print its elements
-    Traverse(loctestnum, loctesterr, sv1, true, TraversePrint<int>);
-    TraversePreOrder(loctestnum, loctesterr, sv1, true, TraversePrint<int>);
-    TraversePostOrder(loctestnum, loctesterr, sv1, true, TraversePrint<int>);
+    // Declaring new vector with 10 elements
+    lasd::Vector<long> v4(10);
 
-        // creo vettore vuoto
-    lasd::SortableVector<int> vec1;
-    // controllo che sia vuoto
-    Empty(loctestnum, loctesterr, vec1, true);
-    // creo vettore di size 5
-    lasd::SortableVector<int> vec2(5);
-    // copio vettore di size > 0 in vettore di size 0
-    vec1 = vec2;
-    // controllo che il vettore copiato non sia vuoto
-    Empty(loctestnum, loctesterr, vec1, false);
-    // controllo che il vettore copiato e il sorgente siano identici
-    EqualVector(loctestnum, loctesterr, vec1, vec2, true);
-    // nuovo vettore vuoto
-    lasd::SortableVector<int> vec3;
-    // copio vettore con size 0 in vettore con size > 0
-    vec2 = vec3;
-    // controllo size
-    Size(loctestnum, loctesterr, vec2, true, 0);
-    // controllo che i vettori siano diversi
-    EqualVector(loctestnum, loctesterr, vec1, vec2, false);
-    // controllo che i vettori siano uguali
-    EqualVector(loctestnum, loctesterr, vec2, vec3, true);
-    // non posso settare in un vettore di size 0
-    SetAt(loctestnum, loctesterr, vec3, false, 0, 0);
-    // resize
-    vec3.Resize(5);
-    Size(loctestnum, loctesterr, vec3, true, 5);
-    SetAt(loctestnum, loctesterr, vec3, true, 0, 5);
-    SetAt(loctestnum, loctesterr, vec3, true, 1, 4);
-    SetAt(loctestnum, loctesterr, vec3, true, 2, 3);
-    SetAt(loctestnum, loctesterr, vec3, true, 3, 2);
-    SetAt(loctestnum, loctesterr, vec3, true, 4, 1);
-    SetAt(loctestnum, loctesterr, vec3, false, 5, 1);
-    Empty(loctestnum, loctesterr, vec2, true);
-    Size(loctestnum, loctesterr, vec2, true, 0);
-    vec2 = (std::move(vec3));
-    Size(loctestnum, loctesterr, vec3, true, 0);
+    // Adding first 10 odd numbers
+    for (int i = 0, odd = 1; i < 10; ++i, odd += 2)
+    {
+        v4[i] = odd;
+    }
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<int>);
 
-    Traverse(loctestnum, loctesterr, vec2, true, TraversePrint<int>);
-    GetAt(loctestnum, loctesterr, vec2, false, 0, 1);
-    GetAt(loctestnum, loctesterr, vec2, false, 1, 2);
-    GetAt(loctestnum, loctesterr, vec2, true, 2, 3);
-    GetAt(loctestnum, loctesterr, vec2, false, 3, 4);
-    GetAt(loctestnum, loctesterr, vec2, false, 4, 5);
+    // Attempting Fold operations on v4
+    Fold(loctestnum, loctesterr, v4, true, FoldAdd<int>, 0, 100);
+    FoldPreOrder(loctestnum, loctesterr, v4, true, FoldAdd<int>, 0, 100);
+    FoldPostOrder(loctestnum, loctesterr, v4, true, FoldAdd<int>, 0, 100);
+    Fold(loctestnum, loctesterr, v4, true, FoldMultiply<int>, 1, 654729075);
+    FoldPreOrder(loctestnum, loctesterr, v4, true, FoldMultiply<int>, 1, 654729075);
+    FoldPostOrder(loctestnum, loctesterr, v4, true, FoldMultiply<int>, 1, 654729075);
 
-    Empty(loctestnum, loctesterr, vec3, true);
-    vec2.Sort();
+    // Testing MappableContainer features
 
-    Traverse(loctestnum, loctesterr, vec2, true, TraversePrint<int>);
-    GetAt(loctestnum, loctesterr, vec2, true, 0, 1);
-    GetAt(loctestnum, loctesterr, vec2, true, 1, 2);
-    GetAt(loctestnum, loctesterr, vec2, true, 2, 3);
-    GetAt(loctestnum, loctesterr, vec2, true, 3, 4);
-    GetAt(loctestnum, loctesterr, vec2, true, 4, 5);
+    // Increment all elements in the vector by 1 and print the vector
+    Map(loctestnum, loctesterr, v4, true, MapIncrement<long>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
 
-    vec2.Sort();
+    // Fold the vector by summing all elements, expecting a total of 110
+    Fold(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 110);
 
-    Traverse(loctestnum, loctesterr, vec2, true, TraversePrint<int>);
-    GetAt(loctestnum, loctesterr, vec2, true, 0, 1);
-    GetAt(loctestnum, loctesterr, vec2, true, 1, 2);
-    GetAt(loctestnum, loctesterr, vec2, true, 2, 3);
-    GetAt(loctestnum, loctesterr, vec2, true, 3, 4);
-    GetAt(loctestnum, loctesterr, vec2, true, 4, 5);
+    // Decrement all elements in the vector by 1 and print the vector
+    Map(loctestnum, loctesterr, v4, true, MapDecrement<long>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
 
-    vec2.Resize(2);
-    GetAt(loctestnum, loctesterr, vec2, false, 2, 1);
+    // Fold the vector by summing all elements, expecting a total of 100
+    Fold(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 100);
+    FoldPreOrder(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 100);
+    FoldPostOrder(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 100);
 
-    lasd::SortableVector<int> vec4(vec2);
-    Empty(loctestnum, loctesterr, vec2, false);
-    lasd::SortableVector<int> vec5(std::move(vec2));
-    Empty(loctestnum, loctesterr, vec2, true);
-    EqualVector(loctestnum, loctesterr, vec4, vec5, true);
-    lasd::SortableVector<int> vec6;
-    EqualVector(loctestnum, loctesterr, vec2, vec6, true);
-    vec4.Resize(1);
-    EqualVector(loctestnum, loctesterr, vec4, vec5, false);
-    vec4.Resize(2);
-    SetAt(loctestnum, loctesterr, vec4, true, 1, 2);
-    Traverse(loctestnum, loctesterr, vec4, true, TraversePrint<int>);
-    Traverse(loctestnum, loctesterr, vec5, true, TraversePrint<int>);
-    EqualVector(loctestnum, loctesterr, vec4, vec5, true);
-    vec4.Resize(10);
-    SetAt(loctestnum, loctesterr, vec4, true, 0, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 1, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 2, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 3, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 4, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 5, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 6, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 7, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 8, 1);
-    SetAt(loctestnum, loctesterr, vec4, true, 9, 1);
-    Traverse(loctestnum, loctesterr, vec4, true, TraversePrint<int>);
-    Fold(loctestnum, loctesterr, vec4, true, FoldAdd<int>, 0, 10);
-    Map(loctestnum, loctesterr, vec4, true, [](int &i) { ++i; });
-    Traverse(loctestnum, loctesterr, vec4, true, TraversePrint<int>);
-    Fold(loctestnum, loctesterr, vec4, true, FoldAdd<int>, 0, 20);
-    unsigned long int pos{0};
-    Map(loctestnum, loctesterr, vec4, true, [&pos](int &i) { i += pos++; });
-    Traverse(loctestnum, loctesterr, vec4, true, TraversePrint<int>);
-    Fold(loctestnum, loctesterr, vec4, true, FoldParity, 0, 1);
-    lasd::List<int> lst(vec4);
-    lasd::SortableVector<int> vec7(lst);
-    EqualVector(loctestnum, loctesterr, vec4, vec7, true);
-    Traverse(loctestnum, loctesterr, vec7, true, TraversePrint<int>);
-    vec1 = vec5;
-    lasd::SortableVector<int> vec8(std::move(lst));
-    EqualVector(loctestnum, loctesterr, vec7, vec8, true);
-    vec5 = std::move(vec7);
-    Traverse(loctestnum, loctesterr, vec7, true, TraversePrint<int>);
-    EqualVector(loctestnum, loctesterr, vec4, vec5, true);
-    EqualVector(loctestnum, loctesterr, vec4, vec8, true);
-    EqualVector(loctestnum, loctesterr, vec5, vec8, true);
-    Empty(loctestnum, loctesterr, lst, false);
-    Empty(loctestnum, loctesterr, vec7, false);
-    EqualVector(loctestnum, loctesterr, vec1, vec7, true);
-    NonEqualVector(loctestnum, loctesterr, vec1, vec7, false);
-    Exists(loctestnum, loctesterr, vec7, true, 1);
-    Exists(loctestnum, loctesterr, vec7, false, 12);
-    Traverse(loctestnum, loctesterr, vec4, true, TraversePrint<int>);
-    pos = 0;
-    FoldPreOrder(
-        loctestnum, loctesterr, vec4, true,
-        [&pos](const int &i, const double &a) {
-          return pos++ % 2 ? a - i : a + i;
-        },
-        0, -5);
-    pos = 0;
-    FoldPostOrder(
-        loctestnum, loctesterr, vec4, true,
-        [&pos](const int &i, const double &a) {
-          return pos++ % 2 ? a - i : a + i;
-        },
-        0, 5);
-    vec5.Clear();
-    Size(loctestnum, loctesterr, vec5, true, 0);
-    EqualVector(loctestnum, loctesterr, vec5, vec7, false);
-    NonEqualVector(loctestnum, loctesterr, vec5, vec7, true);
-    Exists(loctestnum, loctesterr, vec5, false, 1);
-    GetAt(loctestnum, loctesterr, vec5, false, 0, 0);
-    SetAt(loctestnum, loctesterr, vec5, false, 0, 0);
+    // Increment all elements in the vector by 1 again and print the vector
+    Map(loctestnum, loctesterr, v4, true, MapIncrement<long>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
 
-    lasd::List<int> lst2;
-    InsertAtBack(loctestnum, loctesterr, lst2, true, 1);
-    InsertAtBack(loctestnum, loctesterr, lst2, true, 2);
-    InsertAtBack(loctestnum, loctesterr, lst2, true, 3);
+    // Fold the vector by multiplying all elements, expecting a product of 3715891200
+    Fold(loctestnum, loctesterr, v4, true, FoldMultiply<long>, (long)1, 3715891200);
+    FoldPreOrder(loctestnum, loctesterr, v4, true, FoldMultiply<long>, (long)1, 3715891200);
+    FoldPostOrder(loctestnum, loctesterr, v4, true, FoldMultiply<long>, (long)1, 3715891200);
 
-    lasd::List<int> lst3(lst2);
-    lasd::SortableVector<int> vec9(std::move(lst2));
+    // Halve all elements in the vector
+    Map(loctestnum, loctesterr, v4, true, MapHalf<long>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
 
-    Traverse(loctestnum, loctesterr, lst2, true, TraversePrint<int>);
-    Traverse(loctestnum, loctesterr, lst3, true, TraversePrint<int>);
-    NonEqualList(loctestnum, loctesterr, lst2, lst3, true);
+    // Fold the vector by summing all elements, expecting a total of 55
+    Fold(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 55);
+    FoldPreOrder(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 55);
+    FoldPostOrder(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 55);
+
+    // Double all elements in the vector
+    Map(loctestnum, loctesterr, v4, true, MapDouble<long>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+
+    // Fold the vector by summing all elements, expecting a total of 110
+    Fold(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 110);
+    FoldPreOrder(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 110);
+    FoldPostOrder(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, 110);
+
+    // Invert the sign of all elements in the vector
+    Map(loctestnum, loctesterr, v4, true, MapInvert<long>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<long>);
+
+    // Fold the vector by summing all elements, expecting a total of -110
+    Fold(loctestnum, loctesterr, v4, true, FoldAdd<long>, 0, -110);
+
+    // Testing PreOrderMap and PostOrderMap
+
+    // Declaring a new vector with 10 elements (1,...,9)
+    lasd::Vector<int> v5(10);
+    for (int i = 0; i < 10; ++i)
+    {
+        v5[i] = i + 1;
+    }
+    MapPreOrder(loctestnum, loctesterr, v5, true, MapDoubleNPrint<int>);
+    MapPostOrder(loctestnum, loctesterr, v5, true, MapInvertNPrint<int>);
+
+    // Testing LinearContainer features
+
+    // Create a new vector v6 as a copy of v5
+    lasd::Vector<int> v6 = v5;
+    // Check the size of v6 (should be 10)
+    Size(loctestnum, loctesterr, v6, true, 10);
+    // Verify that v5 and v6 are equal
+    EqualLinear(loctestnum, loctesterr, v5, v6, true);
+    // Verify that v1 and v3 are not equal
+    EqualLinear(loctestnum, loctesterr, v1, v3, false);
+    // Verify that v1 and v5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, v1, v5, true);
+
+    // Move v6 into a new sortable vector v7
+    lasd::SortableVector<int> v7(std::move(v6));
+    Size(loctestnum, loctesterr, v7, true, 10);
+    Size(loctestnum, loctesterr, v6, true, 10);
+    NonEqualLinear(loctestnum, loctesterr, v6, v7, true);
+    Empty(loctestnum, loctesterr, v6, false);
+    Traverse(loctestnum, loctesterr, v6, true, TraversePrint<int>);
+    Traverse(loctestnum, loctesterr, v7, true, TraversePrint<int>);
+
+    // Check if v7 is sorted (should be true since v6 was sorted)
+    SortedLinear(loctestnum, loctesterr, v7, true);
+    // Create a new sortable vector v8 as a copy of v1
+    lasd::SortableVector<int> v8(v1);
+    // Check if v8 is not sorted (should be true since v1 might not be sorted)
+    NonSortedLinear(loctestnum, loctesterr, v8, true);
+    // Verify the content of v5 by checking each element
+    Traverse(loctestnum, loctesterr, v5, true, TraversePrint<int>);
+    // Check the first element of v5 (should be -2)
+    GetFront(loctestnum, loctesterr, v5, true, -2);
+    // Check the last element of v5 (should be -20)
+    GetBack(loctestnum, loctesterr, v5, true, -20);
+    // Set the first element of v7 to 12
+    SetFront(loctestnum, loctesterr, v7, true, 12);
+    // Verify that v7 is no longer sorted
+    NonSortedLinear(loctestnum, loctesterr, v7, true);
+    // Set the last element of v5 to 0
+    SetBack(loctestnum, loctesterr, v5, true, 0);
+    GetAt(loctestnum, loctesterr, v7, false, 33, 0);
+    GetAt(loctestnum, loctesterr, v7, false, -1, 3);
+    GetAt(loctestnum, loctesterr, v7, false, 10, 32);
+
+    // Test Vector features
+    lasd::Vector<int> v9 = v7;
+    EqualVector(loctestnum, loctesterr, v9, v7, true);
+    NonEqualVector(loctestnum, loctesterr, v9, v6, true);
+
+    // Move assigment from v2 containing 5 elements
+    v9 = std::move(v2);
+    Size(loctestnum, loctesterr, v9, true, 5);
+    Size(loctestnum, loctesterr, v2, true, 10);
+
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector<int> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
 }
 
-void test_double_vector(uint &loctestnum, uint &loctesterr)
+void PersonalDoubleVectorTest(uint &testnum, uint &testerr)
 {
-    // Create an empty vector of doubles
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing vector of doubles>>\033[0m" << std::endl;
+    // Container tests
+    // Declaring first vector
     lasd::Vector<double> v1;
-
-    // Test if the vector is empty and its size is 0
+    // Empty
     Empty(loctestnum, loctesterr, v1, true);
+    // Size
     Size(loctestnum, loctesterr, v1, true, 0);
-
-    // Resize the vector to hold 100 elements and verify its size
-    v1.Resize(100);
-    Size(loctestnum, loctesterr, v1, true, 100);
-
-    // Initialize a random number generator
+    // Random number generator setup
     std::default_random_engine gen(std::random_device{}());
-    std::uniform_real_distribution<double> dist(0.0, 1000.0);
-
-    // Insert 100 random elements into the vector
-    std::cout << " " << ++loctestnum << " (" << loctesterr << ") Attempting to insert 1000 elements :";
-    for (ulong index = 0; index < 100; index++)
+    std::uniform_real_distribution<double> dist(1.0, 20.0);
+    // Resizing vector with random size and checking new Size
+    ulong newDim = gen() % 20 + 1;
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
     {
-        SetAt(loctestnum, loctesterr, v1, true, index, dist(gen));
+        SetAt(loctestnum, loctesterr, v1, true, i, dist(gen));
+    }
+    newDim = gen() % 20 + 1;
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
+    {
+        SetAt(loctestnum, loctesterr, v1, true, i, dist(gen));
     }
 
-    // Create a sortable vector from the existing vector and verify equality
-    lasd::SortableVector<double> sv1(v1);
-    EqualVector(loctestnum, loctesterr, v1, sv1, true);
+    // Testing TestableContainer features
 
-    // Test if the sortable vector is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
+    // Declaring new vector for testing if TestableContainer features work
+    lasd::Vector<double> v2(5);
+    SetAt(loctestnum, loctesterr, v2, true, 0, 6.5);
+    SetAt(loctestnum, loctesterr, v2, true, 1, 5.5);
+    SetAt(loctestnum, loctesterr, v2, true, 2, 4.5);
+    SetAt(loctestnum, loctesterr, v2, true, 3, 3.5);
+    SetAt(loctestnum, loctesterr, v2, true, 4, 2.5);
+    Exists(loctestnum, loctesterr, v2, false, 9.0);
+    Exists(loctestnum, loctesterr, v2, false, 29.0);
+    Exists(loctestnum, loctesterr, v2, false, 21.0);
+    Exists(loctestnum, loctesterr, v2, false, 2342.0);
+    Exists(loctestnum, loctesterr, v2, true, 2.5);
+    Exists(loctestnum, loctesterr, v2, true, 3.5);
+    Exists(loctestnum, loctesterr, v2, true, 4.5);
+    Exists(loctestnum, loctesterr, v2, true, 5.5);
+    Exists(loctestnum, loctesterr, v2, true, 6.5);
 
-    // Resize the sortable vector to 0 and verify its properties
-    sv1.Resize(0);
-    Empty(loctestnum, loctesterr, sv1, true);
-    Size(loctestnum, loctesterr, sv1, true, 0);
-
-    // Attempt to access front and back elements of an empty vector
-    GetFront(loctestnum, loctesterr, sv1, false, 0.0);
-    GetBack(loctestnum, loctesterr, sv1, false, 0.0);
-
-
-    // Resize the sortable vector to 20 and set the front element
-    sv1.Resize(20);
-    double num = dist(gen);
-    SetFront(loctestnum, loctesterr, sv1, true, num);
-
-    // Verify the front element and attempt invalid access
-    GetAt(loctestnum, loctesterr, sv1, true, 0, num);
-    GetAt(loctestnum, loctesterr, sv1, false, -1, 0.0);
-
-    // Reset the first vector to size 0 and copy from another vector with size > 0
-    v1.Resize(0);
-    lasd::Vector<double> v2(50);
-    v1 = v2;
-
-    // Verify the properties of the copied vector
-    Size(loctestnum, loctesterr, v1, true, 50);
-    Empty(loctestnum, loctesterr, v1, false);
-    EqualVector(loctestnum, loctesterr, v1, v2, true);
-
-    // Create an empty sortable vector of doubles
-    lasd::SortableVector<double> sv2;
-
-    // Assign the empty sortable vector to an existing vector
-    v2 = sv2;
-    // Verify that the size of v2 is 0' after assignment
-    Size(loctestnum, loctesterr, v2, true, 0);
-
-    // Check that v1(size=50) and v2(size=0) are not equal after the assignment
-    EqualVector(loctestnum, loctesterr, v1, v2, false);
-
-    // Create a new vector v3 and resize it to hold 5 elements
-    lasd::Vector<double> v3;
-    v3.Resize(5);
-    Size(loctestnum, loctesterr, v3, true, 5);
-
-    // Set values at specific indices in the vector
-    SetAt(loctestnum, loctesterr, v3, true, 0, 5.0);
-    SetAt(loctestnum, loctesterr, v3, true, 1, 4.0);
-    SetAt(loctestnum, loctesterr, v3, true, 2, 3.0);
-    SetAt(loctestnum, loctesterr, v3, true, 3, 2.0);
-    SetAt(loctestnum, loctesterr, v3, true, 4, 1.0);
-
-    // Attempt to set a value at an invalid index (out of bounds)
-    SetAt(loctestnum, loctesterr, v3, false, 5, 1.0);
-
-    // Verify that vector v2 is empty and has size 0
-    Empty(loctestnum, loctesterr, v2, true);
-    Size(loctestnum, loctesterr, v2, true, 0);
-
-    // Move the contents of v3 to v2 and verify the sizes of both vectors
-    v2 = (std::move(v3));
-    Size(loctestnum, loctesterr, v3, true, 0); // v3 should now be empty
-
-    // Traverse the vector v2 and print its elements
+    // Testing TraversableContainer features
     Traverse(loctestnum, loctesterr, v2, true, TraversePrint<double>);
-    // Traverse the vector v2 in pre-order and post-order and print its elements
     TraversePreOrder(loctestnum, loctesterr, v2, true, TraversePrint<double>);
     TraversePostOrder(loctestnum, loctesterr, v2, true, TraversePrint<double>);
 
-    // Resize the sortable vector sv1 to 10 and populate it with random elements
-    sv1.Resize(10);
-    for (ulong ind = 0; ind < 10; ind++) {
-        SetAt(loctestnum, loctesterr, sv1, true, ind, dist(gen));
+    // Declaring new vector with random size
+    newDim = gen() % 20 + 1;
+    lasd::Vector<double> v3(newDim);
+    for (ulong index = 0; index < newDim; index++)
+    {
+        v3[index] = dist(gen);
     }
 
-    // Verify if the sortable vector sv1 is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
+    // Traversing v3 in PreOrder and PostOrder
+    Traverse(loctestnum, loctesterr, v3, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, v3, true, TraversePrint<double>);
+    TraversePostOrder(loctestnum, loctesterr, v3, true, TraversePrint<double>);
 
-    // Traverse the sortable vector sv1 and print its elements
-    Traverse(loctestnum, loctesterr, sv1, true, TraversePrint<double>);
+    // Declaring new vector with 10 elements
+    lasd::Vector<double> v4(10);
 
+    // Adding first 10 odd numbers
+    for (int i = 0; i < 10; ++i)
+    {
+        v4[i] = static_cast<double>(i + 1) * 1.1;
+    }
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<double>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<double>);
+
+    // Attempting Fold operations on v4
+    FoldDouble(loctestnum, loctesterr, v4, true, FoldAdd<double>, 0.0, 60.50, 1e-9);
+    PreOrderFoldDouble(loctestnum, loctesterr, v4, true, FoldAdd<double>, 0.0, 60.50, 1e-9);
+    PostOrderFoldDouble(loctestnum, loctesterr, v4, true, FoldAdd<double>, 0.0, 60.50, 1e-9);
+
+    // Testing MappableContainer features
+
+    // Increment all elements in the vector by 1 and print the vector
+    Map(loctestnum, loctesterr, v4, true, MapIncrement<double>);
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<double>);
+
+    // Testing PreOrderMap and PostOrderMap
+    MapPreOrder(loctestnum, loctesterr, v4, true, MapDoubleNPrint<double>);
+    MapPostOrder(loctestnum, loctesterr, v4, true, MapInvertNPrint<double>);
+
+    // Testing LinearContainer features
+
+    // Create a new vector v6 as a copy of v5
+    lasd::Vector<double> v6 = v4;
+    // Check the size of v6 (should be 10)
+    Size(loctestnum, loctesterr, v6, true, 10);
+    // Verify that v5 and v6 are equal
+    EqualLinear(loctestnum, loctesterr, v4, v6, true);
+    // Verify that v1 and v3 are not equal
+    EqualLinear(loctestnum, loctesterr, v1, v3, false);
+    // Verify that v1 and v5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, v1, v4, true);
+
+    // Move v6 into a new sortable vector v7
+    lasd::SortableVector<double> v7(std::move(v6));
+    Size(loctestnum, loctesterr, v7, true, 10);
+    Size(loctestnum, loctesterr, v6, true, 10);
+    NonEqualLinear(loctestnum, loctesterr, v6, v7, true);
+    Empty(loctestnum, loctesterr, v6, false);
+    Traverse(loctestnum, loctesterr, v6, true, TraversePrint<double>);
+    Traverse(loctestnum, loctesterr, v7, true, TraversePrint<double>);
+
+    // Check if v7 is sorted (should be true since v6 was sorted)
+    SortedLinear(loctestnum, loctesterr, v7, true);
+    // Create a new sortable vector v8 as a copy of v1
+    lasd::SortableVector<double> v8(v1);
+    // Check if v8 is not sorted (should be true since v1 might not be sorted)
+    NonSortedLinear(loctestnum, loctesterr, v8, true);
+    // Verify the content of v5 by checking each element
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<double>);
+    // Check the first element of v5 (should be -2)
+    GetFrontDouble(loctestnum, loctesterr, v4, true, -4.2, 1e-9);
+    // Check the last element of v5 (should be -20)
+    GetBackDouble(loctestnum, loctesterr, v4, true, -24.0, 1e-9);
+    // Set the first element of v7 to 12
+    SetFront(loctestnum, loctesterr, v7, true, 12.0);
+    // Verify that v7 is no longer sorted
+    NonSortedLinear(loctestnum, loctesterr, v7, true);
+    // Set the last element of v5 to 0
+    SetBack(loctestnum, loctesterr, v4, true, 0.0);
+    GetAt(loctestnum, loctesterr, v7, false, 33, 0.0);
+    GetAt(loctestnum, loctesterr, v7, false, -1, 3.3);
+    GetAt(loctestnum, loctesterr, v7, false, 10, 32.0);
+
+    // Test Vector features
+    lasd::Vector<double> v9 = v7;
+    EqualVector(loctestnum, loctesterr, v9, v7, true);
+    NonEqualVector(loctestnum, loctesterr, v9, v6, true);
+
+    // Move assigment from v2 containing 5 elements
+    v9 = std::move(v2);
+    Size(loctestnum, loctesterr, v9, true, 5);
+    Size(loctestnum, loctesterr, v2, true, 10);
+
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector<double> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
 }
 
-void test_char_vector(uint &loctestnum, uint &loctesterr)
+void PersonalCharVectorTest(uint &testnum, uint &testerr)
 {
-    // Create an empty vector of characters
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing vector of chars>>\033[0m" << std::endl;
+
+    // Container tests
+
+    // Declaring first vector with random chars
     lasd::Vector<char> v1;
-
-    // Test if the vector is empty and its size is 0
+    // Empty
     Empty(loctestnum, loctesterr, v1, true);
+    // Size
     Size(loctestnum, loctesterr, v1, true, 0);
-
-    // Resize the vector to hold 100 elements and verify its size
-    v1.Resize(100);
-    Size(loctestnum, loctesterr, v1, true, 100);
-
-    // Initialize a random number generator
+    // Random number generator setup
     std::default_random_engine gen(std::random_device{}());
-    std::uniform_int_distribution<char> dist('a', 'z');
-
-    // Insert 100 random elements into the vector
-    std::cout << " " << ++loctestnum << " (" << loctesterr << ") Attempting to insert 1000 elements :";
-    for (ulong index = 0; index < 100; index++)
-    {
-        SetAt(loctestnum, loctesterr, v1, true, index, dist(gen));
-    }
-    // Create a sortable vector from the existing vector and verify equality
-    lasd::SortableVector<char> sv1(v1);
-    EqualVector(loctestnum, loctesterr, v1, sv1, true);
-
-    // Test if the sortable vector is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
-
-    // Resize the sortable vector to 0 and verify its properties
-    sv1.Resize(0);
-    Empty(loctestnum, loctesterr, sv1, true);
-    Size(loctestnum, loctesterr, sv1, true, 0);
-
-    // Attempt to access front and back elements of an empty vector
-    GetFront(loctestnum, loctesterr, sv1, false, ' ');
-    GetBack(loctestnum, loctesterr, sv1, false, ' ');
-
-    // Resize the sortable vector to 20 and set the front element
-    sv1.Resize(20);
-    char num = dist(gen);
-    SetFront(loctestnum, loctesterr, sv1, true, num);
-
-    // Verify the front element and attempt invalid access
-    GetAt(loctestnum, loctesterr, sv1, true, 0, num);
-    GetAt(loctestnum, loctesterr, sv1, false, -1, ' ');
-
-    // Reset the first vector to size 0 and copy from another vector with size > 0
-    v1.Resize(0);
-    lasd::Vector<char> v2(50);
-    v1 = v2;
-
-    // Verify the properties of the copied vector
-    Size(loctestnum, loctesterr, v1, true, 50);
+    std::uniform_int_distribution<int> dist(97, 122);
+    // Resizing vector with random size and checking new Size
+    ulong newDim = gen() % 100 + 1;
+    v1.Resize(newDim);
     Empty(loctestnum, loctesterr, v1, false);
-    EqualVector(loctestnum, loctesterr, v1, v2, true);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
+    {
+        SetAt(loctestnum, loctesterr, v1, true, i, static_cast<char>(dist(gen)));
+    }
+    newDim = gen() % 20 + 1;
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
+    {
+        SetAt(loctestnum, loctesterr, v1, true, i, static_cast<char>(dist(gen)));
+    }
 
-    // Create an empty sortable vector of characters
-    lasd::SortableVector<char> sv2;
+    // Testing TestableContainer features
+    // Declaring new vector for testing if TestableContainer features work
+    lasd::Vector<char> v2(5);
+    SetAt(loctestnum, loctesterr, v2, true, 0, 'f');
+    SetAt(loctestnum, loctesterr, v2, true, 1, 'e');
+    SetAt(loctestnum, loctesterr, v2, true, 2, 'd');
+    SetAt(loctestnum, loctesterr, v2, true, 3, 'c');
+    SetAt(loctestnum, loctesterr, v2, true, 4, 'b');
 
-    // Assign the empty sortable vector to an existing vector
-    v2 = sv2;
+    Exists(loctestnum, loctesterr, v2, false, 'i');
+    Exists(loctestnum, loctesterr, v2, false, 'y');
+    Exists(loctestnum, loctesterr, v2, false, 'u');
+    Exists(loctestnum, loctesterr, v2, false, ' ');
+    Exists(loctestnum, loctesterr, v2, true, 'b');
+    Exists(loctestnum, loctesterr, v2, true, 'c');
+    Exists(loctestnum, loctesterr, v2, true, 'd');
+    Exists(loctestnum, loctesterr, v2, true, 'e');
+    Exists(loctestnum, loctesterr, v2, true, 'f');
 
-    // Verify that the size of v2 is 0' after assignment
-    Size(loctestnum, loctesterr, v2, true, 0);
-
-    // Check that v1(size=50) and v2(size=0) are not equal after the assignment
-    EqualVector(loctestnum, loctesterr, v1, v2, false);
-
-    // Create a new vector v3 and resize it to hold 5 elements
-    lasd::Vector<char> v3;
-    v3.Resize(5);
-    Size(loctestnum, loctesterr, v3, true, 5);
-
-    // Set values at specific indices in the vector
-    SetAt(loctestnum, loctesterr, v3, true, 0, 'e');
-    SetAt(loctestnum, loctesterr, v3, true, 1, 'd');
-    SetAt(loctestnum, loctesterr, v3, true, 2, 'c');
-    SetAt(loctestnum, loctesterr, v3, true, 3, 'b');
-    SetAt(loctestnum, loctesterr, v3, true, 4, 'a');
-
-    // Attempt to set a value at an invalid index (out of bounds)
-    SetAt(loctestnum, loctesterr, v3, false, 5, 'a');
-
-    // Verify that vector v2 is empty and has size 0
-    Empty(loctestnum, loctesterr, v2, true);
-    Size(loctestnum, loctesterr, v2, true, 0);
-
-    // Move the contents of v3 to v2 and verify the sizes of both vectors
-    v2 = (std::move(v3));
-    Size(loctestnum, loctesterr, v3, true, 0); // v3 should now be empty
-
-    // Traverse the vector v2 and print its elements
+    // Testing TraversableContainer features
     Traverse(loctestnum, loctesterr, v2, true, TraversePrint<char>);
-    // Traverse the vector v2 in pre-order and post-order and print its elements
     TraversePreOrder(loctestnum, loctesterr, v2, true, TraversePrint<char>);
     TraversePostOrder(loctestnum, loctesterr, v2, true, TraversePrint<char>);
 
-    // Resize the sortable vector sv1 to 10 and populate it with random elements
-    sv1.Resize(10);
-    for (ulong ind = 0; ind < 10; ind++) {
-        SetAt(loctestnum, loctesterr, sv1, true, ind, dist(gen));
+    // Declaring new vector with random size
+    newDim = gen() % 100 + 1;
+    lasd::Vector<char> v3(newDim);
+    for (ulong index = 0; index < newDim; index++)
+    {
+        v3[index] = static_cast<char>(dist(gen));
     }
 
-    // Verify if the sortable vector sv1 is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
+    // Traversing v3 in PreOrder and PostOrder
+    Traverse(loctestnum, loctesterr, v3, true, TraversePrint<char>);
+    TraversePreOrder(loctestnum, loctesterr, v3, true, TraversePrint<char>);
+    TraversePostOrder(loctestnum, loctesterr, v3, true, TraversePrint<char>);
 
-    // Traverse the sortable vector sv1 and print its elements
-    Traverse(loctestnum, loctesterr, sv1, true, TraversePrint<char>);
+    // Declaring new vector with 10 elements
+    lasd::Vector<char> v4(24);
 
+    // Adding first 24 chars
+    for (int i = 0; i < 24; ++i)
+    {
+        v4[i] = static_cast<char>(i + 97);
+    }
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<char>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<char>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<char>);
+
+    // Fold and Map feature
+
+    // Testing LinearContainer features
+
+    // Create a new vector v6 as a copy of v5
+    lasd::Vector<char> v6 = v4;
+    // Check the size of v6 (should be 10)
+    Size(loctestnum, loctesterr, v6, true, 24);
+    // Verify that v5 and v6 are equal
+    EqualLinear(loctestnum, loctesterr, v4, v6, true);
+    // Verify that v1 and v3 are not equal
+    EqualLinear(loctestnum, loctesterr, v1, v3, false);
+    // Verify that v1 and v5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, v1, v4, true);
+
+    // Move v6 into a new sortable vector v7
+    lasd::SortableVector<char> v7(std::move(v6));
+    Size(loctestnum, loctesterr, v7, true, 24);
+    Size(loctestnum, loctesterr, v6, true, 24);
+    NonEqualLinear(loctestnum, loctesterr, v6, v7, true);
+    Empty(loctestnum, loctesterr, v6, false);
+    Traverse(loctestnum, loctesterr, v6, true, TraversePrint<char>);
+    Traverse(loctestnum, loctesterr, v7, true, TraversePrint<char>);
+
+    // Check if v7 is sorted (should be true since v6 was sorted)
+    SortedLinear(loctestnum, loctesterr, v7, true);
+
+    // Create a new sortable vector v8 as a copy of v1 (with random elements)
+    lasd::SortableVector<char> v8(v1);
+    // Check if v8 is not sorted (should be true since v1 might not be sorted)
+    v8.Sort();
+    SortedLinear(loctestnum, loctesterr, v8, true);
+    // Verify the content of v5 by checking each element
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<char>);
+    // Set the first element of v7 to 12
+    SetFront(loctestnum, loctesterr, v7, true, 'l');
+    // Verify that v7 is no longer sorted
+    NonSortedLinear(loctestnum, loctesterr, v7, true);
+    // Set the last element of v5 to 0
+    SetBack(loctestnum, loctesterr, v4, true, ' ');
+    GetAt(loctestnum, loctesterr, v7, false, 33, ' ');
+    GetAt(loctestnum, loctesterr, v7, false, -1, ' ');
+    GetAt(loctestnum, loctesterr, v7, false, 10, ' ');
+
+    // Test Vector features
+    lasd::Vector<char> v9 = v7;
+    EqualVector(loctestnum, loctesterr, v9, v7, true);
+    NonEqualVector(loctestnum, loctesterr, v9, v6, true);
+
+    // Move assigment from v2 containing 5 elements, v2 now contains 24 elements
+    v9 = std::move(v2);
+    Size(loctestnum, loctesterr, v9, true, 5);
+    Size(loctestnum, loctesterr, v2, true, 24);
+    Traverse(loctestnum, loctesterr, v9, true, TraversePrint<char>);
+    Traverse(loctestnum, loctesterr, v2, true, TraversePrint<char>);
+
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector<char> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
 }
 
-void test_string_vector(uint &loctestnum, uint &loctesterr)
+void PersonalStringVectorTest(uint &testnum, uint &testerr)
 {
-    // Create an empty vector of strings
+
+    std::cout << "\033[4;36m<<Testing vector of strings>>\033[0m" << std::endl;
+    uint loctestnum = 0, loctesterr = 0;
+    // Container tests
+
+    // Declaring first vector with random strings
     lasd::Vector<std::string> v1;
-
-    // Test if the vector is empty and its size is 0
+    // Empty
     Empty(loctestnum, loctesterr, v1, true);
+    // Size
     Size(loctestnum, loctesterr, v1, true, 0);
-
-    // Resize the vector to hold 100 elements and verify its size
-    v1.Resize(100);
-    Size(loctestnum, loctesterr, v1, true, 100);
-
-    // Initialize a random number generator
+    // Random number generator setup
     std::default_random_engine gen(std::random_device{}());
-    std::uniform_int_distribution<int> dist(0, 1000);
-
-    // Fill the vector with random strings
-    for (ulong index = 0; index < 100; index++) {
-        std::string randomString;
-        int length = dist(gen) % 10 + 1; // Random string length between 1 and 10
-        for (int i = 0; i < length; i++) {
-            randomString += static_cast<char>('a' + (dist(gen) % 26)); // Random lowercase letter
+    std::uniform_int_distribution<int> dist(1, 26);
+    // Resizing vector with random size and checking new Size
+    ulong newDim = gen() % 100 + 1;
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
+    {
+        std::string temp;
+        for (int j = 0; j < 5; j++)
+        {
+            temp += static_cast<char>(dist(gen) + 96);
         }
-        SetAt(loctestnum, loctesterr, v1, true, index, randomString);
+        SetAt(loctestnum, loctesterr, v1, true, i, temp);
+    }
+    newDim = gen() % 100 + 1;
+    v1.Resize(newDim);
+    Empty(loctestnum, loctesterr, v1, false);
+    Size(loctestnum, loctesterr, v1, true, newDim);
+    // Insert some elements into the vector
+    for (ulong i = 0; i < newDim; i++)
+    {
+        std::string temp;
+        for (int j = 0; j < 5; j++)
+        {
+            temp += static_cast<char>(dist(gen) + 96);
+        }
+        SetAt(loctestnum, loctesterr, v1, true, i, temp);
     }
 
-    // Check size
-    Size(loctestnum, loctesterr, v1, true, 100);
+    // Testing TestableContainer features
+    // Declaring new vector for testing if TestableContainer features work
 
-    // Create a sortable vector from the existing vector and verify equality
-    lasd::SortableVector<std::string> sv1(v1);
-    EqualVector(loctestnum, loctesterr, v1, sv1, true);
+    lasd::Vector<std::string> v2(5);
+    SetAt(loctestnum, loctesterr, v2, true, 0, std::string("fiver"));
+    SetAt(loctestnum, loctesterr, v2, true, 1, std::string("four"));
+    SetAt(loctestnum, loctesterr, v2, true, 2, std::string("three"));
+    SetAt(loctestnum, loctesterr, v2, true, 3, std::string("two"));
+    SetAt(loctestnum, loctesterr, v2, true, 4, std::string("one"));
 
-    // Test if the sortable vector is sorted
-    SortedLinear(loctestnum, loctesterr, sv1, true);
+    Exists(loctestnum, loctesterr, v2, false, std::string("nine"));
+    Exists(loctestnum, loctesterr, v2, false, std::string("twenty"));
+    Exists(loctestnum, loctesterr, v2, false, std::string("eleven"));
+    Exists(loctestnum, loctesterr, v2, false, std::string(" "));
+    Exists(loctestnum, loctesterr, v2, true, std::string("one"));
+    Exists(loctestnum, loctesterr, v2, true, std::string("two"));
+    Exists(loctestnum, loctesterr, v2, true, std::string("three"));
+    Exists(loctestnum, loctesterr, v2, true, std::string("four"));
+    Exists(loctestnum, loctesterr, v2, true, std::string("fiver"));
 
-    // Resize the sortable vector to 0 and verify its properties
-    sv1.Clear();
-    Empty(loctestnum, loctesterr, sv1, true);
-    Size(loctestnum, loctesterr, sv1, true, 0);
+    // Testing TraversableContainer features
+    Traverse(loctestnum, loctesterr, v2, true, TraversePrint<std::string>);
+    TraversePreOrder(loctestnum, loctesterr, v2, true, TraversePrint<std::string>);
+    TraversePostOrder(loctestnum, loctesterr, v2, true, TraversePrint<std::string>);
 
-    GetFront(loctestnum,loctesterr,sv1,false,std::string{""});
+    // Declaring new vector with random size
+    newDim = gen() % 100 + 1;
+    lasd::Vector<std::string> v3(newDim);
+    for (ulong index = 0; index < newDim; index++)
+    {
+        std::string temp;
+
+        for (int j = 0; j < 5; j++)
+        {
+            temp += static_cast<char>(dist(gen) + 96);
+        }
+        v3[index] = temp;
+    }
+
+    // Traversing v3 in PreOrder and PostOrder
+    Traverse(loctestnum, loctesterr, v3, true, TraversePrint<std::string>);
+    TraversePreOrder(loctestnum, loctesterr, v3, true, TraversePrint<std::string>);
+    TraversePostOrder(loctestnum, loctesterr, v3, true, TraversePrint<std::string>);
+
+    // Declaring new vector with 10 elements
+    lasd::Vector<std::string> v4(5);
+
+    // Adding first 5 strings
+    v4[0] = std::string("apple");
+    v4[1] = std::string("banana");
+    v4[2] = std::string("cherry");
+    v4[3] = std::string("date");
+    v4[4] = std::string("elderberry");
+
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<std::string>);
+    TraversePreOrder(loctestnum, loctesterr, v4, true, TraversePrint<std::string>);
+    TraversePostOrder(loctestnum, loctesterr, v4, true, TraversePrint<std::string>);
+    Map(loctestnum, loctesterr, v4, true, [](string &str)
+        { MapStringAppend(str, string(" ")); });
+
+    // Testing LinearContainer features
+
+    // Create a new vector v6 as a copy of v5
+    lasd::Vector<std::string> v6 = v4;
+    // Check the size of v6 (should be 10)
+    Size(loctestnum, loctesterr, v6, true, 5);
+    // Verify that v5 and v6 are equal
+    EqualLinear(loctestnum, loctesterr, v4, v6, true);
+    // Verify that v1 and v3 are not equal
+    EqualLinear(loctestnum, loctesterr, v1, v3, false);
+    // Verify that v1 and v5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, v1, v4, true);
+
+    // Move v6 into a new sortable vector v7
+    lasd::SortableVector<std::string> v7(std::move(v6));
+    Size(loctestnum, loctesterr, v7, true, 5);
+    Size(loctestnum, loctesterr, v6, true, 5);
+    NonEqualLinear(loctestnum, loctesterr, v6, v7, true);
+    Empty(loctestnum, loctesterr, v6, false);
+    Traverse(loctestnum, loctesterr, v6, true, TraversePrint<std::string>);
+    Traverse(loctestnum, loctesterr, v7, true, TraversePrint<std::string>);
+
+    // Check if v7 is sorted (should be true since v6 was sorted)
+    SortedLinear(loctestnum, loctesterr, v7, true);
+    // Create a new sortable vector v8 as a copy of v1 (with random elements)
+    lasd::SortableVector<std::string> v8(v1);
+    // Check if v8 is not sorted (should be true since v1 might not be sorted)
+    v8.Sort();
+    SortedLinear(loctestnum, loctesterr, v8, true);
+    // Verify the content of v5 by checking each element
+    Traverse(loctestnum, loctesterr, v4, true, TraversePrint<std::string>);
+    // Set the first element of v7 to 12
+    SetFront(loctestnum, loctesterr, v7, true, std::string("lemon"));
+    // Verify that v7 is no longer sorted
+    NonSortedLinear(loctestnum, loctesterr, v7, true);
+    // Set the last element of v5 to 0
+    SetBack(loctestnum, loctesterr, v4, true, std::string(" "));
+
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector<string> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
 }
-
-void test_int_list(uint &loctestnum, uint &loctesterr)
+/*****************************************************************************************/
+void PersonalIntListTest(uint &testnum, uint &testerr)
 {
-    // Create an empty list of integers
+    std::cout << "\033[4;36m<<Testing list of integers>>\033[0m" << std::endl;
+    uint loctestnum = 0, loctesterr = 0;
+
+    // Container features testing
+    // Declaring first list
     lasd::List<int> l1;
-
-    // Test if the list is empty and its size is 0
+    // Empty
     Empty(loctestnum, loctesterr, l1, true);
+    // Size
     Size(loctestnum, loctesterr, l1, true, 0);
-
-    // Initialize a random number generator
+    // Random number generator setup
     std::default_random_engine gen(std::random_device{}());
-    std::uniform_int_distribution<int> dist(0, 1000);
+    std::uniform_int_distribution<int> dist(1, 20);
 
-    // Insert elements at the front of the list
-    int back = dist(gen);
-    InsertAtFront(loctestnum, loctesterr, l1, true, back);
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-
-    // Insert another element at the front and verify the front and back elements
-    int front = dist(gen);
-    InsertAtFront(loctestnum, loctesterr, l1, true, front);
-    GetFront(loctestnum, loctesterr, l1, true, front);
-    GetBack(loctestnum, loctesterr, l1, true, back);
-
-    // Traverse the list and print its elements
-    Traverse(loctestnum, loctesterr, l1, true, TraversePrint<int>);
-
-    // Set a new value at the front of the list and verify it
-    int newFront = dist(gen);
-    SetAt(loctestnum, loctesterr, l1, true, 0, newFront);
-    GetFront(loctestnum, loctesterr, l1, true, newFront);
-
-    // Traverse the list again and print its elements
-    Traverse(loctestnum, loctesterr, l1, true, TraversePrint<int>);
-
-    // Verify the size of the list
-    Size(loctestnum, loctesterr, l1, true, 8);
-
-    // Clear the list and verify it is empty
     l1.Clear();
     Empty(loctestnum, loctesterr, l1, true);
     Size(loctestnum, loctesterr, l1, true, 0);
 
-    // Create a vector of integers and populate it with random values
-    lasd::Vector<int> v1(100);
-    for (int i = 0; i < 100; i++) {
-        SetAt(loctestnum, loctesterr, v1, true, i, dist(gen));
+    ulong newDim = dist(gen);
+    // Insert some elements into the list
+    for (ulong i = 0; i < newDim; i++)
+    {
+        InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
+    }
+    Empty(loctestnum, loctesterr, l1, false);
+    Size(loctestnum, loctesterr, l1, true, newDim);
+
+    // Testing TestableContainer features
+    // Declaring new list for testing if TestableContainer features work
+    lasd::List<int> l2;
+    l2.InsertAtFront(6);
+    l2.InsertAtFront(5);
+    l2.InsertAtFront(4);
+    l2.InsertAtFront(3);
+    l2.InsertAtFront(2);
+    Exists(loctestnum, loctesterr, l2, false, 9);
+    Exists(loctestnum, loctesterr, l2, false, 29);
+    Exists(loctestnum, loctesterr, l2, false, 21);
+    Exists(loctestnum, loctesterr, l2, false, 2342);
+    Exists(loctestnum, loctesterr, l2, true, 2);
+    Exists(loctestnum, loctesterr, l2, true, 3);
+    Exists(loctestnum, loctesterr, l2, true, 4);
+    Exists(loctestnum, loctesterr, l2, true, 5);
+    Exists(loctestnum, loctesterr, l2, true, 6);
+
+    // Testing TraversableContainer features
+    Traverse(loctestnum, loctesterr, l2, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, l2, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, l2, true, TraversePrint<int>);
+
+    // Declaring new list with random size
+    newDim = dist(gen);
+    lasd::List<int> l3;
+    for (ulong index = 0; index < newDim; index++)
+    {
+        l3.InsertAtFront(dist(gen));
     }
 
-    // Create a list from the vector and verify its properties
-    lasd::List<int> l2(v1);
-    Empty(loctestnum, loctesterr, l2, false);
-    Size(loctestnum, loctesterr, l2, true, 100);
+    // Traversing l3 in PreOrder and PostOrder
+    Traverse(loctestnum, loctesterr, l3, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, l3, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, l3, true, TraversePrint<int>);
 
-    // Move the vector into a new list and verify the properties of both lists
-    lasd::List<int> l3(std::move(v1));
-    Empty(loctestnum, loctesterr, l2, false);
-    Size(loctestnum, loctesterr, l2, true, 100);
+    // Declaring new list with 10 elements
+    lasd::List<long> l4;
 
-    // Verify that the two lists are equal
-    EqualList(loctestnum, loctesterr, l2, l3, true);
-}
+    // Adding first 10 odd numbers
+    for (int i = 0, odd = 1; i < 10; ++i, odd += 2)
+    {
+        l4.InsertAtFront(odd);
+    }
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<int>);
 
-void test_double_list(uint &loctestnum, uint &loctesterr)
-{
-    // Create an empty list of doubles
-    lasd::List<double> l1;
+    // Attempting Fold operations on l4
+    Fold(loctestnum, loctesterr, l4, true, FoldAdd<int>, 0, 100);
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldAdd<int>, 0, 100);
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldAdd<int>, 0, 100);
+    Fold(loctestnum, loctesterr, l4, true, FoldMultiply<int>, 1, 654729075);
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldMultiply<int>, 1, 654729075);
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldMultiply<int>, 1, 654729075);
 
-    // Test if the list is empty and its size is 0
-    Empty(loctestnum, loctesterr, l1, true);
-    Size(loctestnum, loctesterr, l1, true, 0);
+    // Testing MappableContainer features
 
-    // Initialize a random number generator
-    std::default_random_engine gen(std::random_device{}());
-    std::uniform_real_distribution<double> dist(0.0, 1000.0);
+    // Increment all elements in the list by 1 and print the list
+    Map(loctestnum, loctesterr, l4, true, MapIncrement<long>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
 
-    // Insert elements at the front of the list
-    double back = dist(gen);
-    InsertAtFront(loctestnum, loctesterr, l1, true, back);
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
+    // Fold the list by summing all elements, expecting a total of 110
+    Fold(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 110);
 
-    // Insert another element at the front and verify the front and back elements
-    double front = dist(gen);
-    InsertAtFront(loctestnum, loctesterr, l1, true, front);
-    GetFront(loctestnum, loctesterr, l1, true, front);
-    GetBack(loctestnum, loctesterr, l1, true, back);
+    // Decrement all elements in the list by 1 and print the list
+    Map(loctestnum, loctesterr, l4, true, MapDecrement<long>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
 
-    // Traverse the list and print its elements
-    Traverse(loctestnum, loctesterr, l1, true,TraversePrint<double>);
-}
+    // Fold the list by summing all elements, expecting a total of 100
+    Fold(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 100);
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 100);
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 100);
 
-void test_char_list(uint &loctestnum, uint &loctesterr)
-{
-    // Create an empty list of characters
-    lasd::List<char> l1;
+    // Increment all elements in the list by 1 again and print the list
+    Map(loctestnum, loctesterr, l4, true, MapIncrement<long>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
 
-    // Test if the list is empty and its size is 0
-    Empty(loctestnum, loctesterr, l1, true);
-    Size(loctestnum, loctesterr, l1, true, 0);
+    // Fold the list by multiplying all elements, expecting a product of 3715891200
+    Fold(loctestnum, loctesterr, l4, true, FoldMultiply<long>, (long)1, 3715891200);
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldMultiply<long>, (long)1, 3715891200);
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldMultiply<long>, (long)1, 3715891200);
 
-    // Initialize a random number generator
-    std::default_random_engine gen(std::random_device{}());
-    std::uniform_int_distribution<char> dist('a', 'z');
+    // Halve all elements in the list
+    Map(loctestnum, loctesterr, l4, true, MapHalf<long>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
 
-    // Insert elements at the front of the list
-    char back = dist(gen);
-    InsertAtFront(loctestnum, loctesterr, l1, true, back);
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
-    InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
+    // Fold the list by summing all elements, expecting a total of 55
+    Fold(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 55);
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 55);
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 55);
 
-    // Insert another element at the front and verify the front and back elements
-    char front = dist(gen);
-    InsertAtFront(loctestnum, loctesterr, l1, true, front);
-    GetFront(loctestnum, loctesterr, l1, true, front);
-    GetBack(loctestnum, loctesterr, l1, true, back);
+    // Double all elements in the list
+    Map(loctestnum, loctesterr, l4, true, MapDouble<long>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
 
-    // Traverse the list and print its elements
-    Traverse(loctestnum, loctesterr,l1,true ,TraversePrint<char>);
-}
+    // Fold the list by summing all elements, expecting a total of 110
+    Fold(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 110);
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 110);
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, 110);
 
-void test_string_list(uint &loctestnum, uint &loctesterr)
-{
-    // Create an empty list of strings
-    lasd::List<std::string> l1;
+    // Invert the sign of all elements in the list
+    Map(loctestnum, loctesterr, l4, true, MapInvert<long>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<long>);
 
-    // Test if the list is empty and its size is 0
-    Empty(loctestnum, loctesterr, l1, true);
-    Size(loctestnum, loctesterr, l1, true, 0);
+    // Fold the list by summing all elements, expecting a total of -110
+    Fold(loctestnum, loctesterr, l4, true, FoldAdd<long>, 0, -110);
 
-    // Initialize a random number generator
-    std::default_random_engine gen(std::random_device{}());
-    std::uniform_int_distribution<int> dist(0, 1000);
+    // Testing PreOrderMap and PostOrderMap
 
-    // Fill the list with random strings
-    for (ulong index = 0; index < 100; index++) {
-        std::string randomString;
-        int length = dist(gen) % 10 + 1; // Random string length between 1 and 10
-        for (int i = 0; i < length; i++) {
-            randomString += static_cast<char>('a' + (dist(gen) % 26)); // Random lowercase letter
+    // Declaring a new list with 10 elements (1,...,9)
+    lasd::List<int> l5;
+    for (int i = 0; i < 10; ++i)
+    {
+        l5.InsertAtBack(i + 1);
+    }
+    MapPreOrder(loctestnum, loctesterr, l5, true, MapDoubleNPrint<int>);
+    MapPostOrder(loctestnum, loctesterr, l5, true, MapInvertNPrint<int>);
+
+    // Testing LinearContainer features
+
+    // Create a new list l6 as a copy of l5
+    lasd::List<int> l6 = l5;
+    // Check the size of l6 (should be 10)
+    Size(loctestnum, loctesterr, l6, true, 10);
+    // Verify that l5 and l6 are equal
+    EqualLinear(loctestnum, loctesterr, l5, l6, true);
+    // Verify that l1 and l3 are not equal
+    EqualLinear(loctestnum, loctesterr, l1, l3, false);
+    // Verify that l1 and l5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, l1, l5, true);
+
+    // Move l6 into a new list l7
+    lasd::List<int> l7(std::move(l6));
+    Size(loctestnum, loctesterr, l7, true, 10);
+    Size(loctestnum, loctesterr, l6, true, 0);
+    NonEqualLinear(loctestnum, loctesterr, l6, l7, true);
+    Empty(loctestnum, loctesterr, l6, true);
+
+    Traverse(loctestnum, loctesterr, l5, true, TraversePrint<int>);
+    Traverse(loctestnum, loctesterr, l6, true, TraversePrint<int>);
+    Traverse(loctestnum, loctesterr, l7, true, TraversePrint<int>);
+
+    // Check the first element of l5 (should be -2)
+    GetFront(loctestnum, loctesterr, l5, true, -2);
+    // Check the last element of l5 (should be -20)
+    GetBack(loctestnum, loctesterr, l5, true, -20);
+    // Set the first element of l7 to 12
+    SetFront(loctestnum, loctesterr, l7, true, 12);
+    // Set the last element of l5 to 0
+    SetBack(loctestnum, loctesterr, l5, true, 0);
+
+    // Test List features
+    lasd::List<int> l9 = l7;
+    EqualList(loctestnum, loctesterr, l9, l7, true);
+    NonEqualList(loctestnum, loctesterr, l9, l6, true);
+
+    // Move assigment from l2 containing 5 elements
+    l9 = std::move(l2);
+    Size(loctestnum, loctesterr, l9, true, 5);
+    Size(loctestnum, loctesterr, l2, true, 10);
+    Traverse(loctestnum, loctesterr, l9, true, TraversePrint<int>);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, false);
+    Empty(loctestnum, loctesterr, l9, true);
+
+    lasd::List<int> l10;
+    for (int i = 0; i < 10; i++)
+    {
+        if ((i % 2) == 0)
+        {
+            InsertAtFront(loctestnum, loctesterr, l10, true, i);
         }
-        InsertAtFront(loctestnum, loctesterr, l1, true, randomString);
+        else
+        {
+            InsertAtBack(loctestnum, loctesterr, l10, true, i);
+        }
     }
+    Traverse(loctestnum, loctesterr, l10, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, l10, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, l10, true, TraversePrint<int>);
+    Fold(loctestnum, loctesterr, l10, true, FoldAdd<int>, 0, 45);
+    FoldPreOrder(loctestnum, loctesterr, l10, true, FoldAdd<int>, 0, 45);
+    FoldPostOrder(loctestnum, loctesterr, l10, true, FoldAdd<int>, 0, 45);
+    GetFront(loctestnum, loctesterr, l10, true, 8);
+    FrontNRemove(loctestnum, loctesterr, l10, true, 8);
+    GetBack(loctestnum, loctesterr, l10, true, 9);
+    BackNRemove(loctestnum, loctesterr, l10, true, 9);
+    Traverse(loctestnum, loctesterr, l10, true, TraversePrint<int>);
+    TraversePreOrder(loctestnum, loctesterr, l10, true, TraversePrint<int>);
+    TraversePostOrder(loctestnum, loctesterr, l10, true, TraversePrint<int>);
+    Fold(loctestnum, loctesterr, l10, true, FoldAdd<int>, 0, 28);
+    FoldPreOrder(loctestnum, loctesterr, l10, true, FoldAdd<int>, 0, 28);
+    FoldPostOrder(loctestnum, loctesterr, l10, true, FoldAdd<int>, 0, 28);
+    Map(loctestnum, loctesterr, l10, true, MapIncrementNPrint<int>);
 
-    // Check size
-    Size(loctestnum, loctesterr, l1, true, 100);
-
-    // Traverse the list and print its elements
-    Traverse(loctestnum, loctesterr,l1,true ,TraversePrint<std::string>);
+    lasd::List<int> l11;
+    l11 = l10;
+    EqualList(loctestnum,loctesterr,l10,l11,true);
+    l10.Clear();
+    Empty(loctestnum,loctesterr,l10,true);
+    std::cout << "\033[4;36mEnd of List<int> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+    testnum += loctestnum;
+    testerr += loctesterr;
 }
 
-void PersonalTestList(uint &testnum, uint &testerr)
+void PersonalDoubleListTest(uint &testnum, uint &testerr)
 {
+    std::cout << "\033[4;36m<<Testing list of doubles>>\033[0m" << std::endl;
+    uint loctestnum = 0, loctesterr = 0;
+
+    // Container features testing
+    // Declaring first list
+    lasd::List<double> l1;
+    // Empty
+    Empty(loctestnum, loctesterr, l1, true);
+    // Size
+    Size(loctestnum, loctesterr, l1, true, 0);
+    // Random number generator setup
+    std::default_random_engine gen(std::random_device{}());
+    std::uniform_real_distribution<double> dist(1.0, 20.0);
+
+    l1.Clear();
+    Empty(loctestnum, loctesterr, l1, true);
+    Size(loctestnum, loctesterr, l1, true, 0);
+
+    ulong newDim = gen() % 20 + 1;
+    // Insert some elements into the list
+    for (ulong i = 0; i < newDim; i++)
+    {
+        InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
+    }
+    Empty(loctestnum, loctesterr, l1, false);
+    Size(loctestnum, loctesterr, l1, true, newDim);
+
+    // Testing TestableContainer features
+    // Declaring new list for testing if TestableContainer features work
+    lasd::List<double> l2;
+    l2.InsertAtFront(6.5);
+    l2.InsertAtFront(5.5);
+    l2.InsertAtFront(4.5);
+    l2.InsertAtFront(3.5);
+    l2.InsertAtFront(2.5);
+    Exists(loctestnum, loctesterr, l2, false, 9.0);
+    Exists(loctestnum, loctesterr, l2, false, 29.0);
+    Exists(loctestnum, loctesterr, l2, false, 21.0);
+    Exists(loctestnum, loctesterr, l2, false, 2342.0);
+    Exists(loctestnum, loctesterr, l2, true, 2.5);
+    Exists(loctestnum, loctesterr, l2, true, 3.5);
+    Exists(loctestnum, loctesterr, l2, true, 4.5);
+    Exists(loctestnum, loctesterr, l2, true, 5.5);
+    Exists(loctestnum, loctesterr, l2, true, 6.5);
+
+    // Testing TraversableContainer features
+    Traverse(loctestnum, loctesterr, l2, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, l2, true, TraversePrint<double>);
+    TraversePostOrder(loctestnum, loctesterr, l2, true, TraversePrint<double>);
+
+    // Declaring new list with random size
+    newDim = gen() % 100 + 1;
+    lasd::List<double> l3;
+    for (ulong index = 0; index < newDim; index++)
+    {
+        l3.InsertAtFront(dist(gen));
+    }
+
+    // Traversing l3 in PostOrder
+    TraversePostOrder(loctestnum, loctesterr, l3, true, TraversePrint<double>);
+
+    // Declaring new list with 10 elements
+    lasd::List<double> l4;
+
+    // Adding first 10 odd numbers
+    for (int i = 0; i < 10; ++i)
+    {
+        l4.InsertAtFront(static_cast<double>(i + 1) * 1.1);
+    }
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<double>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true,TraversePrint<double>);
+
+    // Attempting Fold operations on l4
+    FoldDouble(loctestnum, loctesterr, l4, true, FoldAdd<double>, 0.0, 60.50, 1e-9);
+    PreOrderFoldDouble(loctestnum, loctesterr, l4, true, FoldAdd<double>, 0.0, 60.50, 1e-9);
+    PostOrderFoldDouble(loctestnum, loctesterr, l4, true, FoldAdd<double>, 0.0, 60.50, 1e-9);
+
+    // Testing MappableContainer features
+
+    // Increment all elements in the list by 1 and print the list
+    Map(loctestnum, loctesterr, l4, true, MapIncrement<double>);
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<double>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<double>);
+
+    // Testing PreOrderMap and PostOrderMap
+    MapPreOrder(loctestnum, loctesterr, l4, true, MapDoubleNPrint<double>);
+    MapPostOrder(loctestnum, loctesterr, l4, true, MapInvertNPrint<double>);
+
+    // Testing LinearContainer features
+
+    // Create a new list l6 as a copy of l5
+    lasd::List<double> l6 = l4;
+    // Check the size of l6 (should be 10)
+    Size(loctestnum, loctesterr, l6, true, 10);
+    // Verify that l5 and l6 are equal
+    EqualLinear(loctestnum, loctesterr, l4, l6, true);
+    // Verify that l1 and l3 are not equal
+    EqualLinear(loctestnum, loctesterr, l1, l3, false);
+    // Verify that l1 and l5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, l1, l4, true);
+    // Move l6 into a new sortable list l7
+    lasd::List<double> l7(std::move(l6));
+    Size(loctestnum, loctesterr, l7, true, 10);
+    Size(loctestnum, loctesterr, l6, true, 0);
+    NonEqualLinear(loctestnum, loctesterr, l6, l7, true);
+    Empty(loctestnum, loctesterr, l6, true);
+
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<double>);
+    Traverse(loctestnum, loctesterr, l6, true, TraversePrint<double>);
+    Traverse(loctestnum, loctesterr, l7, true, TraversePrint<double>);
+
+    // Test List features
+    GetBackDouble(loctestnum, loctesterr, l4, true, -4.2, 1e-9);
+    GetFrontDouble(loctestnum, loctesterr, l4, true, -24.0, 1e-9);
+    SetFront(loctestnum, loctesterr, l7, true, 12.0);
+    SetBack(loctestnum, loctesterr, l4, true, 0.0);
+    lasd::List<double> l9 = l7;
+    EqualList(loctestnum, loctesterr, l9, l7, true);
+    NonEqualList(loctestnum, loctesterr, l9, l6, true);
+
+    // Move assigment from l2 containing 5 elements
+    l9 = std::move(l2);
+    Size(loctestnum, loctesterr, l9, true, 5);
+    Size(loctestnum, loctesterr, l2, true, 10);
+
+    Traverse(loctestnum, loctesterr, l9, true, TraversePrint<double>);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    Empty(loctestnum, loctesterr, l9, true);
+
+    lasd::List<double> l10;
+    for (int i = 0; i < 10; i++)
+    {
+        if ((i % 2) == 0)
+        {
+            InsertAtFront(loctestnum, loctesterr, l10, true, static_cast<double>(i) * 1.1);
+        }
+        else
+        {
+            InsertAtBack(loctestnum, loctesterr, l10, true, static_cast<double>(i) * 1.1);
+        }
+    }
+    Traverse(loctestnum, loctesterr, l10, true, TraversePrint<double>);
+    TraversePreOrder(loctestnum, loctesterr, l10, true, TraversePrint<double>);
+    TraversePostOrder(loctestnum, loctesterr, l10, true, TraversePrint<double>);
+    FoldDouble(loctestnum, loctesterr, l10, true, FoldAdd<double>, 0.0, 49.50, 1e-9);
+    PreOrderFoldDouble(loctestnum, loctesterr, l10, true, FoldAdd<double>, 0.0, 49.50, 1e-9);
+    PostOrderFoldDouble(loctestnum, loctesterr, l10, true, FoldAdd<double>, 0.0, 49.50, 1e-9);
+    GetFrontDouble(loctestnum, loctesterr, l10, true, 8.8, 1e-9);
+    GetBackDouble(loctestnum,loctesterr,l10,true,9.9,1e-9);
+
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of List<double> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+}
+
+void PersonalCharListTest(uint &testnum, uint &testerr)
+{
+    std::cout << "\033[4;36m<<Testing list of chars>>\033[0m" << std::endl;
+    uint loctestnum = 0, loctesterr = 0;
+
+    // Container features testing
+    // Declaring first list
+    lasd::List<char> l1;
+    // Empty
+    Empty(loctestnum, loctesterr, l1, true);
+    // Size
+    Size(loctestnum, loctesterr, l1, true, 0);
+    // Random number generator setup
+    std::default_random_engine gen(std::random_device{}());
+    std::uniform_int_distribution<int> dist(97, 122);
+
+    l1.Clear();
+    Empty(loctestnum, loctesterr, l1, true);
+    Size(loctestnum, loctesterr, l1, true, 0);
+
+    ulong newDim = gen() % 100 + 1;
+    // Insert some elements into the list
+    for (ulong i = 0; i < newDim; i++)
+    {
+        InsertAtFront(loctestnum, loctesterr, l1, true, static_cast<char>(dist(gen)));
+    }
+    Empty(loctestnum, loctesterr, l1, false);
+    Size(loctestnum, loctesterr, l1, true, newDim);
+
+    // Testing TestableContainer features
+    // Declaring new list for testing if TestableContainer features work
+    lasd::List<char> l2;
+    l2.InsertAtFront('f');
+    l2.InsertAtFront('e');
+    l2.InsertAtFront('d');
+    l2.InsertAtFront('c');
+    l2.InsertAtFront('b');
+    Exists(loctestnum, loctesterr, l2, false, 'i');
+    Exists(loctestnum, loctesterr, l2, false, 'y');
+    Exists(loctestnum, loctesterr, l2, false, 'u');
+    Exists(loctestnum, loctesterr, l2, false, ' ');
+    Exists(loctestnum, loctesterr, l2, true, 'b');
+    Exists(loctestnum, loctesterr, l2, true, 'c');
+    Exists(loctestnum, loctesterr, l2, true, 'd');
+    Exists(loctestnum, loctesterr, l2, true, 'e');
+    Exists(loctestnum, loctesterr, l2, true, 'f');
+
+    // Testing TraversableContainer features
+    Traverse(loctestnum, loctesterr, l2, true, TraversePrint<char>);
+    TraversePreOrder(loctestnum, loctesterr, l2, true, TraversePrint<char>);
+    TraversePostOrder(loctestnum, loctesterr, l2, true, TraversePrint<char>);
+
+    // Declaring new list with random size
+    newDim = gen() % 100 + 1;
+    lasd::List<char> l3;
+    for (ulong index = 0; index < newDim; index++)
+    {
+        l3.InsertAtFront(static_cast<char>(dist(gen)));
+    }
+
+    // Traversing l3 in PostOrder
+    TraversePostOrder(loctestnum, loctesterr, l3, true, TraversePrint<char>);
+
+    // Declaring new list with 24 elements
+    lasd::List<char> l4;
+
+    // Adding first 24 chars
+    for (int i = 0; i < 26; ++i)
+    {
+        l4.InsertAtFront(static_cast<char>(i + 97));
+    }
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<char>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<char>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<char>);
+
+    // Testing LinearContainer features
+
+    // Create a new list l6 as a copy of l5
+    lasd::List<char> l6 = l4;
+    // Check the size of l6 (should be 10)
+    Size(loctestnum, loctesterr, l6, true, 26);
+    // Verify that l5 and l6 are equal
+    EqualLinear(loctestnum, loctesterr, l4, l6, true);
+    // Verify that l1 and l3 are not equal
+    EqualLinear(loctestnum, loctesterr, l1, l3, false);
+    // Verify that l1 and l5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, l1, l4, true);
+    // Move l6 into a new list l7
+    lasd::List<char> l7(std::move(l6));
+    Size(loctestnum, loctesterr, l7, true, 26);
+    Size(loctestnum, loctesterr, l6, true, 0);
+    NonEqualLinear(loctestnum, loctesterr, l6, l7, true);
+    Empty(loctestnum, loctesterr, l6, true);
+
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<char>);
+    Traverse(loctestnum, loctesterr, l6, true, TraversePrint<char>);
+    Traverse(loctestnum, loctesterr, l7, true, TraversePrint<char>);
+
+    // Test List features
+    GetBack(loctestnum, loctesterr, l4, true, 'a');
+    GetFront(loctestnum, loctesterr, l4, true, 'z');
+    SetFront(loctestnum, loctesterr, l7, true, 'A');
+    SetBack(loctestnum, loctesterr, l4, true, ' ');
+    lasd::List<char> l9 = l7;
+    EqualList(loctestnum, loctesterr, l9, l7, true);
+    NonEqualList(loctestnum, loctesterr, l9, l6, true);
+
+    // Move assigment from l2 containing 5 elements
+    l9 = std::move(l2);
+    Size(loctestnum, loctesterr, l9, true, 5);
+    Size(loctestnum, loctesterr, l2, true, 26);
+
+    Traverse(loctestnum, loctesterr, l9, true, TraversePrint<char>);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, false);
+    Empty(loctestnum, loctesterr, l9, true);
+
+    lasd::List<char> l10;
+    for (int i = 0; i < 10; i++)
+    {
+        if ((i % 2) == 0)
+        {
+            InsertAtFront(loctestnum, loctesterr, l10, true, static_cast<char>(i + 97));
+        }
+        else
+        {
+            InsertAtBack(loctestnum, loctesterr, l10, true, static_cast<char>(i + 97));
+        }
+    }
+    Traverse(loctestnum, loctesterr, l10, true, TraversePrint<char>);
+    TraversePreOrder(loctestnum, loctesterr, l10, true, TraversePrint<char>);
+    TraversePostOrder(loctestnum, loctesterr, l10, true, TraversePrint<char>);
+    GetFront(loctestnum, loctesterr, l10, true, 'i');
+    GetBack(loctestnum, loctesterr, l10, true, 'j');
+    SetFront(loctestnum, loctesterr, l10, true, 'A');
+    SetBack(loctestnum, loctesterr, l10, true, 'B');
+
+
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of List<char> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+}
+
+void PersonalStringList(uint &testnum, uint &testerr)
+{
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing list of strings>>\033[0m" << std::endl;
+    // Container features testing
+    // Declaring first list
+    lasd::List<std::string> l1;
+    // Empty
+    Empty(loctestnum, loctesterr, l1, true);
+    // Size
+    Size(loctestnum, loctesterr, l1, true, 0);
+    // Random number generator setup
+    std::default_random_engine gen(std::random_device{}());
+    std::uniform_int_distribution<int> dist(1, 26);
+
+    l1.Clear();
+    Empty(loctestnum, loctesterr, l1, true);
+    Size(loctestnum, loctesterr, l1, true, 0);
+
+    ulong newDim = gen() % 100 + 1;
+    // Insert some elements into the list
+    for (ulong i = 0; i < newDim; i++)
+    {
+        std::string temp;
+        for (int j = 0; j < 5; j++)
+        {
+            temp += static_cast<char>(dist(gen) + 96);
+        }
+        InsertAtFront(loctestnum, loctesterr, l1, true, temp);
+    }
+    Empty(loctestnum, loctesterr, l1, false);
+    Size(loctestnum, loctesterr, l1, true, newDim);
+
+    // Testing TestableContainer features
+    // Declaring new list for testing if TestableContainer features work
+    lasd::List<std::string> l2;
+    l2.InsertAtFront(std::string("fiver"));
+    l2.InsertAtFront(std::string("four"));
+    l2.InsertAtFront(std::string("three"));
+    l2.InsertAtFront(std::string("two"));
+    l2.InsertAtFront(std::string("one"));
+    Exists(loctestnum, loctesterr, l2, false, std::string("nine"));
+    Exists(loctestnum, loctesterr, l2, false, std::string("twenty"));
+    Exists(loctestnum, loctesterr, l2,false,std::string("Napoli"));
+    Exists(loctestnum, loctesterr, l2,false,std::string("Roma"));
+    Exists(loctestnum, loctesterr, l2,false,std::string(" "));
+    Exists(loctestnum, loctesterr, l2, true, std::string("one"));
+    Exists(loctestnum, loctesterr, l2, true, std::string("two"));
+    Exists(loctestnum, loctesterr, l2, true, std::string("three"));
+    Exists(loctestnum, loctesterr, l2, true, std::string("four"));
+    Exists(loctestnum, loctesterr, l2, true, std::string("fiver"));
+
+    // Testing TraversableContainer features
+    Traverse(loctestnum, loctesterr, l2, true, TraversePrint<std::string>);
+    TraversePreOrder(loctestnum, loctesterr, l2, true, TraversePrint<std::string>);
+    TraversePostOrder(loctestnum, loctesterr, l2, true, TraversePrint<std::string>);
+
+    // Declaring new list with random size
+    newDim = gen() % 100 + 1;
+    lasd::List<std::string> l3;
+    for (ulong index = 0; index < newDim; index++)
+    {
+        std::string temp;
+        for (int j = 0; j < 5; j++)
+        {
+            temp += static_cast<char>(dist(gen) + 96);
+        }
+        l3.InsertAtFront(temp);
+    }
+
+    // Traversing l3 in PostOrder
+    TraversePostOrder(loctestnum, loctesterr, l3, true, TraversePrint<std::string>);
+
+    // Declaring new list with 5 elements
+    lasd::List<std::string> l4;
+
+    // Adding first 5 strings
+    l4.InsertAtFront(std::string("apple"));
+    l4.InsertAtFront(std::string("banana"));
+    l4.InsertAtFront(std::string("cherry"));
+    l4.InsertAtFront(std::string("date"));
+    l4.InsertAtFront(std::string("elderberry"));
+
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<std::string>);
+    TraversePreOrder(loctestnum, loctesterr, l4, true, TraversePrint<std::string>);
+    TraversePostOrder(loctestnum, loctesterr, l4, true, TraversePrint<std::string>);
+    Map(loctestnum, loctesterr, l4, true, [](string &str)
+        { MapStringAppend(str, string(" ")); });
+
+    // Testing LinearContainer features
+
+    // Create a new list l6 as a copy of l5
+    lasd::List<std::string> l6 = l4;
+    // Check the size of l6 (should be 10)
+    Size(loctestnum, loctesterr, l6, true, 5);
+    // Verify that l5 and l6 are equal
+    EqualLinear(loctestnum, loctesterr, l4, l6, true);
+    // Verify that l1 and l3 are not equal
+    EqualLinear(loctestnum, loctesterr, l1, l3, false);
+    // Verify that l1 and l5 are not equal
+    NonEqualLinear(loctestnum, loctesterr, l1, l4, true);
+    // Move l6 into a new list l7
+    lasd::List<std::string> l7(std::move(l6));
+    Size(loctestnum, loctesterr, l7, true, 5);
+    Size(loctestnum, loctesterr, l6, true, 0);
+    NonEqualLinear(loctestnum, loctesterr, l6, l7, true);
+    Empty(loctestnum, loctesterr, l6, true);
+
+    Traverse(loctestnum, loctesterr, l4, true, TraversePrint<std::string>);
+    Traverse(loctestnum, loctesterr, l6, true, TraversePrint<std::string>);
+    Traverse(loctestnum, loctesterr, l7, true, TraversePrint<std::string>);
+
+    // Test List features
+    GetBack(loctestnum, loctesterr, l4, true, std::string("apple "));
+    GetFront(loctestnum, loctesterr, l4, true, std::string("elderberry "));
+    SetFront(loctestnum, loctesterr, l7, true, std::string("lemon"));
+    SetBack(loctestnum, loctesterr, l4, true, std::string(" "));
+    lasd::List<std::string> l9 = l7;
+    EqualList(loctestnum, loctesterr, l9, l7, true);
+    NonEqualList(loctestnum, loctesterr, l9, l6, true);
+
+    // Move assigment from l2 containing 5 elements
+    l9 = std::move(l2);
+    Size(loctestnum, loctesterr, l9, true, 5);
+    Size(loctestnum, loctesterr, l2, true, 5);
+
+    Traverse(loctestnum, loctesterr, l9, true, TraversePrint<std::string>);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    RemoveFromFront(loctestnum, loctesterr, l9, true);
+    Empty(loctestnum, loctesterr, l9, true);
+
+    lasd::List<std::string> l10;
+    l10.InsertAtFront(std::string("apple"));
+    l10.InsertAtFront(std::string("banana"));
+    l10.InsertAtFront(std::string("cherry"));
+    l10.InsertAtFront(std::string("date"));
+    l10.InsertAtFront(std::string("elderberry"));
+    Traverse(loctestnum, loctesterr, l10, true, TraversePrint<std::string>);
+    TraversePreOrder(loctestnum, loctesterr, l10, true, TraversePrint<std::string>);
+    TraversePostOrder(loctestnum, loctesterr, l10, true, TraversePrint<std::string>);
+    GetFront(loctestnum, loctesterr, l10, true, std::string("elderberry"));
+    GetBack(loctestnum, loctesterr, l10, true, std::string("apple"));
+    SetFront(loctestnum, loctesterr, l10, true, std::string("A"));
+    SetBack(loctestnum, loctesterr, l10, true, std::string("B"));
+
+
+    std::cout << "\033[4;36mEnd of List<string> Pesonal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+    testnum += loctestnum;
+    testerr += loctesterr;
+}
+/*****************************************************************************************/
+void PersonalIntVectorListTest(uint &testnum, uint &testerr)
+{
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing vector & lists of integers>>\033[0m" << std::endl;
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector&List<int> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+}
+
+void PersonalDoubleVectorList(uint &testnum, uint &testerr)
+{
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing vector & lists of doubles>>\033[0m" << std::endl;
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector&List<double> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+}
+
+void PersonalCharVectorList(uint &testnum, uint &testerr)
+{
+    uint loctestnum = 0, loctesterr = 0;
+    std::cout << "\033[4;36m<<Testing vector & lists of chars>>\033[0m" << std::endl;
+    testnum += loctestnum;
+    testerr += loctesterr;
+    std::cout << "\033[4;36mEnd of Vector&List<char> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+}
+
+/*****************************************************************************************/
+void PersonalTestVector(uint &testnum, uint &testerr)
+{
+    std::cout << std::endl;
+    std::cout << "\033[1;4;35mBegin of Vector Personal Tests\033[0m" << std::endl;
     uint tottest = 0;
     uint toterr = 0;
     uint loctest = 0;
     uint errtest = 0;
+    PersonalIntVectorTest(loctest, errtest);
+    tottest += loctest;
+    toterr += errtest;
 
-    std::cout << "\033[4;36m<<Testing list of integers>>\033[0m" << std::endl;
-    test_int_list(loctest, errtest);
-    std::cout << "\033[4;36mEnd of List<int> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
+    loctest = 0;
+    errtest = 0;
+    PersonalDoubleVectorTest(loctest, errtest);
+    tottest += loctest;
+    toterr += errtest;
+
+    loctest = 0;
+    errtest = 0;
+    PersonalStringVectorTest(loctest, errtest);
+    tottest += loctest;
+    toterr += errtest;
+
+    loctest = 0;
+    errtest = 0;
+    PersonalCharVectorTest(loctest, errtest);
+    tottest += loctest;
+    toterr += errtest;
+
+    std::cout << std::endl;
+    std::cout << "\033[1;4;35mVector personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
+    testnum += tottest;
+    testerr += toterr;
+    std::cout << std::endl;
+}
+
+void PersonalTestList(uint &testnum, uint &testerr)
+{
+    std::cout << std::endl;
+    std::cout << "\033[1;35mBegin of List Personal Tests\033[0m" << std::endl;
+    uint tottest = 0;
+    uint toterr = 0;
+
+    uint loctest = 0;
+    uint errtest = 0;
+
+    PersonalIntListTest(loctest, errtest);
+
     tottest += loctest;
     toterr += errtest;
 
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36m<<Testing list of doubles>>\033[0m" << std::endl;
-    test_double_list(loctest, errtest);
-    std::cout << "\033[4;36mEnd of List<double> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
+
+    PersonalDoubleListTest(loctest, errtest);
+
     tottest += loctest;
     toterr += errtest;
 
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36m<<Testing list of strings>>\033[0m" << std::endl;
-    test_string_list(loctest, errtest);
-    std::cout << "\033[4;36mEnd of List<string> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
+
+    PersonalStringList(loctest, errtest);
 
     tottest += loctest;
     toterr += errtest;
+
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36m<<Testing list of chars>>\033[0m" << std::endl;
-    test_char_list(loctest, errtest);
-    std::cout << "\033[4;36mEnd of List<char> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
-    std::cout << std::endl;
+
+    PersonalCharListTest(loctest, errtest);
+
     tottest += loctest;
     toterr += errtest;
 
     std::cout << std::endl;
     std::cout << "\033[1;35mList personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
-    testnum+=tottest;
-    testerr+=toterr;
+    std::cout << std::endl;
+    testnum += tottest;
+    testerr += toterr;
 }
 
-void PersonalTestVector(uint &testnum, uint &testerr)
+void PersonalVectorListTest(uint &testnum, uint &testerr)
 {
+    std::cout << std::endl;
+    std::cout << "\033[1;35mBegin of Vector/List Personal Tests\033[0m" << std::endl;
     uint tottest = 0;
     uint toterr = 0;
+
     uint loctest = 0;
     uint errtest = 0;
-    std::cout << "\033[4;36m<<Testing vector of integers>>\033[0m" << std::endl;
-    test_int_vector(loctest, errtest);
-    std::cout << "\033[4;36mEnd of Vector<int> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
+    std::cout << std::endl;
+    PersonalIntVectorListTest(loctest, errtest);
 
     tottest += loctest;
     toterr += errtest;
+
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36m<<Testing vector of doubles>>\033[0m" << std::endl;
-    test_double_vector(loctest, errtest);
-    std::cout << "\033[4;36mEnd of Vector<double> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
+
+    PersonalDoubleVectorList(loctest, errtest);
 
     tottest += loctest;
     toterr += errtest;
+
     loctest = 0;
     errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36m<<Testing vector of strings>>\033[0m" << std::endl;
-    test_string_vector(loctest, errtest);
-    std::cout << "\033[4;36mEnd of Vector<string> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
 
-    tottest += loctest;
-    toterr += errtest;
-    loctest = 0;
-    errtest = 0;
-    std::cout << std::endl;
-    std::cout << "\033[4;36m<<Testing vector of chars>>\033[0m" << std::endl;
-    test_char_vector(loctest, errtest);
-    std::cout << "\033[4;36mEnd of Vector<char> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
+    PersonalCharVectorList(loctest, errtest);
+
     tottest += loctest;
     toterr += errtest;
 
     std::cout << std::endl;
-    std::cout << "\033[1;35mVector personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
-    testnum+=tottest;
-    testerr+=toterr;
+    std::cout << "\033[1;35mVector & Lists personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
+    testnum += tottest;
+    testerr += toterr;
     std::cout << std::endl;
 }
-
-void myTestExercise1A(uint &testnum, uint &testerr)
+/*****************************************************************************************/
+void myTestExercise1A(unsigned int &testnum, unsigned int &testerr)
 {
-    std::cout << "\033[1;35mBegin of Vector Personal Tests\033[0m"<<std::endl;
-    std::cout << std::endl;
     PersonalTestVector(testnum, testerr);
-    std::cout << "\033[1;35mBegin of SetLst Personal Tests\033[0m"<<std::endl;
-    std::cout << std::endl;
     PersonalTestList(testnum, testerr);
+    PersonalVectorListTest(testnum, testerr);
+
     cout << endl
          << "\033[1;34mExercise 1A (Personal Test) (Errors/Tests: " << testerr << "/" << testnum << ")\033[0m" << endl;
 }
