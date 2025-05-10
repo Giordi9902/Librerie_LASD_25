@@ -397,7 +397,6 @@ void test_double_vector(uint &loctestnum, uint &loctesterr)
 
 }
 
-
 void test_char_vector(uint &loctestnum, uint &loctesterr)
 {
     // Create an empty vector of characters
@@ -762,7 +761,7 @@ void PersonalTestList(uint &testnum, uint &testerr)
     toterr += errtest;
 
     std::cout << std::endl;
-    std::cout << "\033[1;35mEnd List tests: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
+    std::cout << "\033[1;35mList personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
     testnum+=tottest;
     testerr+=toterr;
 }
@@ -807,7 +806,7 @@ void PersonalTestVector(uint &testnum, uint &testerr)
     toterr += errtest;
 
     std::cout << std::endl;
-    std::cout << "\033[1;35mEnd Vector personal tests: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
+    std::cout << "\033[1;35mVector personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
     testnum+=tottest;
     testerr+=toterr;
     std::cout << std::endl;

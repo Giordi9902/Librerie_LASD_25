@@ -19,7 +19,7 @@ namespace lasd
         LinearContainer &operator=(const LinearContainer &) = delete;
         LinearContainer &operator=(LinearContainer &&) noexcept = delete;
 
-        inline bool operator==(const LinearContainer &) const noexcept;
+        bool operator==(const LinearContainer &) const noexcept;
         inline bool operator!=(const LinearContainer &) const noexcept;
 
         virtual const Data &operator[](const ulong) const = 0;
@@ -27,9 +27,9 @@ namespace lasd
         virtual inline const Data &Back() const;
 
         using typename TraversableContainer<Data>::TraverseFun;
-        inline void Traverse(const TraverseFun) const override;
-        inline void PreOrderTraverse(const TraverseFun) const override;
-        inline void PostOrderTraverse(const TraverseFun) const override;
+        void Traverse(const TraverseFun) const override;
+        void PreOrderTraverse(const TraverseFun) const override;
+        void PostOrderTraverse(const TraverseFun) const override;
     };
 
     template <typename Data>
@@ -56,9 +56,9 @@ namespace lasd
         using LinearContainer<Data>::Back;
 
         using typename MappableContainer<Data>::MapFun;
-        inline void Map(const MapFun) override;
-        inline void PreOrderMap(const MapFun) override;
-        inline void PostOrderMap(const MapFun) override;
+        void Map(const MapFun) override;
+        void PreOrderMap(const MapFun) override;
+        void PostOrderMap(const MapFun) override;
     };
 
     template <typename Data>
@@ -73,7 +73,7 @@ namespace lasd
         SortableLinearContainer &operator=(const SortableLinearContainer &) const = delete;
         SortableLinearContainer &operator=(SortableLinearContainer &&) noexcept = delete;
 
-        inline void Sort() noexcept;
+        void Sort() noexcept;
 
     protected:
         void QuickSort(ulong, ulong) noexcept;

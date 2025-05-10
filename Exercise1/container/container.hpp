@@ -60,7 +60,7 @@ namespace lasd
 
     virtual void Resize(ulong newSize) = 0;
 
-    void Clear() override { Resize(0); }
+    inline void Clear() override { Resize(0); }
   };
 
 }

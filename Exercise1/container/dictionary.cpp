@@ -2,7 +2,7 @@
 namespace lasd
 {
     template <typename Data>
-    inline bool DictionaryContainer<Data>::InsertAll(const TraversableContainer<Data> &con)
+    bool DictionaryContainer<Data>::InsertAll(const TraversableContainer<Data> &con)
     {
         bool result = true;
         con.Traverse([this, &result](const Data &currData)
@@ -11,7 +11,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool DictionaryContainer<Data>::InsertAll(MappableContainer<Data> &&con)
+    bool DictionaryContainer<Data>::InsertAll(MappableContainer<Data> &&con)
     {
         bool result = true;
         con.Map([this, &result](Data &currData)
@@ -20,7 +20,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool DictionaryContainer<Data>::RemoveAll(const TraversableContainer<Data> &con)
+    bool DictionaryContainer<Data>::RemoveAll(const TraversableContainer<Data> &con)
     {
         bool result = true;
         con.Traverse([this, &result](const Data &currData)
@@ -29,7 +29,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool DictionaryContainer<Data>::InsertSome(const TraversableContainer<Data> &con)
+    bool DictionaryContainer<Data>::InsertSome(const TraversableContainer<Data> &con)
     {
         bool result = false;
         con.Traverse([this, &result](const Data &currData)
@@ -38,7 +38,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool DictionaryContainer<Data>::InsertSome(MappableContainer<Data> &&con)
+    bool DictionaryContainer<Data>::InsertSome(MappableContainer<Data> &&con)
     {
         bool result = false;
         con.Map([this, &result](Data &currData)
@@ -47,7 +47,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool DictionaryContainer<Data>::RemoveSome(const TraversableContainer<Data> &con)
+    bool DictionaryContainer<Data>::RemoveSome(const TraversableContainer<Data> &con)
     {
         bool result = false;
         con.Traverse([this, &result](const Data &currData)

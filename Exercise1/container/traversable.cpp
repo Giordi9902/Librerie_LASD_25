@@ -4,14 +4,13 @@ namespace lasd
 
     template <typename Data>
     template <typename Accumulator>
-    Accumulator TraversableContainer<Data>::Fold(FoldFun<Accumulator> func, Accumulator base) const
+    Accumulator TraversableContainer<Data>::Fold(const FoldFun<Accumulator> func, Accumulator base) const
     {
         Traverse(
             [&base, func](const Data &currData)
-                {
-                    base = func(currData, base);
-                }
-        );
+            {
+                base = func(currData, base);
+            });
         return base;
     };
 
@@ -23,43 +22,41 @@ namespace lasd
             [data, &exists](const Data &currData)
             {
                 exists |= (data == currData);
-            }
-        );
+            });
         return exists;
     }
 
     // PreOrder Traversable Container
 
     template <typename Data>
-    inline void PreOrderTraversableContainer<Data>::Traverse(const TraverseFun func) const
+    void PreOrderTraversableContainer<Data>::Traverse(const TraverseFun func) const
     {
         PreOrderTraverse(func);
     }
 
     template <typename Data>
     template <typename Accumulator>
-    Accumulator PreOrderTraversableContainer<Data>::PreOrderFold(FoldFun<Accumulator> func, Accumulator base) const
+    Accumulator PreOrderTraversableContainer<Data>::PreOrderFold(const FoldFun<Accumulator> func, Accumulator base) const
     {
         PreOrderTraverse(
             [&base, func](const Data &currData)
             {
                 base = func(currData, base);
-            }
-        );
+            });
         return base;
     };
 
     // PreOrder Traversable Container
 
     template <typename Data>
-    inline void PostOrderTraversableContainer<Data>::Traverse(const TraverseFun func) const
+    void PostOrderTraversableContainer<Data>::Traverse(const TraverseFun func) const
     {
         PostOrderTraverse(func);
     }
 
     template <typename Data>
     template <typename Accumulator>
-    Accumulator PostOrderTraversableContainer<Data>::PostOrderFold(FoldFun<Accumulator> func, Accumulator base) const
+    Accumulator PostOrderTraversableContainer<Data>::PostOrderFold(const FoldFun<Accumulator> func, Accumulator base) const
     {
         PostOrderTraverse(
             [&base, func](const Data &currData)

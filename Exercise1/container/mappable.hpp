@@ -41,7 +41,7 @@ namespace lasd
 
     using typename MappableContainer<Data>::MapFun;
     virtual void PreOrderMap(const MapFun fun) = 0;
-    inline void Map(const MapFun fun) override;
+    void Map(const MapFun fun) override;
   };
   template <typename Data>
   class PostOrderMappableContainer : virtual public MappableContainer<Data>, virtual public PostOrderTraversableContainer<Data>
@@ -59,7 +59,7 @@ namespace lasd
 
     using typename MappableContainer<Data>::MapFun;
     virtual void PostOrderMap(const MapFun fun) = 0;
-    inline void Map(const MapFun fun) override;
+    void Map(const MapFun fun) override;
   };
 
 }

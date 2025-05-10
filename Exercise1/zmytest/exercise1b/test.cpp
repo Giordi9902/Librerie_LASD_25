@@ -51,7 +51,7 @@ void test_char_set(lasd::Set<char> &set, uint &testnum, uint &testerr)
     testerr += loctesterr;
 }
 
-void SetLstTest(uint &testnum, uint &testerr)
+void PersonalSetLstTest(uint &testnum, uint &testerr)
 {
     uint tottest = 0;
     uint toterr = 0;
@@ -59,7 +59,7 @@ void SetLstTest(uint &testnum, uint &testerr)
     uint loctest = 0;
     uint errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36mBegin of SetLst<int> test\033[0m" <<std::endl;
+    std::cout << "\033[4;36m<<Testing SetLst of integers>>\033[0m" <<std::endl;
     lasd::Vector<int> v1(5);
     std::default_random_engine gen(std::random_device{}());
     std::uniform_int_distribution<int> dist(1, 20);
@@ -74,20 +74,20 @@ void SetLstTest(uint &testnum, uint &testerr)
     toterr += errtest;
 
     std::cout << std::endl;
-    std::cout << "\033[4;36mEnd SetLst tests: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
+    std::cout << "\033[1;35mSetLst personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
     testnum+=tottest;
     testerr+=toterr;
     std::cout << std::endl;
 }
 
-void SetVecTest(uint &testnum, uint& testerr){
+void PersonalSetVecTest(uint &testnum, uint& testerr){
     uint tottest = 0;
     uint toterr = 0;
 
     uint loctest = 0;
     uint errtest = 0;
     std::cout << std::endl;
-    std::cout << "\033[4;36mBegin of SetVec<int> test\033[0m" <<std::endl;
+    std::cout << "\033[4;36m<<Testing SetVec of integers>>\033[0m" <<std::endl;
     lasd::Vector<int> v1(5);
     std::default_random_engine gen(std::random_device{}());
     std::uniform_int_distribution<int> dist(1, 20);
@@ -102,7 +102,7 @@ void SetVecTest(uint &testnum, uint& testerr){
     toterr += errtest;
 
     std::cout << std::endl;
-    std::cout << "\033[1;35mEnd SetVec personal tests: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
+    std::cout << "\033[1;35mSetVec personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
     testnum+=tottest;
     testerr+=toterr;
     std::cout << std::endl;
@@ -111,9 +111,9 @@ void SetVecTest(uint &testnum, uint& testerr){
 void myTestExercise1B(uint &testnum, uint &testerr)
 {
     std::cout << "\033[1;35mBegin of SetLst Personal Tests\033[0m"<<std::endl;
-    SetLstTest(testnum, testerr);
-    std::cout << "\033[1;35Begin of SetVec Personal Tests\033[0m"<<std::endl;
-    SetVecTest(testnum,testerr);
+    PersonalSetLstTest(testnum, testerr);
+    std::cout << "\033[1;35mBegin of SetVec Personal Tests\033[0m"<<std::endl;
+    PersonalSetVecTest(testnum,testerr);
     std::cout << std::endl
          << "\033[1;34mExercise 1B (Personal Test) (Errors/Tests: " << testerr << "/" << testnum << ")\033[0m" << std::endl;
 }

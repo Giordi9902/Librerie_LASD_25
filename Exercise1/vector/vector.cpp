@@ -72,7 +72,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool Vector<Data>::operator!=(const Vector<Data> &vec) const noexcept
+    bool Vector<Data>::operator!=(const Vector<Data> &vec) const noexcept
     {
         return !(*this == vec);
     }
@@ -130,41 +130,41 @@ namespace lasd
     }
 
     template <typename Data>
-    void Vector<Data>::Resize(ulong s)
+    void Vector<Data>::Resize(ulong newSize)
     {
-        if (s == size)
+        if (newSize == size)
         {
             return;
         }
 
-        if (s == 0)
+        if (newSize == 0)
         {
             Clear();
             return;
         }
 
-        Data *temp{new Data[s]{}};
+        Data *temp = new Data[newSize]{};
 
-        ulong min{std::min(s, size)};
+        ulong min = std::min(newSize, size);
 
-        for (ulong i{0}; i < min; ++i)
+        for (ulong i = 0; i < min; ++i)
             std::swap(elements[i], temp[i]);
 
         std::swap(elements, temp);
         delete[] temp;
 
-        size = s;
+        size = newSize;
     }
 
     template <typename Data>
-    inline SortableVector<Data>& SortableVector<Data>::operator=(const SortableVector<Data> &con)
+    SortableVector<Data>& SortableVector<Data>::operator=(const SortableVector<Data> &con)
     {
         Vector<Data>::operator=(con);
         return *this;
     }
 
     template <typename Data>
-    inline SortableVector<Data>& SortableVector<Data>::operator=(SortableVector<Data> &&con) noexcept
+    SortableVector<Data>& SortableVector<Data>::operator=(SortableVector<Data> &&con) noexcept
     {
         Vector<Data>::operator=(std::move(con));
         return *this;

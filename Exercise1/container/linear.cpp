@@ -2,7 +2,7 @@
 namespace lasd
 {
     template <typename Data>
-    inline bool LinearContainer<Data>::operator==(const LinearContainer<Data> &con) const noexcept
+    bool LinearContainer<Data>::operator==(const LinearContainer<Data> &con) const noexcept
     {
         if (this->Size() != con.Size())
         {
@@ -20,13 +20,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool LinearContainer<Data>::operator!=(const LinearContainer<Data> &con) const noexcept
+    bool LinearContainer<Data>::operator!=(const LinearContainer<Data> &con) const noexcept
     {
         return !(*this == con);
     }
 
     template <typename Data>
-    inline const Data &LinearContainer<Data>::Front() const
+    const Data &LinearContainer<Data>::Front() const
     {
         if (size == 0)
         {
@@ -36,7 +36,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline const Data &LinearContainer<Data>::Back() const
+    const Data &LinearContainer<Data>::Back() const
     {
         if (size == 0)
         {
@@ -46,13 +46,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void LinearContainer<Data>::Traverse(const TraverseFun func) const
+    void LinearContainer<Data>::Traverse(const TraverseFun func) const
     {
         PreOrderTraverse(func);
     }
 
     template <typename Data>
-    inline void LinearContainer<Data>::PreOrderTraverse(const TraverseFun func) const
+    void LinearContainer<Data>::PreOrderTraverse(const TraverseFun func) const
     {
         for (ulong i = 0; i < size; ++i)
         {
@@ -61,7 +61,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void LinearContainer<Data>::PostOrderTraverse(const TraverseFun func) const
+    void LinearContainer<Data>::PostOrderTraverse(const TraverseFun func) const
     {
 
         for (ulong i = size; i > 0;)
@@ -71,7 +71,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &MutableLinearContainer<Data>::Front()
+    Data &MutableLinearContainer<Data>::Front()
     {
         if (size == 0)
         {
@@ -81,7 +81,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &MutableLinearContainer<Data>::Back()
+    Data &MutableLinearContainer<Data>::Back()
     {
         if (size == 0)
         {
@@ -91,13 +91,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void MutableLinearContainer<Data>::Map(const MapFun func)
+    void MutableLinearContainer<Data>::Map(const MapFun func)
     {
         PreOrderMap(func);
     }
 
     template <typename Data>
-    inline void MutableLinearContainer<Data>::PreOrderMap(const MapFun func)
+    void MutableLinearContainer<Data>::PreOrderMap(const MapFun func)
     {
         for (ulong index = 0; index < size; ++index)
         {
@@ -106,7 +106,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void MutableLinearContainer<Data>::PostOrderMap(const MapFun func)
+    void MutableLinearContainer<Data>::PostOrderMap(const MapFun func)
     {
         for (ulong index = size; index > 0;)
         {
@@ -115,7 +115,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void SortableLinearContainer<Data>::Sort() noexcept
+    void SortableLinearContainer<Data>::Sort() noexcept
     {
         QuickSort(0, size - 1);
     }

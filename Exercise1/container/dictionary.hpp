@@ -31,17 +31,17 @@ namespace lasd
 
     virtual bool Remove(const Data &data) = 0;
 
-    virtual inline bool InsertAll(const TraversableContainer<Data> &container);
+    virtual bool InsertAll(const TraversableContainer<Data> &container);
 
-    virtual inline bool InsertAll(MappableContainer<Data> &&container);
+    virtual bool InsertAll(MappableContainer<Data> &&container);
 
-    virtual inline bool RemoveAll(const TraversableContainer<Data> &container);
+    virtual bool RemoveAll(const TraversableContainer<Data> &container);
 
-    virtual inline bool InsertSome(const TraversableContainer<Data> &container);
+    virtual bool InsertSome(const TraversableContainer<Data> &container);
 
-    virtual inline bool InsertSome(MappableContainer<Data> &&container);
+    virtual bool InsertSome(MappableContainer<Data> &&container);
 
-    virtual inline bool RemoveSome(const TraversableContainer<Data> &container);
+    virtual bool RemoveSome(const TraversableContainer<Data> &container);
   };
   template <typename Data>
   class OrderedDictionaryContainer : virtual public DictionaryContainer<Data>

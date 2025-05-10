@@ -26,7 +26,7 @@ namespace lasd
     using FoldFun = std::function<Accumulator(const Data &, const Accumulator &)>;
 
     template <typename Accumulator>
-    Accumulator Fold(FoldFun<Accumulator>, Accumulator) const;
+    Accumulator Fold(const FoldFun<Accumulator>, Accumulator) const;
 
     bool Exists(const Data &data) const noexcept override;
   };
@@ -53,7 +53,7 @@ namespace lasd
     void Traverse(const TraverseFun) const override;
 
     template <typename Accumulator>
-    Accumulator PreOrderFold(FoldFun<Accumulator>, Accumulator) const;
+    Accumulator PreOrderFold(const FoldFun<Accumulator>, Accumulator) const;
   };
 
   template <typename Data>
@@ -78,7 +78,7 @@ namespace lasd
     void Traverse(const TraverseFun func) const override;
 
     template <typename Accumulator>
-    Accumulator PostOrderFold(FoldFun<Accumulator> func, Accumulator acc) const;
+    Accumulator PostOrderFold(const FoldFun<Accumulator> func, Accumulator acc) const;
   };
 
 }

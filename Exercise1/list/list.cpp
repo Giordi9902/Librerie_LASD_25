@@ -38,13 +38,13 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool List<Data>::Node::operator==(const Node &other) const noexcept
+    bool List<Data>::Node::operator==(const Node &other) const noexcept
     {
         return val == other.val;
     }
 
     template <typename Data>
-    inline bool List<Data>::Node::operator!=(const Node &other) const noexcept
+    bool List<Data>::Node::operator!=(const Node &other) const noexcept
     {
         return !((*this) == other);
     }
@@ -76,19 +76,20 @@ namespace lasd
     template <typename Data>
     List<Data>::List(const List<Data> &l)
     {
-        if (!(size = l.size))
-            return;
 
-        head = new Node(*(l.head));
-        tail = head;
-
-        Node *temp = l.head->next;
-
-        while (temp)
+        if (l.head)
         {
-            tail->next = new Node(*temp);
-            tail = tail->next;
-            temp = temp->next;
+            head = new Node(*(l.head));
+            tail = head;
+
+            Node *temp = l.head->next;
+
+            while (temp)
+            {
+                tail->next = new Node(*temp);
+                tail = tail->next;
+                temp = temp->next;
+            }
         }
     }
 
@@ -118,7 +119,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool List<Data>::operator==(const List<Data> &l) const noexcept
+    bool List<Data>::operator==(const List<Data> &l) const noexcept
     {
         if (size != l.size)
             return false;
@@ -136,7 +137,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline bool List<Data>::operator!=(const List<Data> &l) const noexcept
+    bool List<Data>::operator!=(const List<Data> &l) const noexcept
     {
         return !(*this == l);
     }
@@ -208,18 +209,6 @@ namespace lasd
     {
         if (!size)
             throw std::length_error("Cannot remove from Empty list");
-        Node *temp{head};
-        head == tail ? head = tail = nullptr : head = head->next;
-        temp->next = nullptr;
-        delete temp;
-        --size;
-    }
-
-    template <typename Data>
-    Data List<Data>::FrontNRemove()
-    {
-        if (!size)
-            throw std::length_error("Cannot remove from Empty list");
         Node *temp = head;
         if (head == tail)
         {
@@ -230,10 +219,29 @@ namespace lasd
             head = head->next;
         }
         temp->next = nullptr;
-        Data d{std::move(temp->val)};
         delete temp;
         --size;
-        return d;
+    }
+
+    template <typename Data>
+    Data List<Data>::FrontNRemove()
+    {
+        if (!size)
+            throw std::length_error("Cannot remove from Empty list");
+        Node *tmp = head;
+        if (head == tail)
+        {
+            head = tail = nullptr;
+        }
+        else
+        {
+            head = head->next;
+        }
+        tmp->next = nullptr;
+        Data front = tmp->val;
+        delete tmp;
+        --size;
+        return front;
     }
 
     template <typename Data>
@@ -280,7 +288,7 @@ namespace lasd
         }
         else
         {
-            Node *temp{head};
+            Node *temp = head;
             while (temp->next != tail)
                 temp = temp->next;
             delete tail;
@@ -295,7 +303,7 @@ namespace lasd
     {
         if (!size)
             throw std::length_error("Cannot remove from Empty list");
-        Data ret{std::move(tail->val)};
+        Data ret = tail->val;
         if (size == 1)
         {
             delete tail;
@@ -303,7 +311,7 @@ namespace lasd
         }
         else
         {
-            Node *temp{head};
+            Node *temp = head;
             while (temp->next != tail)
                 temp = temp->next;
             delete tail;
@@ -315,14 +323,14 @@ namespace lasd
     }
 
     template <typename Data>
-    inline const Data &List<Data>::Front() const
+    const Data &List<Data>::Front() const
     {
         if (size)
             return head->val;
         throw std::length_error("Empty List");
     }
     template <typename Data>
-    inline Data &List<Data>::Front()
+    Data &List<Data>::Front()
     {
         if (size)
             return head->val;
@@ -330,7 +338,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline const Data &List<Data>::Back() const
+    const Data &List<Data>::Back() const
     {
         if (size)
             return tail->val;
@@ -338,7 +346,7 @@ namespace lasd
     }
 
     template <typename Data>
-    inline Data &List<Data>::Back()
+    Data &List<Data>::Back()
     {
         if (size)
             return tail->val;
@@ -354,43 +362,43 @@ namespace lasd
     }
 
     template <typename Data>
-    inline void List<Data>::Traverse(const TraverseFun fun) const
+    void List<Data>::Traverse(const TraverseFun fun) const
     {
         PreOrderTraverse(fun);
     }
 
     template <typename Data>
-    inline void List<Data>::PreOrderTraverse(const TraverseFun fun) const
+    void List<Data>::PreOrderTraverse(const TraverseFun fun) const
     {
         PreOrderTraverse(fun, head);
     }
 
     template <typename Data>
-    inline void List<Data>::PostOrderTraverse(const TraverseFun fun) const
+    void List<Data>::PostOrderTraverse(const TraverseFun fun) const
     {
         PostOrderTraverse(fun, head);
     }
 
     template <typename Data>
-    inline void List<Data>::Map(const MapFun fun)
+    void List<Data>::Map(const MapFun fun)
     {
         PreOrderMap(fun);
     }
 
     template <typename Data>
-    inline void List<Data>::PreOrderMap(const MapFun fun)
+    void List<Data>::PreOrderMap(const MapFun fun)
     {
         PreOrderMap(fun, head);
     }
 
     template <typename Data>
-    inline void List<Data>::PostOrderMap(const MapFun fun)
+    void List<Data>::PostOrderMap(const MapFun fun)
     {
         PostOrderMap(fun, head);
     }
 
     template <typename Data>
-    inline void List<Data>::PreOrderTraverse(const TraverseFun fun, Node *curr) const
+    void List<Data>::PreOrderTraverse(const TraverseFun fun, Node *curr) const
     {
         while (curr)
         {

@@ -71,21 +71,21 @@ namespace lasd
     inline Data &Back() override;
 
     using typename MappableContainer<Data>::MapFun;
-    inline void Map(const MapFun) override;
+    void Map(const MapFun) override;
 
-    inline void PreOrderMap(const MapFun) override;
-    inline void PostOrderMap(const MapFun) override;
+    void PreOrderMap(const MapFun) override;
+    void PostOrderMap(const MapFun) override;
 
     using typename TraversableContainer<Data>::TraverseFun;
-    inline void Traverse(const TraverseFun) const override;
-    inline void PreOrderTraverse(const TraverseFun) const override;
-    inline void PostOrderTraverse(const TraverseFun) const override;
+    void Traverse(const TraverseFun) const override;
+    void PreOrderTraverse(const TraverseFun) const override;
+    void PostOrderTraverse(const TraverseFun) const override;
 
     inline void Clear() override;
 
   protected:
 
-    inline void PreOrderTraverse(const TraverseFun, Node *) const;
+    void PreOrderTraverse(const TraverseFun, Node *) const;
     void PostOrderTraverse(const TraverseFun, Node *) const;
     void PreOrderMap(const MapFun, Node *) const;
     void PostOrderMap(const MapFun, Node *) const;

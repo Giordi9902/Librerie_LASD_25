@@ -385,7 +385,7 @@ namespace lasd
         {
             throw std::out_of_range("Index out of range");
         }
-        return vector[index];
+        return vector[(tail+index)%size];
     }
 
     template <typename Data>
