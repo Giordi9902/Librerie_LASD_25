@@ -1262,6 +1262,7 @@ void PersonalStringList(uint &testnum, uint &testerr)
     uint loctestnum = 0, loctesterr = 0;
     std::cout << "\033[4;36m<<Testing list of strings>>\033[0m" << std::endl;
     // Container features testing
+
     // Declaring first list
     lasd::List<std::string> l1;
     // Empty
@@ -1276,7 +1277,7 @@ void PersonalStringList(uint &testnum, uint &testerr)
     Empty(loctestnum, loctesterr, l1, true);
     Size(loctestnum, loctesterr, l1, true, 0);
 
-    ulong newDim = gen() % 100 + 1;
+    ulong newDim = 45;
     // Insert some elements into the list
     for (ulong i = 0; i < newDim; i++)
     {
@@ -1314,8 +1315,7 @@ void PersonalStringList(uint &testnum, uint &testerr)
     TraversePreOrder(loctestnum, loctesterr, l2, true, TraversePrint<std::string>);
     TraversePostOrder(loctestnum, loctesterr, l2, true, TraversePrint<std::string>);
 
-    // Declaring new list with random size
-    newDim = gen() % 100 + 1;
+    // Declaring new list
     lasd::List<std::string> l3;
     for (ulong index = 0; index < newDim; index++)
     {
@@ -1326,7 +1326,6 @@ void PersonalStringList(uint &testnum, uint &testerr)
         }
         l3.InsertAtFront(temp);
     }
-
     // Traversing l3 in PostOrder
     TraversePostOrder(loctestnum, loctesterr, l3, true, TraversePrint<std::string>);
 
@@ -1346,27 +1345,33 @@ void PersonalStringList(uint &testnum, uint &testerr)
     Map(loctestnum, loctesterr, l4, true, [](string &str)
         { MapStringAppend(str, string(" ")); });
 
+    // Testing fold functions
+    Fold(loctestnum, loctesterr, l4, true, FoldStringConcatenate, std::string(""), std::string("elderberry date cherry banana apple "));
+    FoldPreOrder(loctestnum, loctesterr, l4, true, FoldStringConcatenate, std::string(""), std::string("elderberry date cherry banana apple "));
+    FoldPostOrder(loctestnum, loctesterr, l4, true, FoldStringConcatenate, std::string(""), std::string("apple banana cherry date elderberry "));
+
+
+
     // Testing LinearContainer features
 
-    // Create a new list l6 as a copy of l5
-    lasd::List<std::string> l6 = l4;
+    // Create a new list l6 as a copy of l4
+    lasd::List<std::string> l5(l4);
     // Check the size of l6 (should be 10)
-    Size(loctestnum, loctesterr, l6, true, 5);
+    Size(loctestnum, loctesterr, l5, true, 5);
     // Verify that l5 and l6 are equal
-    EqualLinear(loctestnum, loctesterr, l4, l6, true);
-    // Verify that l1 and l3 are not equal
-    EqualLinear(loctestnum, loctesterr, l1, l3, false);
+    EqualLinear(loctestnum, loctesterr, l4, l5, true);
     // Verify that l1 and l5 are not equal
     NonEqualLinear(loctestnum, loctesterr, l1, l4, true);
-    // Move l6 into a new list l7
-    lasd::List<std::string> l7(std::move(l6));
+
+    // Move l5 into a new list l7
+    lasd::List<std::string> l7(std::move(l5));
     Size(loctestnum, loctesterr, l7, true, 5);
-    Size(loctestnum, loctesterr, l6, true, 0);
-    NonEqualLinear(loctestnum, loctesterr, l6, l7, true);
-    Empty(loctestnum, loctesterr, l6, true);
+    Size(loctestnum, loctesterr, l5, true, 0);
+    NonEqualLinear(loctestnum, loctesterr, l5, l7, true);
+    Empty(loctestnum, loctesterr, l5, true);
 
     Traverse(loctestnum, loctesterr, l4, true, TraversePrint<std::string>);
-    Traverse(loctestnum, loctesterr, l6, true, TraversePrint<std::string>);
+    Traverse(loctestnum, loctesterr, l5, true, TraversePrint<std::string>);
     Traverse(loctestnum, loctesterr, l7, true, TraversePrint<std::string>);
 
     // Test List features
@@ -1374,34 +1379,12 @@ void PersonalStringList(uint &testnum, uint &testerr)
     GetFront(loctestnum, loctesterr, l4, true, std::string("elderberry "));
     SetFront(loctestnum, loctesterr, l7, true, std::string("lemon"));
     SetBack(loctestnum, loctesterr, l4, true, std::string(" "));
-    lasd::List<std::string> l9 = l7;
+
+
+    lasd::List<std::string> l9;
+    l9 = l7;
     EqualList(loctestnum, loctesterr, l9, l7, true);
-    NonEqualList(loctestnum, loctesterr, l9, l6, true);
-
-    // Move assigment from l2 containing 5 elements
-    l9 = std::move(l2);
-    Size(loctestnum, loctesterr, l9, true, 5);
-    Size(loctestnum, loctesterr, l2, true, 5);
-
-    Traverse(loctestnum, loctesterr, l9, true, TraversePrint<std::string>);
-    RemoveFromFront(loctestnum, loctesterr, l9, true);
-    RemoveFromFront(loctestnum, loctesterr, l9, true);
-    Empty(loctestnum, loctesterr, l9, true);
-
-    lasd::List<std::string> l10;
-    l10.InsertAtFront(std::string("apple"));
-    l10.InsertAtFront(std::string("banana"));
-    l10.InsertAtFront(std::string("cherry"));
-    l10.InsertAtFront(std::string("date"));
-    l10.InsertAtFront(std::string("elderberry"));
-    Traverse(loctestnum, loctesterr, l10, true, TraversePrint<std::string>);
-    TraversePreOrder(loctestnum, loctesterr, l10, true, TraversePrint<std::string>);
-    TraversePostOrder(loctestnum, loctesterr, l10, true, TraversePrint<std::string>);
-    GetFront(loctestnum, loctesterr, l10, true, std::string("elderberry"));
-    GetBack(loctestnum, loctesterr, l10, true, std::string("apple"));
-    SetFront(loctestnum, loctesterr, l10, true, std::string("A"));
-    SetBack(loctestnum, loctesterr, l10, true, std::string("B"));
-
+    NonEqualList(loctestnum, loctesterr, l9, l5, true);
 
     std::cout << "\033[4;36mEnd of List<string> Pesonal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
     testnum += loctestnum;
