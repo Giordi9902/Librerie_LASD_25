@@ -97,4 +97,24 @@ bool tst;
   testerr += (1 - (uint) tst);
 };
 
+template <typename Data>
+void GetAtDouble(uint& testnum,uint& testerr, const lasd::LinearContainer<Data>& con, bool chk,const ulong ind, const Data& val,const double& eps)
+{
+bool tst;
+  testnum++;
+  try {
+    std::cout << " " << testnum << " (" << testerr << ") The back of the linear container is \"" << con.Back() << "\": ";
+    tst = (std::abs(con[ind]-val)<eps);
+    std::cout << ((tst == chk) ? "Correct" : "Error") << "!" << std::endl;
+  }
+  catch (std::length_error & exc) {
+    std::cout << exc.what() << "\": " << ((tst = !chk) ? "Correct" : "Error") << "!" << std::endl;
+  }
+  catch (std::exception & exc) {
+    tst = false;
+    std::cout << std::endl << "Wrong exception: " << exc.what() << "!" << std::endl;
+  }
+  testerr += (1 - (uint) tst);
+};
+
 #endif

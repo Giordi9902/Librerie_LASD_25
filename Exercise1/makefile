@@ -6,7 +6,7 @@ objects = main.o test.o mytest.o container.o exc1as.o exc1af.o ptexc1a.o ptexc1b
 
 libcon = container/container.hpp container/testable.hpp container/traversable.hpp container/traversable.cpp container/mappable.hpp container/mappable.cpp container/dictionary.hpp container/dictionary.cpp container/linear.hpp container/linear.cpp
 
-libexc = $(libcon) zlasdtest/container/container.hpp zlasdtest/container/testable.hpp zlasdtest/container/traversable.hpp zlasdtest/container/mappable.hpp zlasdtest/container/dictionary.hpp zlasdtest/container/linear.hpp zmytest/mycontainer/mylinear.hpp zmytest/mycontainer/mytraversable.hpp
+libexc = $(libcon) zlasdtest/container/container.hpp zlasdtest/container/testable.hpp zlasdtest/container/traversable.hpp zlasdtest/container/mappable.hpp zlasdtest/container/dictionary.hpp zlasdtest/container/linear.hpp zmytest/mycontainer/mylinear.hpp zmytest/mycontainer/mytraversable.hpp zmytest/mycontainer/mymappable.hpp
 
 libexc1a = $(libexc) vector/vector.hpp vector/vector.cpp list/list.hpp list/list.cpp
 
