@@ -263,7 +263,7 @@ namespace lasd
     template <typename Data>
     void List<Data>::InsertAtBack(Data &&d)
     {
-        Node *temp{new Node(std::move(d))};
+        Node *temp = new Node(std::move(d));
         if (tail)
         {
             tail->next = temp;
