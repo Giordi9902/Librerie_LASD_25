@@ -28,39 +28,40 @@ namespace lasd
     }
 
     template <typename Data>
-    SetLst<Data>::SetLst(const SetLst<Data> &con)
+    SetLst<Data>::SetLst(const SetLst<Data> &con) : List<Data>::List(con)
     {
-        tail = head = nullptr;
-        Node *current = con.head;
-        while (current != nullptr)
-        {
-            Insert(current->val);
-            current = current->next;
-        }
+        // tail = head = nullptr;
+        // Node *current = con.head;
+        // while (current != nullptr)
+        // {
+        //     Insert(current->val);
+        //     current = current->next;
+        // }
     }
 
     template <typename Data>
-    SetLst<Data>::SetLst(SetLst<Data> &&con) noexcept
+    SetLst<Data>::SetLst(SetLst<Data> &&con) noexcept : List<Data>::List(std::move(con))
     {
-        std::swap(size, con.size);
-        std::swap(head, con.head);
-        std::swap(tail, con.tail);
+        // std::swap(size, con.size);
+        // std::swap(head, con.head);
+        // std::swap(tail, con.tail);
     }
 
     template <typename Data>
     SetLst<Data> &SetLst<Data>::operator=(const SetLst<Data> &con)
     {
-        if (this != con)
-        {
-            List<Data>::Clear();
-            Node *current = con.head;
-            while (current != nullptr)
-            {
-                Insert(current->val);
-                current = current->next;
-            }
-        }
-        return *this;
+        // if (this != con)
+        // {
+        //     List<Data>::Clear();
+        //     Node *current = con.head;
+        //     while (current != nullptr)
+        //     {
+        //         Insert(current->val);
+        //         current = current->next;
+        //     }
+        // }
+        // return *this;
+        return List<Data>::operator=(con);
     }
 
     template <typename Data>
