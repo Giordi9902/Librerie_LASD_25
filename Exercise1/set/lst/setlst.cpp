@@ -30,37 +30,16 @@ namespace lasd
     template <typename Data>
     SetLst<Data>::SetLst(const SetLst<Data> &con) : List<Data>::List(con)
     {
-        // tail = head = nullptr;
-        // Node *current = con.head;
-        // while (current != nullptr)
-        // {
-        //     Insert(current->val);
-        //     current = current->next;
-        // }
     }
 
     template <typename Data>
     SetLst<Data>::SetLst(SetLst<Data> &&con) noexcept : List<Data>::List(std::move(con))
     {
-        // std::swap(size, con.size);
-        // std::swap(head, con.head);
-        // std::swap(tail, con.tail);
     }
 
     template <typename Data>
     SetLst<Data> &SetLst<Data>::operator=(const SetLst<Data> &con)
     {
-        // if (this != con)
-        // {
-        //     List<Data>::Clear();
-        //     Node *current = con.head;
-        //     while (current != nullptr)
-        //     {
-        //         Insert(current->val);
-        //         current = current->next;
-        //     }
-        // }
-        // return *this;
         return List<Data>::operator=(con);
     }
 
@@ -386,13 +365,11 @@ namespace lasd
     template <typename Data>
     typename SetLst<Data>::Node *SetLst<Data>::FindPredecessorNode(const Data &dat) const noexcept
     {
-        // Empty list: no predecessor
         if (head == nullptr)
         {
             return nullptr;
         }
 
-        // Target is less than or equal to the head: no predecessor in a sorted set
         if (dat <= head->val)
         {
             return nullptr;
@@ -401,14 +378,11 @@ namespace lasd
         Node *current = head;
         Node *prev = nullptr;
 
-        // Iterate through the list
         while (current != nullptr && current->val < dat)
         {
             prev = current;
             current = current->next;
         }
-
-        // 'prev' will point to the last node whose value is less than 'dat'
         return prev;
     }
 
@@ -476,7 +450,6 @@ namespace lasd
                 leftNode = midNode->next;
             }
         }
-
         return false;
     }
 }
