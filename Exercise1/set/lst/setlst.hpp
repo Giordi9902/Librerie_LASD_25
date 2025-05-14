@@ -16,7 +16,7 @@ namespace lasd
         using Container::size;
         using List<Data>::head;
         using List<Data>::tail;
-        using Node = typename List<Data>::Node;
+        using typename List<Data>::Node;
 
     public:
         // Default constructor
