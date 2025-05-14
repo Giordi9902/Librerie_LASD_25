@@ -131,15 +131,7 @@ namespace lasd
     {
         if (!List<Data>::Empty())
         {
-            Node *currentNode = head;
-            while (currentNode != nullptr)
-            {
-                if (currentNode->val == dat)
-                {
-                    return true;
-                }
-                currentNode = currentNode->next;
-            }
+            return BinarySearch(dat);
         }
         return false;
     }
@@ -441,5 +433,50 @@ namespace lasd
         delete head;
         head = tail = nullptr;
         size = 0;
+    }
+
+    template <typename Data>
+    typename SetLst<Data>::Node *SetLst<Data>::GetNodeAt(Node *start, ulong index) const noexcept
+    {
+        Node *current = start;
+        for (ulong i = 0; i < index && current; ++i)
+        {
+            current = current->next;
+        }
+        return current;
+    }
+
+    template <typename Data>
+    bool SetLst<Data>::BinarySearch(const Data &target) const noexcept
+    {
+        ulong left = 0;
+        ulong right = size - 1;
+        Node *leftNode = head;
+
+        while (left <= right)
+        {
+            ulong mid = left + (right - left) / 2;
+
+            Node *midNode = GetNodeAt(leftNode, mid - left);
+
+            if (!midNode)
+                return false;
+
+            if (midNode->val == target)
+            {
+                return true;
+            }
+            else if (target < midNode->val)
+            {
+                right = mid - 1;
+            }
+            else
+            {
+                left = mid + 1;
+                leftNode = midNode->next;
+            }
+        }
+
+        return false;
     }
 }

@@ -84,6 +84,8 @@ namespace lasd
         // Auxiliary functions, if necessary!
         Node *FindPredecessorNode(const Data &) const noexcept;
         Node *FindSuccessorNode(const Data &) const noexcept;
+        Node* GetNodeAt(Node*,ulong) const noexcept;
+        bool BinarySearch(const Data&) const noexcept;
     };
 
 }

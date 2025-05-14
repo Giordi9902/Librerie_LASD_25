@@ -356,14 +356,15 @@ namespace lasd
         }
         else
         {
-            ulong index = tail;
-            while (index != head)
-            {
-                if (vector[index] == dat)
-                    return true;
-                index = (index + 1) % size;
-            }
-            return false;
+            // ulong index = tail;
+            // while (index != head)
+            // {
+            //     if (vector[index] == dat)
+            //         return true;
+            //     index = (index + 1) % size;
+            // }
+            // return false;
+            return BinarySearch(tail, head,dat);
         }
     }
 
@@ -385,7 +386,7 @@ namespace lasd
         {
             throw std::out_of_range("Index out of range");
         }
-        return vector[(tail+index)%size];
+        return vector[(tail + index) % size];
     }
 
     template <typename Data>
@@ -493,5 +494,32 @@ namespace lasd
             index = (index - 1 + size) % size;
             func(vector[index]);
         }
+    }
+
+    template <typename Data>
+    bool SetVec<Data>::BinarySearch(ulong p, ulong s, const Data &target) const
+    {
+        ulong left = p;
+        ulong right = (s - 1 + size) % size;
+
+        while ((left % size) != ((right + 1) % size))
+        {
+            ulong dist = (right - left + size) % size;
+            ulong mid = (left + dist / 2) % size;
+
+            if (vector[mid] == target)
+            {
+                return true;
+            }
+            else if (vector[mid] < target)
+            {
+                left = (mid + 1) % size;
+            }
+            else
+            {
+                right = (mid - 1 + size) % size;
+            }
+        }
+        return false;
     }
 }

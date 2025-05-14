@@ -13,7 +13,7 @@ namespace lasd
 
   template <typename Data>
   class SetVec : virtual public Set<Data>,
-                 virtual public ResizableContainer
+                 virtual protected ResizableContainer
   {
 
   protected:
@@ -80,8 +80,9 @@ namespace lasd
 
     // Specific member function (inherited from ClearableContainer)
     void Clear() override;
-    void Resize(ulong);
+
     ulong Size() const noexcept override;
+
     bool Empty() const noexcept override;
 
     using typename TraversableContainer<Data>::TraverseFun;
@@ -94,6 +95,8 @@ namespace lasd
     ulong FindElementIndex(const Data&) const;
     void InsertAtIndex(const Data&);
     void InsertAtIndex(Data&&);
+    void Resize(ulong);
+    bool BinarySearch(ulong,ulong,const Data&)const;
   };
 
 }
