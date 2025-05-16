@@ -89,6 +89,8 @@ namespace lasd
     void PostOrderTraverse(const TraverseFun, Node *) const;
     void PreOrderMap(const MapFun, Node *) const;
     void PostOrderMap(const MapFun, Node *) const;
+    Node* FindPenultimateNode() const;
+
   };
 
 }

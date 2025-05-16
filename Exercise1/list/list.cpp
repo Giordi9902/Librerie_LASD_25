@@ -228,19 +228,8 @@ namespace lasd
     {
         if (!size)
             throw std::length_error("Cannot remove from Empty list");
-        Node *tmp = head;
-        if (head == tail)
-        {
-            head = tail = nullptr;
-        }
-        else
-        {
-            head = head->next;
-        }
-        tmp->next = nullptr;
-        Data front = tmp->val;
-        delete tmp;
-        --size;
+        Data front = head->val;
+        RemoveFromFront();
         return front;
     }
 
@@ -288,9 +277,7 @@ namespace lasd
         }
         else
         {
-            Node *temp = head;
-            while (temp->next != tail)
-                temp = temp->next;
+            Node *temp = FindPenultimateNode();
             delete tail;
             tail = temp;
             tail->next = nullptr;
@@ -304,21 +291,7 @@ namespace lasd
         if (!size)
             throw std::length_error("Cannot remove from Empty list");
         Data ret = tail->val;
-        if (size == 1)
-        {
-            delete tail;
-            head = tail = nullptr;
-        }
-        else
-        {
-            Node *temp = head;
-            while (temp->next != tail)
-                temp = temp->next;
-            delete tail;
-            tail = temp;
-            tail->next = nullptr;
-        }
-        --size;
+        RemoveFromBack();
         return ret;
     }
 
@@ -434,4 +407,15 @@ namespace lasd
         PostOrderMap(fun, curr->next);
         fun(curr->val);
     }
+
+    template <typename Data>
+    typename List<Data>::Node* List<Data>::FindPenultimateNode() const {
+        if (size <= 1) return nullptr;
+        Node* temp = head;
+        while (temp->next != tail) {
+            temp = temp->next;
+        }
+        return temp;
+    }
+
 }
