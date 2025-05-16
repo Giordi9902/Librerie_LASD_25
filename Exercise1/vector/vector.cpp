@@ -82,7 +82,7 @@ namespace lasd
     {
         if (i >= size)
         {
-            throw std::out_of_range("This Vector has not that many elements");
+            throw std::out_of_range("Access at index " + std::to_string(i) + " out of range!");
         }
         return elements[i];
     }
