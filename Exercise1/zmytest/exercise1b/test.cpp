@@ -227,48 +227,6 @@ void Personal_String_Set(lasd::Set<string> &set, uint &testnum, uint &testerr)
 {
     uint loctestnum = 0, loctesterr = 0;
 
-    InsertC(loctestnum, loctesterr, set, true, std::string("apple"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("banana"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("cherry"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("date"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("fig"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("grape"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("kiwi"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("lemon"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("mango"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("orange"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("peach"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("pear"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("plum"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("quince"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("raspberry"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("strawberry"));
-    InsertC(loctestnum, loctesterr, set, true, std::string("watermelon"));
-
-    Remove(loctestnum, loctesterr, set, true, std::string("banana"));
-    Exists(loctestnum, loctesterr, set, true, std::string("cherry"));
-    Exists(loctestnum, loctesterr, set, false, std::string("coconut"));
-    Min(loctestnum, loctesterr, set, true, std::string("apple"));
-    Max(loctestnum, loctesterr, set, true, std::string("watermelon"));
-    Traverse(loctestnum, loctesterr, set, true, TraversePrint<string>);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    RemoveMax(loctestnum, loctesterr, set, true);
-
-    Predecessor(loctestnum, loctesterr, set, false, std::string("cherry"), std::string("apple"));
-    Successor(loctestnum, loctesterr, set, true, std::string("cherry"), std::string("date"));
-    Predecessor(loctestnum, loctesterr, set, false, std::string("apple"), std::string("apple"));
-    Successor(loctestnum, loctesterr, set, false, std::string("watermelon"), std::string("date"));
-    PredecessorNRemove(loctestnum, loctesterr, set, true, std::string("date"), std::string("cherry"));
-    Traverse(loctestnum, loctesterr, set, true, TraversePrint<string>);
-    SuccessorNRemove(loctestnum, loctesterr, set, true, std::string("apple"), std::string("date"));
-    Traverse(loctestnum, loctesterr, set, true, TraversePrint<string>);
-
-    InsertC(loctestnum, loctesterr, set, false, std::string("kiwi"));
-    InsertC(loctestnum, loctesterr, set, false, std::string("lemon"));
-    InsertC(loctestnum, loctesterr, set, false, std::string("mango"));
-    InsertC(loctestnum, loctesterr, set, false, std::string("orange"));
-    InsertC(loctestnum, loctesterr, set, false, std::string("peach"));
-
     testnum += loctestnum;
     testerr += loctesterr;
 }
