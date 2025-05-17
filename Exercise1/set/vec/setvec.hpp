@@ -92,7 +92,6 @@ namespace lasd
   protected:
     // Auxiliary functions, if necessary!
     ulong FindInsertIndex(const Data&) const;
-    ulong FindElementIndex(const Data&) const;
     void InsertAtIndex(const Data&);
     void InsertAtIndex(Data&&);
     void Resize(ulong);
@@ -101,6 +100,9 @@ namespace lasd
     void CheckNDouble();
     void ShiftRight(ulong);
     void ShiftLeft(ulong);
+    void RemoveElement(ulong);
+    long GetPredecessorIndex(const Data&) const;
+    long GetSuccessorIndex(const Data&) const;
   };
 
 }
