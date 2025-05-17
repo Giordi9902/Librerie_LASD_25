@@ -96,7 +96,11 @@ namespace lasd
     void InsertAtIndex(const Data&);
     void InsertAtIndex(Data&&);
     void Resize(ulong);
-    bool BinarySearch(ulong,ulong,const Data&)const;
+    long BinarySearch(const Data&)const;
+    void CheckNHalve();
+    void CheckNDouble();
+    void ShiftRight(ulong);
+    void ShiftLeft(ulong);
   };
 
 }

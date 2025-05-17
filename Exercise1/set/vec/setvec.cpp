@@ -118,6 +118,7 @@ namespace lasd
         }
         Data min = vector[tail];
         tail = (tail + 1) % size;
+        CheckNHalve();
         return min;
     }
 
@@ -129,6 +130,7 @@ namespace lasd
             throw std::length_error("Set is empty");
         }
         tail = (tail + 1) % size;
+        CheckNHalve();
     }
 
     template <typename Data>
@@ -150,6 +152,7 @@ namespace lasd
         }
         Data max = vector[(head - 1 + size) % size];
         head = (head - 1 + size) % size;
+        CheckNHalve();
         return max;
     }
 
@@ -161,6 +164,7 @@ namespace lasd
             throw std::length_error("Set is empty");
         }
         head = (head - 1 + size) % size;
+        CheckNHalve();
     }
 
     template <typename Data>
@@ -279,8 +283,7 @@ namespace lasd
         else
         {
             InsertAtIndex(dat);
-            if (Size() + 1 >= (size / 2))
-                Resize(size * 2);
+            CheckNDouble();
             return true;
         }
     }
@@ -293,8 +296,7 @@ namespace lasd
         else
         {
             InsertAtIndex(std::move(dat));
-            if (Size() + 1 > (size / 2))
-                Resize(size * 2);
+            CheckNDouble();
             return true;
         }
     }
@@ -302,43 +304,28 @@ namespace lasd
     template <typename Data>
     bool SetVec<Data>::Remove(const Data &dat)
     {
-        if (Exists(dat))
+
+        long posLong = BinarySearch(dat);
+        if (posLong != -1)
         {
-            ulong pos = FindElementIndex(dat);
+            ulong pos = static_cast<ulong>(posLong);
             if (pos == tail)
             {
-                tail = (tail + 1) % size;
-                if (Size() <= size / 4 && size > INIT_SIZE)
-                    Resize(size / 2);
-                return true;
+                RemoveMin();
             }
             else if (pos == head - 1)
             {
-                head = (head - 1 + size) % size;
-                if (Size() <= size / 4 && size > INIT_SIZE)
-                    Resize(size / 2);
-                return true;
+                RemoveMax();
             }
             else
             {
-                ulong current = pos;
-                ulong next = (current + 1) % size;
-                while (current != (head - 1 + size) % size)
-                {
-                    vector[current] = vector[next];
-                    current = next;
-                    next = (current + 1) % size;
-                }
+                ShiftLeft(pos);
                 head = (head - 1 + size) % size;
-                if (Size() < size / 4 && size > INIT_SIZE)
-                    Resize(size / 2);
-                return true;
+                CheckNHalve();
             }
+            return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     template <typename Data>
@@ -356,15 +343,7 @@ namespace lasd
         }
         else
         {
-            // ulong index = tail;
-            // while (index != head)
-            // {
-            //     if (vector[index] == dat)
-            //         return true;
-            //     index = (index + 1) % size;
-            // }
-            // return false;
-            return BinarySearch(tail, head,dat);
+            return (BinarySearch(dat) != -1);
         }
     }
 
@@ -445,15 +424,8 @@ namespace lasd
     template <typename Data>
     void SetVec<Data>::InsertAtIndex(const Data &dat)
     {
-        ulong current = head;
-        ulong prev = (head - 1 + size) % size;
         ulong pos = FindInsertIndex(dat);
-        while (current != pos)
-        {
-            vector[current] = vector[prev];
-            current = prev;
-            prev = (prev - 1 + size) % size;
-        }
+        ShiftRight(pos);
         vector[pos] = dat;
         head = (head + 1) % size;
     }
@@ -461,15 +433,8 @@ namespace lasd
     template <typename Data>
     void SetVec<Data>::InsertAtIndex(Data &&dat)
     {
-        ulong current = head;
-        ulong prev = (head - 1 + size) % size;
         ulong pos = FindInsertIndex(dat);
-        while (current != pos)
-        {
-            vector[current] = vector[prev];
-            current = prev;
-            prev = (prev - 1 + size) % size;
-        }
+        ShiftRight(pos);
         vector[pos] = std::move(dat);
         head = (head + 1) % size;
     }
@@ -497,10 +462,10 @@ namespace lasd
     }
 
     template <typename Data>
-    bool SetVec<Data>::BinarySearch(ulong p, ulong s, const Data &target) const
+    long SetVec<Data>::BinarySearch(const Data &target) const
     {
-        ulong left = p;
-        ulong right = (s - 1 + size) % size;
+        ulong left = tail;
+        ulong right = (head - 1 + size) % size;
 
         while ((left % size) != ((right + 1) % size))
         {
@@ -509,7 +474,7 @@ namespace lasd
 
             if (vector[mid] == target)
             {
-                return true;
+                return mid;
             }
             else if (vector[mid] < target)
             {
@@ -520,6 +485,38 @@ namespace lasd
                 right = (mid - 1 + size) % size;
             }
         }
-        return false;
+        return -1;
+    }
+
+    template <typename Data>
+    void SetVec<Data>::CheckNHalve()
+    {
+        if (Size() <= size / 4 && size > INIT_SIZE)
+            Resize(size / 2);
+    }
+
+    template <typename Data>
+    void SetVec<Data>::CheckNDouble()
+    {
+        if (Size() + 1 > (size / 2))
+            Resize(size * 2);
+    }
+
+    template <typename Data>
+    void SetVec<Data>::ShiftRight(ulong pos)
+    {
+        for (ulong i = head; i != pos; i = (i - 1 + size) % size)
+        {
+            vector[i] = vector[(i - 1 + size) % size];
+        }
+    }
+
+    template <typename Data>
+    void SetVec<Data>::ShiftLeft(ulong pos)
+    {
+        for (ulong i = pos; i != head; i = (i + 1) % size)
+        {
+            vector[i] = vector[(i + 1) % size];
+        }
     }
 }
