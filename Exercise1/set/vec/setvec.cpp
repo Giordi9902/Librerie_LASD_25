@@ -208,7 +208,7 @@ namespace lasd
         if (pos != -1)
         {
             RemoveElement(pos);
-            return; // Aggiungi return qui
+            return;
         }
         throw std::length_error("No predecessor found.");
     }

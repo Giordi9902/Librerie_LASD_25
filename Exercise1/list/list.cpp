@@ -161,7 +161,7 @@ namespace lasd
     template <typename Data>
     const Data &List<Data>::operator[](const ulong ind) const
     {
-        if (ind >= size)
+        if (head == nullptr || ind >= size)
             throw std::out_of_range("List does not have enough elements");
 
         Node *temp = head;
@@ -173,7 +173,7 @@ namespace lasd
     template <typename Data>
     Data &List<Data>::operator[](const ulong ind)
     {
-        if (ind >= size)
+        if (head == nullptr || ind >= size)
             throw std::out_of_range("List does not have enough elements");
 
         Node *temp = head;
@@ -390,7 +390,7 @@ namespace lasd
     }
 
     template <typename Data>
-    void List<Data>::PreOrderMap(const MapFun fun, Node *curr) const
+    void List<Data>::PreOrderMap(const MapFun fun, Node *curr)
     {
         while (curr)
         {
@@ -400,7 +400,7 @@ namespace lasd
     }
 
     template <typename Data>
-    void List<Data>::PostOrderMap(const MapFun fun, Node *curr) const
+    void List<Data>::PostOrderMap(const MapFun fun, Node *curr)
     {
         if (!curr)
             return;
@@ -412,6 +412,7 @@ namespace lasd
     typename List<Data>::Node* List<Data>::FindPenultimateNode() const {
         if (size <= 1) return nullptr;
         Node* temp = head;
+        if(head == tail) return nullptr;
         while (temp->next != tail) {
             temp = temp->next;
         }
