@@ -7,10 +7,7 @@ namespace lasd
         con.Traverse(
             [this](const Data &currdata)
             {
-                if (!Exists(currdata))
-                {
-                    Insert(currdata);
-                }
+                Insert(currdata);
             });
     }
 
@@ -20,10 +17,7 @@ namespace lasd
         con.Map(
             [this](const Data &currdata)
             {
-                if (!Exists(currdata))
-                {
-                    Insert(std::move(currdata));
-                }
+                Insert(std::move(currdata));
             });
     }
 
@@ -118,76 +112,78 @@ namespace lasd
     template <typename Data>
     const Data &SetLst<Data>::Predecessor(const Data &dat) const
     {
-        Node *predecessor = nullptr;
         if (!List<Data>::Empty())
         {
-            Node *current = head;
-            while (current != nullptr && current->val < dat)
+            Node *predecessor = FindPredecessorNode(dat, nullptr);
+            if (predecessor == nullptr)
             {
-                predecessor = current;
-                current = current->next;
+                throw std::length_error("No predecessor found");
             }
-        }
-        if (predecessor == nullptr)
-        {
-            throw std::length_error("No predecessor found");
+            else
+            {
+                return predecessor->val;
+            }
         }
         else
         {
-            return predecessor->val;
+            throw std::length_error("Set is empty!");
         }
     }
 
     template <typename Data>
     bool SetLst<Data>::Insert(const Data &dat)
     {
-        if (!Exists(dat))
+        Node *prev = FindPredecessorNode(dat, nullptr);
+        Node *curr = (prev == nullptr) ? head : prev->next;
+
+        if (curr != nullptr && curr->val == dat)
         {
-            Node *prev = FindPredecessorNode(dat);
-            if (List<Data>::Empty() || prev == nullptr)
-            {
-                List<Data>::InsertAtFront(dat);
-            }
-            else if (prev == tail)
-            {
-                List<Data>::InsertAtBack(dat);
-            }
-            else
-            {
-                Node *newNode = new Node(dat);
-                newNode->next = prev->next;
-                prev->next = newNode;
-                size++;
-            }
-            return true;
+            return false;
         }
-        return false;
+
+        if (List<Data>::Empty() || prev == nullptr)
+        {
+            List<Data>::InsertAtFront(dat);
+        }
+        else if (prev == tail)
+        {
+            List<Data>::InsertAtBack(dat);
+        }
+        else
+        {
+            Node *newNode = new Node(dat);
+            AttachNode(newNode,prev);
+        }
+
+        return true;
     }
 
     template <typename Data>
     bool SetLst<Data>::Insert(Data &&dat)
     {
-        if (!Exists(dat))
+        Node *prev = FindPredecessorNode(dat, nullptr);
+        Node *curr = (prev == nullptr) ? head : prev->next;
+
+        if (curr != nullptr && curr->val == dat)
         {
-            Node *prev = FindPredecessorNode(dat);
-            if (List<Data>::Empty() || prev == nullptr)
-            {
-                List<Data>::InsertAtFront(std::move(dat));
-            }
-            else if (prev == tail)
-            {
-                List<Data>::InsertAtBack(std::move(dat));
-            }
-            else
-            {
-                Node *newNode = new Node(std::move(dat));
-                newNode->next = prev->next;
-                prev->next = newNode;
-                size++;
-            }
-            return true;
+            return false;
         }
-        return false;
+
+        if (List<Data>::Empty() || prev == nullptr)
+        {
+            List<Data>::InsertAtFront(std::move(dat));
+        }
+        else if (prev == tail)
+        {
+            List<Data>::InsertAtBack(std::move(dat));
+        }
+        else
+        {
+            Node *newNode = new Node(std::move(dat));
+            AttachNode(newNode,prev);
+        }
+
+        return true;
     }
 
     template <typename Data>
@@ -202,22 +198,12 @@ namespace lasd
             return true;
         }
 
-        Node *tmp = head->next;
-        Node *prev = head;
-
-        while (tmp != nullptr)
+        Node *prev = FindPredecessorNode(dat, nullptr);
+        if (prev != nullptr && prev->next != nullptr && prev->next->val == dat)
         {
-
-            if (tmp->val == dat)
-            {
-                prev->next = tmp->next;
-                tmp->next ? tmp->next = nullptr : tail = prev;
-                delete tmp;
-                --size;
-                return true;
-            }
-            prev = tmp;
-            tmp = tmp->next;
+            Node *toRemove = prev->next;
+            DetachNode(toRemove,prev);
+            return true;
         }
 
         return false;
@@ -231,43 +217,59 @@ namespace lasd
             throw std::length_error("Set is empty");
         }
 
-        Node *current = head;
-        while (current != nullptr && current->val <= dat)
+        Node *successor = FindSuccessorNode(dat, nullptr);
+        if (successor == nullptr)
         {
-            current = current->next;
+            throw std::length_error("No successor found!");
         }
 
-        if (current == nullptr)
-        {
-            throw std::length_error("No successor found");
-        }
-
-        return current->val;
+        return successor->val;
     }
 
     template <typename Data>
     const Data SetLst<Data>::SuccessorNRemove(const Data &dat)
     {
-        Node *successor = FindSuccessorNode(dat);
-        if (!List<Data>::Empty() && successor != nullptr)
+        if (List<Data>::Empty())
         {
-            Data value = successor->val;
-            Remove(value);
-            return value;
+            throw std::length_error("Set is empty");
         }
-        else
+
+        Node *sprev = nullptr;
+        Node *successor = FindSuccessorNode(dat, &sprev);
+
+        if (successor == nullptr)
         {
             throw std::length_error("No successor found");
         }
+
+        if (successor == head)
+        {
+            return List<Data>::FrontNRemove();
+        }
+
+        Data value = successor->val;
+        DetachNode(successor,sprev);
+
+        return value;
     }
 
     template <typename Data>
     void SetLst<Data>::RemoveSuccessor(const Data &dat)
     {
-        Node *successor = FindSuccessorNode(dat);
+        Node *sprev = nullptr;
+        Node *successor = FindSuccessorNode(dat, &sprev);
+
         if (successor != nullptr)
         {
-            Remove(successor->val);
+            if (successor == head)
+            {
+                List<Data>::RemoveFromFront();
+            }
+            else
+            {
+
+                DetachNode(successor,sprev);
+            }
         }
         else
         {
@@ -283,31 +285,43 @@ namespace lasd
             throw std::length_error("Set is empty");
         }
 
-        Node *predecessor = FindPredecessorNode(dat);
-        if (predecessor != nullptr)
-        {
-            Data value = predecessor->val;
-            Remove(value);
-            return value;
-        }
-        else
+        Node *pprev = nullptr;
+        Node *predecessor = FindPredecessorNode(dat, &pprev);
+
+        if (predecessor == nullptr)
         {
             throw std::length_error("No predecessor found");
         }
+
+        if (predecessor == head)
+        {
+            return List<Data>::FrontNRemove();
+        }
+
+        Data value = predecessor->val;
+        DetachNode(predecessor,pprev);
+
+        return value;
     }
 
     template <typename Data>
     void SetLst<Data>::RemovePredecessor(const Data &dat)
     {
-        Node *predecessor = FindPredecessorNode(dat);
-        if (predecessor != nullptr)
-        {
-            Remove(predecessor->val);
-        }
-        else
+        Node *pprev = nullptr;
+        Node *predecessor = FindPredecessorNode(dat, &pprev);
+
+        if (predecessor == nullptr)
         {
             throw std::length_error("No predecessor found");
         }
+
+        if (predecessor == head)
+        {
+            List<Data>::RemoveFromFront();
+            return;
+        }
+
+        DetachNode(predecessor,pprev);
     }
 
     template <typename Data>
@@ -363,7 +377,7 @@ namespace lasd
     }
 
     template <typename Data>
-    typename SetLst<Data>::Node *SetLst<Data>::FindPredecessorNode(const Data &dat) const noexcept
+    typename SetLst<Data>::Node *SetLst<Data>::FindPredecessorNode(const Data &dat, Node **prev_prev) const noexcept
     {
         if (head == nullptr)
         {
@@ -380,6 +394,10 @@ namespace lasd
 
         while (current != nullptr && current->val < dat)
         {
+            if (prev_prev != nullptr)
+            {
+                *prev_prev = prev;
+            }
             prev = current;
             current = current->next;
         }
@@ -387,15 +405,22 @@ namespace lasd
     }
 
     template <typename Data>
-    typename SetLst<Data>::Node *SetLst<Data>::FindSuccessorNode(const Data &dat) const noexcept
+    typename SetLst<Data>::Node *SetLst<Data>::FindSuccessorNode(const Data &dat, Node **sprev) const noexcept
     {
         Node *current = head;
+        Node *prev = nullptr;
+
         while (current != nullptr)
         {
             if (current->val > dat)
             {
+                if (sprev != nullptr)
+                {
+                    *sprev = prev;
+                }
                 return current;
             }
+            prev = current;
             current = current->next;
         }
         return nullptr;
@@ -451,5 +476,24 @@ namespace lasd
             }
         }
         return false;
+    }
+
+    template <typename Data>
+    void SetLst<Data>::AttachNode(Node *newNode, Node *prevNode)
+    {
+        newNode->next = prevNode->next;
+        prevNode->next = newNode;
+        ++size;
+    }
+
+    template <typename Data>
+    void SetLst<Data>::DetachNode(Node* toRemove, Node* prevNode)
+    {
+        prevNode->next = toRemove->next;
+        if(toRemove->next == nullptr)
+            tail = prevNode;
+        toRemove->next = nullptr;
+        delete toRemove;
+        --size;
     }
 }

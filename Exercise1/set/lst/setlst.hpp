@@ -82,10 +82,12 @@ namespace lasd
 
     protected:
         // Auxiliary functions, if necessary!
-        Node *FindPredecessorNode(const Data &) const noexcept;
-        Node *FindSuccessorNode(const Data &) const noexcept;
+        Node *FindPredecessorNode(const Data &,Node**) const noexcept;
+        Node *FindSuccessorNode(const Data &,Node**) const noexcept;
         Node* GetNodeAt(Node*,ulong) const noexcept;
         bool BinarySearch(const Data&) const noexcept;
+        void AttachNode(Node*,Node*);
+        void DetachNode(Node*,Node*);
     };
 
 }
