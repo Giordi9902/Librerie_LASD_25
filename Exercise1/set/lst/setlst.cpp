@@ -152,7 +152,7 @@ namespace lasd
         else
         {
             Node *newNode = new Node(dat);
-            AttachNode(newNode,prev);
+            AttachNode(newNode, prev);
         }
 
         return true;
@@ -180,7 +180,7 @@ namespace lasd
         else
         {
             Node *newNode = new Node(std::move(dat));
-            AttachNode(newNode,prev);
+            AttachNode(newNode, prev);
         }
 
         return true;
@@ -202,7 +202,7 @@ namespace lasd
         if (prev != nullptr && prev->next != nullptr && prev->next->val == dat)
         {
             Node *toRemove = prev->next;
-            DetachNode(toRemove,prev);
+            DetachNode(toRemove, prev);
             return true;
         }
 
@@ -248,7 +248,7 @@ namespace lasd
         }
 
         Data value = successor->val;
-        DetachNode(successor,sprev);
+        DetachNode(successor, sprev);
 
         return value;
     }
@@ -268,7 +268,7 @@ namespace lasd
             else
             {
 
-                DetachNode(successor,sprev);
+                DetachNode(successor, sprev);
             }
         }
         else
@@ -299,7 +299,7 @@ namespace lasd
         }
 
         Data value = predecessor->val;
-        DetachNode(predecessor,pprev);
+        DetachNode(predecessor, pprev);
 
         return value;
     }
@@ -321,7 +321,7 @@ namespace lasd
             return;
         }
 
-        DetachNode(predecessor,pprev);
+        DetachNode(predecessor, pprev);
     }
 
     template <typename Data>
@@ -379,6 +379,7 @@ namespace lasd
     template <typename Data>
     typename SetLst<Data>::Node *SetLst<Data>::FindPredecessorNode(const Data &dat, Node **prev_prev) const noexcept
     {
+
         if (head == nullptr)
         {
             return nullptr;
@@ -389,41 +390,82 @@ namespace lasd
             return nullptr;
         }
 
-        Node *current = head;
-        Node *prev = nullptr;
+        ulong left = 0;
+        ulong right = size - 1;
+        Node *leftNode = head;
 
-        while (current != nullptr && current->val < dat)
+        while (left <= right)
         {
-            if (prev_prev != nullptr)
+            ulong mid = left + (right - left) / 2;
+            Node *midNode = GetNodeAt(leftNode, mid - left);
+
+            if (!midNode)
+                return nullptr;
+
+            if (midNode->val < dat)
             {
-                *prev_prev = prev;
+                if (prev_prev != nullptr)
+                {
+                    *prev_prev = GetNodeAt(head, mid - 1);
+                }
+                left = mid + 1;
+                leftNode = midNode->next;
             }
-            prev = current;
-            current = current->next;
+            else if (midNode->val >= dat)
+            {
+                right = mid - 1;
+            }
         }
-        return prev;
+
+        return (left > 0) ? GetNodeAt(head, left - 1) : nullptr;
     }
 
     template <typename Data>
     typename SetLst<Data>::Node *SetLst<Data>::FindSuccessorNode(const Data &dat, Node **sprev) const noexcept
     {
-        Node *current = head;
-        Node *prev = nullptr;
 
-        while (current != nullptr)
+        if (head == nullptr)
         {
-            if (current->val > dat)
+            return nullptr;
+        }
+
+        if (dat < head->val)
+        {
+            if (sprev != nullptr)
+            {
+                *sprev = nullptr;
+            }
+            return head;
+        }
+
+        ulong left = 0;
+        ulong right = size - 1;
+        Node *leftNode = head;
+
+        while (left <= right)
+        {
+            ulong mid = left + (right - left) / 2;
+            Node *midNode = GetNodeAt(leftNode, mid - left);
+
+            if (!midNode)
+                return nullptr;
+
+            if (midNode->val > dat)
             {
                 if (sprev != nullptr)
                 {
-                    *sprev = prev;
+                    *sprev = GetNodeAt(head, mid - 1);
                 }
-                return current;
+                right = mid - 1;
             }
-            prev = current;
-            current = current->next;
+            else
+            {
+                left = mid + 1;
+                leftNode = midNode->next;
+            }
         }
-        return nullptr;
+
+        return (left < size) ? GetNodeAt(head, left) : nullptr;
     }
 
     template <typename Data>
@@ -487,10 +529,10 @@ namespace lasd
     }
 
     template <typename Data>
-    void SetLst<Data>::DetachNode(Node* toRemove, Node* prevNode)
+    void SetLst<Data>::DetachNode(Node *toRemove, Node *prevNode)
     {
         prevNode->next = toRemove->next;
-        if(toRemove->next == nullptr)
+        if (toRemove->next == nullptr)
             tail = prevNode;
         toRemove->next = nullptr;
         delete toRemove;

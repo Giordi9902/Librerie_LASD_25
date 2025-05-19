@@ -19,317 +19,266 @@ using namespace std;
 
 void Check_Insertion_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    InsertC(loctestnum,loctesterr,set,true,4);
-    InsertC(loctestnum,loctesterr,set,true,1);
-    InsertC(loctestnum,loctesterr,set,true,2);
-    InsertC(loctestnum,loctesterr,set,true,3);
-    InsertC(loctestnum,loctesterr,set,false,4);
-    InsertC(loctestnum,loctesterr,set,true,5);
-    InsertC(loctestnum,loctesterr,set,true,6);
-    InsertC(loctestnum,loctesterr,set,true,7);
-    Remove(loctestnum,loctesterr,set,true,1);
-    Remove(loctestnum,loctesterr,set,true,2);
-    Remove(loctestnum,loctesterr,set,true,3);
-    Remove(loctestnum,loctesterr,set,true,4);
-    Remove(loctestnum,loctesterr,set,true,5);
-    Remove(loctestnum,loctesterr,set,true,6);
-    Remove(loctestnum,loctesterr,set,true,7);
-    Remove(loctestnum,loctesterr,set,false,8);
-    testnum += loctestnum;
-    testerr += loctesterr;
+    InsertC(testnum,testerr,set,true,4);
+    InsertC(testnum,testerr,set,true,1);
+    InsertC(testnum,testerr,set,true,2);
+    InsertC(testnum,testerr,set,true,3);
+    InsertC(testnum,testerr,set,false,4);
+    InsertC(testnum,testerr,set,true,5);
+    InsertC(testnum,testerr,set,true,6);
+    InsertC(testnum,testerr,set,true,7);
+    Remove(testnum,testerr,set,true,1);
+    Remove(testnum,testerr,set,true,2);
+    Remove(testnum,testerr,set,true,3);
+    Remove(testnum,testerr,set,true,4);
+    Remove(testnum,testerr,set,true,5);
+    Remove(testnum,testerr,set,true,6);
+    Remove(testnum,testerr,set,true,7);
+    Remove(testnum,testerr,set,false,8);
 }
 
 void Check_Insertion_Set_Double(lasd::Set<double> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    InsertC(loctestnum,loctesterr,set,true,4.4);
-    InsertC(loctestnum,loctesterr,set,true,1.1);
-    InsertC(loctestnum,loctesterr,set,true,2.2);
-    InsertC(loctestnum,loctesterr,set,true,3.3);
-    InsertC(loctestnum,loctesterr,set,false,4.4);
-    InsertC(loctestnum,loctesterr,set,true,5.5);
-    InsertC(loctestnum,loctesterr,set,true,6.6);
-    InsertC(loctestnum,loctesterr,set,true,7.7);
-    Remove(loctestnum,loctesterr,set,true,1.1);
-    Remove(loctestnum,loctesterr,set,true,2.2);
-    Remove(loctestnum,loctesterr,set,true,3.3);
-    Remove(loctestnum,loctesterr,set,true,4.4);
-    Remove(loctestnum,loctesterr,set,true,5.5);
-    Remove(loctestnum,loctesterr,set,true,6.6);
-    Remove(loctestnum,loctesterr,set,true,7.7);
-    Remove(loctestnum,loctesterr,set,false,8.8);
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    InsertC(testnum,testerr,set,true,4.4);
+    InsertC(testnum,testerr,set,true,1.1);
+    InsertC(testnum,testerr,set,true,2.2);
+    InsertC(testnum,testerr,set,true,3.3);
+    InsertC(testnum,testerr,set,false,4.4);
+    InsertC(testnum,testerr,set,true,5.5);
+    InsertC(testnum,testerr,set,true,6.6);
+    InsertC(testnum,testerr,set,true,7.7);
+    Remove(testnum,testerr,set,true,1.1);
+    Remove(testnum,testerr,set,true,2.2);
+    Remove(testnum,testerr,set,true,3.3);
+    Remove(testnum,testerr,set,true,4.4);
+    Remove(testnum,testerr,set,true,5.5);
+    Remove(testnum,testerr,set,true,6.6);
+    Remove(testnum,testerr,set,true,7.7);
+    Remove(testnum,testerr,set,false,8.8);
 }
 
 void Check_Insertion_Set_Char(lasd::Set<char> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    InsertC(loctestnum,loctesterr,set,true,'d');
-    InsertC(loctestnum,loctesterr,set,true,'a');
-    InsertC(loctestnum,loctesterr,set,true,'b');
-    InsertC(loctestnum,loctesterr,set,true,'c');
-    InsertC(loctestnum,loctesterr,set,false,'d');
-    InsertC(loctestnum,loctesterr,set,true,'e');
-    InsertC(loctestnum,loctesterr,set,true,'f');
-    InsertC(loctestnum,loctesterr,set,true,'g');
-    Remove(loctestnum,loctesterr,set,true,'a');
-    Remove(loctestnum,loctesterr,set,true,'b');
-    Remove(loctestnum,loctesterr,set,true,'c');
-    Remove(loctestnum,loctesterr,set,true,'d');
-    Remove(loctestnum,loctesterr,set,true,'e');
-    Remove(loctestnum,loctesterr,set,true,'f');
-    Remove(loctestnum,loctesterr,set,true,'g');
-    Remove(loctestnum,loctesterr,set,false,'h');
-
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    InsertC(testnum,testerr,set,true,'d');
+    InsertC(testnum,testerr,set,true,'a');
+    InsertC(testnum,testerr,set,true,'b');
+    InsertC(testnum,testerr,set,true,'c');
+    InsertC(testnum,testerr,set,false,'d');
+    InsertC(testnum,testerr,set,true,'e');
+    InsertC(testnum,testerr,set,true,'f');
+    InsertC(testnum,testerr,set,true,'g');
+    Remove(testnum,testerr,set,true,'a');
+    Remove(testnum,testerr,set,true,'b');
+    Remove(testnum,testerr,set,true,'c');
+    Remove(testnum,testerr,set,true,'d');
+    Remove(testnum,testerr,set,true,'e');
+    Remove(testnum,testerr,set,true,'f');
+    Remove(testnum,testerr,set,true,'g');
+    Remove(testnum,testerr,set,false,'h');
 }
 
 void Check_Insertion_Set_String(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    InsertC(loctestnum,loctesterr,set,true,std::string("date"));
-    InsertC(loctestnum,loctesterr,set,true,std::string("apple"));
-    InsertC(loctestnum,loctesterr,set,true,std::string("banana"));
-    InsertC(loctestnum,loctesterr,set,true,std::string("cherry"));
-    InsertC(loctestnum,loctesterr,set,false,std::string("date"));
-    InsertC(loctestnum,loctesterr,set,true,std::string("elderberry"));
-    InsertC(loctestnum,loctesterr,set,true,std::string("fig"));
-    InsertC(loctestnum,loctesterr,set,true,std::string("grape"));
-    Remove(loctestnum,loctesterr,set,true,std::string("apple"));
-    Remove(loctestnum,loctesterr,set,true,std::string("banana"));
-    Remove(loctestnum,loctesterr,set,true,std::string("cherry"));
-    Remove(loctestnum,loctesterr,set,true,std::string("date"));
-    Remove(loctestnum,loctesterr,set,true,std::string("elderberry"));
-    Remove(loctestnum,loctesterr,set,true,std::string("fig"));
-    Remove(loctestnum,loctesterr,set,true,std::string("grape"));
-    Remove(loctestnum,loctesterr,set,false,std::string("honeydew"));
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    InsertC(testnum,testerr,set,true,std::string("date"));
+    InsertC(testnum,testerr,set,true,std::string("apple"));
+    InsertC(testnum,testerr,set,true,std::string("banana"));
+    InsertC(testnum,testerr,set,true,std::string("cherry"));
+    InsertC(testnum,testerr,set,false,std::string("date"));
+    InsertC(testnum,testerr,set,true,std::string("elderberry"));
+    InsertC(testnum,testerr,set,true,std::string("fig"));
+    InsertC(testnum,testerr,set,true,std::string("grape"));
+    Remove(testnum,testerr,set,true,std::string("apple"));
+    Remove(testnum,testerr,set,true,std::string("banana"));
+    Remove(testnum,testerr,set,true,std::string("cherry"));
+    Remove(testnum,testerr,set,true,std::string("date"));
+    Remove(testnum,testerr,set,true,std::string("elderberry"));
+    Remove(testnum,testerr,set,true,std::string("fig"));
+    Remove(testnum,testerr,set,true,std::string("grape"));
+    Remove(testnum,testerr,set,false,std::string("honeydew"));
 }
 
 void Check_Min_Max_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-
-    Min(loctestnum, loctesterr, set, true, 1);
-    Max(loctestnum, loctesterr, set, true, 7);
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, 2);
-    Max(loctestnum, loctesterr, set, true, 6);
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, 3);
-    Max(loctestnum, loctesterr, set, true, 5);
-    MinNRemove(loctestnum, loctesterr, set, true, 3);
-    MaxNRemove(loctestnum, loctesterr, set, true, 5);
-    Min(loctestnum, loctesterr, set, true, 4);
-    Max(loctestnum, loctesterr, set, true, 4);
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    Min(testnum, testerr, set, true, 1);
+    Max(testnum, testerr, set, true, 7);
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, 2);
+    Max(testnum, testerr, set, true, 6);
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, 3);
+    Max(testnum, testerr, set, true, 5);
+    MinNRemove(testnum, testerr, set, true, 3);
+    MaxNRemove(testnum, testerr, set, true, 5);
+    Min(testnum, testerr, set, true, 4);
+    Max(testnum, testerr, set, true, 4);
 }
 
 void Check_Min_Max_Set_Double(lasd::Set<double> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-
-    Min(loctestnum, loctesterr, set, true, 1.1);
-    Max(loctestnum, loctesterr, set, true, 7.7);
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, 2.2);
-    Max(loctestnum, loctesterr, set, true, 6.6);
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, 3.3);
-    Max(loctestnum, loctesterr, set, true, 5.5);
-    MinNRemove(loctestnum, loctesterr, set, true, 3.3);
-    MaxNRemove(loctestnum, testerr, set, true, 5.5);
-    Min(loctestnum, testerr, set, true, 4.4);
-    Max(loctestnum, testerr, set, true, 4.4);
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    Min(testnum, testerr, set, true, 1.1);
+    Max(testnum, testerr, set, true, 7.7);
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, 2.2);
+    Max(testnum, testerr, set, true, 6.6);
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, 3.3);
+    Max(testnum, testerr, set, true, 5.5);
+    MinNRemove(testnum, testerr, set, true, 3.3);
+    MaxNRemove(testnum, testerr, set, true, 5.5);
+    Min(testnum, testerr, set, true, 4.4);
+    Max(testnum, testerr, set, true, 4.4);
 }
 
 void Check_Min_Max_Set_Char(lasd::Set<char> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
 
-    Min(loctestnum, loctesterr, set, true, 'a');
-    Max(loctestnum, loctesterr, set, true, 'g');
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, 'b');
-    Max(loctestnum, loctesterr, set, true, 'f');
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, 'c');
-    Max(loctestnum, loctesterr, set, true, 'e');
-    MinNRemove(loctestnum, loctesterr, set, true, 'c');
-    MaxNRemove(loctestnum, loctesterr, set, true, 'e');
-    Min(loctestnum, loctesterr, set, true, 'd');
-    Max(loctestnum, loctesterr, set, true, 'd');
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    Min(testnum, testerr, set, true, 'a');
+    Max(testnum, testerr, set, true, 'g');
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, 'b');
+    Max(testnum, testerr, set, true, 'f');
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, 'c');
+    Max(testnum, testerr, set, true, 'e');
+    MinNRemove(testnum, testerr, set, true, 'c');
+    MaxNRemove(testnum, testerr, set, true, 'e');
+    Min(testnum, testerr, set, true, 'd');
+    Max(testnum, testerr, set, true, 'd');
 }
 
 void Check_Min_Max_Set_String(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-
-    Min(loctestnum, loctesterr, set, true, std::string("apple"));
-    Max(loctestnum, loctesterr, set, true, std::string("grape"));
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, std::string("banana"));
-    Max(loctestnum, loctesterr, set, true, std::string("fig"));
-    RemoveMax(loctestnum, loctesterr, set, true);
-    RemoveMin(loctestnum, loctesterr, set, true);
-    Min(loctestnum, loctesterr, set, true, std::string("cherry"));
-    Max(loctestnum, loctesterr, set, true, std::string("elderberry"));
-    MinNRemove(loctestnum, loctesterr, set, true, std::string("cherry"));
-    MaxNRemove(loctestnum, loctesterr, set, true, std::string("elderberry"));
-    Min(loctestnum, loctesterr, set, true, std::string("date"));
-    Max(loctestnum, loctesterr, set, true, std::string("date"));
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    Min(testnum, testerr, set, true, std::string("apple"));
+    Max(testnum, testerr, set, true, std::string("grape"));
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, std::string("banana"));
+    Max(testnum, testerr, set, true, std::string("fig"));
+    RemoveMax(testnum, testerr, set, true);
+    RemoveMin(testnum, testerr, set, true);
+    Min(testnum, testerr, set, true, std::string("cherry"));
+    Max(testnum, testerr, set, true, std::string("elderberry"));
+    MinNRemove(testnum, testerr, set, true, std::string("cherry"));
+    MaxNRemove(testnum, testerr, set, true, std::string("elderberry"));
+    Min(testnum, testerr, set, true, std::string("date"));
+    Max(testnum, testerr, set, true, std::string("date"));
 }
 
 void Check_PredecessorNSuccessor_Int_Set(lasd::Set<int> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    Predecessor(loctestnum, loctesterr, set, false, 1, 3);
-    Predecessor(loctestnum, loctesterr, set, true, 2, 1);
-    Predecessor(loctestnum, loctesterr, set, true, 3, 2);
-    Predecessor(loctestnum, loctesterr, set, true, 4, 3);
-    Predecessor(loctestnum, loctesterr, set, true, 5, 4);
-    Predecessor(loctestnum, loctesterr, set, true, 6, 5);
-    Predecessor(loctestnum, loctesterr, set, true, 7, 6);
-    Predecessor(loctestnum, loctesterr, set, true, 8, 7);
-    Predecessor(loctestnum, loctesterr, set, true, 9, 7);
-    Successor(loctestnum, loctesterr, set, true, 0, 1);
-    Successor(loctestnum, loctesterr, set, true, 1, 2);
-    Successor(loctestnum, loctesterr, set, true, 2, 3);
-    Successor(loctestnum, loctesterr, set, true, 3, 4);
-    Successor(loctestnum, loctesterr, set, true, 5, 6);
-    Successor(loctestnum, loctesterr, set, false, 7, 1);
+
+    Predecessor(testnum, testerr, set, false, 1, 3);
+    Predecessor(testnum, testerr, set, true, 2, 1);
+    Predecessor(testnum, testerr, set, true, 3, 2);
+    Predecessor(testnum, testerr, set, true, 4, 3);
+    Predecessor(testnum, testerr, set, true, 5, 4);
+    Predecessor(testnum, testerr, set, true, 6, 5);
+    Predecessor(testnum, testerr, set, true, 7, 6);
+    Predecessor(testnum, testerr, set, true, 8, 7);
+    Predecessor(testnum, testerr, set, true, 9, 7);
+    Successor(testnum, testerr, set, true, 0, 1);
+    Successor(testnum, testerr, set, true, 1, 2);
+    Successor(testnum, testerr, set, true, 2, 3);
+    Successor(testnum, testerr, set, true, 3, 4);
+    Successor(testnum, testerr, set, true, 5, 6);
+    Successor(testnum, testerr, set, false, 7, 1);
     // 1 2 3 4 5 6 7
-    PredecessorNRemove(loctestnum, loctesterr, set, false, 1, 1);
-    PredecessorNRemove(loctestnum, loctesterr, set, true, 2, 1);
+    PredecessorNRemove(testnum, testerr, set, false, 1, 1);
+    PredecessorNRemove(testnum, testerr, set, true, 2, 1);
     // 2 3 4 5 6 7
-    Predecessor(loctestnum, loctesterr, set, false, 2, 3);
-    RemovePredecessor(loctestnum, loctesterr, set, false, 2);
-    RemoveSuccessor(loctestnum, loctesterr, set, true, 2);
+    Predecessor(testnum, testerr, set, false, 2, 3);
+    RemovePredecessor(testnum, testerr, set, false, 2);
+    RemoveSuccessor(testnum, testerr, set, true, 2);
     // 2 4 5 6 7
-    SuccessorNRemove(loctestnum, loctesterr, set, false, 7, 3);
-    testnum += loctestnum;
-    testerr += loctesterr;
+    SuccessorNRemove(testnum, testerr, set, false, 7, 3);
 }
 
 void Check_PredecessorNSuccessor_Double_Set(lasd::Set<double> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    Predecessor(loctestnum, loctesterr, set, false, 1.1, 3.3);
-    Predecessor(loctestnum, loctesterr, set, true, 2.2, 1.1);
-    Predecessor(loctestnum, loctesterr, set, true, 3.3, 2.2);
-    Predecessor(loctestnum, loctesterr, set, true, 4.4, 3.3);
-    Predecessor(loctestnum, loctesterr, set, true, 5.5, 4.4);
-    Predecessor(loctestnum, loctesterr, set, true, 6.6, 5.5);
-    Predecessor(loctestnum, loctesterr, set, true, 7.7, 6.6);
-    Predecessor(loctestnum, loctesterr, set, true, 8.8, 7.7);
-    Predecessor(loctestnum, loctesterr, set, true, 9.9, 7.7);
-    Successor(loctestnum, loctesterr, set, true, 0.0, 1.1);
-    Successor(loctestnum, loctesterr, set, true, 1.1, 2.2);
-    Successor(loctestnum, loctesterr, set, true, 2.2, 3.3);
-    Successor(loctestnum, loctesterr, set, true, 3.3, 4.4);
-    Successor(loctestnum, loctesterr, set, true, 5.5, 6.6);
-    Successor(loctestnum, loctesterr, set, false, 7.7, 1.1);
+    Predecessor(testnum, testerr, set, false, 1.1, 3.3);
+    Predecessor(testnum, testerr, set, true, 2.2, 1.1);
+    Predecessor(testnum, testerr, set, true, 3.3, 2.2);
+    Predecessor(testnum, testerr, set, true, 4.4, 3.3);
+    Predecessor(testnum, testerr, set, true, 5.5, 4.4);
+    Predecessor(testnum, testerr, set, true, 6.6, 5.5);
+    Predecessor(testnum, testerr, set, true, 7.7, 6.6);
+    Predecessor(testnum, testerr, set, true, 8.8, 7.7);
+    Predecessor(testnum, testerr, set, true, 9.9, 7.7);
+    Successor(testnum, testerr, set, true, 1.1, 2.2);
+    Successor(testnum, testerr, set, true, 2.2, 3.3);
+    Successor(testnum, testerr, set, true, 3.3, 4.4);
+    Successor(testnum, testerr, set, true, 5.5, 6.6);
+    Successor(testnum, testerr, set, false, 7.7, 1.1);
     // 1.1 2.2 3.3 4.4 5.5 6.6 7.7
-    PredecessorNRemove(loctestnum, loctesterr, set, false, 1.1, 1.1);
-    PredecessorNRemove(loctestnum, loctesterr, set, true, 2.2, 1.1);
+    PredecessorNRemove(testnum, testerr, set, false, 1.1, 1.1);
+    PredecessorNRemove(testnum, testerr, set, true, 2.2, 1.1);
     // 2.2 3.3 4.4 5.5 6.6 7.7
-    Predecessor(loctestnum, loctesterr, set, false, 2.2, 3.3);
-    RemovePredecessor(loctestnum, loctesterr, set, false, 2.2);
-    RemoveSuccessor(loctestnum, loctesterr, set, true, 2.2);
+    Predecessor(testnum, testerr, set, false, 2.2, 3.3);
+    RemovePredecessor(testnum, testerr, set, false, 2.2);
+    RemoveSuccessor(testnum, testerr, set, true, 2.2);
     // 2.2 4.4 5.5 6.6 7.7
-    SuccessorNRemove(loctestnum, loctesterr, set, false, 7.7, 3.3);
-    testnum += loctestnum;
-    testerr += loctesterr;
+    SuccessorNRemove(testnum, testerr, set, false, 7.7, 3.3);
 }
 
 void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-    Predecessor(loctestnum, loctesterr, set, false, 'a', 'c');
-    Predecessor(loctestnum, loctesterr, set, true, 'b', 'a');
-    Predecessor(loctestnum, loctesterr, set, true, 'c', 'b');
-    Predecessor(loctestnum, loctesterr, set, true, 'd', 'c');
-    Predecessor(loctestnum, loctesterr, set, true, 'e', 'd');
-    Predecessor(loctestnum, loctesterr, set, true, 'f', 'e');
-    Predecessor(loctestnum, loctesterr, set, true, 'g', 'f');
-    Predecessor(loctestnum, loctesterr, set, true, 'h', 'g');
-    Predecessor(loctestnum, loctesterr, set, true, 'i', 'g');
-    Successor(loctestnum, loctesterr, set, true, '`', 'a');
-    Successor(loctestnum, loctesterr, set, true, 'a', 'b');
-    Successor(loctestnum, loctesterr, set, true, 'b', 'c');
-    Successor(loctestnum, loctesterr, set, true, 'c', 'd');
-    Successor(loctestnum, loctesterr, set, true, 'e', 'f');
-    Successor(loctestnum, loctesterr, set, false, 'g', 'a');
+    Predecessor(testnum, testerr, set, false, 'a', 'c');
+    Predecessor(testnum, testerr, set, true, 'b', 'a');
+    Predecessor(testnum, testerr, set, true, 'c', 'b');
+    Predecessor(testnum, testerr, set, true, 'd', 'c');
+    Predecessor(testnum, testerr, set, true, 'e', 'd');
+    Predecessor(testnum, testerr, set, true, 'f', 'e');
+    Predecessor(testnum, testerr, set, true, 'g', 'f');
+    Predecessor(testnum, testerr, set, true, 'h', 'g');
+    Predecessor(testnum, testerr, set, true, 'i', 'g');
+    Successor(testnum, testerr, set, true, 'a', 'b');
+    Successor(testnum, testerr, set, true, 'b', 'c');
+    Successor(testnum, testerr, set, true, 'c', 'd');
+    Successor(testnum, testerr, set, true, 'e', 'f');
+    Successor(testnum, testerr, set, false, 'g', 'a');
     // a b c d e f g
-    PredecessorNRemove(loctestnum, loctesterr, set, false, 'a', 'a');
-    PredecessorNRemove(loctestnum, loctesterr, set, true, 'b', 'a');
+    PredecessorNRemove(testnum, testerr, set, false, 'a', 'a');
+    PredecessorNRemove(testnum, testerr, set, true, 'b', 'a');
     // b c d e f g
-    Predecessor(loctestnum, loctesterr, set, false, 'b', 'c');
-    RemovePredecessor(loctestnum, loctesterr, set, false, 'b');
-    RemoveSuccessor(loctestnum, loctesterr, set, true, 'b');
+    Predecessor(testnum, testerr, set, false, 'b', 'c');
+    RemovePredecessor(testnum, testerr, set, false, 'b');
+    RemoveSuccessor(testnum, testerr, set, true, 'b');
     // b d e f g
-    SuccessorNRemove(loctestnum, loctesterr, set, false, 'g', 'c');
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    SuccessorNRemove(testnum, testerr, set, false, 'g', 'c');
 }
 
 void Check_PredecessorNSuccessor_String_Set(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
 {
-    uint loctestnum = 0, loctesterr = 0;
-
-    Predecessor(loctestnum, loctesterr, set, false, std::string("apple"), std::string("cherry"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("banana"), std::string("apple"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("cherry"), std::string("banana"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("date"), std::string("cherry"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("elderberry"), std::string("date"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("fig"), std::string("elderberry"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("grape"), std::string("fig"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("honeydew"), std::string("grape"));
-    Predecessor(loctestnum, loctesterr, set, true, std::string("kiwi"), std::string("grape"));
-    Successor(loctestnum, loctesterr, set, true, std::string(""), std::string("apple"));
-    Successor(loctestnum, loctesterr, set, true, std::string("apple"), std::string("banana"));
-    Successor(loctestnum, loctesterr, set, true, std::string("banana"), std::string("cherry"));
-    Successor(loctestnum, loctesterr, set, true, std::string("cherry"), std::string("date"));
-    Successor(loctestnum, loctesterr, set, true, std::string("elderberry"), std::string("fig"));
-    Successor(loctestnum, loctesterr, set, false, std::string("grape"), std::string("apple"));
+    Predecessor(testnum, testerr, set, false, std::string("apple"), std::string("cherry"));
+    Predecessor(testnum, testerr, set, true, std::string("banana"), std::string("apple"));
+    Predecessor(testnum, testerr, set, true, std::string("cherry"), std::string("banana"));
+    Predecessor(testnum, testerr, set, true, std::string("date"), std::string("cherry"));
+    Predecessor(testnum, testerr, set, true, std::string("elderberry"), std::string("date"));
+    Predecessor(testnum, testerr, set, true, std::string("fig"), std::string("elderberry"));
+    Predecessor(testnum, testerr, set, true, std::string("grape"), std::string("fig"));
+    Predecessor(testnum, testerr, set, true, std::string("honeydew"), std::string("grape"));
+    Predecessor(testnum, testerr, set, true, std::string("kiwi"), std::string("grape"));
+    Successor(testnum, testerr, set, true, std::string(""), std::string("apple"));
+    Successor(testnum, testerr, set, true, std::string("apple"), std::string("banana"));
+    Successor(testnum, testerr, set, true, std::string("banana"), std::string("cherry"));
+    Successor(testnum, testerr, set, true, std::string("cherry"), std::string("date"));
+    Successor(testnum, testerr, set, true, std::string("elderberry"), std::string("fig"));
+    Successor(testnum, testerr, set, false, std::string("grape"), std::string("apple"));
     // apple banana cherry date elderberry fig grape
-    PredecessorNRemove(loctestnum, loctesterr, set, false, std::string("apple"), std::string("apple"));
-    PredecessorNRemove(loctestnum, loctesterr, set, true, std::string("banana"), std::string("apple"));
+    PredecessorNRemove(testnum, testerr, set, false, std::string("apple"), std::string("apple"));
+    PredecessorNRemove(testnum, testerr, set, true, std::string("banana"), std::string("apple"));
     // banana cherry date elderberry fig grape
-    Predecessor(loctestnum, loctesterr, set, false, std::string("banana"), std::string("cherry"));
-    RemovePredecessor(loctestnum, loctesterr, set, false, std::string("banana"));
-    RemoveSuccessor(loctestnum, loctesterr, set, true, std::string("banana"));
+    Predecessor(testnum, testerr, set, false, std::string("banana"), std::string("cherry"));
+    RemovePredecessor(testnum, testerr, set, false, std::string("banana"));
+    RemoveSuccessor(testnum, testerr, set, true, std::string("banana"));
     // banana date elderberry fig grape
-    SuccessorNRemove(loctestnum, loctesterr, set, false, std::string("grape"), std::string("cherry"));
-
-    testnum += loctestnum;
-    testerr += loctesterr;
+    SuccessorNRemove(testnum, testerr, set, false, std::string("grape"), std::string("cherry"));
 }
 
 void Personal_Int_SetLst(uint &testnum, uint &testerr)
