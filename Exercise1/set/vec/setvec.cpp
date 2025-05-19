@@ -176,7 +176,7 @@ namespace lasd
         }
         long predecessorIndex = GetPredecessorIndex(dat);
         if (predecessorIndex != -1)
-            return vector[(ulong)predecessorIndex];
+            return (*this).operator[]((ulong)predecessorIndex);
         throw std::length_error("No predecessor found");
     }
 
@@ -190,7 +190,7 @@ namespace lasd
         long predecessorIndex = GetPredecessorIndex(dat);
         if (predecessorIndex != -1)
         {
-            Data pred = vector[(ulong)predecessorIndex];
+            Data pred = (*this).operator[]((ulong)predecessorIndex);
             RemoveElement(predecessorIndex);
             return pred;
         }
@@ -223,7 +223,7 @@ namespace lasd
         long successorIndex = GetSuccessorIndex(dat);
         if (successorIndex != -1)
         {
-            return vector[(ulong)successorIndex];
+            return (*this).operator[]((ulong)successorIndex);
         }
         throw std::length_error("No successor found");
     }
@@ -238,7 +238,7 @@ namespace lasd
         long successorIndex = GetSuccessorIndex(dat);
         if (successorIndex != -1)
         {
-            const Data succ = vector[successorIndex];
+            const Data succ = (*this).operator[]((ulong)successorIndex);
             RemoveElement(successorIndex);
             return succ;
         }
@@ -381,38 +381,31 @@ namespace lasd
             return tail;
         }
 
-        ulong left = tail;
-        ulong right = (head - 1 + size) % size;
+        long logical_size = (head - tail + size) % size;
+        long left = 0;
+        long right = logical_size - 1;
 
-        if (dat < vector[left])
+        while (left <= right)
         {
-            return left;
-        }
-        if (dat > vector[right])
-        {
-            return head;
-        }
+            long mid = left + (right - left) / 2;
+            ulong mid_index = (tail + mid) % size;
 
-        while ((left % size) != ((right + 1) % size))
-        {
-            ulong dist = (right - left + size) % size;
-            ulong mid = (left + dist / 2) % size;
-
-            if (vector[mid] == dat)
+            if (vector[mid_index] == dat)
             {
-                return mid;
+                return mid_index;
             }
-            else if (vector[mid] < dat)
+            else if (vector[mid_index] < dat)
             {
-                left = (mid + 1) % size;
+                left = mid + 1;
             }
             else
             {
-                right = (mid - 1 + size) % size;
+                right = mid - 1;
             }
         }
 
-        return left;
+        // Insert position is at logical index `left`
+        return (tail + left) % size;
     }
 
     template <typename Data>
@@ -530,33 +523,25 @@ namespace lasd
             return -1;
         }
 
-        ulong left = tail;
-        ulong right = (head - 1 + size) % size;
-
+        long size_logical = (head - tail + size) % size;
+        long left = 0;
+        long right = size_logical - 1;
         long result = -1;
-        while ((left % size) != ((right + 1) % size))
-        {
-            ulong dist = (right - left + size) % size;
-            ulong mid = (left + dist / 2) % size;
 
-            if (vector[mid] < target)
+        while (left <= right)
+        {
+            long mid = left + (right - left) / 2;
+            ulong mid_index = (tail + mid) % size;
+
+            if (vector[mid_index] < target)
             {
-                result = mid;
-                left = (mid + 1) % size;
+                result = mid_index;
+                left = mid + 1;
             }
             else
             {
-                right = (mid - 1 + size) % size;
+                right = mid - 1;
             }
-        }
-
-        if (vector[left] < target)
-        {
-            result = left;
-        }
-        else if (result == -1 && left != tail && vector[(left - 1 + size) % size] < target)
-        {
-            result = (left - 1 + size) % size;
         }
 
         return result;
@@ -565,34 +550,30 @@ namespace lasd
     template <typename Data>
     long SetVec<Data>::GetSuccessorIndex(const Data &target) const
     {
-        if (Empty() || vector[(head-1+size)%size] <= target)
+        if (Empty() || vector[(head - 1 + size) % size] <= target)
         {
             return -1;
         }
 
-        ulong left = tail;
-        ulong right = (head - 1 + size) % size;
-
+        long size_logical = (head - tail + size) % size;
+        long left = 0;
+        long right = size_logical - 1;
         long result = -1;
-        while ((left % size) != ((right + 1) % size))
-        {
-            ulong dist = (right - left + size) % size;
-            ulong mid = (left + dist / 2) % size;
 
-            if (vector[mid] > target)
+        while (left <= right)
+        {
+            long mid = left + (right - left) / 2;
+            ulong mid_index = (tail + mid) % size;
+
+            if (vector[mid_index] > target)
             {
-                result = mid;
-                right = (mid - 1 + size) % size;
+                result = mid_index;
+                right = mid - 1;
             }
             else
             {
-                left = (mid + 1) % size;
+                left = mid + 1;
             }
-        }
-
-        if ((vector[right] > target) && (result == -1))
-        {
-            result = right;
         }
 
         return result;
