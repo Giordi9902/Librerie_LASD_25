@@ -197,6 +197,21 @@ void Check_PredecessorNSuccessor_Int_Set(lasd::Set<int> &set, uint &testnum, uin
     RemoveSuccessor(testnum, testerr, set, true, 2);
     // 2 4 5 6 7
     SuccessorNRemove(testnum, testerr, set, false, 7, 3);
+    Successor(testnum,testerr,set,true,2,4);
+    Successor(testnum,testerr,set,true,4,5);
+    Successor(testnum,testerr,set,true,6,7);
+    Successor(testnum,testerr,set,false,7,8);
+    Predecessor(testnum,testerr,set,true,10,7);
+    PredecessorNRemove(testnum,testerr,set,true,10,7);
+    // 2 4 5 6
+    Successor(testnum,testerr,set,false,6,7);
+    SuccessorNRemove(testnum,testerr,set,true,0,2);
+    // 4 5 6
+    RemoveSuccessor(testnum,testerr,set,true,0);
+    // 5 6
+    RemovePredecessor(testnum,testerr,set,false,0);
+    RemovePredecessor(testnum,testerr,set,true,10);
+    // 5
 }
 
 void Check_PredecessorNSuccessor_Double_Set(lasd::Set<double> &set, uint &testnum, uint &testerr)
@@ -224,6 +239,24 @@ void Check_PredecessorNSuccessor_Double_Set(lasd::Set<double> &set, uint &testnu
     RemoveSuccessor(testnum, testerr, set, true, 2.2);
     // 2.2 4.4 5.5 6.6 7.7
     SuccessorNRemove(testnum, testerr, set, false, 7.7, 3.3);
+    SuccessorNRemove(testnum, testerr, set, true, 1.1, 2.2);
+    // 4.4 5.5 6.6 7.7
+    Successor(testnum,testerr,set,true,2.2,4.4);
+    Successor(testnum,testerr,set,true,4.4,5.5);
+    Successor(testnum,testerr,set,true,6.6,7.7);
+    Successor(testnum,testerr,set,false,7.7,8.8);
+    Predecessor(testnum,testerr,set,true,10.10,7.7);
+    PredecessorNRemove(testnum,testerr,set,true,10.10,7.7);
+    // 4.4 5.5 6.6
+    Successor(testnum,testerr,set,false,6.6,7.7);
+    SuccessorNRemove(testnum,testerr,set,true,1.1,4.4);
+    // 5.5 6.6
+    RemoveSuccessor(testnum,testerr,set,true,1.1);
+    // 6.6
+    RemovePredecessor(testnum,testerr,set,false,1.1);
+    RemovePredecessor(testnum,testerr,set,true,10.10);
+    // 5.5
+
 }
 
 void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, uint &testerr)
@@ -251,6 +284,23 @@ void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, u
     RemoveSuccessor(testnum, testerr, set, true, 'b');
     // b d e f g
     SuccessorNRemove(testnum, testerr, set, false, 'g', 'c');
+    SuccessorNRemove(testnum, testerr, set, true, 'a', 'b');
+    // d e f g
+    Successor(testnum,testerr,set,true,'b','d');
+    Successor(testnum,testerr,set,true,'d','e');
+    Successor(testnum,testerr,set,true,'f','g');
+    Successor(testnum,testerr,set,false,'g','h');
+    Predecessor(testnum,testerr,set,true,'z','g');
+    PredecessorNRemove(testnum,testerr,set,true,'z','g');
+    // d e f
+    Successor(testnum,testerr,set,false,'f','g');
+    SuccessorNRemove(testnum,testerr,set,true,'b','d');
+    // e f
+    RemoveSuccessor(testnum,testerr,set,true,'b');
+    // f
+    RemovePredecessor(testnum,testerr,set,false,'b');
+    RemovePredecessor(testnum,testerr,set,true,'z');
+    // e
 }
 
 void Check_PredecessorNSuccessor_String_Set(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
