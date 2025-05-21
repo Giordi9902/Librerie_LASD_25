@@ -12,6 +12,7 @@
 #include "../../set/vec/setvec.hpp"
 #include "../../vector/vector.hpp"
 #include "../../list/list.hpp"
+#include "../../utils/utils.hpp"
 #include <string>
 #include <limits>
 #include <random>
@@ -1233,12 +1234,16 @@ void SetLstTestMenu()
         {
         case 1:
             std::cout << "\n Printing set: ";
-            try{
+            try
+            {
                 setlst.Traverse(TraversePrint<int>);
                 std::cout << std::endl;
-            }catch(std::exception & exc){
+            }
+            catch (std::exception &exc)
+            {
                 std::cout << exc.what() << std::endl;
             }
+
             break;
         case 2:
             int element;
@@ -1252,6 +1257,7 @@ void SetLstTestMenu()
             {
                 std::cout << "\n Element already exists in the set." << std::endl;
             }
+
             break;
         case 3:
             int elementToRemove;
@@ -1265,6 +1271,7 @@ void SetLstTestMenu()
             {
                 std::cout << "\n Element not found in the set." << std::endl;
             }
+
             break;
         case 4:
             int elementToCheck;
@@ -1278,6 +1285,7 @@ void SetLstTestMenu()
             {
                 std::cout << "\n Element does not exist in the set." << std::endl;
             }
+
             break;
         case 5:
             try
@@ -1299,7 +1307,6 @@ void SetLstTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
 
             break;
         case 7:
@@ -1333,13 +1340,14 @@ void SetLstTestMenu()
         case 9:
             try
             {
-                std::cout << "\n Removing minimum element: "  << std::endl;
+                std::cout << "\n Removing minimum element: " << std::endl;
                 setlst.RemoveMin();
             }
             catch (const std::length_error &e)
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
+
             break;
         case 10:
             try
@@ -1351,6 +1359,7 @@ void SetLstTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
+
             break;
         case 11:
             int elementForRemovePredecessor;
@@ -1360,7 +1369,6 @@ void SetLstTestMenu()
             {
                 std::cout << "\n Removing predecessor of " << elementForRemovePredecessor << std::endl;
                 setlst.RemovePredecessor(elementForRemovePredecessor);
-
             }
             catch (const std::length_error &e)
             {
@@ -1386,6 +1394,7 @@ void SetLstTestMenu()
         case 13:
             setlst.Clear();
             std::cout << "\n Set cleared." << std::endl;
+
             break;
         case 14:
             int elementForRemovePredecessorAndDelete;
@@ -1444,7 +1453,6 @@ void SetVecTestMenu()
         std::cout << "\33[1;33m\t13:\033[0m Clear the set\n";
         std::cout << "\33[1;33m\t14:\033[0m Find predecessor of and element and delete it\n";
         std::cout << "\33[1;33m\t15:\033[0m Find successor of and element and delete it\n";
-        std::cout << "\33[1;33m\t16:\033[0m Print vector\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -1456,22 +1464,26 @@ void SetVecTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 16)
+            if (choice < 0 || choice > 15)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 16.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 15.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 16);
+        } while (choice < 0 || choice > 15);
 
         switch (choice)
         {
         case 1:
             std::cout << "\n Printing set: ";
-            try{
+            try
+            {
                 setvec.Traverse(TraversePrint<int>);
                 std::cout << std::endl;
-            }catch(std::exception & exc){
+            }
+            catch (std::exception &exc)
+            {
                 std::cout << exc.what() << std::endl;
             }
+            wait();
             break;
         case 2:
             int element;
@@ -1485,6 +1497,7 @@ void SetVecTestMenu()
             {
                 std::cout << "\n Element already exists in the set." << std::endl;
             }
+            wait();
             break;
         case 3:
             int elementToRemove;
@@ -1498,6 +1511,7 @@ void SetVecTestMenu()
             {
                 std::cout << "\n Element not found in the set." << std::endl;
             }
+            wait();
             break;
         case 4:
             int elementToCheck;
@@ -1511,6 +1525,7 @@ void SetVecTestMenu()
             {
                 std::cout << "\n Element does not exist in the set." << std::endl;
             }
+            wait();
             break;
         case 5:
             try
@@ -1521,7 +1536,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
+            wait();
             break;
         case 6:
             try
@@ -1532,8 +1547,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
-
+            wait();
             break;
         case 7:
             int elementForPredecessor;
@@ -1547,7 +1561,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
+            wait();
             break;
         case 8:
             int elementForSuccessor;
@@ -1561,18 +1575,19 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
+            wait();
             break;
         case 9:
             try
             {
-                std::cout << "\n Removing minimum element: "  << std::endl;
+                std::cout << "\n Removing minimum element: " << std::endl;
                 setvec.RemoveMin();
             }
             catch (const std::length_error &e)
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
+            wait();
             break;
         case 10:
             try
@@ -1584,6 +1599,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
+            wait();
             break;
         case 11:
             int elementForRemovePredecessor;
@@ -1593,13 +1609,12 @@ void SetVecTestMenu()
             {
                 std::cout << "\n Removing predecessor of " << elementForRemovePredecessor << std::endl;
                 setvec.RemovePredecessor(elementForRemovePredecessor);
-
             }
             catch (const std::length_error &e)
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
+            wait();
             break;
         case 12:
             int elementForRemoveSuccessor;
@@ -1614,7 +1629,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
+            wait();
             break;
         case 13:
             setvec.Clear();
@@ -1632,7 +1647,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-
+            wait();
             break;
         case 15:
             int elementForRemoveSuccessorAndDelete;
@@ -1646,10 +1661,7 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
-            break;
-        case 16:
-            std::cout << "\n Printing vector: ";
-            setvec.PrintVector();
+            wait();
             break;
         case 0:
             std::cout << "Exiting...Goodbye!" << std::endl;

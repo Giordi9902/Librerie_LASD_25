@@ -14,6 +14,7 @@
 #include <random>
 #include <string>
 #include "./test.hpp"
+#include "../../utils/utils.hpp"
 
 using namespace std;
 

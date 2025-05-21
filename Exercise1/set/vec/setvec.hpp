@@ -1,3 +1,4 @@
+
 #ifndef SETVEC_HPP
 #define SETVEC_HPP
 
@@ -88,17 +89,20 @@ namespace lasd
     void PostOrderTraverse(const TraverseFun)const override;
     void PreOrderTraverse(const TraverseFun)const override;
 
-    void PrintVector() const noexcept;
-
   protected:
     // Auxiliary functions, if necessary!
+    ulong FindInsertIndex(const Data&) const;
+    void InsertAtIndex(const Data&);
+    void InsertAtIndex(Data&&);
     void Resize(ulong);
-    ulong BinarySearch(const Data&) const noexcept;
+    long BinarySearch(const Data&)const;
     void CheckNHalve();
     void CheckNDouble();
-    bool IsLeftShiftMoreEfficient(ulong) const noexcept;
-    void ShiftRightTo(ulong);
-    void ShiftLeftTo(ulong);
+    void ShiftRight(ulong);
+    void ShiftLeft(ulong);
+    void RemoveElement(ulong);
+    long GetPredecessorIndex(const Data&) const;
+    long GetSuccessorIndex(const Data&) const;
   };
 
 }
