@@ -21,13 +21,6 @@ void PrintHeader()
               << std::endl;
 }
 
-void wait()
-{
-    std::cout << "Press any key to continue..." << std::endl;
-    std::cin.ignore();
-    std::cin.get();
-}
-
 int main(int argc, char *argv[])
 {
     PrintMenu();
@@ -47,6 +40,7 @@ void PrintMenu()
         std::cout << "Please, choose a test to run:" << std::endl;
         std::cout << "\33[1;33m\t1 :\033[0m Lasd Libraries 2025 Test Suite" << std::endl;
         std::cout << "\33[1;33m\t2 :\033[0m Personal Test Suite" << std::endl;
+        std::cout << "\33[1;33m\t3 :\033[0m Runtime checks" << std::endl;
         std::cout << "\33[1;33m\t0 :\033[0m Exit" << std::endl;
         std::cout << std::endl;
         do
@@ -58,11 +52,11 @@ void PrintMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 2)
+            if (choice < 0 || choice > 3)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 2.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 3.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 2);
+        } while (choice < 0 || choice > 3);
 
         switch (choice)
         {
@@ -73,6 +67,11 @@ void PrintMenu()
             break;
         case 2:
             mytest();
+            wait();
+            clean();
+            break;
+        case 3:
+            RuntimeChecks();
             wait();
             clean();
             break;

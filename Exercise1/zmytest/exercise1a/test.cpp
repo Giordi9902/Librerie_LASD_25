@@ -186,7 +186,7 @@ void PersonalIntVectorTest(uint &testnum, uint &testerr)
 
         // Copy constructor
         lasd::Vector<int> copiedVec(originalVec);
-        EqualVector(loctestnum,loctesterr,copiedVec,originalVec,true);
+        EqualVector(loctestnum, loctesterr, copiedVec, originalVec, true);
 
         // Move constructor
         lasd::Vector<int> movedVec(std::move(originalVec));
@@ -194,24 +194,23 @@ void PersonalIntVectorTest(uint &testnum, uint &testerr)
         {
             GetAt(loctestnum, loctesterr, movedVec, true, i, copiedVec[i]);
         }
-        NonEqualVector(loctestnum,loctesterr,movedVec,originalVec,true);
+        NonEqualVector(loctestnum, loctesterr, movedVec, originalVec, true);
         Empty(loctestnum, loctesterr, originalVec, true); // originalVec should now be empty
 
         // Copy assignment
         lasd::Vector<int> assignedVec;
         assignedVec = copiedVec;
-        EqualVector(loctestnum,loctesterr,assignedVec,copiedVec,true);
+        EqualVector(loctestnum, loctesterr, assignedVec, copiedVec, true);
 
         // Move assignment
         lasd::Vector<int> moveAssignedVec;
         moveAssignedVec = std::move(copiedVec);
-        NonEqualVector(loctestnum,loctesterr,moveAssignedVec,copiedVec,true);
+        NonEqualVector(loctestnum, loctesterr, moveAssignedVec, copiedVec, true);
         Empty(loctestnum, loctesterr, copiedVec, true);
 
         // SortableVectors copyConstructor
         lasd::SortableVector<int> sortedVectorByCopy(moveAssignedVec);
-        EqualVector(loctestnum,loctesterr,moveAssignedVec,sortedVectorByCopy,true);
-
+        EqualVector(loctestnum, loctesterr, moveAssignedVec, sortedVectorByCopy, true);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -385,37 +384,36 @@ void PersonalDoubleVectorTest(uint &testnum, uint &testerr)
 
         // Copy constructor
         lasd::Vector<double> copiedVec(originalVec);
-        EqualLinear(loctestnum,loctesterr,originalVec,copiedVec,true);
+        EqualLinear(loctestnum, loctesterr, originalVec, copiedVec, true);
 
         // Move constructor
         lasd::Vector<double> movedVec(std::move(originalVec));
-        NonEqualLinear(loctestnum,loctesterr,movedVec,originalVec,true);
+        NonEqualLinear(loctestnum, loctesterr, movedVec, originalVec, true);
         Empty(loctestnum, loctesterr, originalVec, true); // originalVec should now be empty
 
         // Copy assignment
         lasd::Vector<double> assignedVec;
         assignedVec = copiedVec;
-        EqualVector(loctestnum,loctesterr,assignedVec,copiedVec,true);
+        EqualVector(loctestnum, loctesterr, assignedVec, copiedVec, true);
 
         // Move assignment
         lasd::Vector<double> moveAssignedVec;
         moveAssignedVec = std::move(copiedVec);
-        NonEqualVector(loctestnum,loctesterr,moveAssignedVec,copiedVec,true);
+        NonEqualVector(loctestnum, loctesterr, moveAssignedVec, copiedVec, true);
         Empty(loctestnum, loctesterr, copiedVec, true); // copiedVec should now be empty
 
         // SortableVector
         {
             lasd::SortableVector<double> sortedVectorByCopy(moveAssignedVec);
-            EqualVector(loctestnum,loctesterr,moveAssignedVec,sortedVectorByCopy,true);
+            EqualVector(loctestnum, loctesterr, moveAssignedVec, sortedVectorByCopy, true);
             // Check if the vector is sorted
             sortedVectorByCopy.Sort();
             SortedLinear(loctestnum, loctesterr, sortedVectorByCopy, true);
 
             lasd::SortableVector<double> sortedVectorByMove(std::move(sortedVectorByCopy));
-            NonEqualVector(loctestnum,loctesterr,sortedVectorByCopy,sortedVectorByMove,true);
+            NonEqualVector(loctestnum, loctesterr, sortedVectorByCopy, sortedVectorByMove, true);
             SortedLinear(loctestnum, loctesterr, sortedVectorByMove, true);
         }
-
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -604,7 +602,7 @@ void PersonalCharVectorTest(uint &testnum, uint &testerr)
 
         // Copy constructor
         lasd::Vector<char> copiedVec(originalVec);
-        EqualVector(loctestnum,loctesterr,copiedVec,originalVec,true);
+        EqualVector(loctestnum, loctesterr, copiedVec, originalVec, true);
 
         // Move constructor
         lasd::Vector<char> movedVec(std::move(originalVec));
@@ -612,23 +610,23 @@ void PersonalCharVectorTest(uint &testnum, uint &testerr)
         {
             GetAt(loctestnum, loctesterr, movedVec, true, i, copiedVec[i]);
         }
-        NonEqualVector(loctestnum,loctesterr,movedVec,originalVec,true);
+        NonEqualVector(loctestnum, loctesterr, movedVec, originalVec, true);
         Empty(loctestnum, loctesterr, originalVec, true);
 
         // Copy assignment
         lasd::Vector<char> assignedVec;
         assignedVec = copiedVec;
-        EqualVector(loctestnum,loctesterr,assignedVec,copiedVec,true);
+        EqualVector(loctestnum, loctesterr, assignedVec, copiedVec, true);
 
         // Move assignment
         lasd::Vector<char> moveAssignedVec;
         moveAssignedVec = std::move(copiedVec);
-        NonEqualVector(loctestnum,loctesterr,moveAssignedVec,copiedVec,true);
+        NonEqualVector(loctestnum, loctesterr, moveAssignedVec, copiedVec, true);
         Empty(loctestnum, loctesterr, copiedVec, true);
 
         // SortableVectors copyConstructor
         lasd::SortableVector<char> sortedVectorByCopy(moveAssignedVec);
-        EqualVector(loctestnum,loctesterr,moveAssignedVec,sortedVectorByCopy,true);
+        EqualVector(loctestnum, loctesterr, moveAssignedVec, sortedVectorByCopy, true);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -848,7 +846,7 @@ void PersonalStringVectorTest(uint &testnum, uint &testerr)
             std::string temp;
             for (int j = 0; j < 5; j++)
             {
-            temp += static_cast<char>(dist(gen) + 96);
+                temp += static_cast<char>(dist(gen) + 96);
             }
             originalVec[i] = temp;
         }
@@ -893,9 +891,9 @@ void PersonalStringVectorTest(uint &testnum, uint &testerr)
 
         // Sortable Vector
         lasd::SortableVector<string> sortedVectorOfStrings(assignedVec);
-        EqualVector(loctestnum,loctesterr,sortedVectorOfStrings,assignedVec,true);
+        EqualVector(loctestnum, loctesterr, sortedVectorOfStrings, assignedVec, true);
         sortedVectorOfStrings.Sort();
-        SortedLinear(loctestnum,loctesterr,sortedVectorOfStrings,true);
+        SortedLinear(loctestnum, loctesterr, sortedVectorOfStrings, true);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -1039,22 +1037,30 @@ void PersonalIntListTest(uint &testnum, uint &testerr)
     // List features testing
     {
         lasd::List<int> l1;
-        ulong elements =  dist(gen);
-        for(ulong n = 0; n < elements; n++){
-            if(n%2==0){
-                InsertAtFront(loctestnum,loctesterr,l1,true,dist(gen));
-            }else{
-                InsertAtBack(loctestnum,loctesterr,l1,true,dist(gen));
+        ulong elements = dist(gen);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
+            }
+            else
+            {
+                InsertAtBack(loctestnum, loctesterr, l1, true, dist(gen));
             }
         }
-        for(ulong n =0; n < elements; n++){
-            if(n%2==0){
-                RemoveFromFront(loctestnum,loctesterr,l1,true);
-            }else{
-                RemoveFromBack(loctestnum,loctesterr,l1,true);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                RemoveFromFront(loctestnum, loctesterr, l1, true);
+            }
+            else
+            {
+                RemoveFromBack(loctestnum, loctesterr, l1, true);
             }
         }
-        Empty(loctestnum,loctesterr,l1,true);
+        Empty(loctestnum, loctesterr, l1, true);
 
         l1.InsertAtBack(3);
         l1.InsertAtFront(9);
@@ -1062,15 +1068,14 @@ void PersonalIntListTest(uint &testnum, uint &testerr)
         l1.InsertAtFront(15);
         l1.InsertAtBack(18);
 
-        BackNRemove(loctestnum,loctesterr,l1,true,18);
-        FrontNRemove(loctestnum,loctesterr,l1,true,15);
+        BackNRemove(loctestnum, loctesterr, l1, true, 18);
+        FrontNRemove(loctestnum, loctesterr, l1, true, 15);
 
         lasd::List<int> l2(l1);
-        EqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l1, l2, true);
         lasd::List<int> l3(std::move(l2));
-        EqualList(loctestnum,loctesterr,l3,l1,true);
-        NonEqualList(loctestnum,loctesterr,l1,l2,true);
-
+        EqualList(loctestnum, loctesterr, l3, l1, true);
+        NonEqualList(loctestnum, loctesterr, l1, l2, true);
     }
     std::cout << "\033[4;36mEnd of List<int> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
     testnum += loctestnum;
@@ -1213,22 +1218,30 @@ void PersonalDoubleListTest(uint &testnum, uint &testerr)
     // List features testing
     {
         lasd::List<double> l1;
-        ulong elements =  dist(gen);
-        for(ulong n = 0; n < elements; n++){
-            if(n%2==0){
-                InsertAtFront(loctestnum,loctesterr,l1,true,dist(gen));
-            }else{
-                InsertAtBack(loctestnum,loctesterr,l1,true,dist(gen));
+        ulong elements = dist(gen);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                InsertAtFront(loctestnum, loctesterr, l1, true, dist(gen));
+            }
+            else
+            {
+                InsertAtBack(loctestnum, loctesterr, l1, true, dist(gen));
             }
         }
-        for(ulong n =0; n < elements; n++){
-            if(n%2==0){
-                RemoveFromFront(loctestnum,loctesterr,l1,true);
-            }else{
-                RemoveFromBack(loctestnum,loctesterr,l1,true);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                RemoveFromFront(loctestnum, loctesterr, l1, true);
+            }
+            else
+            {
+                RemoveFromBack(loctestnum, loctesterr, l1, true);
             }
         }
-        Empty(loctestnum,loctesterr,l1,true);
+        Empty(loctestnum, loctesterr, l1, true);
 
         l1.InsertAtBack(3.3);
         l1.InsertAtFront(9.9);
@@ -1236,22 +1249,22 @@ void PersonalDoubleListTest(uint &testnum, uint &testerr)
         l1.InsertAtFront(15.15);
         l1.InsertAtBack(18.18);
 
-        BackNRemove(loctestnum,loctesterr,l1,true,18.18);
-        FrontNRemove(loctestnum,loctesterr,l1,true,15.15);
+        BackNRemove(loctestnum, loctesterr, l1, true, 18.18);
+        FrontNRemove(loctestnum, loctesterr, l1, true, 15.15);
 
         lasd::List<double> l2(l1);
-        EqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l1, l2, true);
         lasd::List<double> l3(std::move(l2));
-        EqualList(loctestnum,loctesterr,l3,l1,true);
-        NonEqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l3, l1, true);
+        NonEqualList(loctestnum, loctesterr, l1, l2, true);
 
         lasd::List<double> l4;
         l4 = l3;
-        EqualList(loctestnum,loctesterr,l4,l3,true);
+        EqualList(loctestnum, loctesterr, l4, l3, true);
         lasd::List<double> l5;
         l5 = std::move(l4);
-        EqualList(loctestnum,loctesterr,l5,l3,true);
-        NonEqualList(loctestnum,loctesterr,l4,l3,true);
+        EqualList(loctestnum, loctesterr, l5, l3, true);
+        NonEqualList(loctestnum, loctesterr, l4, l3, true);
     }
     std::cout << "\033[4;36mEnd of List<double> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
     testnum += loctestnum;
@@ -1402,22 +1415,30 @@ void PersonalCharListTest(uint &testnum, uint &testerr)
     // List features testing
     {
         lasd::List<char> l1;
-        ulong elements =  dist(gen);
-        for(ulong n = 0; n < elements; n++){
-            if(n%2==0){
-                InsertAtFront(loctestnum,loctesterr,l1,true,(char)dist(gen));
-            }else{
-                InsertAtBack(loctestnum,loctesterr,l1,true,(char)dist(gen));
+        ulong elements = dist(gen);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                InsertAtFront(loctestnum, loctesterr, l1, true, (char)dist(gen));
+            }
+            else
+            {
+                InsertAtBack(loctestnum, loctesterr, l1, true, (char)dist(gen));
             }
         }
-        for(ulong n =0; n < elements; n++){
-            if(n%2==0){
-                RemoveFromFront(loctestnum,loctesterr,l1,true);
-            }else{
-                RemoveFromBack(loctestnum,loctesterr,l1,true);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                RemoveFromFront(loctestnum, loctesterr, l1, true);
+            }
+            else
+            {
+                RemoveFromBack(loctestnum, loctesterr, l1, true);
             }
         }
-        Empty(loctestnum,loctesterr,l1,true);
+        Empty(loctestnum, loctesterr, l1, true);
 
         l1.InsertAtBack('c');
         l1.InsertAtFront('a');
@@ -1425,23 +1446,22 @@ void PersonalCharListTest(uint &testnum, uint &testerr)
         l1.InsertAtFront('b');
         l1.InsertAtBack('e');
 
-        BackNRemove(loctestnum,loctesterr,l1,true,'e');
-        FrontNRemove(loctestnum,loctesterr,l1,true,'b');
+        BackNRemove(loctestnum, loctesterr, l1, true, 'e');
+        FrontNRemove(loctestnum, loctesterr, l1, true, 'b');
 
         lasd::List<char> l2(l1);
-        EqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l1, l2, true);
         lasd::List<char> l3(std::move(l2));
-        EqualList(loctestnum,loctesterr,l3,l1,true);
-        NonEqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l3, l1, true);
+        NonEqualList(loctestnum, loctesterr, l1, l2, true);
 
         lasd::List<char> l4;
         l4 = l3;
-        EqualList(loctestnum,loctesterr,l4,l3,true);
+        EqualList(loctestnum, loctesterr, l4, l3, true);
         lasd::List<char> l5;
         l5 = std::move(l4);
-        EqualList(loctestnum,loctesterr,l5,l3,true);
-        NonEqualList(loctestnum,loctesterr,l4,l3,true);
-
+        EqualList(loctestnum, loctesterr, l5, l3, true);
+        NonEqualList(loctestnum, loctesterr, l4, l3, true);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -1625,22 +1645,30 @@ void PersonalStringList(uint &testnum, uint &testerr)
     // List features testing
     {
         lasd::List<string> l1;
-        ulong elements =  dist(gen);
-        for(ulong n = 0; n < elements; n++){
-            if(n%2==0){
-                InsertAtFront(loctestnum,loctesterr,l1,true,std::to_string(dist(gen)));
-            }else{
-                InsertAtBack(loctestnum,loctesterr,l1,true,std::to_string(dist(gen)));
+        ulong elements = dist(gen);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                InsertAtFront(loctestnum, loctesterr, l1, true, std::to_string(dist(gen)));
+            }
+            else
+            {
+                InsertAtBack(loctestnum, loctesterr, l1, true, std::to_string(dist(gen)));
             }
         }
-        for(ulong n =0; n < elements; n++){
-            if(n%2==0){
-                RemoveFromFront(loctestnum,loctesterr,l1,true);
-            }else{
-                RemoveFromBack(loctestnum,loctesterr,l1,true);
+        for (ulong n = 0; n < elements; n++)
+        {
+            if (n % 2 == 0)
+            {
+                RemoveFromFront(loctestnum, loctesterr, l1, true);
+            }
+            else
+            {
+                RemoveFromBack(loctestnum, loctesterr, l1, true);
             }
         }
-        Empty(loctestnum,loctesterr,l1,true);
+        Empty(loctestnum, loctesterr, l1, true);
 
         l1.InsertAtBack(std::string("Venezia"));
         l1.InsertAtBack(std::string("Napoli"));
@@ -1648,24 +1676,22 @@ void PersonalStringList(uint &testnum, uint &testerr)
         l1.InsertAtBack(std::string("Roma"));
         l1.InsertAtFront(std::string("Milano"));
 
-        BackNRemove(loctestnum,loctesterr,l1,true,std::string("Roma"));
-        FrontNRemove(loctestnum,loctesterr,l1,true,std::string("Milano"));
-
+        BackNRemove(loctestnum, loctesterr, l1, true, std::string("Roma"));
+        FrontNRemove(loctestnum, loctesterr, l1, true, std::string("Milano"));
 
         lasd::List<string> l2(l1);
-        EqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l1, l2, true);
         lasd::List<string> l3(std::move(l2));
-        EqualList(loctestnum,loctesterr,l3,l1,true);
-        NonEqualList(loctestnum,loctesterr,l1,l2,true);
+        EqualList(loctestnum, loctesterr, l3, l1, true);
+        NonEqualList(loctestnum, loctesterr, l1, l2, true);
 
         lasd::List<string> l4;
         l4 = l3;
-        EqualList(loctestnum,loctesterr,l4,l3,true);
+        EqualList(loctestnum, loctesterr, l4, l3, true);
         lasd::List<string> l5;
         l5 = std::move(l4);
-        EqualList(loctestnum,loctesterr,l5,l3,true);
-        NonEqualList(loctestnum,loctesterr,l4,l3,true);
-
+        EqualList(loctestnum, loctesterr, l5, l3, true);
+        NonEqualList(loctestnum, loctesterr, l4, l3, true);
     }
     std::cout << "\033[4;36mEnd of List<string> Pesonal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
     testnum += loctestnum;
@@ -1682,40 +1708,40 @@ void PersonalIntVectorListTest(uint &testnum, uint &testerr)
 
     lasd::Vector<int> v1(15);
     lasd::List<int> l1;
-    for(ulong i = 0; i < 15 ;  i++){
+    for (ulong i = 0; i < 15; i++)
+    {
         v1[i] = dist(gen);
         l1.InsertAtBack(v1[i]);
     }
-    EqualLinear(loctestnum,loctesterr,v1,l1,true);
+    EqualLinear(loctestnum, loctesterr, v1, l1, true);
 
     // Calling list copy constructor from TraversableContainer
     lasd::List<int> l2(v1);
-    EqualList(loctestnum,loctesterr,l1,l2,true);
-    Size(loctestnum,loctesterr,v1,true,15);
-    Empty(loctestnum,loctesterr,l2,false);
+    EqualList(loctestnum, loctesterr, l1, l2, true);
+    Size(loctestnum, loctesterr, v1, true, 15);
+    Empty(loctestnum, loctesterr, l2, false);
 
     // Calling vector copy constructor from TraversableContainer
     lasd::Vector<int> v2(l2);
-    EqualVector(loctestnum,loctesterr,v1,v2,true);
-    Size(loctestnum,loctesterr,v2,true,15);
+    EqualVector(loctestnum, loctesterr, v1, v2, true);
+    Size(loctestnum, loctesterr, v2, true, 15);
 
     // Calling vector move constructor from list
     lasd::List<int> v3(std::move(l2));
-    EqualLinear(loctestnum,loctesterr,v1,v3,true);
-
+    EqualLinear(loctestnum, loctesterr, v1, v3, true);
 
     // Calling list move constructor from vector
     lasd::List<int> l3(std::move(v1));
-    EqualList(loctestnum,loctesterr,l1,l3,true);
-    Size(loctestnum,loctesterr,l3,true,15);
+    EqualList(loctestnum, loctesterr, l1, l3, true);
+    Size(loctestnum, loctesterr, l3, true, 15);
 
     // Calling SortableVector costructor from list
     lasd::SortableVector<int> sv1(l1);
-    EqualVector(loctestnum,loctesterr,v1,sv1,false);
-    Size(loctestnum,loctesterr,sv1,true,15);
+    EqualVector(loctestnum, loctesterr, v1, sv1, false);
+    Size(loctestnum, loctesterr, sv1, true, 15);
 
     lasd::SortableVector<int> sv2(std::move(l2));
-    Empty(loctestnum,loctesterr,sv2,true);
+    Empty(loctestnum, loctesterr, sv2, true);
 
     std::cout << "\033[4;36mEnd of Vector&List<int> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
     testnum += loctestnum;
@@ -1733,40 +1759,40 @@ void PersonalDoubleVectorList(uint &testnum, uint &testerr)
 
     lasd::Vector<double> v1(15);
     lasd::List<double> l1;
-    for(ulong i = 0; i < 15 ;  i++){
+    for (ulong i = 0; i < 15; i++)
+    {
         v1[i] = dist(gen);
         l1.InsertAtBack(v1[i]);
     }
-    EqualLinear(loctestnum,loctesterr,v1,l1,true);
+    EqualLinear(loctestnum, loctesterr, v1, l1, true);
 
     // Calling list copy constructor from TraversableContainer
     lasd::List<double> l2(v1);
-    EqualList(loctestnum,loctesterr,l1,l2,true);
-    Size(loctestnum,loctesterr,v1,true,15);
-    Empty(loctestnum,loctesterr,l2,false);
+    EqualList(loctestnum, loctesterr, l1, l2, true);
+    Size(loctestnum, loctesterr, v1, true, 15);
+    Empty(loctestnum, loctesterr, l2, false);
 
     // Calling vector copy constructor from TraversableContainer
     lasd::Vector<double> v2(l2);
-    EqualVector(loctestnum,loctesterr,v1,v2,true);
-    Size(loctestnum,loctesterr,v2,true,15);
+    EqualVector(loctestnum, loctesterr, v1, v2, true);
+    Size(loctestnum, loctesterr, v2, true, 15);
 
     // Calling vector move constructor from list
     lasd::List<double> v3(std::move(l2));
-    EqualLinear(loctestnum,loctesterr,v1,v3,true);
-
+    EqualLinear(loctestnum, loctesterr, v1, v3, true);
 
     // Calling list move constructor from vector
     lasd::List<double> l3(std::move(v1));
-    EqualList(loctestnum,loctesterr,l1,l3,true);
-    Size(loctestnum,loctesterr,l3,true,15);
+    EqualList(loctestnum, loctesterr, l1, l3, true);
+    Size(loctestnum, loctesterr, l3, true, 15);
 
     // Calling SortableVector costructor from list
     lasd::SortableVector<double> sv1(l1);
-    EqualVector(loctestnum,loctesterr,v1,sv1,false);
-    Size(loctestnum,loctesterr,sv1,true,15);
+    EqualVector(loctestnum, loctesterr, v1, sv1, false);
+    Size(loctestnum, loctesterr, sv1, true, 15);
 
-
-    std::cout << "\033[4;36mEnd of Vector&List<double> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;testnum += loctestnum;
+    std::cout << "\033[4;36mEnd of Vector&List<double> Personal Test! (Error/Tests: " << loctesterr << "/" << loctestnum << ")\033[0m" << std::endl;
+    testnum += loctestnum;
     testerr += loctesterr;
 }
 
@@ -1781,38 +1807,37 @@ void PersonalCharVectorList(uint &testnum, uint &testerr)
 
     lasd::Vector<char> v1(15);
     lasd::List<char> l1;
-    for(ulong i = 0; i < 15 ;  i++){
+    for (ulong i = 0; i < 15; i++)
+    {
         v1[i] = (char)dist(gen);
         l1.InsertAtBack(v1[i]);
     }
-    EqualLinear(loctestnum,loctesterr,v1,l1,true);
+    EqualLinear(loctestnum, loctesterr, v1, l1, true);
 
     // Calling list copy constructor from TraversableContainer
     lasd::List<char> l2(v1);
-    EqualList(loctestnum,loctesterr,l1,l2,true);
-    Size(loctestnum,loctesterr,v1,true,15);
-    Empty(loctestnum,loctesterr,l2,false);
+    EqualList(loctestnum, loctesterr, l1, l2, true);
+    Size(loctestnum, loctesterr, v1, true, 15);
+    Empty(loctestnum, loctesterr, l2, false);
 
     // Calling vector copy constructor from TraversableContainer
     lasd::Vector<char> v2(l2);
-    EqualVector(loctestnum,loctesterr,v1,v2,true);
-    Size(loctestnum,loctesterr,v2,true,15);
+    EqualVector(loctestnum, loctesterr, v1, v2, true);
+    Size(loctestnum, loctesterr, v2, true, 15);
 
     // Calling vector move constructor from list
     lasd::List<char> v3(std::move(l2));
-    EqualLinear(loctestnum,loctesterr,v1,v3,true);
-
+    EqualLinear(loctestnum, loctesterr, v1, v3, true);
 
     // Calling list move constructor from vector
     lasd::List<char> l3(std::move(v1));
-    EqualList(loctestnum,loctesterr,l1,l3,true);
-    Size(loctestnum,loctesterr,l3,true,15);
+    EqualList(loctestnum, loctesterr, l1, l3, true);
+    Size(loctestnum, loctesterr, l3, true, 15);
 
     // Calling SortableVector costructor from list
     lasd::SortableVector<char> sv1(l1);
-    EqualVector(loctestnum,loctesterr,v1,sv1,false);
-    Size(loctestnum,loctesterr,sv1,true,15);
-
+    EqualVector(loctestnum, loctesterr, v1, sv1, false);
+    Size(loctestnum, loctesterr, sv1, true, 15);
 
     testnum += loctestnum;
     testerr += loctesterr;
@@ -1954,4 +1979,18 @@ void myTestExercise1A(unsigned int &testnum, unsigned int &testerr)
 
     cout << endl
          << "\033[1;34mExercise 1A (Personal Test) (Errors/Tests: " << testerr << "/" << testnum << ")\033[0m" << endl;
+}
+
+/************************************************************/
+
+void VectorTestMenu()
+{
+}
+
+void SortableVectorTestMenu()
+{
+}
+
+void ListTestMenu()
+{
 }

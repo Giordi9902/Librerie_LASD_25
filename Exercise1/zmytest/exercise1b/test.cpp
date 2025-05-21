@@ -13,88 +13,89 @@
 #include "../../vector/vector.hpp"
 #include "../../list/list.hpp"
 #include <string>
+#include <limits>
 #include <random>
 
 using namespace std;
 
 void Check_Insertion_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
 {
-    InsertC(testnum,testerr,set,true,4);
-    InsertC(testnum,testerr,set,true,1);
-    InsertC(testnum,testerr,set,true,2);
-    InsertC(testnum,testerr,set,true,3);
-    InsertC(testnum,testerr,set,false,4);
-    InsertC(testnum,testerr,set,true,5);
-    InsertC(testnum,testerr,set,true,6);
-    InsertC(testnum,testerr,set,true,7);
-    Remove(testnum,testerr,set,true,1);
-    Remove(testnum,testerr,set,true,2);
-    Remove(testnum,testerr,set,true,3);
-    Remove(testnum,testerr,set,true,4);
-    Remove(testnum,testerr,set,true,5);
-    Remove(testnum,testerr,set,true,6);
-    Remove(testnum,testerr,set,true,7);
-    Remove(testnum,testerr,set,false,8);
+    InsertC(testnum, testerr, set, true, 4);
+    InsertC(testnum, testerr, set, true, 1);
+    InsertC(testnum, testerr, set, true, 2);
+    InsertC(testnum, testerr, set, true, 3);
+    InsertC(testnum, testerr, set, false, 4);
+    InsertC(testnum, testerr, set, true, 5);
+    InsertC(testnum, testerr, set, true, 6);
+    InsertC(testnum, testerr, set, true, 7);
+    Remove(testnum, testerr, set, true, 1);
+    Remove(testnum, testerr, set, true, 2);
+    Remove(testnum, testerr, set, true, 3);
+    Remove(testnum, testerr, set, true, 4);
+    Remove(testnum, testerr, set, true, 5);
+    Remove(testnum, testerr, set, true, 6);
+    Remove(testnum, testerr, set, true, 7);
+    Remove(testnum, testerr, set, false, 8);
 }
 
 void Check_Insertion_Set_Double(lasd::Set<double> &set, uint &testnum, uint &testerr)
 {
-    InsertC(testnum,testerr,set,true,4.4);
-    InsertC(testnum,testerr,set,true,1.1);
-    InsertC(testnum,testerr,set,true,2.2);
-    InsertC(testnum,testerr,set,true,3.3);
-    InsertC(testnum,testerr,set,false,4.4);
-    InsertC(testnum,testerr,set,true,5.5);
-    InsertC(testnum,testerr,set,true,6.6);
-    InsertC(testnum,testerr,set,true,7.7);
-    Remove(testnum,testerr,set,true,1.1);
-    Remove(testnum,testerr,set,true,2.2);
-    Remove(testnum,testerr,set,true,3.3);
-    Remove(testnum,testerr,set,true,4.4);
-    Remove(testnum,testerr,set,true,5.5);
-    Remove(testnum,testerr,set,true,6.6);
-    Remove(testnum,testerr,set,true,7.7);
-    Remove(testnum,testerr,set,false,8.8);
+    InsertC(testnum, testerr, set, true, 4.4);
+    InsertC(testnum, testerr, set, true, 1.1);
+    InsertC(testnum, testerr, set, true, 2.2);
+    InsertC(testnum, testerr, set, true, 3.3);
+    InsertC(testnum, testerr, set, false, 4.4);
+    InsertC(testnum, testerr, set, true, 5.5);
+    InsertC(testnum, testerr, set, true, 6.6);
+    InsertC(testnum, testerr, set, true, 7.7);
+    Remove(testnum, testerr, set, true, 1.1);
+    Remove(testnum, testerr, set, true, 2.2);
+    Remove(testnum, testerr, set, true, 3.3);
+    Remove(testnum, testerr, set, true, 4.4);
+    Remove(testnum, testerr, set, true, 5.5);
+    Remove(testnum, testerr, set, true, 6.6);
+    Remove(testnum, testerr, set, true, 7.7);
+    Remove(testnum, testerr, set, false, 8.8);
 }
 
 void Check_Insertion_Set_Char(lasd::Set<char> &set, uint &testnum, uint &testerr)
 {
-    InsertC(testnum,testerr,set,true,'d');
-    InsertC(testnum,testerr,set,true,'a');
-    InsertC(testnum,testerr,set,true,'b');
-    InsertC(testnum,testerr,set,true,'c');
-    InsertC(testnum,testerr,set,false,'d');
-    InsertC(testnum,testerr,set,true,'e');
-    InsertC(testnum,testerr,set,true,'f');
-    InsertC(testnum,testerr,set,true,'g');
-    Remove(testnum,testerr,set,true,'a');
-    Remove(testnum,testerr,set,true,'b');
-    Remove(testnum,testerr,set,true,'c');
-    Remove(testnum,testerr,set,true,'d');
-    Remove(testnum,testerr,set,true,'e');
-    Remove(testnum,testerr,set,true,'f');
-    Remove(testnum,testerr,set,true,'g');
-    Remove(testnum,testerr,set,false,'h');
+    InsertC(testnum, testerr, set, true, 'd');
+    InsertC(testnum, testerr, set, true, 'a');
+    InsertC(testnum, testerr, set, true, 'b');
+    InsertC(testnum, testerr, set, true, 'c');
+    InsertC(testnum, testerr, set, false, 'd');
+    InsertC(testnum, testerr, set, true, 'e');
+    InsertC(testnum, testerr, set, true, 'f');
+    InsertC(testnum, testerr, set, true, 'g');
+    Remove(testnum, testerr, set, true, 'a');
+    Remove(testnum, testerr, set, true, 'b');
+    Remove(testnum, testerr, set, true, 'c');
+    Remove(testnum, testerr, set, true, 'd');
+    Remove(testnum, testerr, set, true, 'e');
+    Remove(testnum, testerr, set, true, 'f');
+    Remove(testnum, testerr, set, true, 'g');
+    Remove(testnum, testerr, set, false, 'h');
 }
 
 void Check_Insertion_Set_String(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
 {
-    InsertC(testnum,testerr,set,true,std::string("date"));
-    InsertC(testnum,testerr,set,true,std::string("apple"));
-    InsertC(testnum,testerr,set,true,std::string("banana"));
-    InsertC(testnum,testerr,set,true,std::string("cherry"));
-    InsertC(testnum,testerr,set,false,std::string("date"));
-    InsertC(testnum,testerr,set,true,std::string("elderberry"));
-    InsertC(testnum,testerr,set,true,std::string("fig"));
-    InsertC(testnum,testerr,set,true,std::string("grape"));
-    Remove(testnum,testerr,set,true,std::string("apple"));
-    Remove(testnum,testerr,set,true,std::string("banana"));
-    Remove(testnum,testerr,set,true,std::string("cherry"));
-    Remove(testnum,testerr,set,true,std::string("date"));
-    Remove(testnum,testerr,set,true,std::string("elderberry"));
-    Remove(testnum,testerr,set,true,std::string("fig"));
-    Remove(testnum,testerr,set,true,std::string("grape"));
-    Remove(testnum,testerr,set,false,std::string("honeydew"));
+    InsertC(testnum, testerr, set, true, std::string("date"));
+    InsertC(testnum, testerr, set, true, std::string("apple"));
+    InsertC(testnum, testerr, set, true, std::string("banana"));
+    InsertC(testnum, testerr, set, true, std::string("cherry"));
+    InsertC(testnum, testerr, set, false, std::string("date"));
+    InsertC(testnum, testerr, set, true, std::string("elderberry"));
+    InsertC(testnum, testerr, set, true, std::string("fig"));
+    InsertC(testnum, testerr, set, true, std::string("grape"));
+    Remove(testnum, testerr, set, true, std::string("apple"));
+    Remove(testnum, testerr, set, true, std::string("banana"));
+    Remove(testnum, testerr, set, true, std::string("cherry"));
+    Remove(testnum, testerr, set, true, std::string("date"));
+    Remove(testnum, testerr, set, true, std::string("elderberry"));
+    Remove(testnum, testerr, set, true, std::string("fig"));
+    Remove(testnum, testerr, set, true, std::string("grape"));
+    Remove(testnum, testerr, set, false, std::string("honeydew"));
 }
 
 void Check_Min_Max_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
@@ -197,20 +198,20 @@ void Check_PredecessorNSuccessor_Int_Set(lasd::Set<int> &set, uint &testnum, uin
     RemoveSuccessor(testnum, testerr, set, true, 2);
     // 2 4 5 6 7
     SuccessorNRemove(testnum, testerr, set, false, 7, 3);
-    Successor(testnum,testerr,set,true,2,4);
-    Successor(testnum,testerr,set,true,4,5);
-    Successor(testnum,testerr,set,true,6,7);
-    Successor(testnum,testerr,set,false,7,8);
-    Predecessor(testnum,testerr,set,true,10,7);
-    PredecessorNRemove(testnum,testerr,set,true,10,7);
+    Successor(testnum, testerr, set, true, 2, 4);
+    Successor(testnum, testerr, set, true, 4, 5);
+    Successor(testnum, testerr, set, true, 6, 7);
+    Successor(testnum, testerr, set, false, 7, 8);
+    Predecessor(testnum, testerr, set, true, 10, 7);
+    PredecessorNRemove(testnum, testerr, set, true, 10, 7);
     // 2 4 5 6
-    Successor(testnum,testerr,set,false,6,7);
-    SuccessorNRemove(testnum,testerr,set,true,0,2);
+    Successor(testnum, testerr, set, false, 6, 7);
+    SuccessorNRemove(testnum, testerr, set, true, 0, 2);
     // 4 5 6
-    RemoveSuccessor(testnum,testerr,set,true,0);
+    RemoveSuccessor(testnum, testerr, set, true, 0);
     // 5 6
-    RemovePredecessor(testnum,testerr,set,false,0);
-    RemovePredecessor(testnum,testerr,set,true,10);
+    RemovePredecessor(testnum, testerr, set, false, 0);
+    RemovePredecessor(testnum, testerr, set, true, 10);
     // 5
 }
 
@@ -241,22 +242,21 @@ void Check_PredecessorNSuccessor_Double_Set(lasd::Set<double> &set, uint &testnu
     SuccessorNRemove(testnum, testerr, set, false, 7.7, 3.3);
     SuccessorNRemove(testnum, testerr, set, true, 1.1, 2.2);
     // 4.4 5.5 6.6 7.7
-    Successor(testnum,testerr,set,true,2.2,4.4);
-    Successor(testnum,testerr,set,true,4.4,5.5);
-    Successor(testnum,testerr,set,true,6.6,7.7);
-    Successor(testnum,testerr,set,false,7.7,8.8);
-    Predecessor(testnum,testerr,set,true,10.10,7.7);
-    PredecessorNRemove(testnum,testerr,set,true,10.10,7.7);
+    Successor(testnum, testerr, set, true, 2.2, 4.4);
+    Successor(testnum, testerr, set, true, 4.4, 5.5);
+    Successor(testnum, testerr, set, true, 6.6, 7.7);
+    Successor(testnum, testerr, set, false, 7.7, 8.8);
+    Predecessor(testnum, testerr, set, true, 10.10, 7.7);
+    PredecessorNRemove(testnum, testerr, set, true, 10.10, 7.7);
     // 4.4 5.5 6.6
-    Successor(testnum,testerr,set,false,6.6,7.7);
-    SuccessorNRemove(testnum,testerr,set,true,1.1,4.4);
+    Successor(testnum, testerr, set, false, 6.6, 7.7);
+    SuccessorNRemove(testnum, testerr, set, true, 1.1, 4.4);
     // 5.5 6.6
-    RemoveSuccessor(testnum,testerr,set,true,1.1);
+    RemoveSuccessor(testnum, testerr, set, true, 1.1);
     // 6.6
-    RemovePredecessor(testnum,testerr,set,false,1.1);
-    RemovePredecessor(testnum,testerr,set,true,10.10);
+    RemovePredecessor(testnum, testerr, set, false, 1.1);
+    RemovePredecessor(testnum, testerr, set, true, 10.10);
     // 5.5
-
 }
 
 void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, uint &testerr)
@@ -286,20 +286,20 @@ void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, u
     SuccessorNRemove(testnum, testerr, set, false, 'g', 'c');
     SuccessorNRemove(testnum, testerr, set, true, 'a', 'b');
     // d e f g
-    Successor(testnum,testerr,set,true,'b','d');
-    Successor(testnum,testerr,set,true,'d','e');
-    Successor(testnum,testerr,set,true,'f','g');
-    Successor(testnum,testerr,set,false,'g','h');
-    Predecessor(testnum,testerr,set,true,'z','g');
-    PredecessorNRemove(testnum,testerr,set,true,'z','g');
+    Successor(testnum, testerr, set, true, 'b', 'd');
+    Successor(testnum, testerr, set, true, 'd', 'e');
+    Successor(testnum, testerr, set, true, 'f', 'g');
+    Successor(testnum, testerr, set, false, 'g', 'h');
+    Predecessor(testnum, testerr, set, true, 'z', 'g');
+    PredecessorNRemove(testnum, testerr, set, true, 'z', 'g');
     // d e f
-    Successor(testnum,testerr,set,false,'f','g');
-    SuccessorNRemove(testnum,testerr,set,true,'b','d');
+    Successor(testnum, testerr, set, false, 'f', 'g');
+    SuccessorNRemove(testnum, testerr, set, true, 'b', 'd');
     // e f
-    RemoveSuccessor(testnum,testerr,set,true,'b');
+    RemoveSuccessor(testnum, testerr, set, true, 'b');
     // f
-    RemovePredecessor(testnum,testerr,set,false,'b');
-    RemovePredecessor(testnum,testerr,set,true,'z');
+    RemovePredecessor(testnum, testerr, set, false, 'b');
+    RemovePredecessor(testnum, testerr, set, true, 'z');
     // e
 }
 
@@ -722,7 +722,6 @@ void Personal_Int_SetVec(uint &testnum, uint &testerr)
     vec1[7] = 6;
     vec1[8] = 7;
     vec1[9] = 3;
-
 
     list1.InsertAtBack(1);
     list1.InsertAtBack(2);
@@ -1187,4 +1186,474 @@ void myTestExercise1B(unsigned int &testnum, unsigned int &testerr)
 
     std::cout << std::endl
               << "\033[1;34mExercise 1B (Personal Test) (Errors/Tests: " << testerr << "/" << testnum << ")\033[0m" << std::endl;
+}
+
+void SetLstTestMenu()
+{
+    lasd::SetLst<int> setlst;
+    uint choice = 0;
+    do
+    {
+        std::cout << "\n\033[1;34mSelect an operation:\033[0m" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\33[1;33m\t1 :\033[0m Print set\n";
+        std::cout << "\33[1;33m\t2 :\033[0m Insert an element\n";
+        std::cout << "\33[1;33m\t3 :\033[0m Remove an element\n";
+        std::cout << "\33[1;33m\t4 :\033[0m Check if an element exists\n";
+        std::cout << "\33[1;33m\t5 :\033[0m Find minimum element\n";
+        std::cout << "\33[1;33m\t6 :\033[0m Find maximum element\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Find predecessor of an element\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Find successor of an element\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Remove minimum element\n";
+        std::cout << "\33[1;33m\t10:\033[0m Remove maximum element\n";
+        std::cout << "\33[1;33m\t11:\033[0m Remove predecessor of an element\n";
+        std::cout << "\33[1;33m\t12:\033[0m Remove successor of an element\n";
+        std::cout << "\33[1;33m\t13:\033[0m Clear the set\n";
+        std::cout << "\33[1;33m\t14:\033[0m Find predecessor of and element and delete it\n";
+        std::cout << "\33[1;33m\t15:\033[0m Find successor of and element and delete it\n";
+        std::cout << "\33[1;33m\t16:\033[0m Print vector\n";
+        std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
+
+        do
+        {
+            std::cout << "\n\033[1;34mChoice:\033[0m ";
+            if (!(std::cin >> choice))
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                choice = -1;
+            }
+            if (choice < 0 || choice > 15)
+            {
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 3.\033[0m" << std::endl;
+            }
+        } while (choice < 0 || choice > 15);
+
+        switch (choice)
+        {
+        case 1:
+            std::cout << "\n Printing set: ";
+            try{
+                setlst.Traverse(TraversePrint<int>);
+                std::cout << std::endl;
+            }catch(std::exception & exc){
+                std::cout << exc.what() << std::endl;
+            }
+            break;
+        case 2:
+            int element;
+            std::cout << "\n Enter element to insert: ";
+            std::cin >> element;
+            if (setlst.Insert(element))
+            {
+                std::cout << "\n Element inserted successfully." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element already exists in the set." << std::endl;
+            }
+            break;
+        case 3:
+            int elementToRemove;
+            std::cout << "\n Enter element to remove: ";
+            std::cin >> elementToRemove;
+            if (setlst.Remove(elementToRemove))
+            {
+                std::cout << "\n Element removed successfully." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element not found in the set." << std::endl;
+            }
+            break;
+        case 4:
+            int elementToCheck;
+            std::cout << "\n Enter element to check: ";
+            std::cin >> elementToCheck;
+            if (setlst.Exists(elementToCheck))
+            {
+                std::cout << "\n Element exists in the set." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element does not exist in the set." << std::endl;
+            }
+            break;
+        case 5:
+            try
+            {
+                std::cout << "\n Minimum element: " << setlst.Min() << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 6:
+            try
+            {
+                std::cout << "\n Maximum element: " << setlst.Max() << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+
+            break;
+        case 7:
+            int elementForPredecessor;
+            std::cout << "\n Enter element to find predecessor: ";
+            std::cin >> elementForPredecessor;
+            try
+            {
+                std::cout << "\n Predecessor of " << elementForPredecessor << ": " << setlst.Predecessor(elementForPredecessor) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 8:
+            int elementForSuccessor;
+            std::cout << "\n Enter element to find successor: ";
+            std::cin >> elementForSuccessor;
+            try
+            {
+                std::cout << "\n Successor of " << elementForSuccessor << ": " << setlst.Successor(elementForSuccessor) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 9:
+            try
+            {
+                std::cout << "\n Removing minimum element: "  << std::endl;
+                setlst.RemoveMin();
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+            break;
+        case 10:
+            try
+            {
+                std::cout << "\n Removing maximum element: " << std::endl;
+                setlst.RemoveMax();
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+            break;
+        case 11:
+            int elementForRemovePredecessor;
+            std::cout << "\n Enter element to remove predecessor: ";
+            std::cin >> elementForRemovePredecessor;
+            try
+            {
+                std::cout << "\n Removing predecessor of " << elementForRemovePredecessor << std::endl;
+                setlst.RemovePredecessor(elementForRemovePredecessor);
+
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 12:
+            int elementForRemoveSuccessor;
+            std::cout << "\n Enter element to remove successor: ";
+            std::cin >> elementForRemoveSuccessor;
+            try
+            {
+                std::cout << "\n Removing successor of " << elementForRemoveSuccessor << std::endl;
+                setlst.RemoveSuccessor(elementForRemoveSuccessor);
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 13:
+            setlst.Clear();
+            std::cout << "\n Set cleared." << std::endl;
+            break;
+        case 14:
+            int elementForRemovePredecessorAndDelete;
+            std::cout << "\n Enter element to remove predecessor and delete: ";
+            std::cin >> elementForRemovePredecessorAndDelete;
+            try
+            {
+                std::cout << "\n Removing predecessor of " << elementForRemovePredecessorAndDelete << " and deleting it: " << setlst.PredecessorNRemove(elementForRemovePredecessorAndDelete) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 15:
+            int elementForRemoveSuccessorAndDelete;
+            std::cout << "\n Enter element to remove successor and delete: ";
+            std::cin >> elementForRemoveSuccessorAndDelete;
+            try
+            {
+                std::cout << "\n Removing successor of " << elementForRemoveSuccessorAndDelete << " and deleting it: " << setlst.SuccessorNRemove(elementForRemoveSuccessorAndDelete) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+            break;
+        case 0:
+            std::cout << "Exiting...Goodbye!" << std::endl;
+            break;
+        }
+    } while (choice != 0);
+}
+
+void SetVecTestMenu()
+{
+    lasd::SetVec<int> setvec;
+    uint choice = 0;
+    do
+    {
+        std::cout << "\n\033[1;34mSelect an operation:\033[0m" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\33[1;33m\t1 :\033[0m Print set\n";
+        std::cout << "\33[1;33m\t2 :\033[0m Insert an element\n";
+        std::cout << "\33[1;33m\t3 :\033[0m Remove an element\n";
+        std::cout << "\33[1;33m\t4 :\033[0m Check if an element exists\n";
+        std::cout << "\33[1;33m\t5 :\033[0m Find minimum element\n";
+        std::cout << "\33[1;33m\t6 :\033[0m Find maximum element\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Find predecessor of an element\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Find successor of an element\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Remove minimum element\n";
+        std::cout << "\33[1;33m\t10:\033[0m Remove maximum element\n";
+        std::cout << "\33[1;33m\t11:\033[0m Remove predecessor of an element\n";
+        std::cout << "\33[1;33m\t12:\033[0m Remove successor of an element\n";
+        std::cout << "\33[1;33m\t13:\033[0m Clear the set\n";
+        std::cout << "\33[1;33m\t14:\033[0m Find predecessor of and element and delete it\n";
+        std::cout << "\33[1;33m\t15:\033[0m Find successor of and element and delete it\n";
+        std::cout << "\33[1;33m\t16:\033[0m Print vector\n";
+        std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
+
+        do
+        {
+            std::cout << "\n\033[1;34mChoice:\033[0m ";
+            if (!(std::cin >> choice))
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                choice = -1;
+            }
+            if (choice < 0 || choice > 16)
+            {
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 16.\033[0m" << std::endl;
+            }
+        } while (choice < 0 || choice > 16);
+
+        switch (choice)
+        {
+        case 1:
+            std::cout << "\n Printing set: ";
+            try{
+                setvec.Traverse(TraversePrint<int>);
+                std::cout << std::endl;
+            }catch(std::exception & exc){
+                std::cout << exc.what() << std::endl;
+            }
+            break;
+        case 2:
+            int element;
+            std::cout << "\n Enter element to insert: ";
+            std::cin >> element;
+            if (setvec.Insert(element))
+            {
+                std::cout << "\n Element inserted successfully." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element already exists in the set." << std::endl;
+            }
+            break;
+        case 3:
+            int elementToRemove;
+            std::cout << "\n Enter element to remove: ";
+            std::cin >> elementToRemove;
+            if (setvec.Remove(elementToRemove))
+            {
+                std::cout << "\n Element removed successfully." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element not found in the set." << std::endl;
+            }
+            break;
+        case 4:
+            int elementToCheck;
+            std::cout << "\n Enter element to check: ";
+            std::cin >> elementToCheck;
+            if (setvec.Exists(elementToCheck))
+            {
+                std::cout << "\n Element exists in the set." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element does not exist in the set." << std::endl;
+            }
+            break;
+        case 5:
+            try
+            {
+                std::cout << "\n Minimum element: " << setvec.Min() << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 6:
+            try
+            {
+                std::cout << "\n Maximum element: " << setvec.Max() << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+
+            break;
+        case 7:
+            int elementForPredecessor;
+            std::cout << "\n Enter element to find predecessor: ";
+            std::cin >> elementForPredecessor;
+            try
+            {
+                std::cout << "\n Predecessor of " << elementForPredecessor << ": " << setvec.Predecessor(elementForPredecessor) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 8:
+            int elementForSuccessor;
+            std::cout << "\n Enter element to find successor: ";
+            std::cin >> elementForSuccessor;
+            try
+            {
+                std::cout << "\n Successor of " << elementForSuccessor << ": " << setvec.Successor(elementForSuccessor) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 9:
+            try
+            {
+                std::cout << "\n Removing minimum element: "  << std::endl;
+                setvec.RemoveMin();
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+            break;
+        case 10:
+            try
+            {
+                std::cout << "\n Removing maximum element: " << std::endl;
+                setvec.RemoveMax();
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+            break;
+        case 11:
+            int elementForRemovePredecessor;
+            std::cout << "\n Enter element to remove predecessor: ";
+            std::cin >> elementForRemovePredecessor;
+            try
+            {
+                std::cout << "\n Removing predecessor of " << elementForRemovePredecessor << std::endl;
+                setvec.RemovePredecessor(elementForRemovePredecessor);
+
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 12:
+            int elementForRemoveSuccessor;
+            std::cout << "\n Enter element to remove successor: ";
+            std::cin >> elementForRemoveSuccessor;
+            try
+            {
+                std::cout << "\n Removing successor of " << elementForRemoveSuccessor << std::endl;
+                setvec.RemoveSuccessor(elementForRemoveSuccessor);
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 13:
+            setvec.Clear();
+            std::cout << "\n Set cleared." << std::endl;
+            break;
+        case 14:
+            int elementForRemovePredecessorAndDelete;
+            std::cout << "\n Enter element to remove predecessor and delete: ";
+            std::cin >> elementForRemovePredecessorAndDelete;
+            try
+            {
+                std::cout << "\n Removing predecessor of " << elementForRemovePredecessorAndDelete << " and deleting it: " << setvec.PredecessorNRemove(elementForRemovePredecessorAndDelete) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+
+            break;
+        case 15:
+            int elementForRemoveSuccessorAndDelete;
+            std::cout << "\n Enter element to remove successor and delete: ";
+            std::cin >> elementForRemoveSuccessorAndDelete;
+            try
+            {
+                std::cout << "\n Removing successor of " << elementForRemoveSuccessorAndDelete << " and deleting it: " << setvec.SuccessorNRemove(elementForRemoveSuccessorAndDelete) << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\n Error: " << e.what() << std::endl;
+            }
+            break;
+        case 16:
+            std::cout << "\n Printing vector: ";
+            setvec.PrintVector();
+            break;
+        case 0:
+            std::cout << "Exiting...Goodbye!" << std::endl;
+            break;
+        }
+    } while (choice != 0);
 }
