@@ -88,21 +88,21 @@ namespace lasd
     using typename TraversableContainer<Data>::TraverseFun;
     void PostOrderTraverse(const TraverseFun)const override;
     void PreOrderTraverse(const TraverseFun)const override;
+    void PrintVector() const noexcept;
+
 
   protected:
-    // Auxiliary functions, if necessary!
-    ulong FindInsertIndex(const Data&) const;
-    void InsertAtIndex(const Data&);
-    void InsertAtIndex(Data&&);
+
+    void InsertAtIndex(ulong, const Data&);
+    void InsertAtIndex(ulong, Data&&);
     void Resize(ulong);
-    long BinarySearch(const Data&)const;
+    ulong BinarySearch(const Data&)const;
     void CheckNHalve();
     void CheckNDouble();
-    void ShiftRight(ulong);
-    void ShiftLeft(ulong);
     void RemoveElement(ulong);
-    long GetPredecessorIndex(const Data&) const;
-    long GetSuccessorIndex(const Data&) const;
+    void RemovalShiftLeft(ulong);
+    void InsertionShiftRight(ulong);
+
   };
 
 }

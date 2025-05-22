@@ -1213,6 +1213,7 @@ void SetLstTestMenu()
         std::cout << "\33[1;33m\t14:\033[0m Find predecessor of and element and delete it\n";
         std::cout << "\33[1;33m\t15:\033[0m Find successor of and element and delete it\n";
         std::cout << "\33[1;33m\t16:\033[0m Print vector\n";
+        std::cout << "\33[1;33m\t17:\033[0m Binary Search\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -1224,11 +1225,11 @@ void SetLstTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 15)
+            if (choice < 0 || choice > 17)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 3.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 17.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 15);
+        } while (choice < 0 || choice > 17);
 
         switch (choice)
         {
@@ -1453,6 +1454,8 @@ void SetVecTestMenu()
         std::cout << "\33[1;33m\t13:\033[0m Clear the set\n";
         std::cout << "\33[1;33m\t14:\033[0m Find predecessor of and element and delete it\n";
         std::cout << "\33[1;33m\t15:\033[0m Find successor of and element and delete it\n";
+        std::cout << "\33[1;33m\t16:\033[0m Print vector\n";
+        std::cout << "\33[1;33m\t17:\033[0m BinarySearch\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -1464,11 +1467,11 @@ void SetVecTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 15)
+            if (choice < 0 || choice > 17)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 15.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 17.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 15);
+        } while (choice < 0 || choice > 17);
 
         switch (choice)
         {
@@ -1661,6 +1664,11 @@ void SetVecTestMenu()
             {
                 std::cerr << "\n Error: " << e.what() << std::endl;
             }
+            wait();
+            break;
+        case 16:
+            std::cout << "\n Printing vector: ";
+            setvec.PrintVector();
             wait();
             break;
         case 0:

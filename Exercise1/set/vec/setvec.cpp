@@ -11,11 +11,7 @@ namespace lasd
     {
         size = vector.Size();
         con.Traverse([this](const Data &dat)
-                     {
-            if (!Exists(dat))
-            {
-                Insert(dat);
-            } });
+                     { Insert(dat); });
     }
 
     template <typename Data>
@@ -23,11 +19,7 @@ namespace lasd
     {
         size = vector.Size();
         con.Map([this](const Data &dat)
-                {
-                    if (!Exists(dat))
-                    {
-                        Insert(std::move(dat));
-                    } });
+                { Insert(std::move(dat)); });
     }
 
     template <typename Data>
@@ -170,120 +162,152 @@ namespace lasd
     template <typename Data>
     const Data &SetVec<Data>::Predecessor(const Data &dat) const
     {
-        if (Empty())
+        if (Empty() || dat <= vector[tail])
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("No predecessor found");
         }
-        long predecessorIndex = GetPredecessorIndex(dat);
-        if (predecessorIndex != -1)
-            return (*this).operator[]((ulong)predecessorIndex);
-        throw std::length_error("No predecessor found");
+        ulong index = BinarySearch(dat);
+        if (index == tail)
+        {
+            throw std::length_error("No predecessor found");
+        }
+        ulong predecessorIndex = (index - 1 + size) % size;
+        return vector[predecessorIndex];
     }
 
     template <typename Data>
     const Data SetVec<Data>::PredecessorNRemove(const Data &dat)
     {
-        if (Empty())
+        if (Empty() || dat <= vector[tail])
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("No predecessor found");
         }
-        long predecessorIndex = GetPredecessorIndex(dat);
-        if (predecessorIndex != -1)
+        ulong index = BinarySearch(dat);
+        if (index == tail)
         {
-            Data pred = (*this).operator[]((ulong)predecessorIndex);
-            RemoveElement(predecessorIndex);
-            return pred;
+            throw std::length_error("No predecessor found");
         }
-        throw std::length_error("No predecessor found.");
+        ulong predecessorIndex = (index - 1 + size) % size;
+        Data predecessor = vector[predecessorIndex];
+        RemoveElement(predecessorIndex);
+        return predecessor;
     }
 
     template <typename Data>
     void SetVec<Data>::RemovePredecessor(const Data &dat)
     {
-        if (Empty())
+        if (Empty() || dat <= vector[tail])
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("No predecessor found");
         }
-        long pos = GetPredecessorIndex(dat);
-        if (pos != -1)
+        ulong index = BinarySearch(dat);
+        if (index == tail)
         {
-            RemoveElement(pos);
-            return;
+            throw std::length_error("No predecessor found");
         }
-        throw std::length_error("No predecessor found.");
+        ulong predecessorIndex = (index - 1 + size) % size;
+        RemoveElement(predecessorIndex);
     }
 
     template <typename Data>
     const Data &SetVec<Data>::Successor(const Data &dat) const
     {
-        if (Empty())
+        if (Empty() || dat >= vector[(head - 1 + size) % size])
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("No successor found");
         }
-        long successorIndex = GetSuccessorIndex(dat);
-        if (successorIndex != -1)
-        {
-            return (*this).operator[]((ulong)successorIndex);
-        }
-        throw std::length_error("No successor found");
+        ulong index = BinarySearch(dat);
+        ulong successorIndex = (vector[index] == dat ? (index + 1) % size : index);
+        return vector[successorIndex];
     }
 
     template <typename Data>
     const Data SetVec<Data>::SuccessorNRemove(const Data &dat)
     {
-        if (Empty())
+        if (Empty() || dat >= vector[(head - 1 + size) % size])
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("No successor found");
         }
-        long successorIndex = GetSuccessorIndex(dat);
-        if (successorIndex != -1)
-        {
-            const Data succ = (*this).operator[]((ulong)successorIndex);
-            RemoveElement(successorIndex);
-            return succ;
-        }
-        throw std::length_error("No successor found");
+        ulong index = BinarySearch(dat);
+        ulong successorIndex = (vector[index] == dat ? (index + 1) % size : index);
+        Data successor = vector[successorIndex];
+        RemoveElement(successorIndex);
+        return successor;
     }
 
     template <typename Data>
     void SetVec<Data>::RemoveSuccessor(const Data &dat)
     {
-        if (Empty())
+        if (Empty() || dat >= vector[(head - 1 + size) % size])
         {
-            throw std::length_error("Set is empty");
+            throw std::length_error("No successor found");
         }
-        long pos = GetSuccessorIndex(dat);
-        if (pos != -1)
-        {
-            RemoveElement(pos);
-            return;
-        }
-        throw std::length_error("No successor found");
+        ulong index = BinarySearch(dat);
+        ulong successorIndex = (vector[index] == dat ? (index + 1) % size : index);
+        RemoveElement(successorIndex);
     }
 
     template <typename Data>
     bool SetVec<Data>::Insert(const Data &dat)
     {
-        if (Exists(dat))
-            return false;
+        if (Empty())
+        {
+            vector[tail] = dat;
+            head = (head + 1) % size;
+            return true;
+        }
+
+        ulong pos = BinarySearch(dat);
+        if (vector[pos] != dat)
+        {
+            if (dat < vector[tail])
+            {
+                tail = (tail - 1 + size) % size;
+                vector[tail] = dat;
+                CheckNDouble();
+                return true;
+            }
+            else
+            {
+                InsertAtIndex(pos, dat);
+                return true;
+            }
+        }
         else
         {
-            InsertAtIndex(dat);
-            CheckNDouble();
-            return true;
+            return false;
         }
     }
 
     template <typename Data>
     bool SetVec<Data>::Insert(Data &&dat)
     {
-        if (Exists(dat))
-            return false;
+        if (Empty())
+        {
+            vector[tail] = std::move(dat);
+            head = (head + 1) % size;
+            return true;
+        }
+
+        ulong pos = BinarySearch(dat);
+        if (vector[pos] != dat)
+        {
+            if (dat < vector[tail])
+            {
+                tail = (tail - 1 + size) % size;
+                vector[tail] = std::move(dat);
+                CheckNDouble();
+                return true;
+            }
+            else
+            {
+                InsertAtIndex(pos, std::move(dat));
+                return true;
+            }
+        }
         else
         {
-            InsertAtIndex(std::move(dat));
-            CheckNDouble();
-            return true;
+            return false;
         }
     }
 
@@ -291,10 +315,9 @@ namespace lasd
     bool SetVec<Data>::Remove(const Data &dat)
     {
 
-        long posLong = BinarySearch(dat);
-        if (posLong != -1)
+        ulong pos = BinarySearch(dat);
+        if (vector[pos] == dat)
         {
-            ulong pos = static_cast<ulong>(posLong);
             if (pos == tail)
             {
                 RemoveMin();
@@ -315,7 +338,7 @@ namespace lasd
     template <typename Data>
     bool SetVec<Data>::Empty() const noexcept
     {
-        return ((head - tail) % size == 0);
+        return (Size()== 0);
     }
 
     template <typename Data>
@@ -327,7 +350,8 @@ namespace lasd
         }
         else
         {
-            return (BinarySearch(dat) != -1);
+            ulong index = BinarySearch(dat);
+            return (vector[index] == dat);
         }
     }
 
@@ -370,11 +394,11 @@ namespace lasd
     template <typename Data>
     ulong SetVec<Data>::Size() const noexcept
     {
-        return (head - tail) % size;
+        return (head - tail + size) % size;
     }
 
     template <typename Data>
-    ulong SetVec<Data>::FindInsertIndex(const Data &dat) const
+    ulong SetVec<Data>::BinarySearch(const Data &dat) const
     {
         if (Empty())
         {
@@ -404,26 +428,24 @@ namespace lasd
             }
         }
 
-        // Insert position is at logical index `left`
         return (tail + left) % size;
     }
 
     template <typename Data>
-    void SetVec<Data>::InsertAtIndex(const Data &dat)
+    void SetVec<Data>::InsertAtIndex(ulong pos, const Data &dat)
     {
-        ulong pos = FindInsertIndex(dat);
-        ShiftRight(pos);
+        InsertionShiftRight(pos);
         vector[pos] = dat;
-        head = (head + 1) % size;
+        CheckNDouble();
     }
 
     template <typename Data>
-    void SetVec<Data>::InsertAtIndex(Data &&dat)
+    void SetVec<Data>::InsertAtIndex(ulong pos, Data &&dat)
     {
-        ulong pos = FindInsertIndex(dat);
-        ShiftRight(pos);
+
+        InsertionShiftRight(pos);
         vector[pos] = std::move(dat);
-        head = (head + 1) % size;
+        CheckNDouble();
     }
 
     template <typename Data>
@@ -449,33 +471,6 @@ namespace lasd
     }
 
     template <typename Data>
-    long SetVec<Data>::BinarySearch(const Data &target) const
-    {
-        ulong left = tail;
-        ulong right = (head - 1 + size) % size;
-
-        while ((left % size) != ((right + 1) % size))
-        {
-            ulong dist = (right - left + size) % size;
-            ulong mid = (left + dist / 2) % size;
-
-            if (vector[mid] == target)
-            {
-                return mid;
-            }
-            else if (vector[mid] < target)
-            {
-                left = (mid + 1) % size;
-            }
-            else
-            {
-                right = (mid - 1 + size) % size;
-            }
-        }
-        return -1;
-    }
-
-    template <typename Data>
     void SetVec<Data>::CheckNHalve()
     {
         if (Size() <= size / 4 && size > INIT_SIZE)
@@ -490,92 +485,47 @@ namespace lasd
     }
 
     template <typename Data>
-    void SetVec<Data>::ShiftRight(ulong pos)
+    void SetVec<Data>::InsertionShiftRight(ulong pos)
     {
+        // Da chiamare durante inserimento per fare spazio verso destra
         for (ulong i = head; i != pos; i = (i - 1 + size) % size)
         {
             vector[i] = vector[(i - 1 + size) % size];
         }
+        head = (head + 1) % size;
     }
 
     template <typename Data>
-    void SetVec<Data>::ShiftLeft(ulong pos)
+    void SetVec<Data>::RemovalShiftLeft(ulong pos)
     {
+        // Da chiamare durante la rimozione
         for (ulong i = pos; i != head; i = (i + 1) % size)
         {
             vector[i] = vector[(i + 1) % size];
         }
+        head = (head - 1 + size) % size;
     }
 
     template <typename Data>
     void SetVec<Data>::RemoveElement(ulong pos)
     {
-        ShiftLeft(pos);
-        head = (head - 1 + size) % size;
+        RemovalShiftLeft(pos);
         CheckNHalve();
     }
 
     template <typename Data>
-    long SetVec<Data>::GetPredecessorIndex(const Data &target) const
+    void SetVec<Data>::PrintVector() const noexcept
     {
-        if (Empty() || vector[tail] >= target)
+        std::cout << "SetVec's size: " << Size() << std::endl;
+        std::cout << "Head: " << head << std::endl;
+        std::cout << "Tail: " << tail << std::endl;
+        std::cout << std::endl;
+        std::cout << "Vector: " << std::endl;
+        for (ulong i = 0; i < size; ++i)
         {
-            return -1;
+            std::cout << "V[" << i << "] = " << vector[i] << std::endl;
         }
-
-        long size_logical = (head - tail + size) % size;
-        long left = 0;
-        long right = size_logical - 1;
-        long result = -1;
-
-        while (left <= right)
-        {
-            long mid = left + (right - left) / 2;
-            ulong mid_index = (tail + mid) % size;
-
-            if (vector[mid_index] < target)
-            {
-                result = mid_index;
-                left = mid + 1;
-            }
-            else
-            {
-                right = mid - 1;
-            }
-        }
-
-        return result;
+        std::cout << std::endl;
     }
 
-    template <typename Data>
-    long SetVec<Data>::GetSuccessorIndex(const Data &target) const
-    {
-        if (Empty() || vector[(head - 1 + size) % size] <= target)
-        {
-            return -1;
-        }
-
-        long size_logical = (head - tail + size) % size;
-        long left = 0;
-        long right = size_logical - 1;
-        long result = -1;
-
-        while (left <= right)
-        {
-            long mid = left + (right - left) / 2;
-            ulong mid_index = (tail + mid) % size;
-
-            if (vector[mid_index] > target)
-            {
-                result = mid_index;
-                right = mid - 1;
-            }
-            else
-            {
-                left = mid + 1;
-            }
-        }
-
-        return result;
-    }
 }
