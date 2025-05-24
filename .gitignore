@@ -34,3 +34,11 @@ main
 
 # VSCode folder
 **/.vscode/*
+
+# GCov files
+*.gcda
+*.gcno
+*.gcov
+*.png
+*.info
+*.html
