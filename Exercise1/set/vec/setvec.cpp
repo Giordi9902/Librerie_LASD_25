@@ -256,22 +256,26 @@ namespace lasd
             head = (head + 1) % size;
             return true;
         }
+        if (dat < vector[tail])
+        {
+            tail = (tail - 1 + size) % size;
+            vector[tail] = dat;
+            CheckNDouble();
+            return true;
+        }
+        else if (dat > vector[(head - 1 + size) % size])
+        {
+            vector[head] = dat;
+            head = (head + 1) % size;
+            CheckNDouble();
+            return true;
+        }
 
         ulong pos = BinarySearch(dat);
         if (vector[pos] != dat)
         {
-            if (dat < vector[tail])
-            {
-                tail = (tail - 1 + size) % size;
-                vector[tail] = dat;
-                CheckNDouble();
-                return true;
-            }
-            else
-            {
-                InsertAtIndex(pos, dat);
-                return true;
-            }
+            InsertAtIndex(pos, dat);
+            return true;
         }
         else
         {
@@ -292,18 +296,8 @@ namespace lasd
         ulong pos = BinarySearch(dat);
         if (vector[pos] != dat)
         {
-            if (dat < vector[tail])
-            {
-                tail = (tail - 1 + size) % size;
-                vector[tail] = std::move(dat);
-                CheckNDouble();
-                return true;
-            }
-            else
-            {
-                InsertAtIndex(pos, std::move(dat));
-                return true;
-            }
+            InsertAtIndex(pos, std::move(dat));
+            return true;
         }
         else
         {
@@ -338,7 +332,7 @@ namespace lasd
     template <typename Data>
     bool SetVec<Data>::Empty() const noexcept
     {
-        return (Size()== 0);
+        return (Size() == 0);
     }
 
     template <typename Data>
@@ -432,23 +426,6 @@ namespace lasd
     }
 
     template <typename Data>
-    void SetVec<Data>::InsertAtIndex(ulong pos, const Data &dat)
-    {
-        InsertionShiftRight(pos);
-        vector[pos] = dat;
-        CheckNDouble();
-    }
-
-    template <typename Data>
-    void SetVec<Data>::InsertAtIndex(ulong pos, Data &&dat)
-    {
-
-        InsertionShiftRight(pos);
-        vector[pos] = std::move(dat);
-        CheckNDouble();
-    }
-
-    template <typename Data>
     void SetVec<Data>::PreOrderTraverse(const TraverseFun func) const
     {
         ulong index = tail;
@@ -496,6 +473,26 @@ namespace lasd
     }
 
     template <typename Data>
+    void SetVec<Data>::InsertionShiftLeft(ulong pos)
+    {
+        tail = (tail - 1 + size) % size;
+        for (ulong index = tail; index != pos; index = (index + 1) % size)
+        {
+            vector[index] = vector[(index + 1) % size];
+        }
+    }
+
+    template <typename Data>
+    void SetVec<Data>::RemovalShiftRight(ulong pos)
+    {
+        for (ulong index = pos; index != tail; index = (index - 1 + size) % size)
+        {
+            vector[index] = vector[(index - 1 + size) % size];
+        }
+        tail = (tail + 1) % size;
+    }
+
+    template <typename Data>
     void SetVec<Data>::RemovalShiftLeft(ulong pos)
     {
         // Da chiamare durante la rimozione
@@ -509,8 +506,57 @@ namespace lasd
     template <typename Data>
     void SetVec<Data>::RemoveElement(ulong pos)
     {
-        RemovalShiftLeft(pos);
+        // RemovalShiftLeft(pos);
+        ulong distanceToTail = (pos - tail + size) % size;
+        ulong distanceToHead = (head - pos + size) % size;
+        if (distanceToHead <= distanceToTail)
+        {
+            RemovalShiftLeft(pos);
+        }
+        else
+        {
+            RemovalShiftRight(pos);
+        }
         CheckNHalve();
+    }
+
+    template <typename Data>
+    void SetVec<Data>::InsertAtIndex(ulong pos, const Data &dat)
+    {
+        // InsertionShiftRight(pos);
+        ulong distanceToTail = (pos - tail + size) % size;
+        ulong distanceToHead = (head - pos + size) % size;
+        if (distanceToTail < distanceToHead)
+        {
+            InsertionShiftLeft(pos);
+            vector[(pos-1+size)%size] = dat;
+        }
+        else
+        {
+            InsertionShiftRight(pos);
+            vector[pos] = dat;
+        }
+
+        CheckNDouble();
+    }
+
+    template <typename Data>
+    void SetVec<Data>::InsertAtIndex(ulong pos, Data &&dat)
+    {
+        // InsertionShiftRight(pos);
+        ulong distanceToTail = (pos - tail + size) % size;
+        ulong distanceToHead = (head - pos + size) % size;
+        if (distanceToTail < distanceToHead)
+        {
+            InsertionShiftLeft(pos);
+            vector[(pos-1+size)%size] = std::move(dat);
+        }
+        else
+        {
+            InsertionShiftRight(pos);
+            vector[pos] = std::move(dat);
+        }
+        CheckNDouble();
     }
 
     template <typename Data>

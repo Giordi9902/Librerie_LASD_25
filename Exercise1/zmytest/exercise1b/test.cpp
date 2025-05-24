@@ -19,6 +19,86 @@
 
 using namespace std;
 
+void Check_Existence_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
+{
+    // Adding elements to the set: 1 2 4 8 16 32 64 128 256 512
+    for (int index = 1; index < 1000; index *= 2)
+    {
+        set.Insert(index);
+    }
+    Exists(testnum, testerr, set, true, 1);
+    Exists(testnum, testerr, set, true, 2);
+    Exists(testnum, testerr, set, true, 4);
+    Exists(testnum, testerr, set, true, 8);
+    Exists(testnum, testerr, set, true, 16);
+    Exists(testnum, testerr, set, true, 32);
+    Exists(testnum, testerr, set, true, 64);
+    Exists(testnum, testerr, set, true, 128);
+    Exists(testnum, testerr, set, true, 256);
+    Exists(testnum, testerr, set, true, 512);
+    Exists(testnum, testerr, set, false, 3);
+    Exists(testnum, testerr, set, false, 5);
+    Exists(testnum, testerr, set, false, 1000);
+    Exists(testnum, testerr, set, false, 1024);
+    Exists(testnum, testerr, set, false, 2048);
+    Exists(testnum, testerr, set, false, 4096);
+    Exists(testnum, testerr, set, false, 8192);
+    Exists(testnum, testerr, set, false, 16384);
+    Exists(testnum, testerr, set, false, 32768);
+    Exists(testnum, testerr, set, false, 65536);
+    set.Clear();
+    Exists(testnum, testerr, set, false, 1);
+}
+
+void Check_Existence_Set_Char(lasd::Set<char> &set, uint &testnum, uint &testerr)
+{
+    // Adding elements to the set: a b c d e f g h i j
+    for (char index = 'a'; index <= 'j'; index++)
+    {
+        set.Insert(index);
+    }
+    Exists(testnum, testerr, set, true, 'a');
+    Exists(testnum, testerr, set, true, 'b');
+    Exists(testnum, testerr, set, true, 'c');
+    Exists(testnum, testerr, set, true, 'd');
+    Exists(testnum, testerr, set, true, 'e');
+    Exists(testnum, testerr, set, true, 'f');
+    Exists(testnum, testerr, set, true, 'g');
+    Exists(testnum, testerr, set, true, 'h');
+    Exists(testnum, testerr, set, true, 'i');
+    Exists(testnum, testerr, set, true, 'j');
+    Exists(testnum, testerr, set, false, 'k');
+    Exists(testnum, testerr, set, false, 'l');
+    set.Clear();
+    Exists(testnum, testerr, set, false, 'a');
+}
+
+void Check_Existence_Set_String(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
+{
+    // Adding elements to the set: apple banana cherry date elderberry fig grape honeydew
+    set.Insert(std::string("apple"));
+    set.Insert(std::string("banana"));
+    set.Insert(std::string("cherry"));
+    set.Insert(std::string("date"));
+    set.Insert(std::string("elderberry"));
+    set.Insert(std::string("fig"));
+    set.Insert(std::string("grape"));
+    set.Insert(std::string("honeydew"));
+
+    Exists(testnum, testerr, set, true, std::string("apple"));
+    Exists(testnum, testerr, set, true, std::string("banana"));
+    Exists(testnum, testerr, set, true, std::string("cherry"));
+    Exists(testnum, testerr, set, true, std::string("date"));
+    Exists(testnum, testerr, set, true, std::string("elderberry"));
+    Exists(testnum, testerr, set, true, std::string("fig"));
+    Exists(testnum, testerr, set, true, std::string("grape"));
+    Exists(testnum, testerr, set, true, std::string("honeydew"));
+    Exists(testnum, testerr, set, false, std::string("kiwi"));
+    Exists(testnum, testerr, set, false, std::string("lemon"));
+    set.Clear();
+    Exists(testnum, testerr, set, false, std::string("apple"));
+}
+
 void Check_Insertion_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
 {
     InsertC(testnum, testerr, set, true, 4);
@@ -37,6 +117,48 @@ void Check_Insertion_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
     Remove(testnum, testerr, set, true, 6);
     Remove(testnum, testerr, set, true, 7);
     Remove(testnum, testerr, set, false, 8);
+    set.Clear();
+    lasd::Vector<int> v1(10);
+    v1[0] = 10;
+    v1[1] = 20;
+    v1[2] = 30;
+    v1[3] = 40;
+    v1[4] = 50;
+    v1[5] = 60;
+    v1[6] = 70;
+    v1[7] = 80;
+    v1[8] = 90;
+    v1[9] = 100;
+    InsertAllC(testnum, testerr, set, true, v1);
+    RemoveAll(testnum, testerr, set, true, v1);
+    InsertAllM(testnum, testerr, set, true, std::move(v1));
+    lasd::List<int> l1;
+    l1.InsertAtBack(10);
+    l1.InsertAtBack(20);
+    l1.InsertAtBack(30);
+    l1.InsertAtBack(40);
+    l1.InsertAtBack(50);
+    l1.InsertAtBack(60);
+    l1.InsertAtBack(70);
+    l1.InsertAtBack(80);
+    l1.InsertAtBack(90);
+    l1.InsertAtBack(100);
+    InsertSomeC(testnum, testerr, set, false, l1);
+    RemoveAll(testnum, testerr, set, true, l1);
+    Empty(testnum, testerr, set, true);
+    InsertSomeM(testnum, testerr, set, true, std::move(l1));
+    l1.InsertAtBack(10);
+    l1.InsertAtBack(20);
+    l1.InsertAtBack(30);
+    l1.InsertAtBack(40);
+    l1.InsertAtBack(50);
+    l1.InsertAtBack(60);
+    l1.InsertAtBack(70);
+    l1.InsertAtBack(80);
+    l1.InsertAtBack(90);
+    l1.InsertAtBack(120);
+    InsertC(testnum, testerr, set, true, 110);
+    RemoveSome(testnum, testerr, set, true, l1);
 }
 
 void Check_Insertion_Set_Double(lasd::Set<double> &set, uint &testnum, uint &testerr)
@@ -115,6 +237,9 @@ void Check_Min_Max_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
     MaxNRemove(testnum, testerr, set, true, 5);
     Min(testnum, testerr, set, true, 4);
     Max(testnum, testerr, set, true, 4);
+    set.Clear();
+    Min(testnum, testerr, set, false, 3);
+    Max(testnum, testerr, set, false, 0);
 }
 
 void Check_Min_Max_Set_Double(lasd::Set<double> &set, uint &testnum, uint &testerr)
@@ -133,11 +258,13 @@ void Check_Min_Max_Set_Double(lasd::Set<double> &set, uint &testnum, uint &teste
     MaxNRemove(testnum, testerr, set, true, 5.5);
     Min(testnum, testerr, set, true, 4.4);
     Max(testnum, testerr, set, true, 4.4);
+    set.Clear();
+    Min(testnum, testerr, set, false, 3.3);
+    Max(testnum, testerr, set, false, 0.1);
 }
 
 void Check_Min_Max_Set_Char(lasd::Set<char> &set, uint &testnum, uint &testerr)
 {
-
     Min(testnum, testerr, set, true, 'a');
     Max(testnum, testerr, set, true, 'g');
     RemoveMax(testnum, testerr, set, true);
@@ -152,6 +279,9 @@ void Check_Min_Max_Set_Char(lasd::Set<char> &set, uint &testnum, uint &testerr)
     MaxNRemove(testnum, testerr, set, true, 'e');
     Min(testnum, testerr, set, true, 'd');
     Max(testnum, testerr, set, true, 'd');
+    set.Clear();
+    Min(testnum, testerr, set, false, 'c');
+    Max(testnum, testerr, set, false, 'a');
 }
 
 void Check_Min_Max_Set_String(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
@@ -170,6 +300,9 @@ void Check_Min_Max_Set_String(lasd::Set<std::string> &set, uint &testnum, uint &
     MaxNRemove(testnum, testerr, set, true, std::string("elderberry"));
     Min(testnum, testerr, set, true, std::string("date"));
     Max(testnum, testerr, set, true, std::string("date"));
+    set.Clear();
+    Min(testnum, testerr, set, false, std::string("banana"));
+    Max(testnum, testerr, set, false, std::string("apple"));
 }
 
 void Check_PredecessorNSuccessor_Int_Set(lasd::Set<int> &set, uint &testnum, uint &testerr)
@@ -214,6 +347,9 @@ void Check_PredecessorNSuccessor_Int_Set(lasd::Set<int> &set, uint &testnum, uin
     RemovePredecessor(testnum, testerr, set, false, 0);
     RemovePredecessor(testnum, testerr, set, true, 10);
     // 5
+    set.Clear();
+    Predecessor(testnum, testerr, set, false, 1, 3);
+    Successor(testnum, testerr, set, false, 3, 4);
 }
 
 void Check_PredecessorNSuccessor_Double_Set(lasd::Set<double> &set, uint &testnum, uint &testerr)
@@ -258,6 +394,9 @@ void Check_PredecessorNSuccessor_Double_Set(lasd::Set<double> &set, uint &testnu
     RemovePredecessor(testnum, testerr, set, false, 1.1);
     RemovePredecessor(testnum, testerr, set, true, 10.10);
     // 5.5
+    set.Clear();
+    Predecessor(testnum, testerr, set, false, 1.1, 3.3);
+    Successor(testnum, testerr, set, false, 3.3, 4.4);
 }
 
 void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, uint &testerr)
@@ -302,6 +441,9 @@ void Check_PredecessorNSuccessor_Char_Set(lasd::Set<char> &set, uint &testnum, u
     RemovePredecessor(testnum, testerr, set, false, 'b');
     RemovePredecessor(testnum, testerr, set, true, 'z');
     // e
+    set.Clear();
+    Predecessor(testnum, testerr, set, false, 'a', 'c');
+    Successor(testnum, testerr, set, false, 'c', 'd');
 }
 
 void Check_PredecessorNSuccessor_String_Set(lasd::Set<std::string> &set, uint &testnum, uint &testerr)
@@ -330,6 +472,9 @@ void Check_PredecessorNSuccessor_String_Set(lasd::Set<std::string> &set, uint &t
     RemoveSuccessor(testnum, testerr, set, true, std::string("banana"));
     // banana date elderberry fig grape
     SuccessorNRemove(testnum, testerr, set, false, std::string("grape"), std::string("cherry"));
+    set.Clear();
+    Predecessor(testnum, testerr, set, false, std::string("lasd"), std::string("exam"));
+    Successor(testnum, testerr, set, false, std::string("lasd"), std::string("exam"));
 }
 
 void Personal_Int_SetLst(uint &testnum, uint &testerr)
@@ -421,6 +566,11 @@ void Personal_Int_SetLst(uint &testnum, uint &testerr)
     {
         lasd::SetLst<int> setlst;
         Check_Insertion_Set_Int(setlst, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetLst<int> setlst;
+        Check_Existence_Set_Int(setlst, loctestnum, loctesterr);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -516,6 +666,7 @@ void Personal_Double_SetLst(uint &testnum, uint &testerr)
         lasd::SetLst<double> setlst;
         Check_Insertion_Set_Double(setlst, loctestnum, loctesterr);
     }
+
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -609,6 +760,12 @@ void Personal_Char_SetLst(uint &testnum, uint &testerr)
         lasd::SetLst<char> setlst;
         Check_Insertion_Set_Char(setlst, loctestnum, loctesterr);
     }
+
+    {
+        lasd::SetLst<char> setlst;
+        Check_Existence_Set_Char(setlst, loctestnum, loctesterr);
+    }
+
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -701,6 +858,11 @@ void Personal_String_SetLst(uint &testnum, uint &testerr)
     {
         lasd::SetLst<std::string> setlst;
         Check_Insertion_Set_String(setlst, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetLst<std::string> setlst;
+        Check_Existence_Set_String(setlst, loctestnum, loctesterr);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -797,6 +959,11 @@ void Personal_Int_SetVec(uint &testnum, uint &testerr)
         lasd::SetVec<int> setvec;
         Check_Insertion_Set_Int(setvec, loctestnum, loctesterr);
     }
+
+    {
+        lasd::SetVec<int> setlst;
+        Check_Existence_Set_Int(setlst, loctestnum, loctesterr);
+    }
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -891,6 +1058,7 @@ void Personal_Double_SetVec(uint &testnum, uint &testerr)
         lasd::SetVec<double> setvec;
         Check_Insertion_Set_Double(setvec, loctestnum, loctesterr);
     }
+
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -983,6 +1151,11 @@ void Personal_Char_SetVec(uint &testnum, uint &testerr)
         lasd::SetVec<char> setvec;
         Check_Insertion_Set_Char(setvec, loctestnum, loctesterr);
     }
+
+    {
+        lasd::SetVec<char> setlst;
+        Check_Existence_Set_Char(setlst, loctestnum, loctesterr);
+    }
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -1074,6 +1247,11 @@ void Personal_String_SetVec(uint &testnum, uint &testerr)
     {
         lasd::SetVec<std::string> setvec;
         Check_Insertion_Set_String(setvec, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetVec<std::string> setvec;
+        Check_Existence_Set_String(setvec, loctestnum, loctesterr);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -1212,8 +1390,6 @@ void SetLstTestMenu()
         std::cout << "\33[1;33m\t13:\033[0m Clear the set\n";
         std::cout << "\33[1;33m\t14:\033[0m Find predecessor of and element and delete it\n";
         std::cout << "\33[1;33m\t15:\033[0m Find successor of and element and delete it\n";
-        std::cout << "\33[1;33m\t16:\033[0m Print vector\n";
-        std::cout << "\33[1;33m\t17:\033[0m Binary Search\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -1225,11 +1401,11 @@ void SetLstTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 17)
+            if (choice < 0 || choice > 15)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 17.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 15.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 17);
+        } while (choice < 0 || choice > 15);
 
         switch (choice)
         {
@@ -1671,6 +1847,14 @@ void SetVecTestMenu()
             setvec.PrintVector();
             wait();
             break;
+        case 17:
+        {
+            int elementToSearch;
+            std::cout << "\n Enter element to search: ";
+            std::cin >> elementToSearch;
+            int index = setvec.BinarySearch(elementToSearch);
+            std::cout << "\n Binary search returned index: " << index << std::endl;
+        }
         case 0:
             std::cout << "Exiting...Goodbye!" << std::endl;
             break;

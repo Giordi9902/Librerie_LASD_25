@@ -89,6 +89,7 @@ namespace lasd
     void PostOrderTraverse(const TraverseFun)const override;
     void PreOrderTraverse(const TraverseFun)const override;
     void PrintVector() const noexcept;
+    ulong BinarySearch(const Data&)const;
 
 
   protected:
@@ -96,12 +97,14 @@ namespace lasd
     void InsertAtIndex(ulong, const Data&);
     void InsertAtIndex(ulong, Data&&);
     void Resize(ulong);
-    ulong BinarySearch(const Data&)const;
+
     void CheckNHalve();
     void CheckNDouble();
     void RemoveElement(ulong);
     void RemovalShiftLeft(ulong);
+    void RemovalShiftRight(ulong);
     void InsertionShiftRight(ulong);
+    void InsertionShiftLeft(ulong);
 
   };
 

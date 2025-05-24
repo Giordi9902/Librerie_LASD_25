@@ -1986,12 +1986,1103 @@ void myTestExercise1A(unsigned int &testnum, unsigned int &testerr)
 
 void VectorTestMenu()
 {
+    lasd::Vector<int> vector(10);
+    uint choice = 0;
+    do
+    {
+        std::cout << "\n\033[1;34mSelect an operation:\033[0m" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\33[1;33m\t1 :\033[0m Print vector\n";
+        std::cout << "\33[1;33m\t2 :\033[0m Resize vector\n";
+        std::cout << "\33[1;33m\t3 :\033[0m Clear vector\n";
+        std::cout << "\33[1;33m\t4 :\033[0m Check if vector is empty\n";
+        std::cout << "\33[1;33m\t5 :\033[0m Get vector size\n";
+        std::cout << "\33[1;33m\t6 :\033[0m Check if an element exists\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Traverse vector\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Traverse vector post-order\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Fold vector\n";
+        std::cout << "\33[1;33m\t10:\033[0m Fold vector post-order\n";
+        std::cout << "\33[1;33m\t11:\033[0m Fold vector pre-order\n";
+        std::cout << "\33[1;33m\t12:\033[0m Map vector\n";
+        std::cout << "\33[1;33m\t13:\033[0m Map vector post-order\n";
+        std::cout << "\33[1;33m\t14:\033[0m Get element at index\n";
+        std::cout << "\33[1;33m\t15:\033[0m Set element at index\n";
+        std::cout << "\33[1;33m\t16:\033[0m Get front element\n";
+        std::cout << "\33[1;33m\t17:\033[0m Set front element\n";
+        std::cout << "\33[1;33m\t18:\033[0m Get back element\n";
+        std::cout << "\33[1;33m\t19:\033[0m Set back element\n";
+        std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
+
+        do
+        {
+            std::cout << "\n\033[1;34mChoice:\033[0m ";
+            if (!(std::cin >> choice))
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                choice = -1;
+            }
+            if (choice < 0 || choice > 19)
+            {
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 19.\033[0m" << std::endl;
+            }
+        } while (choice < 0 || choice > 15);
+
+        switch (choice)
+        {
+        case 1:
+        {
+            std::cout << "\n Vector's content: ";
+            vector.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 2:
+        {
+            ulong newSize;
+            std::cout << "\n Enter new size: ";
+            std::cin >> newSize;
+            vector.Resize(newSize);
+            std::cout << "\n Vector resized to " << newSize << " elements." << std::endl;
+            break;
+        }
+        case 3:
+        {
+            vector.Clear();
+            std::cout << "\n Vector cleared." << std::endl;
+            break;
+        }
+        case 4:
+        {
+            if (vector.Empty())
+            {
+                std::cout << "\n Vector is empty." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Vector is not empty." << std::endl;
+            }
+            break;
+        }
+        case 5:
+        {
+            std::cout << "\n Vector size: " << vector.Size() << std::endl;
+            break;
+        }
+        case 6:
+        {
+            int element;
+            std::cout << "\n Enter element to check: ";
+            std::cin >> element;
+            if (vector.Exists(element))
+            {
+                std::cout << "\n Element " << element << " exists in the vector." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element " << element << " does not exist in the vector." << std::endl;
+            }
+            break;
+        }
+        case 7:
+        {
+            std::cout << "\n Traversing vector: ";
+            vector.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 8:
+        {
+            std::cout << "\n Traversing vector post-order: ";
+            vector.PostOrderTraverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 9:
+        {
+            std::cout << "\nChoose fold function to apply:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = vector.Fold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = vector.Fold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 10:
+        {
+            std::cout << "\nChoose fold function to apply post-order:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = vector.PostOrderFold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = vector.PostOrderFold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 11:
+        {
+            std::cout << "\nChoose fold function to apply pre-order:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = vector.PreOrderFold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = vector.PreOrderFold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 12:
+        {
+            std::cout << "\nChoose map function to apply:\n"
+                      << "\t1: Increment\n"
+                      << "\t2: Square\n";
+            int mapChoice;
+            std::cin >> mapChoice;
+            switch (mapChoice)
+            {
+            case 1:
+            {
+                vector.Map(IncrementInt);
+                std::cout << "\n Increment applied." << std::endl;
+                break;
+            }
+            case 2:
+            {
+                vector.Map(SquareInt);
+                std::cout << "\n Square applied." << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid map function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 13:
+        {
+            std::cout << "\nChoose map function to apply post-order:\n"
+                      << "\t1: Increment\n"
+                      << "\t2: Square\n";
+            int mapChoice;
+            std::cin >> mapChoice;
+            switch (mapChoice)
+            {
+            case 1:
+            {
+                vector.PostOrderMap(IncrementInt);
+                std::cout << "\n Increment applied." << std::endl;
+                break;
+            }
+            case 2:
+            {
+                vector.PostOrderMap(SquareInt);
+                std::cout << "\n Square applied." << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid map function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 14:
+        {
+            ulong index;
+            std::cout << "\n Enter index: ";
+            std::cin >> index;
+            try
+            {
+                std::cout << "\n Element at index " << index << ": " << vector[index] << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 15:
+        {
+            ulong index;
+            int value;
+            std::cout << "\n Enter index: ";
+            std::cin >> index;
+            std::cout << " Enter value: ";
+            std::cin >> value;
+            try
+            {
+                vector[index] = value;
+                std::cout << "\n Element at index " << index << " set to " << value << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 16:
+        {
+            try
+            {
+                std::cout << "\n Front element: " << vector.Front() << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 17:
+        {
+            int value;
+            std::cout << "\n Enter value to set at front: ";
+            std::cin >> value;
+            try
+            {
+                vector[0] = value;
+                std::cout << "\n Front element set to " << value << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 18:
+        {
+            try
+            {
+                std::cout << "\n Back element: " << vector.Back() << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 19:
+        {
+            int value;
+            std::cout << "\n Enter value to set at back: ";
+            std::cin >> value;
+            try
+            {
+                vector[vector.Size() - 1] = value;
+                std::cout << "\n Back element set to " << value << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 0:
+        {
+            std::cout << "Exiting...Goodbye!" << std::endl;
+            break;
+        }
+        }
+    } while (choice != 0);
 }
 
 void SortableVectorTestMenu()
 {
+    lasd::SortableVector<int> sortableVector(10);
+    uint choice = 0;
+    do
+    {
+        std::cout << "\n\033[1;34mSelect an operation:\033[0m" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\33[1;33m\t1 :\033[0m Print sortable vector\n";
+        std::cout << "\33[1;33m\t2 :\033[0m Resize sortable vector\n";
+        std::cout << "\33[1;33m\t3 :\033[0m Clear sortable vector\n";
+        std::cout << "\33[1;33m\t4 :\033[0m Check if sortable vector is empty\n";
+        std::cout << "\33[1;33m\t5 :\033[0m Get sortable vector size\n";
+        std::cout << "\33[1;33m\t6 :\033[0m Check if an element exists\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Traverse sortable vector\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Traverse sortable vector post-order\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Fold sortable vector\n";
+        std::cout << "\33[1;33m\t10:\033[0m Fold sortable vector post-order\n";
+        std::cout << "\33[1;33m\t11:\033[0m Fold sortable vector pre-order\n";
+        std::cout << "\33[1;33m\t12:\033[0m Map sortable vector\n";
+        std::cout << "\33[1;33m\t13:\033[0m Map sortable vector post-order\n";
+        std::cout << "\33[1;33m\t14:\033[0m Get element at index\n";
+        std::cout << "\33[1;33m\t15:\033[0m Set element at index\n";
+        std::cout << "\33[1;33m\t16:\033[0m Get front element\n";
+        std::cout << "\33[1;33m\t17:\033[0m Set front element\n";
+        std::cout << "\33[1;33m\t18:\033[0m Get back element\n";
+        std::cout << "\33[1;33m\t19:\033[0m Set back element\n";
+        std::cout << "\33[1;33m\t20:\033[0m Sort sortable vector\n";
+        std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
+
+        do
+        {
+            std::cout << "\n\033[1;34mChoice:\033[0m ";
+            if (!(std::cin >> choice))
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                choice = -1;
+            }
+            if (choice < 0 || choice > 20)
+            {
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 20.\033[0m" << std::endl;
+            }
+        } while (choice < 0 || choice > 20);
+
+        switch (choice)
+        {
+        case 1:
+        {
+            std::cout << "\n Sortable Vector's content: ";
+            sortableVector.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 2:
+        {
+            ulong newSize;
+            std::cout << "\n Enter new size: ";
+            std::cin >> newSize;
+            sortableVector.Resize(newSize);
+            std::cout << "\n Sortable Vector resized to " << newSize << " elements." << std::endl;
+            break;
+        }
+        case 3:
+        {
+            sortableVector.Clear();
+            std::cout << "\n Sortable Vector cleared." << std::endl;
+            break;
+        }
+        case 4:
+        {
+            if (sortableVector.Empty())
+            {
+                std::cout << "\n Sortable Vector is empty." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Sortable Vector is not empty." << std::endl;
+            }
+            break;
+        }
+        case 5:
+        {
+            std::cout << "\n Sortable Vector size: " << sortableVector.Size() << std::endl;
+            break;
+        }
+        case 6:
+        {
+            int element;
+            std::cout << "\n Enter element to check: ";
+            std::cin >> element;
+            if (sortableVector.Exists(element))
+            {
+                std::cout << "\n Element " << element << " exists in the sortable vector." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element " << element << " does not exist in the sortable vector." << std::endl;
+            }
+            break;
+        }
+        case 7:
+        {
+            std::cout << "\n Traversing sortable vector: ";
+            sortableVector.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 8:
+        {
+            std::cout << "\n Traversing sortable vector post-order: ";
+            sortableVector.PostOrderTraverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 9:
+        {
+            std::cout << "\nChoose fold function to apply:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = sortableVector.Fold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = sortableVector.Fold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 10:
+        {
+            std::cout << "\nChoose fold function to apply post-order:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = sortableVector.PostOrderFold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = sortableVector.PostOrderFold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 11:
+        {
+            std::cout << "\nChoose fold function to apply pre-order:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = sortableVector.PreOrderFold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = sortableVector.PreOrderFold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+
+        case 12:
+        {
+            std::cout << "\nChoose map function to apply:\n"
+                      << "\t1: Increment\n"
+                      << "\t2: Square\n";
+            int mapChoice;
+            std::cin >> mapChoice;
+            switch (mapChoice)
+            {
+            case 1:
+            {
+                sortableVector.Map(IncrementInt);
+                std::cout << "\n Increment applied." << std::endl;
+                break;
+            }
+            case 2:
+            {
+                sortableVector.Map(SquareInt);
+                std::cout << "\n Square applied." << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid map function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 13:
+        {
+            std::cout << "\nChoose map function to apply post-order:\n"
+                      << "\t1: Increment\n"
+                      << "\t2: Square\n";
+            int mapChoice;
+            std::cin >> mapChoice;
+            switch (mapChoice)
+            {
+            case 1:
+            {
+                sortableVector.PostOrderMap(IncrementInt);
+                std::cout << "\n Increment applied." << std::endl;
+                break;
+            }
+            case 2:
+            {
+                sortableVector.PostOrderMap(SquareInt);
+                std::cout << "\n Square applied." << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid map function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 14:
+        {
+            ulong index;
+            std::cout << "\n Enter index: ";
+            std::cin >> index;
+            try
+            {
+                std::cout << "\n Element at index " << index << ": " << sortableVector[index] << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 15:
+        {
+            ulong index;
+            int value;
+            std::cout << "\n Enter index: ";
+            std::cin >> index;
+            std::cout << " Enter value: ";
+            std::cin >> value;
+            try
+            {
+                sortableVector[index] = value;
+                std::cout << "\n Element at index " << index << " set to " << value << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 16:
+        {
+            try
+            {
+                std::cout << "\n Front element: " << sortableVector.Front() << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 17:
+        {
+            int value;
+            std::cout << "\n Enter value to set at front: ";
+            std::cin >> value;
+            try
+            {
+                sortableVector[0] = value;
+                std::cout << "\n Front element set to " << value << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 18:
+        {
+            try
+            {
+                std::cout << "\n Back element: " << sortableVector.Back() << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 19:
+        {
+            int value;
+            std::cout << "\n Enter value to set at back: ";
+            std::cin >> value;
+            try
+            {
+                sortableVector[sortableVector.Size() - 1] = value;
+                std::cout << "\n Back element set to " << value << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 20:
+        {
+            sortableVector.Sort();
+            std::cout << "\n Sortable Vector sorted." << std::endl;
+            break;
+        }
+        case 0:
+        {
+            std::cout << "Exiting...Goodbye!" << std::endl;
+            break;
+        }
+        }
+    } while (choice != 0);
 }
 
 void ListTestMenu()
 {
+    lasd::List<int> list;
+    uint choice = 0;
+    do
+    {
+        std::cout << "\n\033[1;34mSelect an operation:\033[0m" << std::endl;
+        std::cout << std::endl;
+        std::cout << "\33[1;33m\t1 :\033[0m Print list\n";
+        std::cout << "\33[1;33m\t2 :\033[0m Clear list\n";
+        std::cout << "\33[1;33m\t3 :\033[0m Check if list is empty\n";
+        std::cout << "\33[1;33m\t4 :\033[0m Get list size\n";
+        std::cout << "\33[1;33m\t5 :\033[0m Check if an element exists\n";
+        std::cout << "\33[1;33m\t6 :\033[0m Traverse list\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Traverse list post-order\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Fold list\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Fold list post-order\n";
+        std::cout << "\33[1;33m\t10:\033[0m Fold list pre-order\n";
+        std::cout << "\33[1;33m\t11:\033[0m Map list\n";
+        std::cout << "\33[1;33m\t12:\033[0m Map list post-order\n";
+        std::cout << "\33[1;33m\t13:\033[0m Get element at index\n";
+        std::cout << "\33[1;33m\t14:\033[0m Get front element\n";
+        std::cout << "\33[1;33m\t15:\033[0m Get back element\n";
+        std::cout << "\33[1;33m\t16:\033[0m Insert at front\n";
+        std::cout << "\33[1;33m\t17:\033[0m Insert at back\n";
+        std::cout << "\33[1;33m\t18:\033[0m Remove from front\n";
+        std::cout << "\33[1;33m\t19:\033[0m Remove from back\n";
+        std::cout << "\33[1;33m\t20:\033[0m FrontNRemove\n";
+        std::cout << "\33[1;33m\t21:\033[0m BackNRemove\n";
+        std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
+
+        do
+        {
+            std::cout << "\n\033[1;34mChoice:\033[0m ";
+            if (!(std::cin >> choice))
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                choice = -1;
+            }
+            if (choice < 0 || choice > 21)
+            {
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 21.\033[0m" << std::endl;
+            }
+        } while (choice < 0 || choice > 21);
+
+        switch (choice)
+        {
+        case 1:
+        {
+            std::cout << "\n List's content: ";
+            list.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 2:
+        {
+            list.Clear();
+            std::cout << "\n List cleared." << std::endl;
+            break;
+        }
+        case 3:
+        {
+            if (list.Empty())
+            {
+                std::cout << "\n List is empty." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n List is not empty." << std::endl;
+            }
+            break;
+        }
+        case 4:
+        {
+            std::cout << "\n List size: " << list.Size() << std::endl;
+            break;
+        }
+        case 5:
+        {
+            int element;
+            std::cout << "\n Enter element to check: ";
+            std::cin >> element;
+            if (list.Exists(element))
+            {
+                std::cout << "\n Element " << element << " exists in the list." << std::endl;
+            }
+            else
+            {
+                std::cout << "\n Element " << element << " does not exist in the list." << std::endl;
+            }
+            break;
+        }
+        case 6:
+        {
+            std::cout << "\n Traversing list: ";
+            list.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 7:
+        {
+            std::cout << "\n Traversing list post-order: ";
+            list.PostOrderTraverse(TraversePrint<int>);
+            std::cout << std::endl;
+            break;
+        }
+        case 8:
+        {
+            std::cout << "\nChoose fold function to apply:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = list.Fold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = list.Fold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 9:
+        {
+            std::cout << "\nChoose fold function to apply post-order:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = list.PostOrderFold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = list.PostOrderFold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 10:
+        {
+            std::cout << "\nChoose fold function to apply pre-order:\n"
+                      << "\t1: Sum\n"
+                      << "\t2: Product\n";
+            int foldChoice;
+            std::cin >> foldChoice;
+            int result;
+            switch (foldChoice)
+            {
+            case 1:
+            {
+                result = list.PreOrderFold(FoldAdd<int>, 0);
+                std::cout << "\n Fold result (sum): " << result << std::endl;
+                break;
+            }
+            case 2:
+            {
+                result = list.PreOrderFold(FoldMultiply<int>, 1);
+                std::cout << "\n Fold result (product): " << result << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid fold function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 11:
+        {
+            std::cout << "\nChoose map function to apply:\n"
+                      << "\t1: Increment\n"
+                      << "\t2: Square\n";
+            int mapChoice;
+            std::cin >> mapChoice;
+            switch (mapChoice)
+            {
+            case 1:
+            {
+                list.Map(IncrementInt);
+                std::cout << "\n Increment applied." << std::endl;
+                break;
+            }
+            case 2:
+            {
+                list.Map(SquareInt);
+                std::cout << "\n Square applied." << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid map function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 12:
+        {
+            std::cout << "\nChoose map function to apply post-order:\n"
+                      << "\t1: Increment\n"
+                      << "\t2: Square\n";
+            int mapChoice;
+            std::cin >> mapChoice;
+            switch (mapChoice)
+            {
+            case 1:
+            {
+                list.PostOrderMap(IncrementInt);
+                std::cout << "\n Increment applied." << std::endl;
+                break;
+            }
+            case 2:
+            {
+                list.PostOrderMap(SquareInt);
+                std::cout << "\n Square applied." << std::endl;
+                break;
+            }
+            default:
+            {
+                std::cout << "\33[1;31mInvalid map function choice.\033[0m" << std::endl;
+                break;
+            }
+            }
+            break;
+        }
+        case 13:
+        {
+            ulong index;
+            std::cout << "\n Enter index: ";
+            std::cin >> index;
+            try
+            {
+                std::cout << "\n Element at index " << index << ": " << list[index] << std::endl;
+            }
+            catch (const std::out_of_range &oor)
+            {
+                std::cerr << "\33[1;31mOut of Range error: " << oor.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 14:
+        {
+            try
+            {
+                std::cout << "\n Front element: " << list.Front() << std::endl;
+            }
+            catch (const std::length_error &le)
+            {
+                std::cerr << "\33[1;31mLength error: " << le.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 15:
+        {
+            try
+            {
+                std::cout << "\n Back element: " << list.Back() << std::endl;
+            }
+            catch (const std::length_error &le)
+            {
+                std::cerr << "\33[1;31mLength error: " << le.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 16:
+        {
+            int value;
+            std::cout << "\n Enter value to insert at front: ";
+            std::cin >> value;
+            list.InsertAtFront(value);
+            std::cout << "\n Element " << value << " inserted at front." << std::endl;
+            break;
+        }
+        case 17:
+        {
+            int value;
+            std::cout << "\n Enter value to insert at back: ";
+            std::cin >> value;
+            list.InsertAtBack(value);
+            std::cout << "\n Element " << value << " inserted at back." << std::endl;
+            break;
+        }
+        case 18:
+        {
+            try
+            {
+                list.RemoveFromFront();
+                std::cout << "\n Element removed from front." << std::endl;
+            }
+            catch (const std::length_error &le)
+            {
+                std::cerr << "\33[1;31mLength error: " << le.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 19:
+        {
+            try
+            {
+                list.RemoveFromBack();
+                std::cout << "\n Element removed from back." << std::endl;
+            }
+            catch (const std::length_error &le)
+            {
+                std::cerr << "\33[1;31mLength error: " << le.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 20:
+        {
+            try
+            {
+                int removedValue = list.FrontNRemove();
+                std::cout << "\n Element " << removedValue << " removed from front." << std::endl;
+            }
+            catch (const std::length_error &le)
+            {
+                std::cerr << "\33[1;31mLength error: " << le.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 21:
+        {
+            try
+            {
+                int removedValue = list.BackNRemove();
+                std::cout << "\n Element " << removedValue << " removed from back." << std::endl;
+            }
+            catch (const std::length_error &le)
+            {
+                std::cerr << "\33[1;31mLength error: " << le.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 0:
+        {
+            std::cout << "Exiting...Goodbye!" << std::endl;
+            break;
+        }
+        }
+    } while (choice != 0);
 }
