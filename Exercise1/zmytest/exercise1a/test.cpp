@@ -203,7 +203,7 @@ void PersonalIntVectorTest(uint &testnum, uint &testerr)
             GetAt(loctestnum, loctesterr, movedVec, true, i, copiedVec[i]);
         }
         NonEqualVector(loctestnum, loctesterr, movedVec, originalVec, true);
-        Empty(loctestnum, loctesterr, originalVec, true); // originalVec should now be empty
+        Empty(loctestnum, loctesterr, originalVec, true);
 
         // Copy assignment
         lasd::Vector<int> assignedVec;

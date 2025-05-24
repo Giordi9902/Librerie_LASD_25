@@ -19,6 +19,92 @@
 
 using namespace std;
 
+
+void Stress_Test_Int(lasd::Set<int>&set,uint& testnum,uint& testerr)
+{
+    // Stress test for Set with random insertions and removals
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(1, 1000);
+
+    for (int i = 0; i < 1000; ++i) {
+        int value = dis(gen);
+        if (set.Exists(value)) {
+            Remove(testnum, testerr, set, true, value);
+        } else {
+            InsertC(testnum, testerr, set, true, value);
+        }
+    }
+
+    // Check if the set is empty at the end
+    Empty(testnum, testerr, set, false);
+}
+
+void Stress_Test_Double(lasd::Set<double>&set,uint& testnum,uint& testerr)
+{
+    // Stress test for Set with random insertions and removals
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(1.0, 1000.0);
+
+    for (int i = 0; i < 1000; ++i) {
+        double value = dis(gen);
+        if (set.Exists(value)) {
+            Remove(testnum, testerr, set, true, value);
+        } else {
+            InsertC(testnum, testerr, set, true, value);
+        }
+    }
+
+    // Check if the set is empty at the end
+    Empty(testnum, testerr, set, false);
+}
+
+void Stress_Test_Char(lasd::Set<char>&set,uint& testnum,uint& testerr)
+{
+    // Stress test for Set with random insertions and removals
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis('a', 'z');
+
+    for (int i = 0; i < 1000; ++i) {
+        char value = dis(gen);
+        if (set.Exists(value)) {
+            Remove(testnum, testerr, set, true, value);
+        } else {
+            InsertC(testnum, testerr, set, true, value);
+        }
+    }
+
+    // Check if the set is empty at the end
+    Empty(testnum, testerr, set, false);
+}
+
+void Stress_Test_String(lasd::Set<std::string>&set,uint& testnum,uint& testerr)
+{
+    // Stress test for Set with random insertions and removals
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> length_dis(1, 10);
+    std::uniform_int_distribution<> char_dis('a', 'z');
+
+    for (int i = 0; i < 1000; ++i) {
+        int length = length_dis(gen);
+        std::string value;
+        for (int j = 0; j < length; ++j) {
+            value += static_cast<char>(char_dis(gen));
+        }
+        if (set.Exists(value)) {
+            Remove(testnum, testerr, set, true, value);
+        } else {
+            InsertC(testnum, testerr, set, true, value);
+        }
+    }
+
+    // Check if the set is empty at the end
+    Empty(testnum, testerr, set, false);
+}
+
 void Check_Existence_Set_Int(lasd::Set<int> &set, uint &testnum, uint &testerr)
 {
     // Adding elements to the set: 1 2 4 8 16 32 64 128 256 512
@@ -572,6 +658,11 @@ void Personal_Int_SetLst(uint &testnum, uint &testerr)
         lasd::SetLst<int> setlst;
         Check_Existence_Set_Int(setlst, loctestnum, loctesterr);
     }
+
+    {
+        lasd::SetLst<int> setlst;
+        Stress_Test_Int(setlst,loctestnum,loctesterr);
+    }
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -665,6 +756,11 @@ void Personal_Double_SetLst(uint &testnum, uint &testerr)
     {
         lasd::SetLst<double> setlst;
         Check_Insertion_Set_Double(setlst, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetLst<double> setlst;
+        Stress_Test_Double(setlst,loctestnum,loctesterr);
     }
 
     testnum += loctestnum;
@@ -766,6 +862,11 @@ void Personal_Char_SetLst(uint &testnum, uint &testerr)
         Check_Existence_Set_Char(setlst, loctestnum, loctesterr);
     }
 
+    {
+        lasd::SetLst<char> setlst;
+        Stress_Test_Char(setlst,loctestnum,loctesterr);
+    }
+
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -864,6 +965,11 @@ void Personal_String_SetLst(uint &testnum, uint &testerr)
         lasd::SetLst<std::string> setlst;
         Check_Existence_Set_String(setlst, loctestnum, loctesterr);
     }
+
+    {
+        lasd::SetLst<std::string> setlst;
+        Stress_Test_String(setlst,loctestnum,loctesterr);
+    }
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -961,8 +1067,13 @@ void Personal_Int_SetVec(uint &testnum, uint &testerr)
     }
 
     {
-        lasd::SetVec<int> setlst;
-        Check_Existence_Set_Int(setlst, loctestnum, loctesterr);
+        lasd::SetVec<int> setvec;
+        Check_Existence_Set_Int(setvec, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetVec<int> setvec;
+        Stress_Test_Int(setvec,loctestnum,loctesterr);
     }
     testnum += loctestnum;
     testerr += loctesterr;
@@ -1057,6 +1168,11 @@ void Personal_Double_SetVec(uint &testnum, uint &testerr)
     {
         lasd::SetVec<double> setvec;
         Check_Insertion_Set_Double(setvec, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetVec<double> setvec;
+        Stress_Test_Double(setvec,loctestnum,loctesterr);
     }
 
     testnum += loctestnum;
@@ -1156,6 +1272,11 @@ void Personal_Char_SetVec(uint &testnum, uint &testerr)
         lasd::SetVec<char> setlst;
         Check_Existence_Set_Char(setlst, loctestnum, loctesterr);
     }
+
+    {
+        lasd::SetVec<char> setvec;
+        Stress_Test_Char(setvec,loctestnum,loctesterr);
+    }
     testnum += loctestnum;
     testerr += loctesterr;
 }
@@ -1252,6 +1373,11 @@ void Personal_String_SetVec(uint &testnum, uint &testerr)
     {
         lasd::SetVec<std::string> setvec;
         Check_Existence_Set_String(setvec, loctestnum, loctesterr);
+    }
+
+    {
+        lasd::SetVec<std::string> setvec;
+        Stress_Test_String(setvec,loctestnum,loctesterr);
     }
     testnum += loctestnum;
     testerr += loctesterr;
