@@ -157,6 +157,13 @@ void PersonalIntVectorTest(uint &testnum, uint &testerr)
         SetBack(loctestnum, loctesterr, vec, true, 200);
         GetFront(loctestnum, loctesterr, vec, true, 100);
         GetBack(loctestnum, loctesterr, vec, true, 200);
+        vec.Clear();
+        GetFront(loctestnum,loctesterr,vec,false,3);
+        GetBack(loctestnum,loctesterr,vec,false,3);
+
+        lasd::MutableLinearContainer<int> *mt = &vec;
+        SetFront(loctestnum,loctesterr,*mt,false,0);
+        SetBack(loctestnum,loctesterr,*mt,false,0);
 
         {
             lasd::SortableVector<int> vec(5);
