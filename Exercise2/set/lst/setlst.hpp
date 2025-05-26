@@ -1,124 +1,95 @@
-
 #ifndef SETLST_HPP
 #define SETLST_HPP
-
-/* ************************************************************************** */
 
 #include "../set.hpp"
 #include "../../list/list.hpp"
 
-/* ************************************************************************** */
+namespace lasd
+{
 
-namespace lasd {
+    template <typename Data>
+    class SetLst : virtual public Set<Data>,
+                   virtual protected List<Data>
+    {
 
-/* ************************************************************************** */
+    protected:
+        using Container::size;
+        using List<Data>::head;
+        using List<Data>::tail;
+        using typename List<Data>::Node;
 
-template <typename Data>
-class SetLst {
-  // Must extend Set<Data>,
-  // Could extend List<Data>
+    public:
+        // Default constructor
+        SetLst() = default;
 
-private:
+        // Specific constructors
+        SetLst(const TraversableContainer<Data> &);
+        SetLst(MappableContainer<Data> &&);
 
-  // ...
+        // Copy constructor
+        SetLst(const SetLst<Data> &);
 
-protected:
+        // Move constructor
+        SetLst(SetLst<Data> &&) noexcept;
 
-  // using Container::???;
+        // Destructor
+        virtual ~SetLst();
 
-  // ...
+        // Copy assignment
+        SetLst<Data> &operator=(const SetLst<Data> &);
 
-public:
+        // Move assignment
+        SetLst<Data> &operator=(SetLst<Data> &&) noexcept;
 
-  // Default constructor
-  // SetLst() specifiers;
+        // Comparison operators
+        bool operator==(const SetLst<Data> &) const noexcept;
+        inline bool operator!=(const SetLst<Data> &) const noexcept;
 
-  /* ************************************************************************ */
+        // Specific member functions (inherited from OrderedDictionaryContainer)
 
-  // Specific constructors
-  // SetLst(argument) specifiers; // A set obtained from a TraversableContainer
-  // SetLst(argument) specifiers; // A set obtained from a MappableContainer
+        const Data &Min() const override;
+        const Data MinNRemove() override;
+        void RemoveMin() override;
 
-  /* ************************************************************************ */
+        const Data &Max() const override;
+        const Data MaxNRemove() override;
+        void RemoveMax() override;
 
-  // Copy constructor
-  // SetLst(argument) specifiers;
+        const Data &Predecessor(const Data &) const override;
+        const Data PredecessorNRemove(const Data &) override;
+        void RemovePredecessor(const Data &) override;
 
-  // Move constructor
-  // SetLst(argument) specifiers;
+        const Data &Successor(const Data &) const override;
+        const Data SuccessorNRemove(const Data &) override;
+        void RemoveSuccessor(const Data &) override;
 
-  /* ************************************************************************ */
+        // Specific member functions (inherited from DictionaryContainer)
 
-  // Destructor
-  // ~SetLst() specifiers;
+        bool Insert(const Data &) override;
+        bool Insert(Data &&) override;
+        bool Remove(const Data &) override;
 
-  /* ************************************************************************ */
+        // Specific member functions (inherited from LinearContainer)
 
-  // Copy assignment
-  // type operator=(argument) specifiers;
+        using List<Data>::operator[];
 
-  // Move assignment
-  // type operator=(argument) specifiers;
+        // Specific member function (inherited from TestableContainer)
 
-  /* ************************************************************************ */
+        bool Exists(const Data &) const noexcept;
 
-  // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+        // Specific member function (inherited from ClearableContainer)
+        using List<Data>::Clear;
+        using List<Data>::Traverse;
 
-  /* ************************************************************************ */
-
-  // Specific member functions (inherited from OrderedDictionaryContainer)
-
-  // type Min(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when empty)
-  // type MinNRemove(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when empty)
-  // type RemoveMin(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when empty)
-
-  // type Max(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when empty)
-  // type MaxNRemove(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when empty)
-  // type RemoveMax(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when empty)
-
-  // type Predecessor(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when not found)
-  // type PredecessorNRemove(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when not found)
-  // type RemovePredecessor(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when not found)
-
-  // type Successor(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when not found)
-  // type SuccessorNRemove(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when not found)
-  // type RemoveSuccessor(argument) specifiers; // Override OrderedDictionaryContainer member (concrete function must throw std::length_error when not found)
-
-  /* ************************************************************************ */
-
-  // Specific member functions (inherited from DictionaryContainer)
-
-  // type Insert(argument) specifiers; // Override DictionaryContainer member (copy of the value)
-  // type Insert(argument) specifiers; // Override DictionaryContainer member (move of the value)
-  // type Remove(argument) specifiers; // Override DictionaryContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member functions (inherited from LinearContainer)
-
-  // type operator[](argument) specifiers; // Override LinearContainer member (must throw std::out_of_range when out of range)
-
-  /* ************************************************************************** */
-
-  // Specific member function (inherited from TestableContainer)
-
-  // type Exists(argument) specifiers; // Override TestableContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from ClearableContainer)
-
-  // type Clear() specifiers; // Override ClearableContainer member
-
-protected:
-
-  // Auxiliary functions, if necessary!
-
-};
-
-/* ************************************************************************** */
+    protected:
+        // Auxiliary functions, if necessary!
+        Node *FindPredecessorNode(const Data &,Node**) const noexcept;
+        Node *FindSuccessorNode(const Data &,Node**) const noexcept;
+        Node* GetNodeAt(Node*,ulong) const noexcept;
+        bool BinarySearch(const Data&) const noexcept;
+        void AttachNode(Node*,Node*);
+        void DetachNode(Node*,Node*);
+    };
 
 }
 

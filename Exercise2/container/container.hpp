@@ -1,144 +1,67 @@
-
 #ifndef CONTAINER_HPP
 #define CONTAINER_HPP
 
-/* ************************************************************************** */
+namespace lasd
+{
 
-namespace lasd {
+  class Container
+  {
 
-/* ************************************************************************** */
+  protected:
+    ulong size = 0;
+    Container() = default;
 
-class Container {
+  public:
+    virtual ~Container() = default;
 
-private:
+    Container &operator=(const Container &) = delete;
 
-  // ...
+    Container &operator=(Container &&) noexcept = delete;
 
-protected:
+    bool operator==(const Container &) const noexcept = delete;
 
-  // ...
+    bool operator!=(const Container &) const noexcept = delete;
 
-  /* ************************************************************************ */
+    inline virtual bool Empty() const noexcept { return 0 == size; }
 
-  // Default constructor
-  // Container() specifiers;
+    inline virtual ulong Size() const noexcept { return size; }
+  };
 
-public:
+  class ClearableContainer : virtual public Container
+  {
 
-  // Destructor
-  // ~Container() specifiers
+  public:
+    virtual ~ClearableContainer() = default;
 
-  /* ************************************************************************ */
+    ClearableContainer &operator=(const ClearableContainer &) = delete;
 
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
+    ClearableContainer &operator=(ClearableContainer &&) noexcept = delete;
 
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
+    bool operator==(const ClearableContainer &) const noexcept = delete;
 
-  /* ************************************************************************ */
+    bool operator!=(const ClearableContainer &) const noexcept = delete;
 
-  // Comparison operators
-  // type operator==(argument) specifiers; // Comparison of abstract types is not possible.
-  // type operator!=(argument) specifiers; // Comparison of abstract types is not possible.
+    virtual void Clear() = 0;
+  };
 
-  /* ************************************************************************ */
+  class ResizableContainer : virtual public ClearableContainer
+  {
 
-  // Specific member functions
+  public:
+    virtual ~ResizableContainer() = default;
 
-  // type Empty() specifiers; // (concrete function should not throw exceptions)
+    ResizableContainer &operator=(const ResizableContainer &) noexcept = delete;
 
-  // type Size() specifiers; // (concrete function should not throw exceptions)
+    ResizableContainer &operator=(ResizableContainer &&) noexcept = delete;
 
-};
+    bool operator==(const ResizableContainer &Ccon) const noexcept = delete;
 
-/* ************************************************************************** */
+    bool operator!=(const ResizableContainer &Ccon) const noexcept = delete;
 
-class ClearableContainer {
-  // Must extend Container
+    virtual void Resize(ulong newSize) = 0;
 
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  // ~ClearableContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  // type operator==(argument) specifiers; // Comparison of abstract types is not possible.
-  // type operator!=(argument) specifiers; // Comparison of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Specific member functions
-
-  // type Clear() specifiers;
-
-};
-
-/* ************************************************************************** */
-
-class ResizableContainer {
-  // Must extend ClearableContainer
-
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  // ~ResizableContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  // type operator==(argument) specifiers; // Comparison of abstract types is not possible.
-  // type operator!=(argument) specifiers; // Comparison of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Specific member functions
-
-  // type Resize(argument) specifiers;
-
-  /* ************************************************************************ */
-
-  // Specific member function (inherited from ClearableContainer)
-
-  // type Clear() specifiers; // Override ClearableContainer member
-
-};
-
-/* ************************************************************************** */
+    inline void Clear() override { Resize(0); }
+  };
 
 }
 

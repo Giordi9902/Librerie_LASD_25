@@ -1,57 +1,27 @@
-
 #ifndef TESTABLE_HPP
 #define TESTABLE_HPP
-
-/* ************************************************************************** */
-
 #include "container.hpp"
 
-/* ************************************************************************** */
 
-namespace lasd {
+namespace lasd
+{
 
-/* ************************************************************************** */
+  template <typename Data>
+  class TestableContainer : public virtual Container
+  {
 
-template <typename Data>
-class TestableContainer {
-  // Must extend Container
+  public:
 
-private:
+    virtual ~TestableContainer() = default;
 
-  // ...
+    TestableContainer &operator=(const TestableContainer &) = delete;
+    TestableContainer &operator=(TestableContainer &&) noexcept = delete;
 
-protected:
+    bool operator==(const TestableContainer &) const noexcept = delete;
+    bool operator!=(const TestableContainer &) const noexcept = delete;
 
-  // ...
-
-public:
-
-  // Destructor
-  // ~TestableContainer() specifiers
-
-  /* ************************************************************************ */
-
-  // Copy assignment
-  // type operator=(argument); // Copy assignment of abstract types is not possible.
-
-  // Move assignment
-  // type operator=(argument); // Move assignment of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  // type operator==(argument) specifiers; // Comparison of abstract types is not possible.
-  // type operator!=(argument) specifiers; // Comparison of abstract types is not possible.
-
-  /* ************************************************************************ */
-
-  // Specific member function
-
-  // type Exists(argument) specifiers; // (concrete function should not throw exceptions)
-
-};
-
-/* ************************************************************************** */
+    virtual bool Exists(const Data&) const noexcept = 0;
+  };
 
 }
 
