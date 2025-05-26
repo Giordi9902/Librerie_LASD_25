@@ -2,7 +2,7 @@
 cc = g++
 cflags = -Wall -pedantic -O3 -std=c++20 -fsanitize=address
 
-objects = main.o test.o mytest.o container.o exc1as.o exc1af.o exc1bs.o exc1bf.o exc2as.o exc2af.o exc2bs.o exc2bf.o utils.o ptexc1a.o ptexc1b.o ptexc2a.o ptexc2b.o
+objects = main.o test.o mytest.o container.o exc1as.o exc1af.o exc1bs.o exc1bf.o exc2as.o exc2af.o exc2bs.o exc2bf.o utils.o ptexc1a.o ptexc1b.o ptexc2a.o #ptexc2b.o
 
 libcon = container/container.hpp container/testable.hpp container/traversable.hpp container/traversable.cpp container/mappable.hpp container/mappable.cpp container/dictionary.hpp container/dictionary.cpp container/linear.hpp container/linear.cpp
 
@@ -67,8 +67,5 @@ ptexc1a.o: $(libexc1a) zmytest/exercise1a/test.cpp
 ptexc1b.o: $(libexc1b) zmytest/exercise1b/test.cpp
 	$(cc) $(cflags) -c zmytest/exercise1b/test.cpp -o ptexc1b.o
 
-ptexc2a.o: $(libexc2a) zmytest/exercise2a/test.cpp
+ptexc2a.o: $(libexc1a) zmytest/exercise2a/test.cpp
 	$(cc) $(cflags) -c zmytest/exercise2a/test.cpp -o ptexc2a.o
-
-ptexc2b.o: $(libexc2b) zmytest/exercise2b/test.cpp
-	$(cc) $(cflags) -c zmytest/exercise2b/test.cpp -o ptexc2b.o

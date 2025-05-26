@@ -13,7 +13,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class Heap : public virtual SortableLinearContainer<Data>, public virtual ClearableContainer{
+class Heap : public virtual SortableLinearContainer<Data>, public ClearableContainer {
   // Must extend SortableLinearContainer<Data>,
   //             ClearableContainer
 
@@ -31,21 +31,21 @@ public:
 
   // Copy assignment
   // type operator=(argument); // Copy assignment of abstract types is not possible.
-  Heap<Data>& operator=(const Heap<Data>&) = delete;
+  Heap& operator=(const Heap&) = delete;
 
   // Move assignment
   // type operator=(argument); // Move assignment of abstract types is not possible.
-  Heap<Data>& operator=(Heap<Data>&&) noexcept = delete;
+  Heap& operator=(Heap&&) noexcept = delete;
 
   /* ************************************************************************ */
 
   // Specific member functions
 
   // type IsHeap(argument) specifiers;
-  bool IsHeap() const noexcept = 0;
+  virtual bool IsHeap() const noexcept = 0;
 
   // type Heapify(argument) specifiers;
-  void Heapify() noexcept = 0;
+  virtual void Heapify() noexcept = 0;
 
 };
 

@@ -2,6 +2,7 @@
 #include "test.hpp"
 #include "./exercise1a/test.hpp"
 #include "./exercise1b/test.hpp"
+#include "./exercise2a/test.hpp"
 #include <iostream>
 #include <limits>
 #include "../utils/utils.hpp"
@@ -55,6 +56,7 @@ void RuntimeChecks()
         std::cout << "\33[1;33m\t3 :\033[0m List" << std::endl;
         std::cout << "\33[1;33m\t4 :\033[0m Set (List based)" << std::endl;
         std::cout << "\33[1;33m\t5 :\033[0m Set (Vector based)" << std::endl;
+        std::cout << "\33[1;33m\t6 :\033[0m HeapVec" << std::endl;
         std::cout << "\33[1;33m\t0 :\033[0m Exit" << std::endl;
         std::cout << std::endl;
         std::cout << "Enter your choice: ";
@@ -91,6 +93,10 @@ void RuntimeChecks()
                 break;
             case 5:
                 SetVecTestMenu();
+                wait();
+                break;
+            case 6:
+                HeapVecTestMenu();
                 wait();
                 break;
             case 0:
