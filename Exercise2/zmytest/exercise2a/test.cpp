@@ -26,14 +26,14 @@ void HeapVecTestMenu()
     }
     std::cout  << "HeapVec elements: ";
     hp1.Traverse(TraversePrint<int>);
-    std::cout << std::endl;
-    hp1.Heapify();
-    if(hp1.IsHeap()){
-        std::cout << "It's a heap!\n";
-    }else{
-        std::cout << "It's not a heap!\n";
-    }
-    std::cout  << "HeapVec elements: ";
-    hp1.Traverse(TraversePrint<int>);
+    // std::cout << std::endl;
+    // hp1.Heapify();
+    // if(hp1.IsHeap()){
+    //     std::cout << "It's a heap!\n";
+    // }else{
+    //     std::cout << "It's not a heap!\n";
+    // }
+    // std::cout  << "HeapVec elements: ";
+    // hp1.Traverse(TraversePrint<int>);
     std::cout << std::endl;
 }

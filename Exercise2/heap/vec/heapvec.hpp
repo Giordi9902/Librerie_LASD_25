@@ -3,7 +3,6 @@
 #define HEAPVEC_HPP
 
 /* ************************************************************************** */
-#define INIT_SIZE 16
 
 #include "../heap.hpp"
 #include "../../vector/vector.hpp"
@@ -16,7 +15,7 @@ namespace lasd
     /* ************************************************************************** */
 
     template <typename Data>
-    class HeapVec : virtual public Heap<Data>
+    class HeapVec : virtual public Heap<Data>, public SortableVector<Data>
     {
         // Must extend Heap<Data>,
         // Could extend SortableVector<Data>
@@ -27,14 +26,15 @@ namespace lasd
     protected:
         // using Container::???;
         using Container::size;
-        SortableVector<Data> vector;
+        using SortableVector<Data>::elements;
+        using SortableVector<Data>::operator[];
 
         // ...
 
     public:
         // Default constructor
         // HeapVec() specifiers;
-        HeapVec();
+        HeapVec() = default;
 
         /* ************************************************************************ */
 
@@ -93,16 +93,17 @@ namespace lasd
 
         // type Sort(argument) specifiers; // Override SortableLinearContainer member
         void Sort() { HeapSort(); };
-        const Data &operator[](ulong) const;
-        Data &operator[](ulong);
+        void Clear() override;
 
         /*************************************************************** */
-        void Clear() noexcept override;
 
     protected:
         // Auxiliary functions, if necessary!
         void HeapSort() noexcept;
-        void Heapify(ulong, ulong) noexcept;
+        void HeapifyNode(ulong,ulong) noexcept;
+        ulong Left(ulong) const;
+        ulong Right(ulong) const ;
+        ulong Parent(ulong) const;
     };
 
     /* ************************************************************************** */

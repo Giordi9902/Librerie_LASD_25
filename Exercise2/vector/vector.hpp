@@ -49,7 +49,7 @@ namespace lasd
   };
 
   template <typename Data>
-  class SortableVector : virtual public Vector<Data>,
+  class SortableVector : public Vector<Data>,
                          virtual public SortableLinearContainer<Data>
   {
   protected:

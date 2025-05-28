@@ -1,63 +1,47 @@
-#include <utility>
+
 namespace lasd
 {
 
     template <typename Data>
-    HeapVec<Data>::HeapVec() : vector(INIT_SIZE)
+    HeapVec<Data>::HeapVec(const TraversableContainer<Data> &con) : SortableVector<Data>(con)
     {
-        size = INIT_SIZE;
-    }
-
-    template <typename Data>
-    HeapVec<Data>::HeapVec(const TraversableContainer<Data> &con) : vector(con)
-    {
-        size = vector.Size();
         Heapify();
     }
 
     template <typename Data>
-    HeapVec<Data>::HeapVec(MappableContainer<Data> &&con) : vector(std::move(con))
+    HeapVec<Data>::HeapVec(MappableContainer<Data> &&con) : SortableVector<Data>(std::move(con))
     {
-        size = vector.Size();
         Heapify();
     }
 
     template <typename Data>
-    HeapVec<Data>::HeapVec(const HeapVec<Data> &con)
+    HeapVec<Data>::HeapVec(const HeapVec<Data> &heap) : SortableVector<Data>(heap)
     {
-        vector = con.vector;
-        size = con.size;
-        Heapify();
     }
 
     template <typename Data>
-    HeapVec<Data>::HeapVec(HeapVec<Data> &&con) noexcept
+    HeapVec<Data>::HeapVec(HeapVec<Data> &&heap) noexcept : SortableVector<Data>(std::move(heap))
     {
-        vector = std::move(con.vector);
-        std::swap(size, con.size);
-        Heapify();
     }
 
     template <typename Data>
     HeapVec<Data> &HeapVec<Data>::operator=(const HeapVec<Data> &con)
     {
-        vector = con.vector;
-        size = con.size;
+        Vector<Data>::operator=(con);
         return *this;
     }
 
     template <typename Data>
     HeapVec<Data> &HeapVec<Data>::operator=(HeapVec<Data> &&con) noexcept
     {
-        std::swap(vector,con.vector);
-        size = std::exchange(con.size, 0);
+        Vector<Data>::operator=(std::move(con));
         return *this;
     }
 
     template <typename Data>
     bool HeapVec<Data>::operator==(const HeapVec<Data> &con) const noexcept
     {
-        return vector == con.vector;
+        return Vector<Data>::operator==(con);
     }
 
     template <typename Data>
@@ -69,89 +53,89 @@ namespace lasd
     template <typename Data>
     bool HeapVec<Data>::IsHeap() const noexcept
     {
-        if (size <= 1)
-        {
-            return true;
-        }
+        if (size <= 1) return true;
         for (ulong i = 0; i < size / 2; ++i)
         {
-            ulong left = 2 * i + 1;
-            ulong right = 2 * i + 2;
-            if (left < size && vector[i] < vector[left])
-            {
+            ulong leftChild = Left(i);
+            ulong rightChild = Right(i);
+            if (leftChild < size && elements[i] < elements[leftChild])
                 return false;
-            }
-            if (right < size && vector[i] < vector[right])
-            {
+            if (rightChild < size && elements[i] < elements[rightChild])
                 return false;
-            }
         }
         return true;
     }
 
     template <typename Data>
-    void HeapVec<Data>::Heapify() noexcept
-    {
-        for (long i = (size / 2) - 1; i >= 0; --i)
-        {
-            Heapify(size, i);
-        }
-    }
-
-    template <typename Data>
     void HeapVec<Data>::HeapSort() noexcept
     {
-        Heapify();
-        for (long i = size - 1; i > 0; --i)
-        {
-            std::swap(vector[0], vector[i]);
-            Heapify(i, 0);
+        ulong heapSize = size;
+        for (long i = heapSize / 2 - 1; i >= 0; --i) {
+            HeapifyNode(i, heapSize);
+        }
+        for (long i = heapSize - 1; i > 0; --i) {
+            std::swap(elements[0], elements[i]);
+            heapSize--;
+            HeapifyNode(0, heapSize);
         }
     }
 
     template <typename Data>
-    void HeapVec<Data>::Heapify(ulong n, ulong i) noexcept
+    void HeapVec<Data>::HeapifyNode(ulong index, ulong heapSize) noexcept
     {
-        ulong largest = i;
-        ulong left = 2 * i + 1;
-        ulong right = 2 * i + 2;
+        ulong largest = index;
+        ulong left = Left(index);
+        ulong right = Right(index);
 
-        if (left < n && vector[left] > vector[largest])
-        {
+        if (left < heapSize && elements[largest] < elements[left]) {
             largest = left;
         }
-        if (right < n && vector[right] > vector[largest])
-        {
+        if (right < heapSize && elements[largest] < elements[right]) {
             largest = right;
         }
-        if (largest != i)
-        {
-            std::swap(vector[i], vector[largest]);
-            Heapify(n, largest);
+        if (largest != index) {
+            std::swap(elements[index], elements[largest]);
+            HeapifyNode(largest, heapSize);
         }
     }
 
     template <typename Data>
-    void HeapVec<Data>::Clear() noexcept
+    void HeapVec<Data>::Heapify() noexcept
     {
-        vector.Clear();
+        for (long i = size / 2 - 1; i >= 0; --i)
+        {
+            HeapifyNode(i, size);
+        }
+    }
+
+    template <typename Data>
+    ulong HeapVec<Data>::Parent(ulong index) const
+    {
+        if (index == 0)
+        {
+            return 0; // Root has no parent
+        }
+        return (index - 1) / 2;
+    }
+
+    template <typename Data>
+    ulong HeapVec<Data>::Left(ulong index) const
+    {
+        return 2 * index + 1;
+
+    }
+
+    template <typename Data>
+    ulong HeapVec<Data>::Right(ulong index) const
+    {
+        return 2 * index + 2;
+    }
+
+    template <typename Data>
+    void HeapVec<Data>::Clear()
+    {
+        SortableVector<Data>::Clear();
         size = 0;
-    }
-
-    template <typename Data>
-    const Data &HeapVec<Data>::operator[](ulong index) const
-    {
-        if (index >= size)
-        {
-            throw std::out_of_range("Index out of range");
-        }
-        return vector[index];
-    }
-
-    template <typename Data>
-    Data &HeapVec<Data>::operator[](ulong index)
-    {
-        return const_cast<Data &>(static_cast<const HeapVec<Data> *>(this)->operator[](index));
     }
 
 }
