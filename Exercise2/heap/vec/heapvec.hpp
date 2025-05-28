@@ -27,7 +27,7 @@ namespace lasd
         // using Container::???;
         using Container::size;
         using SortableVector<Data>::elements;
-        using SortableVector<Data>::operator[];
+
 
         // ...
 
@@ -94,6 +94,8 @@ namespace lasd
         // type Sort(argument) specifiers; // Override SortableLinearContainer member
         void Sort() { HeapSort(); };
         void Clear() override;
+        using SortableVector<Data>::operator[];
+        void HeapifyUp(ulong);
 
         /*************************************************************** */
 
@@ -101,6 +103,7 @@ namespace lasd
         // Auxiliary functions, if necessary!
         void HeapSort() noexcept;
         void HeapifyNode(ulong,ulong) noexcept;
+
         ulong Left(ulong) const;
         ulong Right(ulong) const ;
         ulong Parent(ulong) const;
