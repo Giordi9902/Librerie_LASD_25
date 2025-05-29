@@ -58,7 +58,9 @@ namespace lasd
         }
 
         std::swap(elements[0], elements[size - 1]);
+        size--;
         HeapVec<Data>::Heapify();
+        this->Resize(size);
     }
 
     template <typename Data>
