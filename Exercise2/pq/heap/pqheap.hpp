@@ -3,6 +3,7 @@
 #define PQHEAP_HPP
 
 /* ************************************************************************** */
+#define INIT_SIZE 16
 
 #include "../pq.hpp"
 #include "../../heap/vec/heapvec.hpp"
@@ -15,90 +16,57 @@ namespace lasd
     /* ************************************************************************** */
 
     template <typename Data>
-    class PQHeap : virtual public PQ<Data>
+    class PQHeap : virtual public PQ<Data>, virtual public HeapVec<Data>
     {
-        // Must extend PQ<Data>,
-        // Could extend HeapVec<Data>
-
-    private:
-        // ...
 
     protected:
-        // using Container::???;
         using Container::size;
-        HeapVec<Data> heap;
-
-        // ...
+        using HeapVec<Data>::elements;
 
     public:
         // Default constructor
-        // PQHeap() specifiers;
         PQHeap() = default;
 
-        /* ************************************************************************ */
-
         // Specific constructors
-        // PQHeap(argument) specifiers; // A priority queue obtained from a TraversableContainer
-        PQHeap(const TraversableContainer<Data> &con) : heap(con) {size=heap.Size();}
-        // PQHeap(argument) specifiers; // A priority queue obtained from a MappableContainer
-        PQHeap(MappableContainer<Data> &&con) : heap(std::move(con)) {size=heap.Size();}
-
-        /* ************************************************************************ */
+        PQHeap(const TraversableContainer<Data> &);
+        PQHeap(MappableContainer<Data> &&);
 
         // Copy constructor
-        // PQHeap(argument) specifiers;
-        PQHeap(const PQHeap<Data> &pq) : heap(pq.heap) {size=heap.Size();}
+        PQHeap(const PQHeap<Data> &);
 
         // Move constructor
-        // PQHeap(argument) specifiers;
-        PQHeap(PQHeap<Data> &&pq) noexcept : heap(std::move(pq.heap)) {size=heap.Size();}
-
-        /* ************************************************************************ */
+        PQHeap(PQHeap<Data> &&) noexcept;
 
         // Destructor
-        // ~PQHeap() specifiers;
         virtual ~PQHeap() = default;
+
         /* ************************************************************************ */
 
         // Copy assignment
-        // type operator=(argument) specifiers;
-        PQHeap<Data> &operator=(const PQHeap<Data> &);
+        PQHeap &operator=(const PQHeap &);
 
         // Move assignment
-        // type operator=(argument) specifiers;
-        PQHeap<Data> &operator=(PQHeap<Data> &&pq) noexcept;
+        PQHeap &operator=(PQHeap &&) noexcept;
 
         /* ************************************************************************ */
 
+        const Data &Tip() const override; // Override PQ member (must throw std::length_error when empty)
+        void RemoveTip() override;        // Override PQ member (must throw std::length_error when empty)
+        Data TipNRemove() override;       // Override PQ member (must throw std::length_error when empty)
+
+        void Insert(const Data &) override;
+        void Insert(Data &&) override;
+
+        void Change(ulong, const Data &) override;
+        void Change(ulong, Data &&) override;
+
         // Specific member functions (inherited from PQ)
 
-        // type Tip(argument) specifiers; // Override PQ member (must throw std::length_error when empty)
-        const Data &Tip() const;
-        // type RemoveTip(argument) specifiers; // Override PQ member (must throw std::length_error when empty)
-        void RemoveTip();
-        // type TipNRemove(argument) specifiers; // Override PQ member (must throw std::length_error when empty)
-        Data TipNRemove();
-
-        // type Insert(argument) specifiers; // Override PQ member (Copy of the value)
-        // type Insert(argument) specifiers; // Override PQ member (Move of the value)
-        void Insert(const Data &data);
-        void Insert(Data &&data);
-
-        // type Change(argument) specifiers; // Override PQ member (Copy of the value)
-        void Change(ulong, const Data &data);
-        // type Change(argument) specifiers; // Override PQ member (Move of the value)
-        void Change(ulong, Data &&data);
-
-        void Clear();
-
-        const Data &operator[](const ulong) const;
+        void Clear() override;
 
     protected:
-        // Auxiliary functions, if necessary!
+        void HeapifyUp(ulong index);
     };
-
-    /* ************************************************************************** */
-
 }
 
 #include "pqheap.cpp"

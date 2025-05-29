@@ -138,13 +138,4 @@ namespace lasd
         size = 0;
     }
 
-    template <typename Data>
-    void HeapVec<Data>::HeapifyUp(ulong index)
-    {
-        while (index != 0 && Parent(index) < size && elements[Parent(index)] < elements[index]) {
-            std::swap(elements[Parent(index)], elements[index]);
-            index = Parent(index);
-        }
-    }
-
 }
