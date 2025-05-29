@@ -5,35 +5,18 @@
 
 void HeapVecTestMenu()
 {
-    lasd::Vector<int> vec(12);
-    vec[0] = 45;
-    vec[1] = 34;
-    vec[2] = 28;
-    vec[3] = 30;
-    vec[4] = 25;
-    vec[5] = 22;
-    vec[6] = 12;
-    vec[7] = 14;
-    vec[8] = 21;
-    vec[9] = 15;
-    vec[10] = 16;
-    vec[11] = 20;
-    lasd::HeapVec<int> hp1(vec);
-    if(hp1.IsHeap()){
-        std::cout << "It's a heap!\n";
-    }else{
-        std::cout << "It's not a heap!\n";
-    }
-    std::cout  << "HeapVec elements: ";
-    hp1.Traverse(TraversePrint<int>);
-    // std::cout << std::endl;
-    // hp1.Heapify();
-    // if(hp1.IsHeap()){
-    //     std::cout << "It's a heap!\n";
-    // }else{
-    //     std::cout << "It's not a heap!\n";
-    // }
-    // std::cout  << "HeapVec elements: ";
-    // hp1.Traverse(TraversePrint<int>);
-    std::cout << std::endl;
+
+}
+
+void PersonalHeapVecTest(unsigned int& testnum, unsigned int& testerr)
+{
+
+}
+
+
+void myTestExercise2A(unsigned int& testnum, unsigned int& testerr){
+    PersonalHeapVecTest(testnum,testerr);
+
+    std::cout << std::endl
+         << "\033[1;34mExercise 2A (Personal Test) (Errors/Tests: " << testerr << "/" << testnum << ")\033[0m" << std::endl;
 }
