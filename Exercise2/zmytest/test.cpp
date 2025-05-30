@@ -80,19 +80,24 @@ void RuntimeChecks()
         std::cout << "\33[1;33m\t4 :\033[0m Set (List based)" << std::endl;
         std::cout << "\33[1;33m\t5 :\033[0m Set (Vector based)" << std::endl;
         std::cout << "\33[1;33m\t6 :\033[0m HeapVec" << std::endl;
+        std::cout << "\33[1;33m\t7 :\033[0m PQHeap" <<std::endl;
         std::cout << "\33[1;33m\t0 :\033[0m Exit" << std::endl;
         std::cout << std::endl;
-        std::cout << "Enter your choice: ";
 
-        std::cin >> choice;
-
-        if (std::cin.fail())
+        do
         {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "\033[1;31mInvalid input. Please enter a number.\033[0m" << std::endl;
-            continue;
-        }
+            std::cout << "\n\033[1;34mChoice:\033[0m ";
+            if (!(std::cin >> choice))
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                choice = -1;
+            }
+            if (choice < 0 || choice > 7)
+            {
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 7.\033[0m" << std::endl;
+            }
+        } while (choice < 0 || choice > 7);
 
         switch (choice)
         {
@@ -104,10 +109,12 @@ void RuntimeChecks()
         case 2:
             SortableVectorTestMenu();
             wait();
+            clean();
             break;
         case 3:
             ListTestMenu();
             wait();
+            clean();
             break;
         case 4:
             SetLstTestMenu();
@@ -117,10 +124,17 @@ void RuntimeChecks()
         case 5:
             SetVecTestMenu();
             wait();
+            clean();
             break;
         case 6:
             HeapVecTestMenu();
             wait();
+            clean();
+            break;
+        case 7:
+            PQHeapTestMenu();
+            wait();
+            clean();
             break;
         case 0:
             std::cout << "\nExiting test menu." << std::endl;

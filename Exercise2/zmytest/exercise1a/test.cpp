@@ -2033,7 +2033,7 @@ void VectorTestMenu()
             {
                 std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 19.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 15);
+        } while (choice < 0 || choice > 19);
 
         switch (choice)
         {
