@@ -22,6 +22,7 @@ namespace lasd
     protected:
         using Container::size;
         using HeapVec<Data>::elements;
+        ulong capacity;
 
     public:
         // Default constructor
@@ -66,6 +67,8 @@ namespace lasd
 
     protected:
         void HeapifyUp(ulong index);
+        void Resize(ulong);
+        bool IsFull();
     };
 }
 

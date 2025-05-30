@@ -54,13 +54,10 @@ namespace lasd
     bool HeapVec<Data>::IsHeap() const noexcept
     {
         if (size <= 1) return true;
-        for (ulong i = 0; i < size / 2; ++i)
+        for (ulong index = 0; index < size / 2; ++index)
         {
-            ulong leftChild = Left(i);
-            ulong rightChild = Right(i);
-            if (leftChild < size && elements[i] < elements[leftChild])
-                return false;
-            if (rightChild < size && elements[i] < elements[rightChild])
+            ulong largest = FindMax(index,size);
+            if(largest!=index)
                 return false;
         }
         return true;
@@ -83,19 +80,10 @@ namespace lasd
     template <typename Data>
     void HeapVec<Data>::HeapifyNode(ulong index, ulong heapSize) noexcept
     {
-        ulong largest = index;
-        ulong left = Left(index);
-        ulong right = Right(index);
-
-        if (left < heapSize && elements[largest] < elements[left]) {
-            largest = left;
-        }
-        if (right < heapSize && elements[largest] < elements[right]) {
-            largest = right;
-        }
-        if (largest != index) {
-            std::swap(elements[index], elements[largest]);
-            HeapifyNode(largest, heapSize);
+        ulong largest = FindMax(index,heapSize);
+        if(largest!=index){
+            std::swap(elements[index],elements[largest]);
+            HeapifyNode(largest,heapSize);
         }
     }
 
@@ -113,7 +101,7 @@ namespace lasd
     {
         if (index == 0)
         {
-            return 0; // Root has no parent
+            return 0;
         }
         return (index - 1) / 2;
     }
@@ -136,6 +124,22 @@ namespace lasd
     {
         SortableVector<Data>::Clear();
         size = 0;
+    }
+
+    template <typename Data>
+    ulong HeapVec<Data>::FindMax(ulong index, ulong heapsize) const
+    {
+        ulong largest = index;
+        ulong left = Left(index);
+        ulong right = Right(index);
+
+        if (left < heapsize && elements[largest] < elements[left]) {
+            largest = left;
+        }
+        if (right < heapsize && elements[largest] < elements[right]) {
+            largest = right;
+        }
+        return largest;
     }
 
 }

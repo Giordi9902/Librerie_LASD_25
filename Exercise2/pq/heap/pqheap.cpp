@@ -5,29 +5,34 @@ namespace lasd
     template <typename Data>
     PQHeap<Data>::PQHeap(const TraversableContainer<Data> &container) : HeapVec<Data>(container)
     {
+        capacity = container.Size();
     }
 
     template <typename Data>
     PQHeap<Data>::PQHeap(MappableContainer<Data> &&container) : HeapVec<Data>(std::move(container))
     {
+        capacity = container.Size();
     }
 
     template <typename Data>
     PQHeap<Data>::PQHeap(const PQHeap<Data> &other)
         : HeapVec<Data>(other)
     {
+        capacity = other.capacity;
     }
 
     template <typename Data>
     PQHeap<Data>::PQHeap(PQHeap<Data> &&other) noexcept
         : HeapVec<Data>(std::move(other))
     {
+        std::swap(capacity, other.capacity);
     }
 
     template <typename Data>
     PQHeap<Data> &PQHeap<Data>::operator=(const PQHeap<Data> &other)
     {
         HeapVec<Data>::operator=(other);
+        capacity = other.capacity;
         return *this;
     }
 
@@ -35,6 +40,7 @@ namespace lasd
     PQHeap<Data> &PQHeap<Data>::operator=(PQHeap<Data> &&other) noexcept
     {
         HeapVec<Data>::operator=(std::move(other));
+        std::swap(capacity, other.capacity);
         return *this;
     }
 
@@ -60,7 +66,10 @@ namespace lasd
         std::swap(elements[0], elements[size - 1]);
         size--;
         HeapVec<Data>::Heapify();
-        this->Resize(size);
+        if (size <= capacity / 4)
+        {
+            Resize(capacity / 2);
+        }
     }
 
     template <typename Data>
@@ -79,19 +88,31 @@ namespace lasd
     template <typename Data>
     void PQHeap<Data>::Insert(const Data &val)
     {
-        this->Vector<Data>::Resize(size + 1);
-        ulong index = size - 1;
-        elements[index] = val;
-        HeapifyUp(index);
+        if (IsFull() || size + 1 > capacity/2)
+        {
+            Resize(capacity * 2);
+        }
+        size++;
+        elements[size-1] = val;
+        HeapifyUp(size - 1);
+    }
+
+    template <typename Data>
+    bool PQHeap<Data>::IsFull()
+    {
+        return size == capacity;
     }
 
     template <typename Data>
     void PQHeap<Data>::Insert(Data &&val)
     {
-        this->Vector<Data>::Resize(size + 1);
-        ulong index = size - 1;
-        elements[index] = std::move(val);
-        HeapifyUp(index);
+        if (IsFull() || size + 1 > capacity/2)
+        {
+            Resize(capacity * 2);
+        }
+        size++;
+        elements[size-1] = std::move(val);
+        HeapifyUp(size - 1);
     }
 
     template <typename Data>
@@ -143,4 +164,19 @@ namespace lasd
             }
         }
     }
+
+    template <typename Data>
+    void PQHeap<Data>::Resize(ulong newDim)
+    {
+        Data* newelements = new Data[newDim];
+        ulong limit = std::min(size, newDim);
+        for (ulong i = 0; i < limit; ++i)
+        {
+            std::swap(elements[i], newelements[i]);
+        }
+        std::swap(elements, newelements);
+        delete[] newelements;
+        capacity = newDim;
+    }
+
 }

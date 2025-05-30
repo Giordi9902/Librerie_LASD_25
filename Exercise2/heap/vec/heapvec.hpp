@@ -17,7 +17,6 @@ namespace lasd
         using SortableVector<Data>::elements;
 
     public:
-
         HeapVec() = default;
         HeapVec(const TraversableContainer<Data> &);
         HeapVec(MappableContainer<Data> &&);
@@ -31,23 +30,18 @@ namespace lasd
         bool operator!=(const HeapVec<Data> &) const noexcept;
 
         bool IsHeap() const noexcept override;
-
         void Heapify() noexcept override;
-
         void Sort() { HeapSort(); };
         void Clear() override;
-        //using SortableVector<Data>::operator[];
 
     protected:
         void HeapSort() noexcept;
-        void HeapifyNode(ulong,ulong) noexcept;
-
+        void HeapifyNode(ulong, ulong) noexcept;
         ulong Left(ulong) const;
-        ulong Right(ulong) const ;
+        ulong Right(ulong) const;
+        ulong FindMax(ulong, ulong) const;
         ulong Parent(ulong) const;
     };
-
-    /* ************************************************************************** */
 
 }
 
