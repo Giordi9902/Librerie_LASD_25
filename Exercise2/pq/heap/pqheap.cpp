@@ -88,7 +88,13 @@ namespace lasd
     template <typename Data>
     void PQHeap<Data>::Insert(const Data &val)
     {
-        if (IsFull() || size + 1 > capacity/2)
+        if(capacity==0){
+            Resize(INIT_SIZE);
+            elements[0] = val;
+            size++;
+            return;
+        }
+        else if (IsFull() || size + 1 > capacity/2)
         {
             Resize(capacity * 2);
         }
@@ -106,7 +112,13 @@ namespace lasd
     template <typename Data>
     void PQHeap<Data>::Insert(Data &&val)
     {
-        if (IsFull() || size + 1 > capacity/2)
+        if(capacity==0){
+            Resize(INIT_SIZE);
+            elements[0] = std::move(val);
+            size++;
+            return;
+        }
+        else if (IsFull() || size + 1 > capacity/2)
         {
             Resize(capacity * 2);
         }
@@ -144,6 +156,7 @@ namespace lasd
     void PQHeap<Data>::Clear()
     {
         HeapVec<Data>::Clear();
+        capacity = 0;
     }
 
     template <typename Data>

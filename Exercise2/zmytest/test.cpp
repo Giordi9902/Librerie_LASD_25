@@ -40,8 +40,8 @@ void mytest()
     cout << endl;
     std::cout << std::endl;
 
-    loctestnum = 0;
-    loctesterr = 0;
+    stestnum = 0, stesterr = 0;
+    loctestnum = 0, loctesterr = 0;
     std::cout << "\033[1;32mExercise 2A (Personal Test) is starting!\033[0m" << std::endl;
     std::cout << std::endl;
     myTestExercise2A(loctestnum, loctesterr);

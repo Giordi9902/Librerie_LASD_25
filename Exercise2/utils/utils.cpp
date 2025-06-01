@@ -55,6 +55,8 @@ void PrintPersonalTestHeader()
 
 void finalGreet()
 {
+    std::cout << "\033[1;33m"
+              << "Thank you for using my personal test suite!\n" << "\033[0m" << std::endl;
     std::cout << "\033[33m"
               << R"(                                     /$$ /$$                           /$$
                                     | $$| $$                          | $$
@@ -69,7 +71,5 @@ void finalGreet()
  \______/                                          \______/
 )" << "\033[0m"
               << std::endl;
-              std::cout << "\033[1;35m"
-              << "Thank you for using the test suite! Goodbye!" << "\033[0m" << std::endl;
 
 }

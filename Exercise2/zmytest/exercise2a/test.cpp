@@ -3,9 +3,11 @@
 #include <string>
 #include "../../heap/vec/heapvec.hpp"
 #include "../../zlasdtest/container/traversable.hpp"
+#include "../../zlasdtest/container/mappable.hpp"
 #include "../../vector/vector.hpp"
 #include "../../zlasdtest/heap/heap.hpp"
 #include "../../zlasdtest/container/linear.hpp"
+#include "../../utils/utils.hpp"
 
 void HeapVecTestMenu()
 {
@@ -21,7 +23,10 @@ void HeapVecTestMenu()
         std::cout << "\33[1;33m\t4 :\033[0m Heapify vector\n";
         std::cout << "\33[1;33m\t5 :\033[0m Sort the heap\n";
         std::cout << "\33[1;33m\t6 :\033[0m Clear the heap\n";
-        std::cout << "\33[1;33m\t7 :\033[0m Set at\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Apply fold function\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Apply map function (double elements)\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Apply map function (parity invert elements)\n";
+        std::cout << "\33[1;33m\t10 :\033[0m Set at\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -33,11 +38,11 @@ void HeapVecTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 7)
+            if (choice < 0 || choice > 10)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 7.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 10.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 7);
+        } while (choice < 0 || choice > 10);
 
         switch (choice)
         {
@@ -51,12 +56,16 @@ void HeapVecTestMenu()
             }
             heap = lasd::HeapVec<int>(vec);
             std::cout << "Heap created successfully." << std::endl;
+            wait();
+            clean();
             break;
         }
         case 2:
         {
             std::cout << "\033[1;32mPrinting the heap:\033[0m" << std::endl;
             heap.Traverse(TraversePrint<int>);
+            wait();
+            clean();
             break;
         }
         case 3:
@@ -70,6 +79,8 @@ void HeapVecTestMenu()
             {
                 std::cout << "The heap is not valid." << std::endl;
             }
+            wait();
+            clean();
             break;
         }
         case 4:
@@ -79,6 +90,8 @@ void HeapVecTestMenu()
             std::cout << "Heapified successfully." << std::endl;
             std::cout << "Heap after heapify: ";
             heap.Traverse(TraversePrint<int>);
+            wait();
+            clean();
             break;
         }
         case 5:
@@ -86,6 +99,8 @@ void HeapVecTestMenu()
             std::cout << "\033[1;32mSorting the heap...\033[0m" << std::endl;
             heap.Sort();
             std::cout << "Heap sorted successfully." << std::endl;
+            wait();
+            clean();
             break;
         }
         case 6:
@@ -93,9 +108,42 @@ void HeapVecTestMenu()
             std::cout << "\033[1;32mClearing the heap...\033[0m" << std::endl;
             heap.Clear();
             std::cout << "Heap cleared successfully." << std::endl;
+            wait();
+            clean();
             break;
         }
         case 7:
+        {
+            std::cout << "\033[1;32mApplying fold function...\033[0m" << std::endl;
+            int sum = heap.Fold(FoldAdd<int>,0);
+            std::cout << "Sum of elements in the heap: " << sum << std::endl;
+            wait();
+            clean();
+            break;
+        }
+        case 8:
+        {
+            std::cout << "\033[1;32mApplying map function...\033[0m" << std::endl;
+            heap.Map(MapDouble<int>);
+            std::cout << "Heap after mapping (each element multiplied by 2): ";
+            heap.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            wait();
+            clean();
+            break;
+        }
+        case 9:
+        {
+            std::cout << "\033[1;32mApplying map function (parity invert elements)...\033[0m" << std::endl;
+            heap.Map(MapParityInvert<int>);
+            std::cout << "Heap after mapping (parity invert): ";
+            heap.Traverse(TraversePrint<int>);
+            std::cout << std::endl;
+            wait();
+            clean();
+            break;
+        }
+        case 10:
         {
             std::cout << "\033[1;32mSetting element at index...\033[0m" << std::endl;
             ulong index;
@@ -113,8 +161,11 @@ void HeapVecTestMenu()
             {
                 std::cerr << "\033[1;31mError: " << ex.what() << "\033[0m" << std::endl;
             }
+            wait();
+            clean();
             break;
         }
+
         case 0:
         {
             std::cout << "\033[1;32mExiting menu.\033[0m" << std::endl;
@@ -219,6 +270,7 @@ void Personal_String_HeapVec(uint &testnum, uint &testerr)
 
 void PersonalHeapVecTest(unsigned int &testnum, unsigned int &testerr)
 {
+    std::cout << "\033[1;35mBeginning HeapVec Personal Test.\033[0m" << std::endl;
     uint tottest = 0;
     uint toterr = 0;
 
