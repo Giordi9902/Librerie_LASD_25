@@ -9,7 +9,7 @@ namespace lasd
 {
 
     template <typename Data>
-    class HeapVec : virtual public Heap<Data>, public SortableVector<Data>
+    class HeapVec : virtual public Heap<Data>, protected SortableVector<Data>
     {
 
     protected:
@@ -33,6 +33,7 @@ namespace lasd
         void Heapify() noexcept override;
         void Sort() { HeapSort(); };
         void Clear() override;
+        const Data& operator[](ulong) const override;
 
     protected:
         void HeapSort() noexcept;

@@ -142,4 +142,11 @@ namespace lasd
         return largest;
     }
 
+    template <typename Data>
+    const Data& HeapVec<Data>::operator[](ulong index) const
+    {
+        return SortableVector<Data>::operator[](index);
+    }
+
+
 }
