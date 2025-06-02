@@ -2,11 +2,16 @@
 #include <limits>
 #include <string>
 #include "../../heap/vec/heapvec.hpp"
+#include "../../zlasdtest/container/container.hpp"
+#include "../../zlasdtest/container/testable.hpp"
 #include "../../zlasdtest/container/traversable.hpp"
 #include "../../zlasdtest/container/mappable.hpp"
-#include "../../vector/vector.hpp"
-#include "../../zlasdtest/heap/heap.hpp"
 #include "../../zlasdtest/container/linear.hpp"
+#include "../../vector/vector.hpp"
+#include "../../list/list.hpp"
+#include "../../set/lst/setlst.hpp"
+#include "../../set/vec/setvec.hpp"
+#include "../../zlasdtest/heap/heap.hpp"
 #include "../../utils/utils.hpp"
 
 void HeapVecTestMenu()
@@ -26,7 +31,6 @@ void HeapVecTestMenu()
         std::cout << "\33[1;33m\t7 :\033[0m Apply fold function\n";
         std::cout << "\33[1;33m\t8 :\033[0m Apply map function (double elements)\n";
         std::cout << "\33[1;33m\t9 :\033[0m Apply map function (parity invert elements)\n";
-        std::cout << "\33[1;33m\t10 :\033[0m Set at\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -38,11 +42,11 @@ void HeapVecTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 10)
+            if (choice < 0 || choice > 9)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 10.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 9.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 10);
+        } while (choice < 0 || choice > 9);
 
         switch (choice)
         {
@@ -115,7 +119,7 @@ void HeapVecTestMenu()
         case 7:
         {
             std::cout << "\033[1;32mApplying fold function...\033[0m" << std::endl;
-            int sum = heap.Fold(FoldAdd<int>,0);
+            int sum = heap.Fold(FoldAdd<int>, 0);
             std::cout << "Sum of elements in the heap: " << sum << std::endl;
             wait();
             clean();
@@ -143,29 +147,6 @@ void HeapVecTestMenu()
             clean();
             break;
         }
-        case 10:
-        {
-            std::cout << "\033[1;32mSetting element at index...\033[0m" << std::endl;
-            ulong index;
-            int value;
-            std::cout << "Enter index: ";
-            std::cin >> index;
-            std::cout << "Enter value: ";
-            std::cin >> value;
-            try
-            {
-                heap[index] = value;
-                std::cout << "Element set successfully." << std::endl;
-            }
-            catch (const std::out_of_range &ex)
-            {
-                std::cerr << "\033[1;31mError: " << ex.what() << "\033[0m" << std::endl;
-            }
-            wait();
-            clean();
-            break;
-        }
-
         case 0:
         {
             std::cout << "\033[1;32mExiting menu.\033[0m" << std::endl;
@@ -193,39 +174,75 @@ void Personal_Int_HeapVec(uint &testnum, uint &testerr)
     SetAt(testnum, testerr, v1, true, 7, 14);
     SetAt(testnum, testerr, v1, true, 8, 8);
     SetAt(testnum, testerr, v1, true, 9, 7);
+
     lasd::HeapVec<int> h1(v1);
     IsHeap(testnum, testerr, h1, true);
     Traverse(testnum, testerr, v1, true, TraversePrint<int>);
     Traverse(testnum, testerr, h1, true, TraversePrint<int>);
+    lasd::HeapVec<int> h2(std::move(v1));
+    Size(testnum,testerr,h2,true,10);
+    EqualLinear(testnum,testerr,h1,h2,true);
     h1.Sort();
     Traverse(testnum, testerr, h1, true, TraversePrint<int>);
     IsHeap(testnum, testerr, h1, false);
-}
+    NonEqualLinear(testnum,testerr,h1,h2,true);
 
-void Personal_Double_HeapVec(uint &testnum, uint &testerr)
-{
-    lasd::Vector<double> v1(10);
-    SetAt(testnum, testerr, v1, true, 0, 4.4);
-    SetAt(testnum, testerr, v1, true, 1, 1.1);
-    SetAt(testnum, testerr, v1, true, 2, 3.3);
-    SetAt(testnum, testerr, v1, true, 3, 2.2);
-    SetAt(testnum, testerr, v1, true, 4, 16.16);
-    SetAt(testnum, testerr, v1, true, 5, 9.9);
-    SetAt(testnum, testerr, v1, true, 6, 10.10);
-    SetAt(testnum, testerr, v1, true, 7, 14.14);
-    SetAt(testnum, testerr, v1, true, 8, 8.8);
-    SetAt(testnum, testerr, v1, true, 9, 7.7);
-    lasd::HeapVec<double> h1(v1);
-    IsHeap(testnum, testerr, h1, true);
-    Traverse(testnum, testerr, v1, true, TraversePrint<double>);
-    Traverse(testnum, testerr, h1, true, TraversePrint<double>);
-    h1.Sort();
-    Traverse(testnum, testerr, h1, true, TraversePrint<double>);
-    IsHeap(testnum, testerr, h1, false);
+    lasd::List<int> l1(std::move(h2));
+    Size(testnum,testerr,h2,true,10);
+    h2.Clear();
+    Empty(testnum,testerr,h2,true);
+    Size(testnum,testerr,h2,true,0);
+    Traverse(testnum, testerr, h2, true, TraversePrint<int>);
+    Empty(testnum,testerr,l1,false);
+    Traverse(testnum, testerr, l1, true, TraversePrint<int>);
+
+    h1 = l1;
+    GetAt(testnum,testerr,h1,true,0,16);
+    GetAt(testnum,testerr,h1,true,1,14);
+    GetAt(testnum,testerr,h1,true,2,10);
+    GetAt(testnum,testerr,h1,true,3,8);
+    GetAt(testnum,testerr,h1,true,4,7);
+    GetAt(testnum,testerr,h1,true,5,9);
+    GetAt(testnum,testerr,h1,true,6,3);
+    GetAt(testnum,testerr,h1,true,7,2);
+    GetAt(testnum,testerr,h1,true,8,4);
+    GetAt(testnum,testerr,h1,true,9,1);
+
+    GetFront(testnum,testerr,h1,true,16);
+    GetBack(testnum,testerr,h1,true,1);
+    Exists(testnum,testerr,h1,true,16);
+    Exists(testnum,testerr,h1,false,40);
+    Exists(testnum,testerr,h1,true,1);
+
+    Fold(testnum,testerr,h1,true,FoldAdd<int>,0,74);
+    Fold(testnum,testerr,h1,true,FoldMultiply<int>,1,27095040);
+
+    Traverse(testnum,testerr,h1,true,TraversePrint<int>);
+    IsHeap(testnum,testerr,h1,true);
+
+    h1.Heapify();
+    IsHeap(testnum,testerr,h1,true);
+    Traverse(testnum,testerr,h1,true,TraversePrint<int>);
+
+    Fold(testnum,testerr,h1,true,FoldAdd<int>,0,74);
+    Fold(testnum,testerr,h1,true,FoldMultiply<int>,1,27095040);
+
+    lasd::Vector<int> v2(5);
+    SetAt(testnum,testerr,v2,true,0,5);
+    SetAt(testnum,testerr,v2,true,1,4);
+    SetAt(testnum,testerr,v2,true,2,3);
+    SetAt(testnum,testerr,v2,true,3,2);
+    SetAt(testnum,testerr,v2,true,4,1);
+
+    lasd::HeapVec<int> h3(v2);
+    IsHeap(testnum,testerr,h3,true);
+    Traverse(testnum,testerr,v2,true,TraversePrint<int>);
+    Traverse(testnum,testerr,h3,true,TraversePrint<int>);
 }
 
 void Personal_Char_HeapVec(uint &testnum, uint &testerr)
 {
+
     lasd::Vector<char> v1(10);
     SetAt(testnum, testerr, v1, true, 0, 'd');
     SetAt(testnum, testerr, v1, true, 1, 'a');
@@ -244,10 +261,40 @@ void Personal_Char_HeapVec(uint &testnum, uint &testerr)
     h1.Sort();
     Traverse(testnum, testerr, h1, true, TraversePrint<char>);
     IsHeap(testnum, testerr, h1, false);
+
+    lasd::List<char> l1(std::move(h1));
+    Size(testnum, testerr, h1, true, 10);
+    h1.Clear();
+    Empty(testnum, testerr, h1, true);
+    Size(testnum, testerr, h1, true, 0);
+    Traverse(testnum, testerr, h1, true, TraversePrint<char>);
+    Empty(testnum, testerr, l1, false);
+    Traverse(testnum, testerr, l1, true, TraversePrint<char>);
+
+    h1 = l1;
+    Traverse(testnum, testerr, h1, true, TraversePrint<char>);
+    GetAt(testnum, testerr, h1, true, 0, 'p');
+    GetAt(testnum, testerr, h1, true, 1, 'n');
+    GetAt(testnum, testerr, h1, true, 2, 'i');
+    GetAt(testnum, testerr, h1, true, 3, 'j');
+    GetAt(testnum, testerr, h1, true, 4, 'g');
+    GetAt(testnum, testerr, h1, true, 5, 'h');
+    GetAt(testnum, testerr, h1, true, 6, 'c');
+    GetAt(testnum, testerr, h1, true, 7, 'a');
+    GetAt(testnum, testerr, h1, true, 8, 'd');
+    GetAt(testnum, testerr, h1, true, 9, 'b');
+
+    GetFront(testnum, testerr, h1, true, 'p');
+    GetBack(testnum, testerr, h1, true, 'b');
+    Exists(testnum, testerr, h1, true, 'p');
+    Exists(testnum, testerr, h1, false, 'z');
+    Exists(testnum, testerr, h1, true, 'a');
+
 }
 
 void Personal_String_HeapVec(uint &testnum, uint &testerr)
 {
+
     lasd::Vector<std::string> v1(10);
     SetAt(testnum, testerr, v1, true, 0, std::string("d"));
     SetAt(testnum, testerr, v1, true, 1, std::string("a"));
@@ -266,6 +313,53 @@ void Personal_String_HeapVec(uint &testnum, uint &testerr)
     h1.Sort();
     Traverse(testnum, testerr, h1, true, TraversePrint<std::string>);
     IsHeap(testnum, testerr, h1, false);
+
+    lasd::List<std::string> l1(std::move(h1));
+    Size(testnum, testerr, h1, true, 10);
+    h1.Clear();
+    Empty(testnum, testerr, h1, true);
+    Size(testnum, testerr, h1, true, 0);
+    Traverse(testnum, testerr, h1, true, TraversePrint<std::string>);
+    Empty(testnum, testerr, l1, false);
+    Traverse(testnum, testerr, l1, true, TraversePrint<std::string>);
+
+    h1 = l1;
+    Traverse(testnum, testerr, h1, true, TraversePrint<std::string>);
+    GetAt(testnum, testerr, h1, true, 0, std::string("p"));
+    GetAt(testnum, testerr, h1, true, 1, std::string("n"));
+    GetAt(testnum, testerr, h1, true, 2, std::string("i"));
+    GetAt(testnum, testerr, h1, true, 3, std::string("j"));
+    GetAt(testnum, testerr, h1, true, 4, std::string("g"));
+    GetAt(testnum, testerr, h1, true, 5, std::string("h"));
+    GetAt(testnum, testerr, h1, true, 6, std::string("c"));
+    GetAt(testnum, testerr, h1, true, 7, std::string("a"));
+    GetAt(testnum, testerr, h1, true, 8, std::string("d"));
+    GetAt(testnum, testerr, h1, true, 9, std::string("b"));
+
+    GetFront(testnum, testerr, h1, true, std::string("p"));
+    GetBack(testnum, testerr, h1, true, std::string("b"));
+    Exists(testnum, testerr, h1, true, std::string("p"));
+    Exists(testnum, testerr, h1, false, std::string("z"));
+
+    lasd::Vector<std::string> v2(5);
+    SetAt(testnum,testerr,v2,true,0,std::string("apple"));
+    SetAt(testnum,testerr,v2,true,1,std::string("banana"));
+    SetAt(testnum,testerr,v2,true,2,std::string("cherry"));
+    SetAt(testnum,testerr,v2,true,3,std::string("date"));
+    SetAt(testnum,testerr,v2,true,4,std::string("elderberry"));
+
+    lasd::HeapVec<std::string> h2(v2);
+    IsHeap(testnum,testerr,h2,true);
+    Traverse(testnum,testerr,v2,true,TraversePrint<std::string>);
+    Traverse(testnum,testerr,h2,true,TraversePrint<std::string>);
+    h2.Sort();
+    Traverse(testnum,testerr,h2,true,TraversePrint<std::string>);
+    IsHeap(testnum,testerr,h2,false);
+
+    Fold(testnum,testerr,h2,true,FoldAdd<std::string>,std::string(""),std::string("applebananacherrydateelderberry"));
+    h2.Heapify();
+    IsHeap(testnum,testerr,h2,true);
+    Fold(testnum,testerr,h2,true,FoldAdd<std::string>,std::string(""),std::string("elderberrydatecherryapplebanana"));
 }
 
 void PersonalHeapVecTest(unsigned int &testnum, unsigned int &testerr)
@@ -280,15 +374,6 @@ void PersonalHeapVecTest(unsigned int &testnum, unsigned int &testerr)
     std::cout << "\033[4;36m<<Testing HeapVec of integers>>\033[0m" << std::endl;
     Personal_Int_HeapVec(loctest, errtest);
     std::cout << "\033[4;36mEnd of HeapVec<int> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
-    tottest += loctest;
-    toterr += errtest;
-
-    std::cout << std::endl;
-    loctest = 0;
-    errtest = 0;
-    std::cout << "\033[4;36m<<Testing HeapVec of doubles>>\033[0m" << std::endl;
-    Personal_Double_HeapVec(loctest, errtest);
-    std::cout << "\033[4;36mEnd of HeapVec<double> Test! (Error/Tests: " << errtest << "/" << loctest << ")\033[0m" << std::endl;
     tottest += loctest;
     toterr += errtest;
 
@@ -314,7 +399,6 @@ void PersonalHeapVecTest(unsigned int &testnum, unsigned int &testerr)
     std::cout << "\033[1;35mHeapVec personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
     testnum += tottest;
     testerr += toterr;
-    std::cout << std::endl;
 }
 
 void myTestExercise2A(unsigned int &testnum, unsigned int &testerr)

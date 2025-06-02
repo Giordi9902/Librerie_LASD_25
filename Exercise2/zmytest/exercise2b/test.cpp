@@ -458,7 +458,6 @@ void PersonalPQHeapTest(unsigned int &testnum, unsigned int &testerr)
     std::cout << "\033[1;35mPQHeap personal tests ended: " << toterr << " errors found over " << tottest << " tests.\033[0m" << std::endl;
     testnum += tottest;
     testerr += toterr;
-    std::cout << std::endl;
 }
 
 void myTestExercise2B(unsigned int &testnum, unsigned int &testerr)

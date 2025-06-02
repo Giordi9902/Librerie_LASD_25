@@ -2,18 +2,13 @@
 #ifndef PQHEAP_HPP
 #define PQHEAP_HPP
 
-/* ************************************************************************** */
 #define INIT_SIZE 16
 
 #include "../pq.hpp"
 #include "../../heap/vec/heapvec.hpp"
 
-/* ************************************************************************** */
-
 namespace lasd
 {
-
-    /* ************************************************************************** */
 
     template <typename Data>
     class PQHeap : virtual public PQ<Data>, virtual public HeapVec<Data>
