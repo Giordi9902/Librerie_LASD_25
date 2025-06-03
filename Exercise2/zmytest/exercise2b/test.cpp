@@ -29,7 +29,7 @@ void PQHeapTestMenu()
         std::cout << "\33[1;33m\t5 :\033[0m Sort the heap\n";
         std::cout << "\33[1;33m\t6 :\033[0m Clear the heap\n";
         std::cout << "\33[1;33m\t7 :\033[0m Apply fold function\n";
-        std::cout << "\33[1;33m\t8 :\033[0m Apply map function\n";
+        //std::cout << "\33[1;33m\t8 :\033[0m Apply map function\n";
         std::cout << "\33[1;33m\t9 :\033[0m Tip\n";
         std::cout << "\33[1;33m\t10 :\033[0m TipNRemove\n";
         std::cout << "\33[1;33m\t11 :\033[0m Change (copy)\n";
@@ -116,11 +116,11 @@ void PQHeapTestMenu()
             FoldFunctionsMenuTest(pqheap);
             break;
         }
-        case 8:
-        {
-            MapFunctionsMenuTest(pqheap);
-            break;
-        }
+        /*case 8:
+        *{
+        *    MapFunctionsMenuTest(pqheap);
+        *    break;
+        }*/
         case 9:
         {
             std::cout << "\033[1;32mGetting the tip of the pqheap...\033[0m" << std::endl;
