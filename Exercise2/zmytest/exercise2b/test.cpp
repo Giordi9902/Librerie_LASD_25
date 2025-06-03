@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <random>
 #include "../../zlasdtest/container/traversable.hpp"
 #include "../../zlasdtest/container/container.hpp"
 #include "../../zlasdtest/container/linear.hpp"
@@ -28,15 +29,13 @@ void PQHeapTestMenu()
         std::cout << "\33[1;33m\t5 :\033[0m Sort the heap\n";
         std::cout << "\33[1;33m\t6 :\033[0m Clear the heap\n";
         std::cout << "\33[1;33m\t7 :\033[0m Apply fold function\n";
-        std::cout << "\33[1;33m\t8 :\033[0m Apply map function (double elements)\n";
-        std::cout << "\33[1;33m\t9 :\033[0m Apply map function (parity invert elements)\n";
-        std::cout << "\33[1;33m\t10 :\033[0m Tip\n";
-        std::cout << "\33[1;33m\t11 :\033[0m TipNRemove\n";
-        std::cout << "\33[1;33m\t12 :\033[0m Change (copy)\n";
-        std::cout << "\33[1;33m\t13 :\033[0m Change (move)\n";
-        std::cout << "\33[1;33m\t14 :\033[0m Insert (copy)\n";
-        std::cout << "\33[1;33m\t15 :\033[0m Insert (move)\n";
-
+        std::cout << "\33[1;33m\t8 :\033[0m Apply map function\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Tip\n";
+        std::cout << "\33[1;33m\t10 :\033[0m TipNRemove\n";
+        std::cout << "\33[1;33m\t11 :\033[0m Change (copy)\n";
+        std::cout << "\33[1;33m\t12 :\033[0m Change (move)\n";
+        std::cout << "\33[1;33m\t13 :\033[0m Insert (copy)\n";
+        std::cout << "\33[1;33m\t14 :\033[0m Insert (move)\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -48,11 +47,11 @@ void PQHeapTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 15)
+            if (choice < 0 || choice > 14)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 15.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 14.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 15);
+        } while (choice < 0 || choice > 14);
 
         switch (choice)
         {
@@ -114,30 +113,15 @@ void PQHeapTestMenu()
         }
         case 7:
         {
-            std::cout << "\033[1;32mApplying fold function...\033[0m" << std::endl;
-            int sum = pqheap.Fold(FoldAdd<int>, 0);
-            std::cout << "Sum of elements in the heap: " << sum << std::endl;
+            FoldFunctionsMenuTest(pqheap);
             break;
         }
         case 8:
         {
-            std::cout << "\033[1;32mApplying map function...\033[0m" << std::endl;
-            pqheap.Map(MapDouble<int>);
-            std::cout << "Heap after mapping (each element multiplied by 2): ";
-            pqheap.Traverse(TraversePrint<int>);
-            std::cout << std::endl;
+            MapFunctionsMenuTest(pqheap);
             break;
         }
         case 9:
-        {
-            std::cout << "\033[1;32mApplying map function (parity invert elements)...\033[0m" << std::endl;
-            pqheap.Map(MapParityInvert<int>);
-            std::cout << "Heap after mapping (parity invert): ";
-            pqheap.Traverse(TraversePrint<int>);
-            std::cout << std::endl;
-            break;
-        }
-        case 10:
         {
             std::cout << "\033[1;32mGetting the tip of the pqheap...\033[0m" << std::endl;
             try
@@ -150,7 +134,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 11:
+        case 10:
         {
             std::cout << "\033[1;32mRemoving the tip of the pqheap...\033[0m" << std::endl;
             try
@@ -164,7 +148,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 12:
+        case 11:
         {
             std::cout << "\033[1;32mChanging an element in the pqheap (copy)...\033[0m" << std::endl;
             ulong index;
@@ -184,7 +168,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 13:
+        case 12:
         {
             std::cout << "\033[1;32mChanging an element in the pqheap (move)...\033[0m" << std::endl;
             ulong indexMove;
@@ -204,7 +188,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 14:
+        case 13:
         {
             std::cout << "\033[1;32mInserting an element into the pqheap (copy)...\033[0m" << std::endl;
             int valueToInsert;
@@ -221,7 +205,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 15:
+        case 14:
         {
             std::cout << "\033[1;32mInserting an element into the pqheap (move)...\033[0m" << std::endl;
             int valueToInsertMove;
@@ -254,6 +238,8 @@ void PQHeapTestMenu()
 
 void Personal_Int_PQHeap(uint &testnum, uint &testerr)
 {
+    std::default_random_engine gen(std::random_device{}());
+    std::uniform_int_distribution<int> dist(1, 200);
     lasd::Vector<int> vint(10);
     vint[0] = 42;
     vint[1] = 17;
@@ -327,6 +313,40 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     pqint2.Insert(std::move(newTip));
     Tip(testnum, testerr, pqint2, true, 24);
     Size(testnum, testerr, pqint2, true, 1);
+
+    lasd::Vector<int> randomVec(5);
+    for (ulong i = 0; i < randomVec.Size(); i++)
+    {
+        randomVec[i] = dist(gen);
+    }
+    Traverse(testnum,testerr,randomVec,true,TraversePrint<int>);
+    lasd::PQHeap<int> randomPQHeap(randomVec);
+    Traverse(testnum,testerr,randomPQHeap,true,TraversePrint<int>);
+    lasd::PQHeap<int> randomPQHeap2(randomPQHeap);
+    EqualLinear(testnum,testerr,randomPQHeap,randomPQHeap2,true);
+
+    RemoveTip(testnum, testerr, randomPQHeap, true);
+    RemoveTip(testnum, testerr, randomPQHeap, true);
+    RemoveTip(testnum, testerr, randomPQHeap, true);
+    RemoveTip(testnum, testerr, randomPQHeap, true);
+    RemoveTip(testnum, testerr, randomPQHeap, true);
+    RemoveTip(testnum, testerr, randomPQHeap, false);
+    Empty(testnum,testerr,randomPQHeap,true);
+    Size(testnum,testerr,randomPQHeap,true,0);
+
+    for (ulong i = 0; i < randomVec.Size(); i++)
+    {
+        Insert(testnum, testerr, randomPQHeap, randomVec[i]);
+    }
+
+    Empty(testnum,testerr,randomPQHeap,false);
+    Size(testnum,testerr,randomPQHeap,true,5);
+    IsHeap(testnum,testerr,randomPQHeap,true);
+
+    Traverse(testnum,testerr,randomPQHeap,true,TraversePrint<int>);
+    Traverse(testnum,testerr,randomPQHeap2,true,TraversePrint<int>);
+    //EqualLinear(testnum,testerr,randomPQHeap,randomPQHeap2,true);
+
 }
 
 void Personal_Char_PQHeap(uint &testnum, uint &testerr)
@@ -364,7 +384,7 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     pqchar.Insert('E');
     pqchar.Insert('F');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
-    Change(testnum,testerr,pqchar,0,'a');
+    Change(testnum, testerr, pqchar, 0, 'a');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
     IsHeap(testnum, testerr, pqchar, true);
     lasd::Vector<char> vc2(4);
@@ -393,19 +413,18 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     pqchar2.Insert(std::move(newTipChar));
     Tip(testnum, testerr, pqchar2, true, 'z');
     Size(testnum, testerr, pqchar2, true, 1);
-
 }
 
 void Personal_String_PQHeap(uint &testnum, uint &testerr)
 {
     lasd::Vector<std::string> vs1(7);
-    SetAt(testnum,testerr,vs1,true,0,std::string("zebra"));
-    SetAt(testnum,testerr,vs1,true,1,std::string("apple"));
-    SetAt(testnum,testerr,vs1,true,2,std::string("quail"));
-    SetAt(testnum,testerr,vs1,true,3,std::string("banana"));
-    SetAt(testnum,testerr,vs1,true,4,std::string("mango"));
-    SetAt(testnum,testerr,vs1,true,5,std::string("xylophone"));
-    SetAt(testnum,testerr,vs1,true,6,std::string("cat"));
+    SetAt(testnum, testerr, vs1, true, 0, std::string("zebra"));
+    SetAt(testnum, testerr, vs1, true, 1, std::string("apple"));
+    SetAt(testnum, testerr, vs1, true, 2, std::string("quail"));
+    SetAt(testnum, testerr, vs1, true, 3, std::string("banana"));
+    SetAt(testnum, testerr, vs1, true, 4, std::string("mango"));
+    SetAt(testnum, testerr, vs1, true, 5, std::string("xylophone"));
+    SetAt(testnum, testerr, vs1, true, 6, std::string("cat"));
     lasd::PQHeap<std::string> pqstring(vs1);
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
     Tip(testnum, testerr, pqstring, true, std::string("zebra"));

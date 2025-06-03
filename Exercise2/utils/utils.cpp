@@ -1,7 +1,5 @@
 #include "./utils.hpp"
-#include <iostream>
 using namespace std;
-
 
 void wait()
 {
@@ -13,7 +11,6 @@ void clean()
 {
     std::cout << "\033[H\033[2J\033[3J";
 }
-
 
 void PrintHeader()
 {
@@ -56,7 +53,8 @@ void PrintPersonalTestHeader()
 void finalGreet()
 {
     std::cout << "\033[1;33m"
-              << "Thank you for using my personal test suite!\n" << "\033[0m" << std::endl;
+              << "Thank you for using my personal test suite!\n"
+              << "\033[0m" << std::endl;
     std::cout << "\033[33m"
               << R"(                                     /$$ /$$                           /$$
                                     | $$| $$                          | $$
@@ -71,5 +69,123 @@ void finalGreet()
  \______/                                          \______/
 )" << "\033[0m"
               << std::endl;
+}
 
+void MapFunctionsMenuTest(lasd::MappableContainer<int> &con)
+{
+    int choice;
+    std::cout << "\n\t\033[1;34mSelect a map function to apply to the container:\033[0m" << std::endl;
+    std::cout << "\33[1;33m\t1 :\033[0m Increment by 1" << std::endl;
+    std::cout << "\33[1;33m\t2 :\033[0m Multiply by 2" << std::endl;
+    std::cout << "\33[1;33m\t3 :\033[0m Subtract 5" << std::endl;
+    std::cout << "\33[1;33m\t0 :\033[0m Exit\n"
+              << std::endl;
+
+    do
+    {
+        std::cout << "\n\033[1;34mChoice:\033[0m ";
+        if (!(std::cin >> choice))
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            choice = -1;
+        }
+        if (choice < 0 || choice > 3)
+        {
+            std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 3.\033[0m" << std::endl;
+        }
+    } while (choice < 0 || choice > 3);
+
+    switch (choice)
+    {
+    case 1:
+    {
+        con.Map(MapIncrement<int>);
+        std::cout << "Elements multiplied by 2." << std::endl;
+        break;
+    }
+    case 2:
+    {
+        con.Map(MapDouble<int>);
+        std::cout << "10 added to each element." << std::endl;
+        break;
+    }
+    case 3:
+    {
+        con.Map([](int &elem)
+                { elem -= 5; });
+        std::cout << "5 subtracted from each element." << std::endl;
+        break;
+    }
+    case 0:
+    {
+        std::cout << "\033[1;32mExiting menu.\033[0m" << std::endl;
+            break;
+    }
+    default:
+        std::cout << "Invalid choice!" << std::endl;
+        break;
+    }
+}
+
+void FoldFunctionsMenuTest(lasd::TraversableContainer<int> &con)
+{
+    int choice;
+    std::cout << "\n\t\033[1;34mSelect a fold function to apply to the container:\033[0m" << std::endl;
+    std::cout << "\33[1;33m\t1 :\033[0m Sum of elements" << std::endl;
+    std::cout << "\33[1;33m\t2 :\033[0m Product of elements" << std::endl;
+    std::cout << "\33[1;33m\t3 :\033[0m Maximum element" << std::endl;
+    std::cout << "\33[1;33m\t4 :\033[0m Minimum element" << std::endl;
+    std::cout << "\33[1;33m\t0 :\033[0m Exit\n"<< std::endl;
+
+    do
+    {
+        std::cout << "\n\033[1;34mChoice:\033[0m ";
+        if (!(std::cin >> choice))
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            choice = -1;
+        }
+        if (choice < 0 || choice > 4)
+        {
+            std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 4.\033[0m" << std::endl;
+        }
+    } while (choice < 0 || choice > 4);
+
+    switch (choice)
+    {
+    case 1:
+    {
+        int sum = con.Fold(FoldAdd<int>, 0);
+        std::cout << "Sum of elements: " << sum << std::endl;
+        break;
+    }
+    case 2:
+    {
+        int product = con.Fold(FoldMultiply<int>, 1);
+        std::cout << "Product of elements: " << product << std::endl;
+        break;
+    }
+    case 3:
+    {
+        int max = con.Fold(FoldMax<int>, std::numeric_limits<int>::min());
+        std::cout << "Maximum element: " << max << std::endl;
+        break;
+    }
+    case 4:
+    {
+        int min = con.Fold(FoldMin<int>, std::numeric_limits<int>::max());
+        std::cout << "Minimum element: " << min << std::endl;
+        break;
+    }
+    case 0:
+    {
+        std::cout << "\033[1;32mExiting menu.\033[0m" << std::endl;
+            break;
+    }
+    default:
+        std::cout << "Invalid choice!" << std::endl;
+        break;
+    }
 }

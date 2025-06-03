@@ -94,7 +94,7 @@ namespace lasd
             size++;
             return;
         }
-        else if (IsFull() || size + 1 > capacity/2)
+        else if (IsFull())
         {
             Resize(capacity * 2);
         }
@@ -118,7 +118,7 @@ namespace lasd
             size++;
             return;
         }
-        else if (IsFull() || size + 1 > capacity/2)
+        else if (IsFull())
         {
             Resize(capacity * 2);
         }
