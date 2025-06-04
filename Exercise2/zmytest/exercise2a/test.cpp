@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <random>
 #include <string>
 #include "../../heap/vec/heapvec.hpp"
 #include "../../zlasdtest/container/container.hpp"
@@ -7,6 +8,7 @@
 #include "../../zlasdtest/container/traversable.hpp"
 #include "../../zlasdtest/container/mappable.hpp"
 #include "../../zlasdtest/container/linear.hpp"
+#include "../mycontainer/mylinear.hpp"
 #include "../../vector/vector.hpp"
 #include "../../list/list.hpp"
 #include "../../set/lst/setlst.hpp"
@@ -141,6 +143,8 @@ void Personal_Int_HeapVec(uint &testnum, uint &testerr)
     SetAt(testnum, testerr, v1, true, 8, 8);
     SetAt(testnum, testerr, v1, true, 9, 7);
 
+    lasd::List<int> l1(v1);
+
     lasd::HeapVec<int> h1(v1);
 
     // Container tests
@@ -148,6 +152,97 @@ void Personal_Int_HeapVec(uint &testnum, uint &testerr)
     Size(testnum,testerr,h1,true,10);
 
     // Testable tests
+    Exists(testnum,testerr,h1,true,4);
+    Exists(testnum,testerr,h1,true,1);
+    Exists(testnum,testerr,h1,true,3);
+    Exists(testnum,testerr,h1,true,2);
+    Exists(testnum,testerr,h1,true,16);
+    Exists(testnum,testerr,h1,true,9);
+    Exists(testnum,testerr,h1,true,10);
+    Exists(testnum,testerr,h1,true,14);
+    Exists(testnum,testerr,h1,true,8);
+    Exists(testnum,testerr,h1,true,7);
+    Exists(testnum,testerr,h1,false,40);
+    Exists(testnum,testerr,h1,false,12);
+
+    // Traversable tests
+    Traverse(testnum,testerr,h1,true,TraversePrint<int>);
+    TraversePostOrder(testnum,testerr,h1,true,TraversePrint<int>);
+    Fold(testnum,testerr,h1,true,FoldAdd<int>,0,74);
+    FoldPostOrder(testnum,testerr,h1,true,FoldAdd<int>,0,74);
+    Fold(testnum,testerr,h1,true,FoldMultiply<int>,1,27095040);
+    FoldPostOrder(testnum,testerr,h1,true,FoldMultiply<int>,1,27095040);
+
+    // LinearContainer tests
+    lasd::HeapVec<int>h2(v1);
+    EqualLinear(testnum,testerr,h1,h2,true);
+    GetAt(testnum,testerr,h1,true,0,16);
+    GetAt(testnum,testerr,h1,true,1,14);
+    GetAt(testnum,testerr,h1,true,2,10);
+    GetAt(testnum,testerr,h1,true,3,8);
+    GetAt(testnum,testerr,h1,true,4,7);
+    GetAt(testnum,testerr,h1,true,5,9);
+    GetAt(testnum,testerr,h1,true,6,3);
+    GetAt(testnum,testerr,h1,true,7,2);
+    GetAt(testnum,testerr,h1,true,8,4);
+    GetAt(testnum,testerr,h1,true,9,1);
+    GetFront(testnum,testerr,h1,true,16);
+    GetBack(testnum,testerr,h1,true,1);
+    
+    
+    // MappableContainer tests
+    Map(testnum,testerr,h1,true,MapIncrement<int>);
+    GetAt(testnum,testerr,h1,true,0,17);
+    GetAt(testnum,testerr,h1,true,1,15);
+    GetAt(testnum,testerr,h1,true,2,11);
+    GetAt(testnum,testerr,h1,true,3,9);
+    GetAt(testnum,testerr,h1,true,4,8);
+    GetAt(testnum,testerr,h1,true,5,10);
+    GetAt(testnum,testerr,h1,true,6,4);
+    GetAt(testnum,testerr,h1,true,7,3);
+    GetAt(testnum,testerr,h1,true,8,5);
+    GetAt(testnum,testerr,h1,true,9,2);
+
+    // MutableLinear Container tests
+    for(ulong index = 0; index < 10; index++){
+        SetAt(testnum,testerr,h1,true,index,v1[index]);
+    }
+
+    // Heap tests
+    IsHeap(testnum,testerr,h1,false);
+    h1.Heapify();
+    IsHeap(testnum,testerr,h1,true);
+    h1.Sort();
+    SortedLinear(testnum,testerr,h1,true);
+    NonEqualLinear(testnum,testerr,h1,h2,true);
+
+    // Check move constructor
+    lasd::HeapVec<int> h3(std::move(h1));
+    IsHeap(testnum,testerr,h3,false);
+
+    // Check copy constructor
+    lasd::HeapVec<int> h4(h3);
+    EqualLinear(testnum,testerr,h3,h4,true);
+    Empty(testnum, testerr, h4, false);
+    Size(testnum, testerr, h4, true, 10);
+    IsHeap(testnum,testerr,h4,false);
+
+    // Check constructor from mappablecontainer
+    lasd::HeapVec<int> h5(std::move(l1));
+    IsHeap(testnum,testerr,h5,true);
+
+    // Operator= checks
+    lasd::HeapVec<int> h6;
+    h6 = h3;
+    Traverse(testnum,testerr,h6,true,TraversePrint<int>);
+    Size(testnum,testerr,h6,true,10);
+    IsHeap(testnum,testerr,h6,false);
+    h6.Heapify();
+
+    lasd::HeapVec<int> h7 = std::move(h6);
+    Traverse(testnum,testerr,h7,true,TraversePrint<int>);
+    Size(testnum,testerr,h7,true,10);
+    IsHeap(testnum,testerr,h7,true);
 }
 
 void Personal_Char_HeapVec(uint &testnum, uint &testerr)
@@ -165,6 +260,9 @@ void Personal_Char_HeapVec(uint &testnum, uint &testerr)
     SetAt(testnum, testerr, v1, true, 8, 'h');
     SetAt(testnum, testerr, v1, true, 9, 'g');
     lasd::HeapVec<char> h1(v1);
+
+
+    
 
 
 }

@@ -27,14 +27,14 @@ namespace lasd
     template <typename Data>
     HeapVec<Data> &HeapVec<Data>::operator=(const HeapVec<Data> &con)
     {
-        Vector<Data>::operator=(con);
+        SortableVector<Data>::operator=(con);
         return *this;
     }
 
     template <typename Data>
     HeapVec<Data> &HeapVec<Data>::operator=(HeapVec<Data> &&con) noexcept
     {
-        Vector<Data>::operator=(std::move(con));
+        SortableVector<Data>::operator=(std::move(con));
         return *this;
     }
 
