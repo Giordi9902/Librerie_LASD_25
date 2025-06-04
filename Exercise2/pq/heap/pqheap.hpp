@@ -11,57 +11,32 @@ namespace lasd
 {
 
     template <typename Data>
-    class PQHeap : virtual public PQ<Data>, virtual public HeapVec<Data>
+    class PQHeap : virtual public PQ<Data>, virtual protected HeapVec<Data>
     {
 
     protected:
         using Container::size;
         using HeapVec<Data>::elements;
-        using HeapVec<Data>::Map;
-        using HeapVec<Data>::PreOrderMap;
-        using HeapVec<Data>::PostOrderMap;
         ulong capacity;
 
     public:
-        // Default constructor
         PQHeap() = default;
-
-        // Specific constructors
         PQHeap(const TraversableContainer<Data> &);
         PQHeap(MappableContainer<Data> &&);
-
-        // Copy constructor
         PQHeap(const PQHeap<Data> &);
-
-        // Move constructor
         PQHeap(PQHeap<Data> &&) noexcept;
-
-        // Destructor
         virtual ~PQHeap() = default;
-
-        /* ************************************************************************ */
-
-        // Copy assignment
         PQHeap &operator=(const PQHeap &);
-
-        // Move assignment
         PQHeap &operator=(PQHeap &&) noexcept;
-
-        /* ************************************************************************ */
-
-        const Data &Tip() const override; // Override PQ member (must throw std::length_error when empty)
-        void RemoveTip() override;        // Override PQ member (must throw std::length_error when empty)
-        Data TipNRemove() override;       // Override PQ member (must throw std::length_error when empty)
-
+        const Data &Tip() const override;
+        void RemoveTip() override;
+        Data TipNRemove() override;
         void Insert(const Data &) override;
         void Insert(Data &&) override;
-
         void Change(ulong, const Data &) override;
         void Change(ulong, Data &&) override;
-
-        // Specific member functions (inherited from PQ)
-
         void Clear() override;
+        using HeapVec<Data>::operator[];
 
     protected:
         void HeapifyUp(ulong index);

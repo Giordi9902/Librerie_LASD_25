@@ -24,18 +24,15 @@ void PQHeapTestMenu()
         std::cout << std::endl;
         std::cout << "\33[1;33m\t1 :\033[0m Generate random vector and create a new pqheap\n";
         std::cout << "\33[1;33m\t2 :\033[0m Print the pqheap\n";
-        std::cout << "\33[1;33m\t3 :\033[0m Check if the heap is valid\n";
-        std::cout << "\33[1;33m\t4 :\033[0m Heapify vector\n";
-        std::cout << "\33[1;33m\t5 :\033[0m Sort the heap\n";
-        std::cout << "\33[1;33m\t6 :\033[0m Clear the heap\n";
-        std::cout << "\33[1;33m\t7 :\033[0m Apply fold function\n";
-        //std::cout << "\33[1;33m\t8 :\033[0m Apply map function\n";
-        std::cout << "\33[1;33m\t9 :\033[0m Tip\n";
-        std::cout << "\33[1;33m\t10 :\033[0m TipNRemove\n";
-        std::cout << "\33[1;33m\t11 :\033[0m Change (copy)\n";
-        std::cout << "\33[1;33m\t12 :\033[0m Change (move)\n";
-        std::cout << "\33[1;33m\t13 :\033[0m Insert (copy)\n";
-        std::cout << "\33[1;33m\t14 :\033[0m Insert (move)\n";
+        std::cout << "\33[1;33m\t3 :\033[0m Clear the heap\n";
+        std::cout << "\33[1;33m\t4 :\033[0m Apply fold function\n";
+        std::cout << "\33[1;33m\t5 :\033[0m Tip\n";
+        std::cout << "\33[1;33m\t6 :\033[0m TipNRemove\n";
+        std::cout << "\33[1;33m\t7 :\033[0m Change (copy)\n";
+        std::cout << "\33[1;33m\t8 :\033[0m Change (move)\n";
+        std::cout << "\33[1;33m\t9 :\033[0m Insert (copy)\n";
+        std::cout << "\33[1;33m\t10 :\033[0m Insert (move)\n";
+        std::cout << "\33[1;33m\t11 :\033[0m Get at index\n";
         std::cout << "\33[1;33m\t0 :\033[0m Exit\n";
 
         do
@@ -47,11 +44,11 @@ void PQHeapTestMenu()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 choice = -1;
             }
-            if (choice < 0 || choice > 14)
+            if (choice < 0 || choice > 11)
             {
-                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 14.\033[0m" << std::endl;
+                std::cout << "\33[1;31mInvalid choice. Please enter a number between 0 and 11.\033[0m" << std::endl;
             }
-        } while (choice < 0 || choice > 14);
+        } while (choice < 0 || choice > 11);
 
         switch (choice)
         {
@@ -76,52 +73,17 @@ void PQHeapTestMenu()
         }
         case 3:
         {
-            std::cout << "\033[1;32mChecking if the heap is valid...\033[0m" << std::endl;
-            if (pqheap.IsHeap())
-            {
-                std::cout << "The heap is valid." << std::endl;
-            }
-            else
-            {
-                std::cout << "The heap is not valid." << std::endl;
-            }
-            break;
-        }
-        case 4:
-        {
-            std::cout << "\033[1;32mHeapifying the vector...\033[0m" << std::endl;
-            pqheap.Heapify();
-            std::cout << "Heapified successfully." << std::endl;
-            std::cout << "Heap after heapify: ";
-            pqheap.Traverse(TraversePrint<int>);
-            std::cout << std::endl;
-            break;
-        }
-        case 5:
-        {
-            std::cout << "\033[1;32mSorting the heap...\033[0m" << std::endl;
-            pqheap.Sort();
-            std::cout << "Heap sorted successfully." << std::endl;
-            break;
-        }
-        case 6:
-        {
             std::cout << "\033[1;32mClearing the heap...\033[0m" << std::endl;
             pqheap.Clear();
             std::cout << "Heap cleared successfully." << std::endl;
             break;
         }
-        case 7:
+        case 4:
         {
             FoldFunctionsMenuTest(pqheap);
             break;
         }
-        /*case 8:
-        *{
-        *    MapFunctionsMenuTest(pqheap);
-        *    break;
-        }*/
-        case 9:
+        case 5:
         {
             std::cout << "\033[1;32mGetting the tip of the pqheap...\033[0m" << std::endl;
             try
@@ -134,7 +96,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 10:
+        case 6:
         {
             std::cout << "\033[1;32mRemoving the tip of the pqheap...\033[0m" << std::endl;
             try
@@ -148,7 +110,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 11:
+        case 7:
         {
             std::cout << "\033[1;32mChanging an element in the pqheap (copy)...\033[0m" << std::endl;
             ulong index;
@@ -168,7 +130,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 12:
+        case 8:
         {
             std::cout << "\033[1;32mChanging an element in the pqheap (move)...\033[0m" << std::endl;
             ulong indexMove;
@@ -188,7 +150,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 13:
+        case 9:
         {
             std::cout << "\033[1;32mInserting an element into the pqheap (copy)...\033[0m" << std::endl;
             int valueToInsert;
@@ -205,7 +167,7 @@ void PQHeapTestMenu()
             }
             break;
         }
-        case 14:
+        case 10:
         {
             std::cout << "\033[1;32mInserting an element into the pqheap (move)...\033[0m" << std::endl;
             int valueToInsertMove;
@@ -215,6 +177,24 @@ void PQHeapTestMenu()
             {
                 pqheap.Insert(std::move(valueToInsertMove));
                 std::cout << "Element inserted successfully." << std::endl;
+            }
+            catch (const std::length_error &e)
+            {
+                std::cerr << "\33[1;31mError: " << e.what() << "\033[0m" << std::endl;
+            }
+            break;
+        }
+        case 11:
+        {
+            std::cout << "\033[1;32mGetting an element at a specific index...\033[0m" << std::endl;
+            ulong indexGet;
+            int expectedValue;
+            std::cout << "Enter index to get: ";
+            std::cin >> indexGet;
+            try
+            {
+                expectedValue = pqheap[indexGet];
+                std::cout << "Element at index " << indexGet << ": " << expectedValue << std::endl;
             }
             catch (const std::length_error &e)
             {
@@ -283,7 +263,6 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     Insert(testnum, testerr, pqint, 77);
     Insert(testnum, testerr, pqint, 12);
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
-    IsHeap(testnum, testerr, pqint, true);
 
     lasd::Vector<int> vint2(5);
     vint2[0] = 5;
@@ -293,17 +272,14 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     vint2[4] = 5;
     lasd::PQHeap<int> pqint2(std::move(vint2));
     Traverse(testnum, testerr, pqint2, true, TraversePrint<int>);
-    IsHeap(testnum, testerr, pqint2, true);
     GetAt(testnum, testerr, pqint2, true, 0, 5);
     GetAt(testnum, testerr, pqint2, true, 1, 5);
     GetAt(testnum, testerr, pqint2, true, 2, 5);
     GetAt(testnum, testerr, pqint2, true, 3, 5);
     GetAt(testnum, testerr, pqint2, true, 4, 5);
     GetAt(testnum, testerr, pqint2, false, 5, 5);
-    SetAt(testnum, testerr, pqint2, true, 2, 10);
-    SetAt(testnum, testerr, pqint2, true, 4, 20);
-    IsHeap(testnum, testerr, pqint2, false);
-    pqint2.Heapify();
+    Change(testnum,testerr,pqint2,true,0,20);
+    Change(testnum,testerr,pqint2,false,6,0);
     Tip(testnum, testerr, pqint2, true, 20);
     pqint2.Clear();
     Size(testnum, testerr, pqint2, true, 0);
@@ -341,7 +317,7 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
 
     Empty(testnum,testerr,randomPQHeap,false);
     Size(testnum,testerr,randomPQHeap,true,5);
-    IsHeap(testnum,testerr,randomPQHeap,true);
+
 
     Traverse(testnum,testerr,randomPQHeap,true,TraversePrint<int>);
     Traverse(testnum,testerr,randomPQHeap2,true,TraversePrint<int>);
@@ -386,7 +362,7 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
     Change(testnum, testerr, pqchar,true, 0, 'a');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
-    IsHeap(testnum, testerr, pqchar, true);
+
     lasd::Vector<char> vc2(4);
     SetAt(testnum, testerr, vc2, true, 0, 'd');
     SetAt(testnum, testerr, vc2, true, 1, 'd');
@@ -394,17 +370,14 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     SetAt(testnum, testerr, vc2, true, 3, 'd');
     lasd::PQHeap<char> pqchar2(std::move(vc2));
     Traverse(testnum, testerr, pqchar2, true, TraversePrint<char>);
-    IsHeap(testnum, testerr, pqchar2, true);
+
     GetAt(testnum, testerr, pqchar2, true, 0, 'd');
     GetAt(testnum, testerr, pqchar2, true, 1, 'd');
     GetAt(testnum, testerr, pqchar2, true, 2, 'd');
     GetAt(testnum, testerr, pqchar2, true, 3, 'd');
     GetAt(testnum, testerr, pqchar2, false, 4, 'd');
-    SetAt(testnum, testerr, pqchar2, true, 1, 'h');
-    SetAt(testnum, testerr, pqchar2, true, 3, 'k');
-    IsHeap(testnum, testerr, pqchar2, false);
-    pqchar2.Heapify();
-    Tip(testnum, testerr, pqchar2, true, 'k');
+
+    Tip(testnum, testerr, pqchar2, true, 'd');
     pqchar2.Clear();
     Size(testnum, testerr, pqchar2, true, 0);
     Empty(testnum, testerr, pqchar2, true);
