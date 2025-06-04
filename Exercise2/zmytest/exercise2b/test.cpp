@@ -260,7 +260,7 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
     TipNRemove(testnum, testerr, pqint, true, 120);
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
-    Change(testnum, testerr, pqint, 0, 120);
+    Change(testnum, testerr, pqint, true, 0, 120);
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
     RemoveTip(testnum, testerr, pqint, true);
     RemoveTip(testnum, testerr, pqint, true);
@@ -368,7 +368,7 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
     TipNRemove(testnum, testerr, pqchar, true, 'x');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
-    Change(testnum, testerr, pqchar, 0, 'y');
+    Change(testnum, testerr, pqchar, true, 0, 'y');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
     RemoveTip(testnum, testerr, pqchar, true);
     RemoveTip(testnum, testerr, pqchar, true);
@@ -384,7 +384,7 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     pqchar.Insert('E');
     pqchar.Insert('F');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
-    Change(testnum, testerr, pqchar, 0, 'a');
+    Change(testnum, testerr, pqchar,true, 0, 'a');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
     IsHeap(testnum, testerr, pqchar, true);
     lasd::Vector<char> vc2(4);
@@ -434,7 +434,7 @@ void Personal_String_PQHeap(uint &testnum, uint &testerr)
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
     TipNRemove(testnum, testerr, pqstring, true, std::string("xylophone"));
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
-    Change(testnum, testerr, pqstring, 0, std::string("yak"));
+    Change(testnum, testerr, pqstring,true,  0, std::string("yak"));
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
     RemoveTip(testnum, testerr, pqstring, true);
     RemoveTip(testnum, testerr, pqstring, true);
