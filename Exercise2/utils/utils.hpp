@@ -7,7 +7,8 @@
 
 #include "../zlasdtest/container/traversable.hpp"
 #include "../zlasdtest/container/mappable.hpp"
-
+#include <random>
+#include <string>
 #include <limits>
 
 
@@ -33,4 +34,5 @@ Data FoldMax(const Data& elem, const Data& acc)
 void FoldFunctionsMenuTest(lasd::TraversableContainer<int>&);
 void MapFunctionsMenuTest(lasd::MappableContainer<int>&);
 
+std::string random_string(ulong length);
 #endif

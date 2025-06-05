@@ -3,6 +3,7 @@
 #include <random>
 #include "../../zlasdtest/container/traversable.hpp"
 #include "../../zlasdtest/container/container.hpp"
+#include "../../zlasdtest/container/testable.hpp"
 #include "../../zlasdtest/container/linear.hpp"
 #include "../../zlasdtest/container/mappable.hpp"
 #include "../../zlasdtest/pq/pq.hpp"
@@ -232,16 +233,47 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     vint[8] = 77;
     vint[9] = 12;
     lasd::PQHeap<int> pqint(vint);
+
+    // Container
+    Size(testnum,testerr,pqint,true,10);
+    Empty(testnum,testerr,pqint,false);
+
+    // Testable
+    Exists(testnum, testerr, pqint, true, 42);
+    Exists(testnum, testerr, pqint, true, 17);
+    Exists(testnum, testerr, pqint, true, 8);
+    Exists(testnum, testerr, pqint, true, 99);
+    Exists(testnum, testerr, pqint, true, 23);
+    Exists(testnum, testerr, pqint, true, 4);
+    Exists(testnum, testerr, pqint, true, 56);
+    Exists(testnum, testerr, pqint, true, 1);
+    Exists(testnum, testerr, pqint, true, 77);
+    Exists(testnum, testerr, pqint, true, 12);
+    Exists(testnum, testerr, pqint, false, 100);
+
+    // Linear
+    GetAt(testnum,testerr,pqint,true,0,99);
+    GetAt(testnum,testerr,pqint,true,1,77);
+    GetAt(testnum,testerr,pqint,true,2,56);
+    GetAt(testnum,testerr,pqint,true,3,42);
+    GetAt(testnum,testerr,pqint,true,4,23);
+    GetAt(testnum,testerr,pqint,true,5,4);
+    GetAt(testnum,testerr,pqint,true,6,8);
+    GetAt(testnum,testerr,pqint,true,7,1);
+    GetAt(testnum,testerr,pqint,true,8,17);
+    GetAt(testnum,testerr,pqint,true,9,12);
+
+    // Traversable
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
+    Fold(testnum,testerr,pqint,true,FoldAdd<int>,0,339);
+
     Tip(testnum, testerr, pqint, true, 99);
     RemoveTip(testnum, testerr, pqint, true);
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
     Insert(testnum, testerr, pqint, 120);
-    Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
+
     TipNRemove(testnum, testerr, pqint, true, 120);
-    Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
     Change(testnum, testerr, pqint, true, 0, 120);
-    Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
     RemoveTip(testnum, testerr, pqint, true);
     RemoveTip(testnum, testerr, pqint, true);
     RemoveTip(testnum, testerr, pqint, true);
@@ -317,12 +349,6 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
 
     Empty(testnum,testerr,randomPQHeap,false);
     Size(testnum,testerr,randomPQHeap,true,5);
-
-
-    Traverse(testnum,testerr,randomPQHeap,true,TraversePrint<int>);
-    Traverse(testnum,testerr,randomPQHeap2,true,TraversePrint<int>);
-    //EqualLinear(testnum,testerr,randomPQHeap,randomPQHeap2,true);
-
 }
 
 void Personal_Char_PQHeap(uint &testnum, uint &testerr)
@@ -411,6 +437,13 @@ void Personal_String_PQHeap(uint &testnum, uint &testerr)
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
     RemoveTip(testnum, testerr, pqstring, true);
     RemoveTip(testnum, testerr, pqstring, true);
+
+    lasd::Vector<std::string> vstring(30);
+    for(ulong i = 0; i < vstring.Size(); ++i) vstring[i] = random_string(5);
+    lasd::PQHeap<std::string> pqstring2;
+    for(ulong i =0; i< vstring.Size();i++) Insert(testnum,testerr,pqstring2,vstring[i]);
+    Size(testnum,testerr,pqstring2,true,30);
+    Traverse(testnum, testerr, pqstring2, true, TraversePrint<std::string>);
 }
 
 void PersonalPQHeapTest(unsigned int &testnum, unsigned int &testerr)

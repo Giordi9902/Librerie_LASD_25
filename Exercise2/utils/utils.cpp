@@ -1,6 +1,16 @@
 #include "./utils.hpp"
 using namespace std;
 
+std::string random_string(ulong length) {
+    static const std::string charset = "abcdefghijklmnopqrstuvwxyz";
+    static std::default_random_engine rng(std::random_device{}());
+    static std::uniform_int_distribution<size_t> dist(0, charset.size() - 1);
+    std::string result;
+    for (size_t i = 0; i < length; ++i)
+        result += charset[dist(rng)];
+    return result;
+}
+
 void wait()
 {
     std::cout << "Press any key to continue..." << std::endl;

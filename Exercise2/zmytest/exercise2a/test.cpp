@@ -188,8 +188,8 @@ void Personal_Int_HeapVec(uint &testnum, uint &testerr)
     GetAt(testnum,testerr,h1,true,9,1);
     GetFront(testnum,testerr,h1,true,16);
     GetBack(testnum,testerr,h1,true,1);
-    
-    
+
+
     // MappableContainer tests
     Map(testnum,testerr,h1,true,MapIncrement<int>);
     GetAt(testnum,testerr,h1,true,0,17);
@@ -261,9 +261,98 @@ void Personal_Char_HeapVec(uint &testnum, uint &testerr)
     SetAt(testnum, testerr, v1, true, 9, 'g');
     lasd::HeapVec<char> h1(v1);
 
+    // Container tests
+    Empty(testnum,testerr,h1,false);
+    Size(testnum,testerr,h1,true,10);
 
-    
+    // Testable tests
+    Exists(testnum,testerr,h1,true,'d');
+    Exists(testnum,testerr,h1,true,'a');
+    Exists(testnum,testerr,h1,true,'c');
+    Exists(testnum,testerr,h1,true,'b');
+    Exists(testnum,testerr,h1,true,'p');
+    Exists(testnum,testerr,h1,true,'i');
+    Exists(testnum,testerr,h1,true,'j');
+    Exists(testnum,testerr,h1,true,'n');
+    Exists(testnum,testerr,h1,true,'h');
+    Exists(testnum,testerr,h1,true,'g');
+    Exists(testnum,testerr,h1,false,'z');
+    Exists(testnum,testerr,h1,false,'m');
 
+    // Traversable tests
+    Traverse(testnum,testerr,h1,true,TraversePrint<char>);
+    TraversePostOrder(testnum,testerr,h1,true,TraversePrint<char>);
+
+    // LinearContainer tests
+    lasd::HeapVec<char>h2(v1);
+    EqualLinear(testnum,testerr,h1,h2,true);
+    GetAt(testnum,testerr,h1,true,0,'p');
+    GetAt(testnum,testerr,h1,true,1,'n');
+    GetAt(testnum,testerr,h1,true,2,'j');
+    GetAt(testnum,testerr,h1,true,3,'h');
+    GetAt(testnum,testerr,h1,true,4,'g');
+    GetAt(testnum,testerr,h1,true,5,'i');
+    GetAt(testnum,testerr,h1,true,6,'c');
+    GetAt(testnum,testerr,h1,true,7,'b');
+    GetAt(testnum,testerr,h1,true,8,'d');
+    GetAt(testnum,testerr,h1,true,9,'a');
+    GetFront(testnum,testerr,h1,true,'p');
+    GetBack(testnum,testerr,h1,true,'a');
+
+    // MappableContainer tests
+    Map(testnum,testerr,h1,true,MapIncrement<char>);
+    GetAt(testnum,testerr,h1,true,0,'q');
+    GetAt(testnum,testerr,h1,true,1,'o');
+    GetAt(testnum,testerr,h1,true,2,'k');
+    GetAt(testnum,testerr,h1,true,3,'i');
+    GetAt(testnum,testerr,h1,true,4,'h');
+    GetAt(testnum,testerr,h1,true,5,'j');
+    GetAt(testnum,testerr,h1,true,6,'d');
+    GetAt(testnum,testerr,h1,true,7,'c');
+    GetAt(testnum,testerr,h1,true,8,'e');
+    GetAt(testnum,testerr,h1,true,9,'b');
+
+    // MutableLinear Container tests
+    for(ulong index = 0; index < 10; index++){
+        SetAt(testnum,testerr,h1,true,index,v1[index]);
+    }
+
+    // Heap tests
+    IsHeap(testnum,testerr,h1,false);
+    h1.Heapify();
+    IsHeap(testnum,testerr,h1,true);
+    h1.Sort();
+    SortedLinear(testnum,testerr,h1,true);
+    NonEqualLinear(testnum,testerr,h1,h2,true);
+
+    // Check move constructor
+    lasd::HeapVec<char> h3(std::move(h1));
+    IsHeap(testnum,testerr,h3,false);
+
+    // Check copy constructor
+    lasd::HeapVec<char> h4(h3);
+    EqualLinear(testnum,testerr,h3,h4,true);
+    Empty(testnum, testerr, h4, false);
+    Size(testnum, testerr, h4, true, 10);
+    IsHeap(testnum,testerr,h4,false);
+
+    // Check constructor from mappablecontainer
+    lasd::List<char> l1(v1);
+    lasd::HeapVec<char> h5(std::move(l1));
+    IsHeap(testnum,testerr,h5,true);
+
+    // Operator= checks
+    lasd::HeapVec<char> h6;
+    h6 = h3;
+    Traverse(testnum,testerr,h6,true,TraversePrint<char>);
+    Size(testnum,testerr,h6,true,10);
+    IsHeap(testnum,testerr,h6,false);
+    h6.Heapify();
+
+    lasd::HeapVec<char> h7 = std::move(h6);
+    Traverse(testnum,testerr,h7,true,TraversePrint<char>);
+    Size(testnum,testerr,h7,true,10);
+    IsHeap(testnum,testerr,h7,true);
 
 }
 
@@ -282,6 +371,101 @@ void Personal_String_HeapVec(uint &testnum, uint &testerr)
     SetAt(testnum, testerr, v1, true, 8, std::string("h"));
     SetAt(testnum, testerr, v1, true, 9, std::string("g"));
     lasd::HeapVec<std::string> h1(v1);
+
+    // Container tests
+    Empty(testnum,testerr,h1,false);
+    Size(testnum,testerr,h1,true,10);
+
+    // Testable tests
+    Exists(testnum,testerr,h1,true,std::string("d"));
+    Exists(testnum,testerr,h1,true,std::string("a"));
+    Exists(testnum,testerr,h1,true,std::string("c"));
+    Exists(testnum,testerr,h1,true,std::string("b"));
+    Exists(testnum,testerr,h1,true,std::string("p"));
+    Exists(testnum,testerr,h1,true,std::string("i"));
+    Exists(testnum,testerr,h1,true,std::string("j"));
+    Exists(testnum,testerr,h1,true,std::string("n"));
+    Exists(testnum,testerr,h1,true,std::string("h"));
+    Exists(testnum,testerr,h1,true,std::string("g"));
+    Exists(testnum,testerr,h1,false,std::string("z"));
+    Exists(testnum,testerr,h1,false,std::string("m"));
+
+    // Traversable tests
+    Traverse(testnum,testerr,h1,true,TraversePrint<std::string>);
+    TraversePostOrder(testnum,testerr,h1,true,TraversePrint<std::string>);
+
+    // LinearContainer tests
+    lasd::HeapVec<std::string>h2(v1);
+    EqualLinear(testnum,testerr,h1,h2,true);
+    GetAt(testnum,testerr,h1,true,0,std::string("p"));
+    GetAt(testnum,testerr,h1,true,1,std::string("n"));
+    GetAt(testnum,testerr,h1,true,2,std::string("j"));
+    GetAt(testnum,testerr,h1,true,3,std::string("h"));
+    GetAt(testnum,testerr,h1,true,4,std::string("g"));
+    GetAt(testnum,testerr,h1,true,5,std::string("i"));
+    GetAt(testnum,testerr,h1,true,6,std::string("c"));
+    GetAt(testnum,testerr,h1,true,7,std::string("b"));
+    GetAt(testnum,testerr,h1,true,8,std::string("d"));
+    GetAt(testnum,testerr,h1,true,9,std::string("a"));
+    GetFront(testnum,testerr,h1,true,std::string("p"));
+    GetBack(testnum,testerr,h1,true,std::string("a"));
+
+    // MappableContainer tests
+    Map(testnum,testerr,h1,true,[](std::string& str){
+        str.append("X");
+    });
+    GetAt(testnum,testerr,h1,true,0,std::string("pX"));
+    GetAt(testnum,testerr,h1,true,1,std::string("nX"));
+    GetAt(testnum,testerr,h1,true,2,std::string("jX"));
+    GetAt(testnum,testerr,h1,true,3,std::string("hX"));
+    GetAt(testnum,testerr,h1,true,4,std::string("gX"));
+    GetAt(testnum,testerr,h1,true,5,std::string("iX"));
+    GetAt(testnum,testerr,h1,true,6,std::string("cX"));
+    GetAt(testnum,testerr,h1,true,7,std::string("bX"));
+    GetAt(testnum,testerr,h1,true,8,std::string("dX"));
+    GetAt(testnum,testerr,h1,true,9,std::string("aX"));
+
+    // MutableLinear Container tests
+    for(ulong index = 0; index < 10; index++){
+        SetAt(testnum,testerr,h1,true,index,v1[index]);
+    }
+
+    // Heap tests
+    IsHeap(testnum,testerr,h1,false);
+    h1.Heapify();
+    IsHeap(testnum,testerr,h1,true);
+    h1.Sort();
+    SortedLinear(testnum,testerr,h1,true);
+    NonEqualLinear(testnum,testerr,h1,h2,true);
+
+    // Check move constructor
+    lasd::HeapVec<std::string> h3(std::move(h1));
+    IsHeap(testnum,testerr,h3,false);
+
+    // Check copy constructor
+    lasd::HeapVec<std::string> h4(h3);
+    EqualLinear(testnum,testerr,h3,h4,true);
+    Empty(testnum, testerr, h4, false);
+    Size(testnum, testerr, h4, true, 10);
+    IsHeap(testnum,testerr,h4,false);
+
+    // Check constructor from mappablecontainer
+    lasd::List<std::string> l1(v1);
+    lasd::HeapVec<std::string> h5(std::move(l1));
+    IsHeap(testnum,testerr,h5,true);
+
+    // Operator= checks
+    lasd::HeapVec<std::string> h6;
+    h6 = h3;
+    Traverse(testnum,testerr,h6,true,TraversePrint<std::string>);
+    Size(testnum,testerr,h6,true,10);
+    IsHeap(testnum,testerr,h6,false);
+    h6.Heapify();
+
+    lasd::HeapVec<std::string> h7 = std::move(h6);
+    Traverse(testnum,testerr,h7,true,TraversePrint<std::string>);
+    Size(testnum,testerr,h7,true,10);
+    IsHeap(testnum,testerr,h7,true);
 
 }
 
