@@ -235,8 +235,8 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     lasd::PQHeap<int> pqint(vint);
 
     // Container
-    Size(testnum,testerr,pqint,true,10);
-    Empty(testnum,testerr,pqint,false);
+    Size(testnum, testerr, pqint, true, 10);
+    Empty(testnum, testerr, pqint, false);
 
     // Testable
     Exists(testnum, testerr, pqint, true, 42);
@@ -252,20 +252,20 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     Exists(testnum, testerr, pqint, false, 100);
 
     // Linear
-    GetAt(testnum,testerr,pqint,true,0,99);
-    GetAt(testnum,testerr,pqint,true,1,77);
-    GetAt(testnum,testerr,pqint,true,2,56);
-    GetAt(testnum,testerr,pqint,true,3,42);
-    GetAt(testnum,testerr,pqint,true,4,23);
-    GetAt(testnum,testerr,pqint,true,5,4);
-    GetAt(testnum,testerr,pqint,true,6,8);
-    GetAt(testnum,testerr,pqint,true,7,1);
-    GetAt(testnum,testerr,pqint,true,8,17);
-    GetAt(testnum,testerr,pqint,true,9,12);
+    GetAt(testnum, testerr, pqint, true, 0, 99);
+    GetAt(testnum, testerr, pqint, true, 1, 77);
+    GetAt(testnum, testerr, pqint, true, 2, 56);
+    GetAt(testnum, testerr, pqint, true, 3, 42);
+    GetAt(testnum, testerr, pqint, true, 4, 23);
+    GetAt(testnum, testerr, pqint, true, 5, 4);
+    GetAt(testnum, testerr, pqint, true, 6, 8);
+    GetAt(testnum, testerr, pqint, true, 7, 1);
+    GetAt(testnum, testerr, pqint, true, 8, 17);
+    GetAt(testnum, testerr, pqint, true, 9, 12);
 
     // Traversable
     Traverse(testnum, testerr, pqint, true, TraversePrint<int>);
-    Fold(testnum,testerr,pqint,true,FoldAdd<int>,0,339);
+    Fold(testnum, testerr, pqint, true, FoldAdd<int>, 0, 339);
 
     Tip(testnum, testerr, pqint, true, 99);
     RemoveTip(testnum, testerr, pqint, true);
@@ -310,8 +310,8 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     GetAt(testnum, testerr, pqint2, true, 3, 5);
     GetAt(testnum, testerr, pqint2, true, 4, 5);
     GetAt(testnum, testerr, pqint2, false, 5, 5);
-    Change(testnum,testerr,pqint2,true,0,20);
-    Change(testnum,testerr,pqint2,false,6,0);
+    Change(testnum, testerr, pqint2, true, 0, 20);
+    Change(testnum, testerr, pqint2, false, 6, 0);
     Tip(testnum, testerr, pqint2, true, 20);
     pqint2.Clear();
     Size(testnum, testerr, pqint2, true, 0);
@@ -327,28 +327,31 @@ void Personal_Int_PQHeap(uint &testnum, uint &testerr)
     {
         randomVec[i] = dist(gen);
     }
-    Traverse(testnum,testerr,randomVec,true,TraversePrint<int>);
+    Traverse(testnum, testerr, randomVec, true, TraversePrint<int>);
     lasd::PQHeap<int> randomPQHeap(randomVec);
-    Traverse(testnum,testerr,randomPQHeap,true,TraversePrint<int>);
+    Traverse(testnum, testerr, randomPQHeap, true, TraversePrint<int>);
     lasd::PQHeap<int> randomPQHeap2(randomPQHeap);
-    EqualLinear(testnum,testerr,randomPQHeap,randomPQHeap2,true);
+    EqualLinear(testnum, testerr, randomPQHeap, randomPQHeap2, true);
 
-    RemoveTip(testnum, testerr, randomPQHeap, true);
-    RemoveTip(testnum, testerr, randomPQHeap, true);
-    RemoveTip(testnum, testerr, randomPQHeap, true);
-    RemoveTip(testnum, testerr, randomPQHeap, true);
-    RemoveTip(testnum, testerr, randomPQHeap, true);
+    for(ulong index = 0; index < 5; index++){
+        RemoveTip(testnum, testerr, randomPQHeap, true);
+    }
     RemoveTip(testnum, testerr, randomPQHeap, false);
-    Empty(testnum,testerr,randomPQHeap,true);
-    Size(testnum,testerr,randomPQHeap,true,0);
+    Empty(testnum, testerr, randomPQHeap, true);
+    Size(testnum, testerr, randomPQHeap, true, 0);
 
     for (ulong i = 0; i < randomVec.Size(); i++)
     {
         Insert(testnum, testerr, randomPQHeap, randomVec[i]);
     }
 
-    Empty(testnum,testerr,randomPQHeap,false);
-    Size(testnum,testerr,randomPQHeap,true,5);
+    Empty(testnum, testerr, randomPQHeap, false);
+    Size(testnum, testerr, randomPQHeap, true, 5);
+
+    Traverse(testnum, testerr, randomPQHeap, true, TraversePrint<int>);
+    for(ulong index = 0; index < 5; index++){
+        Change(testnum, testerr, randomPQHeap, true, index, dist(gen));
+    }
 }
 
 void Personal_Char_PQHeap(uint &testnum, uint &testerr)
@@ -386,7 +389,7 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     pqchar.Insert('E');
     pqchar.Insert('F');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
-    Change(testnum, testerr, pqchar,true, 0, 'a');
+    Change(testnum, testerr, pqchar, true, 0, 'a');
     Traverse(testnum, testerr, pqchar, true, TraversePrint<char>);
 
     lasd::Vector<char> vc2(4);
@@ -412,6 +415,51 @@ void Personal_Char_PQHeap(uint &testnum, uint &testerr)
     pqchar2.Insert(std::move(newTipChar));
     Tip(testnum, testerr, pqchar2, true, 'z');
     Size(testnum, testerr, pqchar2, true, 1);
+
+    lasd::Vector<char> randomVec(20);
+    std::default_random_engine gen(std::random_device{}());
+    std::uniform_int_distribution<char> dist('a', 'z');
+
+    for (ulong i = 0; i < randomVec.Size(); i++)
+    {
+        randomVec[i] = dist(gen);
+    }
+    Traverse(testnum, testerr, randomVec, true, TraversePrint<char>);
+
+    lasd::PQHeap<char> randomPQHeap(randomVec);
+
+    Traverse(testnum, testerr, randomPQHeap, true, TraversePrint<char>);
+
+    for(ulong index = 0; index < randomVec.Size(); index++)
+    {
+        RemoveTip(testnum, testerr, randomPQHeap, true);
+    }
+    RemoveTip(testnum, testerr, randomPQHeap, false);
+    Empty(testnum, testerr, randomPQHeap, true);
+    Size(testnum, testerr, randomPQHeap, true, 0);
+
+    for (ulong i = 0; i < randomVec.Size(); i++)
+    {
+        Insert(testnum, testerr, randomPQHeap, randomVec[i]);
+    }
+
+    Empty(testnum, testerr, randomPQHeap, false);
+    Size(testnum, testerr, randomPQHeap, true, randomVec.Size());
+
+    Traverse(testnum, testerr, randomPQHeap, true, TraversePrint<char>);
+    for(ulong index = 0; index < randomVec.Size(); index++){
+        Change(testnum, testerr, randomPQHeap, true, index, dist(gen));
+    }
+
+    for(ulong index = 0; index < randomVec.Size(); index++){
+        Change(testnum, testerr, randomPQHeap, true, index, std::move(dist(gen)));
+    }
+
+    for (ulong i = 0; i < randomVec.Size(); i++)
+    {
+        Insert(testnum, testerr, randomPQHeap, std::move(dist(gen)));
+    }
+
 }
 
 void Personal_String_PQHeap(uint &testnum, uint &testerr)
@@ -433,17 +481,51 @@ void Personal_String_PQHeap(uint &testnum, uint &testerr)
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
     TipNRemove(testnum, testerr, pqstring, true, std::string("xylophone"));
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
-    Change(testnum, testerr, pqstring,true,  0, std::string("yak"));
+    Change(testnum, testerr, pqstring, true, 0, std::string("yak"));
     Traverse(testnum, testerr, pqstring, true, TraversePrint<std::string>);
     RemoveTip(testnum, testerr, pqstring, true);
     RemoveTip(testnum, testerr, pqstring, true);
 
     lasd::Vector<std::string> vstring(30);
-    for(ulong i = 0; i < vstring.Size(); ++i) vstring[i] = random_string(5);
+    for (ulong i = 0; i < vstring.Size(); ++i)
+        vstring[i] = random_string(5);
     lasd::PQHeap<std::string> pqstring2;
-    for(ulong i =0; i< vstring.Size();i++) Insert(testnum,testerr,pqstring2,vstring[i]);
-    Size(testnum,testerr,pqstring2,true,30);
+    for (ulong i = 0; i < vstring.Size(); i++)
+        Insert(testnum, testerr, pqstring2, vstring[i]);
+    Size(testnum, testerr, pqstring2, true, 30);
     Traverse(testnum, testerr, pqstring2, true, TraversePrint<std::string>);
+
+    lasd::PQHeap<std::string> pqstring3(pqstring2);
+    EqualLinear(testnum, testerr, pqstring2, pqstring3, true);
+    for (ulong index = 0; index < 30; ++index)
+    {
+        RemoveTip(testnum, testerr, pqstring3, true);
+    }
+    Empty(testnum, testerr, pqstring3, true);
+    pqstring3 = std::move(pqstring2);
+    Size(testnum, testerr, pqstring3, true, 30);
+    Size(testnum, testerr, pqstring2, true, 0);
+
+    lasd::PQHeap<std::string> pqstring4(std::move(vstring));
+    for (ulong index = 0; index < 60; ++index)
+    {
+        if (index < 30)
+            Change(testnum, testerr, pqstring4, true, index, random_string(5));
+        else
+        {
+            Change(testnum, testerr, pqstring4, false, index, random_string(5));
+        }
+    }
+
+    for (ulong index = 0; index < 60; ++index)
+    {
+        if (index < 30)
+            Change(testnum, testerr, pqstring4, true, index, std::move(random_string(5)));
+        else
+        {
+            Change(testnum, testerr, pqstring4, false, index, std::move(random_string(5)));
+        }
+    }
 }
 
 void PersonalPQHeapTest(unsigned int &testnum, unsigned int &testerr)
