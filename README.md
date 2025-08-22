@@ -6,14 +6,14 @@ Il progetto è organizzato in più esercizi, ognuno dei quali contiene diverse l
 ---
 
 ## Struttura della repository
-
 ```
+Librerie_LASD_25/
 ├── Exercise1
 │ ├── container/ # Interfacce e classi base per contenitori
 │ ├── list/ # Implementazioni di liste
 │ ├── set/ # Implementazioni di insiemi
-| | ├── vec/ # Implementazioni di insiemi
-| | ├── lst/ # Implementazioni di insiemi
+│ │ ├── vec/ # Implementazione di insiemi basati su vettori
+│ │ └── lst/ # Implementazione di insiemi basati su liste
 │ ├── vector/ # Implementazioni di vettori dinamici
 │ ├── utils/ # Funzioni di supporto
 │ ├── zlasdtest/ # Test forniti dal docente
@@ -21,19 +21,19 @@ Il progetto è organizzato in più esercizi, ognuno dei quali contiene diverse l
 │ ├── main.cpp # Entry point dell'esercizio
 │ └── makefile
 └── Exercise2
-| ├── container/ # Interfacce e classi base per contenitori
-| ├── heap/ # Implementazioni di heap
-| | ├── vec/ # Implementazioni di insiemi
-| ├── list/ # Liste
-| ├── pq/ # Code con priorità
-| | ├── heap/ # Implementazioni di insiemi
-| ├── set/ # Insiem
-| ├── vector/ # Vettori dinamici
-| ├── utils/ # Funzioni di supporto
-| ├── zlasdtest/ # Test forniti dal docente
-| ├── zmytest/ # Test personalizzati
-| ├── main.cpp # Entry point dell'esercizio
-| └── makefile
+├── container/ # Interfacce e classi base per contenitori
+├── heap/ # Implementazioni di heap
+│ └── vec/ # Heap basato su vettore
+├── list/ # Liste
+├── pq/ # Code con priorità
+│ └── heap/ # Priority queue basata su heap
+├── set/ # Insiemi
+├── vector/ # Vettori dinamici
+├── utils/ # Funzioni di supporto
+├── zlasdtest/ # Test forniti dal docente
+├── zmytest/ # Test personalizzati
+├── main.cpp # Entry point dell'esercizio
+└── makefile
 ```
 ---
 
