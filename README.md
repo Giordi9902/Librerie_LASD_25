@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/works-on%20my%20machine-success?style=for-the-badge&logo=linux" alt="Works on my machine"/>
   <img src="https://img.shields.io/badge/Esame%20superato-30%2F30-blue?style=for-the-badge" alt="Esame superato"/>
-  <img src="https://img.shields.io/badge/C++-17-blue?style=for-the-badge&logo=c%2B%2B" alt="C++17"/>
+  <img src="https://img.shields.io/badge/C++-20-blue?style=for-the-badge&logo=c%2B%2B" alt="C++20"/>
 </p>
 
 
