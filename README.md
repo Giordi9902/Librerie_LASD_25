@@ -87,5 +87,6 @@ Per eseguire i test, lanciare l’eseguibile compilato (./main) e selezionare i 
 
 ### Licenza
 
-Questo progetto è distribuito sotto licenza MIT.
+Distribuito con licenza [MIT](./LICENSE).
+
 Puoi usarlo liberamente per studio, esercizio o come base per i tuoi progetti.
