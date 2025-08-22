@@ -1,5 +1,8 @@
 # Librerie LASD 2025
 
+![Works on my machine](https://img.shields.io/badge/works-on%20my%20machine-success?style=for-the-badge&logo=linux)
+![Esame superato](https://img.shields.io/badge/Esame%20superato-30%2F30-blue?style=for-the-badge)
+
 Raccolta di implementazioni di **strutture dati** e relativi esercizi per il corso di *Laboratorio di Algoritmi e Strutture Dati (LASD)*.  
 Il progetto è organizzato in più esercizi, ognuno dei quali contiene diverse librerie e test per verificare il corretto funzionamento delle strutture.
 
