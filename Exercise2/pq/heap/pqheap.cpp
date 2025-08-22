@@ -134,10 +134,13 @@ namespace lasd
         {
             throw std::out_of_range("Index out of range.");
         }
-
-        elements[index] = val;
-        HeapifyUp(index);
-        HeapVec<Data>::Heapify();
+        if(val>elements[index]){
+            elements[index] = val;
+            HeapifyUp(index);
+        } else {
+            elements[index] = val;
+            this->HeapifyNode(index,size);
+        }
     }
 
     template <typename Data>
@@ -148,8 +151,13 @@ namespace lasd
             throw std::out_of_range("Index out of range.");
         }
 
-        elements[index] = std::move(val);
-        HeapifyUp(index);
+        if(val>elements[index]){
+            elements[index] = std::move(val);
+            HeapifyUp(index);
+        } else {
+            elements[index] = std::move(val);
+            this->HeapifyNode(index,size);
+        }
     }
 
     template <typename Data>

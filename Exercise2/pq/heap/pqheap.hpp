@@ -17,6 +17,7 @@ namespace lasd
     protected:
         using Container::size;
         using HeapVec<Data>::elements;
+        using HeapVec<Data>::HeapifyNode;
         ulong capacity;
 
     public:

@@ -12,9 +12,7 @@ using namespace std;
 void mytest()
 {
     clean();
-    PrintPersonalTestHeader();
-
-    std::cout << std::endl;
+        std::cout << std::endl;
     uint loctestnum, loctesterr;
     uint stestnum = 0, stesterr = 0;
 
